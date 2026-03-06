@@ -1,0 +1,17 @@
+sampleName,sex,specific,experiment,sequencingtype,celltype,celltype.specific
+PBN1-ML02-D,Male,PBN,1,paired,nonCGRP,nonCGRP.PBN
+PBN1-ML02-G,Male,CGRP,1,paired,CGRP,CGRP
+PBN1-ML04-D,Male,PBN,1,paired,nonCGRP,nonCGRP.PBN
+PBN1-ML04-G,Male,CGRP,1,paired,CGRP,CGRP
+PBN2-FM01-D,Female,PBN,2,paired,nonCGRP,nonCGRP.PBN
+PBN2-FM01-G,Female,CGRP,2,paired,CGRP,CGRP
+PBN2-FM02-D,Female,PBN,2,paired,nonCGRP,nonCGRP.PBN
+PBN2-FM02-G,Female,CGRP,2,paired,CGRP,CGRP
+SRR1647854,Male,excitatory,3,single,nonCGRP,nonCGRP.excite
+SRR1647855,Male,excitatory,3,single,nonCGRP,nonCGRP.excite
+SRR1647856,Male,PV,3,single,nonCGRP,nonCGRP.PV
+SRR1647857,Male,PV,3,single,nonCGRP,nonCGRP.PV
+SRR1647858,Male,VIP,3,single,nonCGRP,nonCGRP.VIP
+SRR1647859,Male,VIP,3,single,nonCGRP,nonCGRP.VIP
+SRR6294443,Male,mDA,4,single,nonCGRP,nonCGRP.mDA
+SRR6294444,Male,mDA,4,single,nonCGRP,nonCGRP.mDA

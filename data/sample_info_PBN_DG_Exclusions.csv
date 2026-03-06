@@ -1,0 +1,9 @@
+sampleName,sex,celltype,seqrun,Hatag
+PBN2-FM01-D,Female,DAPI,C,negative
+PBN2-FM01-G,Female,HAGFP,C,positive
+PBN2-FM02-D,Female,DAPI,C,negative
+PBN2-FM02-G,Female,HAGFP,C,positive
+PBN1-ML02-G,Male,HAGFP,B,positive
+PBN1-ML02-D,Male,DAPI,B,negative
+PBN1-ML04-G,Male,HAGFP,B,positive
+PBN1-ML04-D,Male,DAPI,B,negative

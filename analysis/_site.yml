@@ -3,15 +3,25 @@ output_dir: ../docs
 navbar:
   title: "CGRPReinforcement"
   left:
-  - text: Home
+  - text: CGRPPBN vs nCGRPPBN
     href: index.html
-  - text: About
+  - text: CGRPPBN DEGs
+    href: index2.html
+  - text: Sex-specific Analyses
+    href: index3.html
+  - text: Tuesta Lab
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/avm27/CGRPReinforcement
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
-    highlight: textmate
+    theme: united
+    highlight: tango
+    code_folding: hide
+    number_sections: yes
