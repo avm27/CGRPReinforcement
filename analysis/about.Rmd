@@ -5,6 +5,112 @@ output:
     toc: false
 editor_options:
   chunk_output_type: console
+  numbering: FALSE
 ---
 
-Describe your project.
+<center>
+
+<font size="24"> **Luis Tuesta Lab** </font>
+
+<center>
+https://www.tuestalab.org
+
+University of Miami Miller School of Medicine\
+[Rosenstiel Medical Science Building\
+1600 NW 10th Ave.\
+Rooms: 7014, 7019\
+Miami, FL 33136](https://maps.google.com/maps?z=16&q=rosenstiel%2Bmedical%2Bscience%2Bbuilding%2B1600%2Bnw%2B10th%2Bave.%2Brooms%3A%2B7014%2C%2B7019%2Bmiami%2C%2Bfl%2B33136)
+
+<center>
+
+<font size="24"> **Our Research** </font>
+
+<center>
+
+Addiction is a chronic, relapsing disease characterized by compulsive drug-taking and the inability to stop despite negative consequences. Underlying the behavioral progression of the disease are changes in gene expression that are regulated in a cell-type specific fashion. Owing to the rich cell heterogeneity in the brain, understanding how gene expression is regulated throughout the course of addiction in specific cell populations remains both a technical and conceptual challenge for our field.
+
+To this end, our team focuses on understanding the addicted brain by tailoring molecular profiling methods and bioinformatics approaches to ask how transcription is regulated within genetically-defined cell populations in the brain reward system, with special emphasis on dopamine neurons and microglia. Combined with mouse models of drug addiction (IV self-administration), we work to identify genetic targets that can regulate different stages of the disease, and ultimately curb drug-taking and prevent relapse in addicted individuals.
+
+<font size="24"> **Our Team** </font>
+
+<center>
+
+<font size="10"> **Alexander Margetts, Ph.D.**</font>
+
+<center>
+
+<center>
+![](assets/alex-fixed-2.png)
+
+<center>
+
+<center>
+
+Postdoctoral Fellow\
+Psychiatry and Behavioral Sciences\
+University of Miami Miller School of Medicine\
+Undergrad: University of Miami\
+Email: avm27\@miami.edu
+
+<center>
+
+
+<font size="10"> **Lauren Bystrom, B.S.**</font>
+
+<center>
+
+<center>
+
+![](assets/lauren-fixed.png)
+
+<center>
+
+M.D. Ph.D. Candidate\
+Neuroscience Graduate Program\
+University of Miami Miller School of Medicine\
+Undergrad: University of Minnesota\
+Email: llb81\@miami.edu
+
+<center>
+
+<center>
+
+<font size="10"> **Luis M. Tuesta, Ph.D.**</font>
+
+<center>
+
+<center>
+
+![](assets/luis-fixed.png)
+
+<center>
+
+Assistant Professor\
+Department of Psychiatry and Behavioral Sciences\
+University of Miami Miller School of Medicine\
+Postdoc: Harvard Medical School/HHMI\
+Graduate: The Scripps Research Institute\
+Undergrad: University of Miami\
+Email: ltuesta\@miami.edu
+
+<center>
+
+
+
+
+
+
+
+
+![](assets/CTI.png)
+
+![](assets/Psychiatry.png)
+
+<font size="24"> **Funding** </font>
+
+Supported By:
+
+![](assets/NIDA-logo.png)
+
+**K01-DA045294**\
+**DP1-DA051858**
