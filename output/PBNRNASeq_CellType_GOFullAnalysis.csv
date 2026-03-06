@@ -1,0 +1,119 @@
+"","ONTOLOGY","ID","Description","GeneRatio","BgRatio","RichFactor","FoldEnrichment","zScore","pvalue","p.adjust","qvalue","geneID","Count","Dataset","Celltype","Comparison","Description_title_case","GOPathways"
+"GO:0033555","BP","GO:0033555","multicellular organismal response to stress","14/418","117/16311",0.11965811965812,4.66924303766409,6.45958358068609,1.7671141074731e-06,0.00324617286061235,0.00309817864806824,"Lypd1/Adcyap1/Adra2a/Dbh/Bdnf/Penk/Tac1/Tacr1/Ret/Gabra5/Calca/Slc6a2/Htr2c/Thbs4",14,"CGRP vs nonCGRP","CGRP","nonCGRP","Multicellular Organismal Response To Stress","Multicellular
+Organismal
+Response
+To Stress"
+"GO:0046883","BP","GO:0046883","regulation of hormone secretion","23/418","293/16311",0.0784982935153584,3.06312360174404,5.77919159344267,2.08386894772939e-06,0.00324617286061235,0.00309817864806824,"Sox11/Crhbp/F2rl2/Hmgcr/Isl1/Efna5/Adcyap1/Gal/Adra2a/Lrrc8a/Scg5/Uts2/Epha5/Spp1/Tac1/Tacr1/Jagn1/Nucb2/Sfrp1/Nrg1/Agtr2/Acsl4/Htr2c",23,"CGRP vs nonCGRP","CGRP","nonCGRP","Regulation Of Hormone Secretion","Regulation
+Of Hormone
+Secretion"
+"GO:0007218","BP","GO:0007218","neuropeptide signaling pathway","12/418","89/16311",0.134831460674157,5.26133003601957,6.53732619608539,2.73707661097163e-06,0.00324617286061235,0.00309817864806824,"Nts/Sstr2/Adcyap1/Gal/Scg5/Oprl1/Gpr149/Penk/Tac1/Calca/Gpr139/Glra2",12,"CGRP vs nonCGRP","CGRP","nonCGRP","Neuropeptide Signaling Pathway","Neuropeptide
+Signaling
+Pathway"
+"GO:0005788","CC","GO:0005788","endoplasmic reticulum lumen","18/424","107/16381",0.168224299065421,6.49925057309117,9.30277455333502,2.66313662033529e-10,1.05726523827311e-07,9.25089562853312e-08,"Resp18/Hsp90b1/P4ha2/Pdia6/Dnajb9/Pcsk1/Dnajb11/Poglut1/Hspa5/Rcn1/Bdnf/Pdia3/Lrpap1/Erp29/Sumf2/Sumf1/Rcn2/Manf",18,"CGRP vs nonCGRP","CGRP","nonCGRP","Endoplasmic Reticulum Lumen","Endoplasmic
+Reticulum
+Lumen"
+"GO:0098992","CC","GO:0098992","neuronal dense core vesicle","10/424","39/16381",0.256410256410256,9.90626511852927,9.07694228089172,3.94433950729802e-08,7.82951392198657e-06,6.85069493372814e-06,"Scg2/Sst/Adcyap1/Syt4/Slc18a2/Bdnf/Penk/Cacna2d1/Syt5/Calca",10,"CGRP vs nonCGRP","CGRP","nonCGRP","Neuronal Dense Core Vesicle","Neuronal
+Dense Core
+Vesicle"
+"GO:0031045","CC","GO:0031045","dense core granule","11/424","57/16381",0.192982456140351,7.45576795762992,7.95859310366128,1.93982930891798e-07,2.56704078546813e-05,2.24611814716819e-05,"Scg2/Crhbp/Sst/Adcyap1/Syt4/Slc18a2/Bdnf/Penk/Cacna2d1/Syt5/Calca",11,"CGRP vs nonCGRP","CGRP","nonCGRP","Dense Core Granule","Dense Core
+Granule"
+"GO:0140534","CC","GO:0140534","endoplasmic reticulum protein-containing complex","15/424","118/16381",0.127118644067797,4.91115685960985,6.95040579152255,3.88865008918287e-07,3.85948521351399e-05,3.37698560376407e-05,"Hsp90b1/Sec61g/P4ha2/Pdia6/Dnajb11/Hspa5/Pdia3/Ostc/Pigk/Insig1/Sec11a/Spcs2/Arl6ip1/Tusc3/Stt3a",15,"CGRP vs nonCGRP","CGRP","nonCGRP","Endoplasmic Reticulum Protein-Containing Complex","Endoplasmic
+Reticulum
+Protein-Containing
+Complex"
+"GO:0044306","CC","GO:0044306","neuron projection terminus","18/424","214/16381",0.0841121495327103,3.24962528654558,5.39966239331044,1.20453585008516e-05,0.000956401464967621,0.000836835432690746,"Nts/Rpl26/Pcsk1/Crhbp/Sncg/Adcyap1/Syt4/Adra2a/Slc18a2/Dbh/Bdnf/Flrt3/Penk/Calca/Scrg1/Tpbg/Slc9a6/Prph",18,"CGRP vs nonCGRP","CGRP","nonCGRP","Neuron Projection Terminus","Neuron
+Projection
+Terminus"
+"GO:0005790","CC","GO:0005790","smooth endoplasmic reticulum","7/424","34/16381",0.205882352941176,7.95414816870144,6.61650464080874,2.17633194202066e-05,0.001440006301637,0.00125998165064354,"Hsp90b1/Canx/Pdia6/Hspa5/Pdia3/Erp29/Prdx4",7,"CGRP vs nonCGRP","CGRP","nonCGRP","Smooth Endoplasmic Reticulum","Smooth
+Endoplasmic
+Reticulum"
+"GO:0034774","CC","GO:0034774","secretory granule lumen","5/424","16/16381",0.3125,12.0732606132075,7.22340162118777,3.91503711270474e-05,0.00216258644761753,0.001892227304027,"Pcsk1/Adcyap1/Dbh/Serpini1/Penk",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Secretory Granule Lumen","Secretory
+Granule
+Lumen"
+"GO:0043679","CC","GO:0043679","axon terminus","16/424","193/16381",0.0829015544041451,3.20285462899599,5.01801724198673,4.35785682139552e-05,0.00216258644761753,0.001892227304027,"Nts/Rpl26/Pcsk1/Crhbp/Sncg/Adcyap1/Adra2a/Slc18a2/Dbh/Bdnf/Flrt3/Penk/Calca/Tpbg/Slc9a6/Prph",16,"CGRP vs nonCGRP","CGRP","nonCGRP","Axon Terminus","Axon
+Terminus"
+"GO:1902711","CC","GO:1902711","GABA-A receptor complex","5/424","17/16381",0.294117647058824,11.3630688124306,6.96838860192006,5.42880589646207e-05,0.00239470660099494,0.00209532859161694,"Gabrg2/Gabra5/Gabre/Gabrq/Gabra3",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba-A Receptor Complex","Gaba-A
+Receptor
+Complex"
+"GO:0060205","CC","GO:0060205","cytoplasmic vesicle lumen","5/424","18/16381",0.277777777777778,10.73178721174,6.7338222179359,7.35766349837049e-05,0.00275702464196113,0.00241235087325248,"Pcsk1/Adcyap1/Dbh/Serpini1/Penk",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Cytoplasmic Vesicle Lumen","Cytoplasmic
+Vesicle
+Lumen"
+"GO:0098982","CC","GO:0098982","GABA-ergic synapse","14/424","164/16381",0.0853658536585366,3.29806143580304,4.82128222853287,9.47762751201571e-05,0.00275702464196113,0.00241235087325248,"Atp2b1/Gabrg2/Abhd6/Sst/Efna5/Adra2a/Cbln4/Cacna2d1/Gabra5/Nrg1/Cdh13/Gabre/Gabra3/Glra2",14,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba-Ergic Synapse","Gaba-Ergic
+Synapse"
+"GO:0031983","CC","GO:0031983","vesicle lumen","5/424","19/16381",0.263157894736842,10.166956305859,6.51700451835817,9.77412005491749e-05,0.00275702464196113,0.00241235087325248,"Pcsk1/Adcyap1/Dbh/Serpini1/Penk",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Vesicle Lumen","Vesicle
+Lumen"
+"GO:1902710","CC","GO:1902710","GABA receptor complex","5/424","19/16381",0.263157894736842,10.166956305859,6.51700451835817,9.77412005491749e-05,0.00275702464196113,0.00241235087325248,"Gabrg2/Gabra5/Gabre/Gabrq/Gabra3",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba Receptor Complex","Gaba
+Receptor
+Complex"
+"GO:0044391","CC","GO:0044391","ribosomal subunit","15/424","186/16381",0.0806451612903226,3.11568015824711,4.73020827494253,0.000102625511354509,0.00275702464196113,0.00241235087325248,"Rpl31/Rps12/Mrpl42/Rpl26/Rps7/Rpl36al/Rplp2-ps1/Mrpl32/Rps14/Rpl13-ps6/Mrps21/Mrps18c/Rpl6/Rps19/Rps16",15,"CGRP vs nonCGRP","CGRP","nonCGRP","Ribosomal Subunit","Ribosomal
+Subunit"
+"GO:0030141","CC","GO:0030141","secretory granule","22/424","346/16381",0.0635838150289017,2.45652470280292,4.46360418868946,0.000104169696799539,0.00275702464196113,0.00241235087325248,"Resp18/Scg2/Cyb561/Pcsk1/Crhbp/Sst/Adcyap1/Syt4/Gal/Slc18a2/Dbh/Bdnf/Scg5/Pdia3/Serpini1/Rab13/Penk/Cyp51/Cacna2d1/Calcr/Syt5/Calca",22,"CGRP vs nonCGRP","CGRP","nonCGRP","Secretory Granule","Secretory
+Granule"
+"GO:0005791","CC","GO:0005791","rough endoplasmic reticulum","8/424","58/16381",0.137931034482759,5.32888744307092,5.38337402478559,0.00011634370087656,0.00288677807799963,0.00252588297955689,"Resp18/Sec61g/Ccdc47/Alg5/Lrpap1/Epha5/Rpl6/Arl6ip1",8,"CGRP vs nonCGRP","CGRP","nonCGRP","Rough Endoplasmic Reticulum","Rough
+Endoplasmic
+Reticulum"
+"GO:0034663","CC","GO:0034663","endoplasmic reticulum chaperone complex","4/424","11/16381",0.363636363636364,14.048885077187,7.05683013464049,0.000126400894130802,0.00295183264528992,0.00258280464787398,"Hsp90b1/Pdia6/Dnajb11/Hspa5",4,"CGRP vs nonCGRP","CGRP","nonCGRP","Endoplasmic Reticulum Chaperone Complex","Endoplasmic
+Reticulum
+Chaperone
+Complex"
+"GO:0034707","CC","GO:0034707","chloride channel complex","7/424","46/16381",0.152173913043478,5.87915299425759,5.40166985886877,0.000165716702615231,0.0036549739410137,0.00319804162941674,"Ostm1/Gabrg2/Slc17a6/Gabra5/Gabrq/Gabra3/Glra2",7,"CGRP vs nonCGRP","CGRP","nonCGRP","Chloride Channel Complex","Chloride
+Channel
+Complex"
+"GO:0022626","CC","GO:0022626","cytosolic ribosome","11/424","119/16381",0.092436974789916,3.57125019819249,4.58875736964165,0.000263761084386997,0.00551121844745462,0.00482222481150743,"Rpl31/Rps12/Rpl26/Rps7/Rpl36al/Rplp2-ps1/Rps14/Rpl13-ps6/Rpl6/Rps19/Rps16",11,"CGRP vs nonCGRP","CGRP","nonCGRP","Cytosolic Ribosome","Cytosolic
+Ribosome"
+"GO:0005840","CC","GO:0005840","ribosome","16/424","235/16381",0.0680851063829787,2.63042954636692,4.1036257705162,0.000426280967499273,0.00846167720486056,0.00740382733025053,"Rpl31/Rps12/Mrpl42/Canx/Rpl26/Rps7/Rpl36al/Rplp2-ps1/Mrpl32/Rps14/Rpl13-ps6/Mrps21/Mrps18c/Rpl6/Rps19/Rps16",16,"CGRP vs nonCGRP","CGRP","nonCGRP","Ribosome","Ribosome"
+"GO:0030545","MF","GO:0030545","signaling receptor regulator activity","29/411","372/16098",0.0779569892473118,3.05341025037281,6.48576926901074,1.02142267449443e-07,6.23067831441605e-05,5.54793789514872e-05,"Scg2/Lypd1/Nenf/Nts/Ccl12/F2rl2/Sst/Uts2b/Efna5/Adcyap1/Gal/Bdnf/Jag1/Flrt3/Penk/Uts2/Sema3e/Sema3c/Lrpap1/Spp1/Tac1/Calcb/Nrg1/Gdf1/Apoa1/Mrap2/Manf/Wfikkn2/Thbs4",29,"CGRP vs nonCGRP","CGRP","nonCGRP","Signaling Receptor Regulator Activity","Signaling
+Receptor
+Regulator
+Activity"
+"GO:0048018","MF","GO:0048018","receptor ligand activity","26/411","334/16098",0.0778443113772455,3.04899689671751,6.12498113835925,4.87742184617355e-07,0.000147379881805568,0.000131230403816519,"Scg2/Nenf/Nts/Ccl12/F2rl2/Sst/Uts2b/Efna5/Adcyap1/Gal/Bdnf/Jag1/Flrt3/Penk/Uts2/Sema3e/Sema3c/Lrpap1/Spp1/Tac1/Calcb/Nrg1/Gdf1/Apoa1/Manf/Thbs4",26,"CGRP vs nonCGRP","CGRP","nonCGRP","Receptor Ligand Activity","Receptor
+Ligand
+Activity"
+"GO:0030546","MF","GO:0030546","signaling receptor activator activity","26/411","341/16098",0.0762463343108504,2.98640751760601,6.00111855884142,7.24819090847055e-07,0.000147379881805568,0.000131230403816519,"Scg2/Nenf/Nts/Ccl12/F2rl2/Sst/Uts2b/Efna5/Adcyap1/Gal/Bdnf/Jag1/Flrt3/Penk/Uts2/Sema3e/Sema3c/Lrpap1/Spp1/Tac1/Calcb/Nrg1/Gdf1/Apoa1/Manf/Thbs4",26,"CGRP vs nonCGRP","CGRP","nonCGRP","Signaling Receptor Activator Activity","Signaling
+Receptor
+Activator
+Activity"
+"GO:0008509","MF","GO:0008509","monoatomic anion transmembrane transporter activity","14/411","133/16098",0.105263157894737,4.12293507491356,5.85366344531252,7.75835986619534e-06,0.00118314987959479,0.00105350360288337,"Gabrg2/Slc18a2/Lrrc8a/Mcoln3/Slc17a6/Gabra5/Slc6a2/Panx1/Clcn5/Slc25a14/Gabre/Gabrq/Gabra3/Glra2",14,"CGRP vs nonCGRP","CGRP","nonCGRP","Monoatomic Anion Transmembrane Transporter Activity","Monoatomic
+Anion
+Transmembrane
+Transporter
+Activity"
+"GO:0005253","MF","GO:0005253","monoatomic anion channel activity","11/411","87/16098",0.126436781609195,4.95226109572951,5.98300629279089,1.28923243053059e-05,0.00157286356524732,0.00140051354558691,"Gabrg2/Lrrc8a/Mcoln3/Slc17a6/Gabra5/Panx1/Clcn5/Gabre/Gabrq/Gabra3/Glra2",11,"CGRP vs nonCGRP","CGRP","nonCGRP","Monoatomic Anion Channel Activity","Monoatomic
+Anion
+Channel
+Activity"
+"GO:0022851","MF","GO:0022851","GABA-gated chloride ion channel activity","5/411","16/16098",0.3125,12.2399635036496,7.28078653535205,3.66507196393482e-05,0.00372615649666706,0.0033178546199831,"Gabrg2/Gabra5/Gabre/Gabrq/Gabra3",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba-Gated Chloride Ion Channel Activity","Gaba-Gated
+Chloride
+Ion
+Channel
+Activity"
+"GO:0004890","MF","GO:0004890","GABA-A receptor activity","5/411","17/16098",0.294117647058824,11.5199656504938,7.02434269410164,5.08371667029908e-05,0.00443009595554634,0.00394465834868319,"Gabrg2/Gabra5/Gabre/Gabrq/Gabra3",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba-A Receptor Activity","Gaba-A
+Receptor
+Activity"
+"GO:0045499","MF","GO:0045499","chemorepellent activity","6/411","29/16098",0.206896551724138,8.1036999748301,6.19744411115668,7.70532160589261e-05,0.00587530772449312,0.00523150782715867,"Efna5/Flrt3/Sema3e/Sema3c/Nrg1/Apoa1",6,"CGRP vs nonCGRP","CGRP","nonCGRP","Chemorepellent Activity","Chemorepellent
+Activity"
+"GO:0015108","MF","GO:0015108","chloride transmembrane transporter activity","11/411","109/16098",0.100917431192661,3.95272215897676,5.00666594869604,0.000106989551827504,0.00664589424322561,0.00591765561605594,"Gabrg2/Slc18a2/Slc17a6/Gabra5/Slc6a2/Clcn5/Slc25a14/Gabre/Gabrq/Gabra3/Glra2",11,"CGRP vs nonCGRP","CGRP","nonCGRP","Chloride Transmembrane Transporter Activity","Chloride
+Transmembrane
+Transporter
+Activity"
+"GO:0016917","MF","GO:0016917","GABA receptor activity","5/411","20/16098",0.25,9.79197080291971,6.36808215372141,0.000119564287668809,0.00664589424322561,0.00591765561605594,"Gabrg2/Gabra5/Gabre/Gabrq/Gabra3",5,"CGRP vs nonCGRP","CGRP","nonCGRP","Gaba Receptor Activity","Gaba
+Receptor
+Activity"
+"GO:0008503","MF","GO:0008503","benzodiazepine receptor activity","4/411","11/16098",0.363636363636364,14.2428666224287,7.11154973047016,0.00011984399454997,0.00664589424322561,0.00591765561605594,"Gabrg2/Gabra5/Gabre/Gabra3",4,"CGRP vs nonCGRP","CGRP","nonCGRP","Benzodiazepine Receptor Activity","Benzodiazepine
+Receptor
+Activity"
+"GO:0015103","MF","GO:0015103","inorganic anion transmembrane transporter activity","12/411","135/16098",0.0888888888888889,3.4815896188159,4.68665544194759,0.000178543620517631,0.0090759673763129,0.0080814480865875,"Gabrg2/Mfsd5/Slc18a2/Slc17a6/Gabra5/Slc6a2/Clcn5/Slc25a14/Gabre/Gabrq/Gabra3/Glra2",12,"CGRP vs nonCGRP","CGRP","nonCGRP","Inorganic Anion Transmembrane Transporter Activity","Inorganic
+Anion
+Transmembrane
+Transporter
+Activity"
+"GO:0003735","MF","GO:0003735","structural constituent of ribosome","13/411","158/16098",0.0822784810126582,3.22267393513813,4.54447351046402,0.000210740938563077,0.00988861327103671,0.00880504650190672,"Rpl31/Rps12/Rpl26/Rps7/Rpl36al/Mrpl32/Rps14/Rpl13-ps6/Mrps21/Mrps18c/Rpl6/Rps19/Rps16",13,"CGRP vs nonCGRP","CGRP","nonCGRP","Structural Constituent Of Ribosome","Structural
+Constituent
+Of
+Ribosome"
+"GO:0016667","MF","GO:0016667","oxidoreductase activity, acting on a sulfur group of donors","7/411","49/16098",0.142857142857143,5.59541188738269,5.21461115710264,0.000228697322798977,0.00996466906481255,0.00887276831310315,"Qsox1/Pdia6/Msrb1/Tmx2/Pdia3/Tmx4/Sumf1",7,"CGRP vs nonCGRP","CGRP","nonCGRP","Oxidoreductase Activity, Acting On A Sulfur Group Of Donors","Oxidoreductase
+Activity,
+Acting On
+A Sulfur
+Group Of
+Donors"

@@ -1,0 +1,74 @@
+"","ONTOLOGY","ID","Description","GeneRatio","BgRatio","RichFactor","FoldEnrichment","zScore","pvalue","p.adjust","qvalue","geneID","Count","Dataset","Celltype","Comparison","Description_title_case","GOPathways"
+"1","BP","GO:0001657","ureteric bud development","26/1919","80/13085",0.325,2.21606305367379,4.5227736423935,4.37581798739167e-05,0.0219909320168359,0.0215679577188088,"Gsta3/Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Cat/Grem1/Fmn1/Bmp2/Fat4/Smad9/Tacstd2/Tshz3/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",26,"Male vs Female","Male","Female","Ureteric Bud Development","Ureteric
+Bud
+Development"
+"2","BP","GO:0001658","branching involved in ureteric bud morphogenesis","19/1919","48/13085",0.395833333333333,2.69905115511551,4.88874274082225,2.12513690887338e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Cd44/Grem1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8",19,"Male vs Female","Male","Female","Branching Involved In Ureteric Bud Morphogenesis","Branching
+Involved
+In
+Ureteric
+Bud
+Morphogenesis"
+"3","BP","GO:0001823","mesonephros development","26/1919","83/13085",0.313253012048193,2.13596438908317,4.30385494569648,8.80862495645467e-05,0.0290299246221159,0.0284715621125406,"Gsta3/Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Cat/Grem1/Fmn1/Bmp2/Fat4/Smad9/Tacstd2/Tshz3/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",26,"Male vs Female","Male","Female","Mesonephros Development","Mesonephros
+Development"
+"4","BP","GO:0060675","ureteric bud morphogenesis","22/1919","56/13085",0.392857142857143,2.67875753740788,5.21897708989754,5.5910012021259e-06,0.020706783859635,0.0203085089088179,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",22,"Male vs Female","Male","Female","Ureteric Bud Morphogenesis","Ureteric
+Bud
+Morphogenesis"
+"5","BP","GO:0060993","kidney morphogenesis","27/1919","81/13085",0.333333333333333,2.27288518325517,4.76378555911782,1.8785620428871e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Klhl3/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Asxl1/Fat4/Tacstd2/Tshz3/Dchs1/Sall1/Agt/Nphp3/Ctnnb1/Prkx/Pax8/Wnt11",27,"Male vs Female","Male","Female","Kidney Morphogenesis","Kidney
+Morphogenesis"
+"6","BP","GO:0061333","renal tubule morphogenesis","24/1919","70/13085",0.342857142857143,2.3378247599196,4.65248633861875,3.19014285566267e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Hdac5/Wnt9b/Sox9/Six4/Klhl3/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",24,"Male vs Female","Male","Female","Renal Tubule Morphogenesis","Renal
+Tubule
+Morphogenesis"
+"7","BP","GO:0071216","cellular response to biotic stimulus","44/1919","166/13085",0.265060240963855,1.80735448307037,4.3397308898702,4.58752611767864e-05,0.0219909320168359,0.0215679577188088,"Cfh/Lilrb4a/Cdk4/Map2k3/Trp53/Shpk/Git1/Bmp6/Atg10/Wnt5a/Ednrb/Trib1/Tspo/Litaf/Cd86/Nfkbil1/Malt1/Rbm14/Dab2ip/Bcl2l11/Src/Ghsr/Ptpn22/Nfkb1/Gbp3/Bcl10/Nos3/Stap1/Cxcl5/Gbp6/Irak2/Trim12c/Upf1/Plcg2/Tirap/Plscr2/Myd88/Ptgs2/Ccl2/Esr2/Nuggc/Ticam2/Cxcl13/Trim30d",44,"Male vs Female","Male","Female","Cellular Response To Biotic Stimulus","Cellular
+Response
+To Biotic
+Stimulus"
+"8","BP","GO:0071219","cellular response to molecule of bacterial origin","40/1919","145/13085",0.275862068965517,1.88100842752152,4.42237808350895,3.77893267835934e-05,0.0219909320168359,0.0215679577188088,"Cfh/Lilrb4a/Cdk4/Map2k3/Shpk/Git1/Bmp6/Wnt5a/Ednrb/Trib1/Tspo/Litaf/Cd86/Nfkbil1/Malt1/Dab2ip/Src/Ghsr/Ptpn22/Nfkb1/Gbp3/Bcl10/Nos3/Stap1/Cxcl5/Gbp6/Irak2/Trim12c/Upf1/Plcg2/Tirap/Plscr2/Myd88/Ptgs2/Ccl2/Esr2/Nuggc/Ticam2/Cxcl13/Trim30d",40,"Male vs Female","Male","Female","Cellular Response To Molecule Of Bacterial Origin","Cellular
+Response
+To
+Molecule
+Of
+Bacterial
+Origin"
+"9","BP","GO:0071222","cellular response to lipopolysaccharide","39/1919","143/13085",0.272727272727273,1.85963333175423,4.28488835832015,6.18861351350712e-05,0.0246611557682839,0.0241868223002143,"Cfh/Lilrb4a/Cdk4/Map2k3/Shpk/Git1/Bmp6/Wnt5a/Ednrb/Trib1/Tspo/Litaf/Cd86/Nfkbil1/Malt1/Dab2ip/Src/Ghsr/Ptpn22/Nfkb1/Gbp3/Bcl10/Nos3/Stap1/Cxcl5/Gbp6/Irak2/Trim12c/Upf1/Plcg2/Plscr2/Myd88/Ptgs2/Ccl2/Esr2/Nuggc/Ticam2/Cxcl13/Trim30d",39,"Male vs Female","Male","Female","Cellular Response To Lipopolysaccharide","Cellular
+Response
+To
+Lipopolysaccharide"
+"10","BP","GO:0072006","nephron development","36/1919","129/13085",0.27906976744186,1.90288061853921,4.2721713110072,6.96771320403849e-05,0.0246611557682839,0.0241868223002143,"Sulf1/Col4a3/Cfh/Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Nup85/Six4/Edn1/Klhl3/Adamts16/Ednrb/Dll1/Sox8/Plce1/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Asxl1/Fat4/Podxl/Tacstd2/Dchs1/Angpt2/Sall1/Nup133/Agt/Pdgfd/Ctnnb1/Pax8/Wnt11",36,"Male vs Female","Male","Female","Nephron Development","Nephron
+Development"
+"11","BP","GO:0072009","nephron epithelium development","28/1919","93/13085",0.301075268817204,2.05292855261757,4.22436382014605,0.000104541269553695,0.0324262420209785,0.0318025546326504,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Edn1/Klhl3/Adamts16/Ednrb/Dll1/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Asxl1/Fat4/Podxl/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",28,"Male vs Female","Male","Female","Nephron Epithelium Development","Nephron
+Epithelium
+Development"
+"12","BP","GO:0072028","nephron morphogenesis","23/1919","67/13085",0.343283582089552,2.34073250215831,4.56106591744879,4.53020080352099e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Klhl3/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",23,"Male vs Female","Male","Female","Nephron Morphogenesis","Nephron
+Morphogenesis"
+"13","BP","GO:0072078","nephron tubule morphogenesis","23/1919","64/13085",0.359375,2.45045433819698,4.82204015052456,1.95110253719738e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Klhl3/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",23,"Male vs Female","Male","Female","Nephron Tubule Morphogenesis","Nephron
+Tubule
+Morphogenesis"
+"14","BP","GO:0072088","nephron epithelium morphogenesis","23/1919","65/13085",0.353846153846154,2.41275504068626,4.73344129263305,2.60459714293712e-05,0.0219909320168359,0.0215679577188088,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Klhl3/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",23,"Male vs Female","Male","Female","Nephron Epithelium Morphogenesis","Nephron
+Epithelium
+Morphogenesis"
+"15","BP","GO:0072163","mesonephric epithelium development","26/1919","82/13085",0.317073170731707,2.1620127352915,4.37577493304426,7.0153107628344e-05,0.0246611557682839,0.0241868223002143,"Gsta3/Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Cat/Grem1/Fmn1/Bmp2/Fat4/Smad9/Tacstd2/Tshz3/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",26,"Male vs Female","Male","Female","Mesonephric Epithelium Development","Mesonephric
+Epithelium
+Development"
+"16","BP","GO:0072164","mesonephric tubule development","26/1919","82/13085",0.317073170731707,2.1620127352915,4.37577493304426,7.0153107628344e-05,0.0246611557682839,0.0241868223002143,"Gsta3/Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Cat/Grem1/Fmn1/Bmp2/Fat4/Smad9/Tacstd2/Tshz3/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",26,"Male vs Female","Male","Female","Mesonephric Tubule Development","Mesonephric
+Tubule
+Development"
+"17","BP","GO:0072171","mesonephric tubule morphogenesis","22/1919","57/13085",0.385964912280702,2.63176179113756,5.11816468430626,7.85389109032241e-06,0.020706783859635,0.0203085089088179,"Timeless/Hs3st3b1/Hs3st3a1/Nog/Wnt9b/Sox9/Six4/Adamts16/Sox8/Lzts2/Cd44/Grem1/Fmn1/Bmp2/Fat4/Tacstd2/Dchs1/Sall1/Agt/Ctnnb1/Pax8/Wnt11",22,"Male vs Female","Male","Female","Mesonephric Tubule Morphogenesis","Mesonephric
+Tubule
+Morphogenesis"
+"18","CC","GO:0009897","external side of plasma membrane","18/332","210/13162",0.0857142857142857,3.39810671256454,5.63520724235495,6.21994892966504e-06,0.0017975652406732,0.00176122764429463,"Ackr3/Fcrlb/Cd34/Ccr10/Itgb3/Sdc1/H2-Eb2/Adgre1/Cd14/Tnfrsf9/Tnfrsf14/Tgfbr3/Fcgrt/Xcr1/Slamf6/Gp1ba/Btla/Clec2g",18,"Female vs Male","Female","Male","External Side Of Plasma Membrane","External
+Side Of
+Plasma
+Membrane"
+"19","MF","GO:0004888","transmembrane signaling receptor activity","29/328","441/12933",0.0657596371882086,2.59289447486312,5.49020622207597,2.65984761130696e-06,0.00158792902395025,0.00154271161455804,"Gpr45/Htr2b/Ackr3/Htr5b/Lgr6/Ddr2/Fcrlb/Ccr10/Cd300c2/Vipr2/Lpar6/Kremen2/H2-Eb2/Vmn2r118/Adgre1/Gpr151/Mrc1/Ptger3/Tgfbr3/Ephb4/Opn1sw/Hrh1/C3ar1/Fzd4/Hpgd/Htr3a/Nradd/Xcr1/Glra4",29,"Female vs Male","Female","Male","Transmembrane Signaling Receptor Activity","Transmembrane
+Signaling
+Receptor
+Activity"
+"20","MF","GO:0004930","G protein-coupled receptor activity","18/328","220/12933",0.0818181818181818,3.22608093126386,5.37188381723957,1.2694406322365e-05,0.00252618685815064,0.00245425188899057,"Gpr45/Htr2b/Ackr3/Htr5b/Lgr6/Ccr10/Vipr2/Lpar6/Vmn2r118/Adgre1/Gpr151/Ptger3/Opn1sw/Hrh1/C3ar1/Fzd4/Hpgd/Xcr1",18,"Female vs Male","Female","Male","G Protein-Coupled Receptor Activity","G
+Protein-Coupled
+Receptor
+Activity"
+"21","MF","GO:0019956","chemokine binding","4/328","14/12933",0.285714285714286,11.2656794425087,6.19919949262227,0.000332451800837418,0.0496184312749847,0.0482055111214257,"Ackr3/Ccr10/Itgb3/Xcr1",4,"Female vs Male","Female","Male","Chemokine Binding","Chemokine
+Binding"
+"22","MF","GO:0071837","HMG box domain binding","5/328","13/12933",0.384615384615385,15.1653377110694,8.24262794218254,1.10796419395267e-05,0.00252618685815064,0.00245425188899057,"Pou3f3/Pax3/Prrx1/Jun/Hoxc4",5,"Female vs Male","Female","Male","Hmg Box Domain Binding","Hmg Box
+Domain
+Binding"

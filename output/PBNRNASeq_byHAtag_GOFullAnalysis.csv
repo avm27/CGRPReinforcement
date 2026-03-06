@@ -1,0 +1,978 @@
+"","ONTOLOGY","ID","Description","GeneRatio","BgRatio","RichFactor","FoldEnrichment","zScore","pvalue","p.adjust","qvalue","geneID","Count","Dataset","Celltype","Comparison","Description_title_case","GOPathways"
+"1","BP","GO:0001503","ossification","83/2342","387/15618",0.214470284237726,1.43022924817455,3.5995634529475,0.000370212727667079,0.00977293043128558,0.00819808301422616,"Fhl2/Col5a2/Igfbp5/Tnfrsf11a/Gli2/Myoc/Ifi204/Gja1/Col13a1/Srgn/Igfbp3/Phospho1/Sost/Ddx5/Mir338/Osr1/Rsad2/Id2/Hif1a/Gli3/Foxc1/Id4/Aspn/Msx2/Ptch1/Gdf10/Bmp4/Mmp14/Ptk2b/Bmp1/Klf10/Scx/Nfe2/Snai2/Trp63/Runx1/Cbs/Vegfa/Csf1r/Nfatc1/Lrp5/Tnfaip6/Galnt3/Mdk/Rassf2/Id1/Wwtr1/Sort1/Fgr/Hspg2/Alpl/Epha2/Icmt/Isg15/Fgfr3/Bmp2k/Dmp1/Ptpn11/P2rx7/Smo/Alox5/Ercc2/P2ry2/Inppl1/Fgfr2/Ifitm1/Igf2/Slc20a2/Nfix/Yap1/Cd276/Smad3/Bmp5/Plxnb1/Gpm6b/Sp7/Lox/Clec5a/Cebpa/Foxc2/Smad6/Adamts7/Ccr1",83,"negative vs positive","negative","positive","Ossification","Ossification"
+"2","BP","GO:0001562","response to protozoan","18/2342","33/15618",0.545454545454545,3.63745050850089,6.37010387343011,1.4826959532795e-07,2.72720397599991e-05,2.28773188852361e-05,"Slc11a1/Arg1/Tgtp1/Tgtp2/Irgm2/Igtp/Irf4/Iigp1/Gbp7/Gbp2/Gbp9/Gbp4/Nkg7/Cd37/Tspan32/Irf8/Il12a/Pf4",18,"negative vs positive","negative","positive","Response To Protozoan","Response
+To
+Protozoan"
+"3","BP","GO:0001570","vasculogenesis","26/2342","85/15618",0.305882352941176,2.03982518712011,4.03739046743102,0.000199100860759736,0.0064139723618758,0.00538040030503861,"Sox17/Hey2/Sgpl1/Zfp36l1/Ntrk2/Zmiz1/Zfpm2/Emp2/Egfl8/Eng/Itgav/Tek/Epha2/Cav1/Smo/Wnt7a/Foxm1/Tead2/Adm/Fgfr2/Yap1/Epor/Myo1e/Amot/Tie1/Rras",26,"negative vs positive","negative","positive","Vasculogenesis","Vasculogenesis"
+"4","BP","GO:0001818","negative regulation of cytokine production","68/2342","251/15618",0.270916334661355,1.80664872533776,5.4110979519815,4.471102921001e-07,5.92889043152272e-05,4.97348633366672e-05,"Slc11a1/Inpp5d/Fcgr2b/Cd84/Tnfaip3/Arg1/Vsir/Srgn/Appl2/Irak3/Havcr2/Irgm2/Igtp/Rara/Foxj1/Btn2a2/Fgfr4/Extl3/Ppara/Nckap1l/Apod/Ezr/Ager/Aqp4/Anxa1/Mertk/Sirpa/Lbp/Slc2a10/Tlr2/Otud7b/Bank1/Gbp7/Tlr4/Epha2/Tnfrsf4/Hgf/Tlr6/Gbp4/Cmklr1/Ptpn11/Ptpn6/Lag3/Tnfrsf1a/C5ar2/Pglyrp1/Zfp36/Chrna7/Tsku/Lrrc32/Trim30a/Klf2/Nlrx1/Cd276/Tlr8/Il23a/Nlrp3/Epx/Prg2/Il12a/Oas1c/Oas1b/Oas1a/Gimap3/Sigirr/Acp5/Gpr174/Btk",68,"negative vs positive","negative","positive","Negative Regulation Of Cytokine Production","Negative
+Regulation
+Of
+Cytokine
+Production"
+"5","BP","GO:0001819","positive regulation of cytokine production","118/2342","410/15618",0.28780487804878,1.91927266668055,7.92243805641625,3.55140156068202e-13,2.02500916990089e-09,1.6986914412357e-09,"Arid5a/Casp8/Fzd5/Slc11a1/Ncl/Ikbke/Rab7b/Fcgr2b/Ly9/Cd84/Ifi203/Traf3ip3/Nodal/Hk1/Icosl/Lum/Irak3/Havcr2/Flt4/Adora2b/Ccl4/Rara/Rsad2/Hif1a/Agtr1a/Irf4/Syk/Pik3r1/Lacc1/Tnfrsf13c/Nfam1/Zbtb20/Runx1/Mapk13/Gpsm3/Ager/Ltb/Trim15/Cyp1b1/Tslp/Csf1r/Mbp/Unc93b1/Anxa1/Afap1l2/Prkcq/Traf2/Fcna/Agpat2/Pla2r1/Ifih1/Mdk/Usp50/Il1a/Lbp/Tlr2/Il6ra/S100a13/Fcgr1/Chil5/Gbp5/Tlr4/Trim32/Tek/Ptafr/Fgr/Tnfrsf8/Isg15/Hgf/Ucn/Spon2/Tlr1/Tlr6/Ptpn11/P2rx7/Hspb1/Irf5/Il17rc/Tnfrsf1a/Clec7a/C5ar1/Sphk2/P2ry2/Gprc5b/Tlr3/Il12rb1/Irf8/Casp1/Cd276/Smad3/Rora/Ccr5/Tlr8/Tlr7/Il1rl2/Il23a/Nlrp3/Nlrp1b/Epx/Naip5/Gsdmd/Ticam1/Nlrc4/Prg2/Postn/Il12a/Cd2/Oas1c/Oas1b/Oas1a/Clec5a/Gimap3/Crhr2/Irf7/Il15/Tlr9/Ccr2/Btk",118,"negative vs positive","negative","positive","Positive Regulation Of Cytokine Production","Positive
+Regulation
+Of
+Cytokine
+Production"
+"6","BP","GO:0001894","tissue homeostasis","62/2342","249/15618",0.248995983935743,1.66046937536654,4.41253519045996,2.61147717994773e-05,0.00123063164298033,0.00103232294960265,"Col9a1/Col3a1/Inpp5d/Tnfrsf11a/Adora1/Crb1/Cdh23/Tns3/Egfr/Atp1b2/Ush1g/Esrrb/Bdkrb2/Foxc1/Mak/Syk/Ocln/Vstm4/Ptk2b/Scx/Rac2/Ildr1/Vegfa/Csf1r/Mbp/Ldb1/Crb2/Neurod1/Itgav/Ada/Wwtr1/Gnat2/Rpe65/Tlr4/Trim32/Nfib/Mfsd2a/Alpl/Slc4a2/Cytl1/Prom1/Hnf1a/Ptpn11/P2rx7/Pdk4/Smo/Lsr/Lrrk1/Ascl3/Tex15/Nfix/Cdh3/Yap1/Cbl/Il10ra/Trf/Ndp/Abca4/Rho/Acp5/Tlr9/Ccr2",62,"negative vs positive","negative","positive","Tissue Homeostasis","Tissue
+Homeostasis"
+"7","BP","GO:0001906","cell killing","40/2342","153/15618",0.261437908496732,1.74344033087189,3.88128469139598,0.000225883206390626,0.0070381750974828,0.00590401662259998,"Fcgr2b/Arg1/Havcr2/Irgm2/Igtp/Unc13d/Syk/Pik3r1/Gzma/Lgals3/Nckap1l/Emp2/Tap1/Ager/Vav1/Spi1/Fcgr1/Gbp5/Gbp7/Gbp2/Fgl2/Cxcl10/P2rx7/Ncf1/Ptpn6/Lag3/Clec7a/Pglyrp1/Nkg7/Scnn1b/Itgam/Igf2/Fcer2a/Ccr5/Il23a/Il7r/H2-Q6/Il12a/Cd2/Gimap3",40,"negative vs positive","negative","positive","Cell Killing","Cell
+Killing"
+"8","BP","GO:0001945","lymph vessel development","14/2342","28/15618",0.5,3.33432963279248,5.19250316448555,1.3973265584458e-05,0.000751656229835658,0.000630531467882595,"Ptpn14/Prox1/Flt4/Foxc1/Syk/Acvrl1/Tmem204/Vegfa/Nfatc1/Svep1/Epha2/Pdpn/Tie1/Foxc2",14,"negative vs positive","negative","positive","Lymph Vessel Development","Lymph
+Vessel
+Development"
+"9","BP","GO:0001946","lymphangiogenesis","11/2342","19/15618",0.578947368421053,3.86080273270709,5.24052699005895,1.97641010250711e-05,0.00102178880971317,0.000857133849865544,"Ptpn14/Prox1/Flt4/Foxc1/Acvrl1/Vegfa/Nfatc1/Epha2/Pdpn/Tie1/Foxc2",11,"negative vs positive","negative","positive","Lymphangiogenesis","Lymphangiogenesis"
+"10","BP","GO:0002064","epithelial cell development","53/2342","215/15618",0.246511627906977,1.64390205151629,3.99296046034903,0.000128479849581813,0.00460749749883959,0.00386502771598647,"Fzd5/Tfcp2l1/F11r/Prox1/Prdm1/Gja1/Gdf11/Rara/Foxj1/Hif1a/Bcl11b/Hrh2/Bmp4/Klf5/Cldn1/Trp63/Ezr/Vegfa/Six3/Epas1/Vim/Il1a/Nkx2-2/Id1/Hapln2/Adamtsl4/Notch2/Epha2/Fgfr3/Clock/Smo/Slc4a5/Tnfrsf1a/Gpr4/Fgfr2/Fat1/Cdh5/Yap1/S1pr2/Icam1/St14/Exph5/Myo1e/Bmp5/Lamb2/Tnmd/Spdef/Notch4/Sfn/Bhlha15/Cebpa/Foxc2/Tlr9",53,"negative vs positive","negative","positive","Epithelial Cell Development","Epithelial
+Cell
+Development"
+"11","BP","GO:0002218","activation of innate immune response","62/2342","262/15618",0.236641221374046,1.57807967353537,3.96330889100076,0.000128060294999426,0.00460749749883959,0.00386502771598647,"Ikbke/Rab7b/Ifi204/Ifi203/Traf3ip3/Tnfaip3/Appl2/Irak3/Havcr2/Irgm2/Igtp/Cd300lf/Rsad2/Irf4/Syk/Tifab/Pik3r1/Lacc1/Trim15/Unc93b1/Slc15a3/Pik3ap1/Fcna/Ifih1/Usp50/Lbp/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Tlr1/Tlr6/P2rx7/Lrch4/Cav1/Tril/Clec7a/Kcnj8/Trim5/Trim12a/Trim30a/Tlr3/Ddx60/Casp1/Nlrx1/Sin3a/Tlr8/Tlr7/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Oas1c/Oas1b/Oas1a/Irf7/Tlr9/Btk",62,"negative vs positive","negative","positive","Activation Of Innate Immune Response","Activation
+Of Innate
+Immune
+Response"
+"12","BP","GO:0002237","response to molecule of bacterial origin","75/2342","305/15618",0.245901639344262,1.63983424563565,4.73964580595163,6.36562540993485e-06,0.000403297734304983,0.000338308793716304,"Arid5a/Fzd5/Slc11a1/Ncl/Tnfrsf11a/Cdc73/Ncf2/Fmo1/Fcgr2b/Cd84/Dusp10/Tnfaip3/Gja1/Tbxa2r/Irak3/Havcr2/Irgm2/Igtp/Rara/Mir381/Tifab/Cd180/Gch1/Gjb2/Extl3/Irak4/Cldn1/Vim/Itgav/Spi1/Il1a/Sirpa/E2f1/Lbp/Slpi/Tlr2/Hmgcs2/Gbp5/Gbp2/Cnr1/Tlr4/Ptafr/Alpl/Tnfrsf1b/Spon2/Tlr1/Tlr6/Cxcl10/Ptpn11/P2rx7/Irf5/Nr2c2/Adipor2/Ptpn6/Kcnj8/C5ar1/Zfp36/Trim5/Trim12a/Trim30a/Adm/Ptger1/Irf8/Casp1/Il10ra/Ccr5/Ldoc1/Nlrp3/Ticam1/Il12a/Pf4/Acp5/Smad6/Tlr9/Btk",75,"negative vs positive","negative","positive","Response To Molecule Of Bacterial Origin","Response
+To
+Molecule
+Of
+Bacterial
+Origin"
+"13","BP","GO:0002250","adaptive immune response","88/2342","350/15618",0.251428571428571,1.67669147248994,5.37764685140982,3.74342412914747e-07,5.33625109609972e-05,4.47634716917003e-05,"Arid5a/Fzd5/Slc11a1/Inpp5d/Tnfrsf11a/Pla2g4a/Fcgr2b/Ly9/Cd84/Dusp10/Tnfaip3/Arg1/Prdm1/Vsir/Icosl/Myo1g/Havcr2/Tnfsf13/Tmem98/Slfn2/Cd79b/Unc13d/Foxj1/Rsad2/Irf4/Syk/Ptk2b/Csf2rb/Tnfrsf13c/Nckap1l/Emp2/Klhl6/Samsn1/Tap1/Ager/Vegfa/Unc93b1/Clcf1/Mpeg1/Anxa1/Fas/Prkcq/Traf2/Dpp4/Sla2/Ada/Il6ra/Otud7b/Fcgr1/Ifnk/Tnfrsf1b/Fgl2/Tec/P2rx7/Lat2/C1s1/Ptpn6/Cd4/Lag3/Clec7a/Kcnj8/Cd79a/Hpx/Swap70/Pagr1a/Fcer2a/Il12rb1/Exosc6/Icam1/Jam3/Rora/Il13ra2/Pdcd1/Il23a/Nlrp3/Il31ra/Il7r/Il2rb/H2-Q6/Il12a/Pf4/Gimap3/Pirb/Irf7/Cd3g/Gcnt3/Ccr2/Btk",88,"negative vs positive","negative","positive","Adaptive Immune Response","Adaptive
+Immune
+Response"
+"14","BP","GO:0002253","activation of immune response","95/2342","441/15618",0.215419501133787,1.43655925222352,3.9059632533157,0.000122616512691037,0.00445324430168339,0.00373563146944734,"Ikbke/Rab7b/Ifi204/Ifi203/Traf3ip3/Tnfaip3/Icosl/Appl2/Irak3/Myo1g/Havcr2/Irgm2/Igtp/Cd79b/Cd300lf/Rsad2/Prkch/Btn2a2/Irf4/Syk/Tifab/Pik3r1/Lgals3/Lacc1/Nfam1/Nckap1l/Klhl6/Ezr/Cfb/Trim15/Mog/Unc93b1/Slc15a3/Lpxn/Blnk/Pik3ap1/Fcna/Ifih1/Usp50/Sla2/Lbp/Ada/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Themis2/Tlr1/Tlr6/Tec/Cmklr1/P2rx7/Lat2/Lrch4/Cav1/Tril/A2m/C1s1/Ptpn6/Clec7a/Kcnj8/C5ar2/C5ar1/Kcnn4/Cd79a/Trim5/Trim12a/Trim30a/Itgam/Fcer2a/Tlr3/Ddx60/Casp1/Nlrx1/Sin3a/Cd276/Tlr8/Tlr7/Tespa1/Lcp2/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Oas1c/Oas1b/Oas1a/Cd22/Irf7/Tlr9/Btk",95,"negative vs positive","negative","positive","Activation Of Immune Response","Activation
+Of Immune
+Response"
+"15","BP","GO:0002263","cell activation involved in immune response","71/2342","245/15618",0.289795918367347,1.93255023614911,6.17923331584942,1.32730634172576e-08,5.7387716840333e-06,4.81400404885586e-06,"Slc11a1/Ly9/Cd84/Tnfaip3/Enpp3/Itgb2/Icosl/Dock2/Havcr2/Adora2b/Tnfsf13/Tmem98/Slfn2/Rara/Crhr1/Unc13d/Irf4/Syk/Cplx2/Cd180/Ptgdr/Lgals3/Ptk2b/Rac2/Mfng/Nckap1l/Clcf1/Anxa1/Apbb1ip/Ptgds/Stxbp1/Spi1/Mdk/Rag2/Lbp/Ada/Il6ra/Notch2/Adora3/Ifnk/Tlr4/Ptafr/Fgr/Nppa/Fgl2/Lat2/Lfng/Ptpn6/Clec7a/Pglyrp1/Nkg7/Sphk2/Fes/Swap70/Scnn1b/Pagr1a/Itgam/Exosc6/Irf8/Icam1/Cbl/Rora/Il13ra2/Il23a/Nlrp3/H2-DMb2/Ticam1/Pf4/Itgal/Ccr2/Btk",71,"negative vs positive","negative","positive","Cell Activation Involved In Immune Response","Cell
+Activation
+Involved
+In Immune
+Response"
+"16","BP","GO:0002274","myeloid leukocyte activation","67/2342","216/15618",0.310185185185185,2.06851930923237,6.64170098521764,1.62620481523533e-09,1.32465997949598e-06,1.11119920006456e-06,"Slc11a1/Pla2g4a/Cd48/Cd84/Enpp3/Itgb2/Dock2/Havcr2/Adora2b/Crhr1/Cd300lf/Unc13d/Irf4/Syk/Cplx2/Ptgdr/Rac2/Ager/Adgrf5/Tslp/Csf1r/Anxa1/Calhm2/Ptgds/Stxbp1/Spi1/Lbp/Tlr2/Notch2/Adora3/Cnr1/Tlr4/Ptafr/Fgr/Pla2g5/Nppa/Tlr1/Tlr6/Rhoh/Lat2/Ptpn6/Kcnj8/C5ar1/Kcnn4/Cd37/Sphk2/Fes/Scnn1b/Itgam/Tspan32/Fcer2a/Tlr3/Casp1/Cbl/Rora/Adam10/Il13ra2/Lcp2/Ticam1/Itgb6/Gimap3/Pirb/Cebpa/Il15/Tlr9/Ccr2/Btk",67,"negative vs positive","negative","positive","Myeloid Leukocyte Activation","Myeloid
+Leukocyte
+Activation"
+"17","BP","GO:0002275","myeloid cell activation involved in immune response","31/2342","87/15618",0.35632183908046,2.37618893371418,5.40625599451208,1.52223094458589e-06,0.00016376907256658,0.000137378697362429,"Cd84/Enpp3/Itgb2/Dock2/Havcr2/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Ptgds/Stxbp1/Spi1/Lbp/Adora3/Ptafr/Fgr/Nppa/Lat2/Ptpn6/Sphk2/Fes/Scnn1b/Itgam/Cbl/Il13ra2/Ticam1/Ccr2/Btk",31,"negative vs positive","negative","positive","Myeloid Cell Activation Involved In Immune Response","Myeloid
+Cell
+Activation
+Involved
+In Immune
+Response"
+"18","BP","GO:0002279","mast cell activation involved in immune response","21/2342","51/15618",0.411764705882353,2.74591852112322,5.24523832879436,5.43078842444823e-06,0.000364310065837692,0.000305603747377,"Cd84/Enpp3/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Ptgds/Stxbp1/Adora3/Fgr/Nppa/Lat2/Ptpn6/Sphk2/Fes/Cbl/Il13ra2/Btk",21,"negative vs positive","negative","positive","Mast Cell Activation Involved In Immune Response","Mast Cell
+Activation
+Involved
+In Immune
+Response"
+"19","BP","GO:0002285","lymphocyte activation involved in immune response","43/2342","167/15618",0.25748502994012,1.7170799306596,3.91296655382998,0.000193706136348856,0.00627563857648395,0.00526435815531819,"Slc11a1/Ly9/Tnfaip3/Icosl/Havcr2/Tnfsf13/Tmem98/Slfn2/Rara/Unc13d/Irf4/Cd180/Lgals3/Ptk2b/Mfng/Nckap1l/Clcf1/Anxa1/Apbb1ip/Spi1/Mdk/Rag2/Ada/Il6ra/Notch2/Ifnk/Tlr4/Fgl2/Lfng/Pglyrp1/Nkg7/Swap70/Pagr1a/Exosc6/Irf8/Icam1/Rora/Il23a/Nlrp3/H2-DMb2/Pf4/Itgal/Ccr2",43,"negative vs positive","negative","positive","Lymphocyte Activation Involved In Immune Response","Lymphocyte
+Activation
+Involved
+In Immune
+Response"
+"20","BP","GO:0002366","leukocyte activation involved in immune response","71/2342","242/15618",0.293388429752066,1.95650747048154,6.29843994509636,7.55004980354534e-09,3.58753199831796e-06,3.00942336029035e-06,"Slc11a1/Ly9/Cd84/Tnfaip3/Enpp3/Itgb2/Icosl/Dock2/Havcr2/Adora2b/Tnfsf13/Tmem98/Slfn2/Rara/Crhr1/Unc13d/Irf4/Syk/Cplx2/Cd180/Ptgdr/Lgals3/Ptk2b/Rac2/Mfng/Nckap1l/Clcf1/Anxa1/Apbb1ip/Ptgds/Stxbp1/Spi1/Mdk/Rag2/Lbp/Ada/Il6ra/Notch2/Adora3/Ifnk/Tlr4/Ptafr/Fgr/Nppa/Fgl2/Lat2/Lfng/Ptpn6/Clec7a/Pglyrp1/Nkg7/Sphk2/Fes/Swap70/Scnn1b/Pagr1a/Itgam/Exosc6/Irf8/Icam1/Cbl/Rora/Il13ra2/Il23a/Nlrp3/H2-DMb2/Ticam1/Pf4/Itgal/Ccr2/Btk",71,"negative vs positive","negative","positive","Leukocyte Activation Involved In Immune Response","Leukocyte
+Activation
+Involved
+In Immune
+Response"
+"21","BP","GO:0002367","cytokine production involved in immune response","37/2342","121/15618",0.305785123966942,2.0391768002202,4.81966596492956,1.00656399603492e-05,0.000591693598493931,0.00049634582723632,"Arid5a/Fzd5/Slc11a1/Slamf9/Arg1/Vsir/Hk1/Irak3/Rsad2/Syk/Lacc1/Traf2/Tlr2/Tlr4/Tek/Tnfrsf1b/Spon2/P2rx7/Irf5/Tril/Clec7a/Sphk2/Gprc5b/Tlr3/Casp1/Nlrx1/Tlr7/Nlrp3/Epx/Il31ra/Ticam1/Prg2/Il12a/Gimap3/Acp5/Tlr9/Ccr2",37,"negative vs positive","negative","positive","Cytokine Production Involved In Immune Response","Cytokine
+Production
+Involved
+In Immune
+Response"
+"22","BP","GO:0002440","production of molecular mediator of immune response","57/2342","219/15618",0.26027397260274,1.73567843898787,4.60492386946646,1.37924395524792e-05,0.000751656229835658,0.000630531467882595,"Arid5a/Fzd5/Slc11a1/Fcgr2b/Slamf9/Tnfaip3/Arg1/Vsir/Hk1/Icosl/Irak3/Tnfsf13/Evpl/Rsad2/Syk/Lacc1/Mzb1/Clcf1/Fas/Traf2/Tlr2/Tlr4/Tek/Tnfrsf1b/Tnfrsf4/Fgl2/Spon2/P2rx7/Irf5/Tril/Clec7a/Cd37/Sphk2/Hpx/Swap70/Gprc5b/Pagr1a/Tlr3/Exosc6/Casp1/Nlrx1/Il13ra2/Tlr7/Nlrp3/Epx/Il31ra/Il7r/Ticam1/Prg2/Il12a/Gimap3/Cd22/Acp5/Gcnt3/Tlr9/Ccr2/Btk",57,"negative vs positive","negative","positive","Production Of Molecular Mediator Of Immune Response","Production
+Of
+Molecular
+Mediator
+Of Immune
+Response"
+"23","BP","GO:0002443","leukocyte mediated immunity","89/2342","327/15618",0.27217125382263,1.81501735363016,6.25577927303398,6.1398285307191e-09,3.50093022821603e-06,2.93677693090396e-06,"Arid5a/Fzd5/Slc11a1/Inpp5d/Fcgr2b/Cd84/Slamf9/Arg1/Vsir/Itgb2/Icosl/Myo1g/Havcr2/Adora2b/Tnfsf13/Slfn2/Crhr1/Unc13d/Foxj1/Rsad2/Syk/Cplx2/Pik3r1/Ptgdr/Csf2rb/Rac2/Irak4/Nckap1l/Emp2/Tap1/Ager/Vav1/Unc93b1/Clcf1/Fas/Traf2/Ptgds/Stxbp1/Dpp4/Spi1/Tlr2/Fcgr1/Adora3/Tlr4/Ptafr/Fgr/Tnfrsf1b/Nppa/Fgl2/Spon2/P2rx7/Ncf1/Lat2/C1s1/Ptpn6/Lag3/Clec7a/Nkg7/Sphk2/Fes/Hpx/Swap70/Scnn1b/Pagr1a/Itgam/Igf2/Fcer2a/Tlr3/Exosc6/Icam1/Cbl/Il13ra2/Pdcd1/Il23a/Nlrp3/Il31ra/Il7r/Il2rb/H2-Q6/Ticam1/Il12a/Cd2/Gimap3/Pirb/Irf7/Gcnt3/Tlr9/Ccr2/Btk",89,"negative vs positive","negative","positive","Leukocyte Mediated Immunity","Leukocyte
+Mediated
+Immunity"
+"24","BP","GO:0002444","myeloid leukocyte mediated immunity","32/2342","97/15618",0.329896907216495,2.1999700669971,4.97914827176224,6.8989543909436e-06,0.000426286244051443,0.000357592847010238,"Fcgr2b/Cd84/Arg1/Itgb2/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Irak4/Ptgds/Stxbp1/Spi1/Fcgr1/Adora3/Ptafr/Fgr/Nppa/Spon2/Ncf1/Lat2/Sphk2/Fes/Scnn1b/Itgam/Cbl/Il13ra2/Ticam1/Ccr2/Btk",32,"negative vs positive","negative","positive","Myeloid Leukocyte Mediated Immunity","Myeloid
+Leukocyte
+Mediated
+Immunity"
+"25","BP","GO:0002448","mast cell mediated immunity","20/2342","49/15618",0.408163265306122,2.72190174105509,5.07031188528908,1.06108212676544e-05,0.000617376559879238,0.000517890137918599,"Cd84/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Ptgds/Stxbp1/Adora3/Fgr/Nppa/Spon2/Lat2/Sphk2/Fes/Cbl/Il13ra2/Btk",20,"negative vs positive","negative","positive","Mast Cell Mediated Immunity","Mast Cell
+Mediated
+Immunity"
+"26","BP","GO:0002449","lymphocyte mediated immunity","58/2342","235/15618",0.246808510638298,1.64588186129331,4.19010714002352,6.11707672359366e-05,0.00243913087258259,0.00204607998763413,"Arid5a/Fzd5/Slc11a1/Inpp5d/Fcgr2b/Arg1/Vsir/Icosl/Myo1g/Havcr2/Tnfsf13/Slfn2/Unc13d/Foxj1/Rsad2/Pik3r1/Csf2rb/Nckap1l/Emp2/Tap1/Ager/Vav1/Unc93b1/Clcf1/Fas/Traf2/Dpp4/Fcgr1/Tnfrsf1b/Fgl2/P2rx7/C1s1/Ptpn6/Lag3/Nkg7/Hpx/Swap70/Pagr1a/Igf2/Fcer2a/Exosc6/Icam1/Il13ra2/Pdcd1/Il23a/Nlrp3/Il31ra/Il7r/Il2rb/H2-Q6/Il12a/Cd2/Gimap3/Pirb/Irf7/Gcnt3/Ccr2/Btk",58,"negative vs positive","negative","positive","Lymphocyte Mediated Immunity","Lymphocyte
+Mediated
+Immunity"
+"27","BP","GO:0002460","adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains","68/2342","264/15618",0.257575757575758,1.71768496234764,4.93950774244503,3.1600357501696e-06,0.000246829093800918,0.000207054108850334,"Arid5a/Fzd5/Slc11a1/Inpp5d/Pla2g4a/Fcgr2b/Ly9/Tnfaip3/Arg1/Vsir/Icosl/Myo1g/Havcr2/Tnfsf13/Tmem98/Slfn2/Unc13d/Foxj1/Rsad2/Irf4/Csf2rb/Tnfrsf13c/Nckap1l/Emp2/Klhl6/Ager/Vegfa/Unc93b1/Clcf1/Anxa1/Fas/Prkcq/Traf2/Dpp4/Ada/Il6ra/Fcgr1/Tnfrsf1b/Fgl2/P2rx7/C1s1/Ptpn6/Cd4/Clec7a/Hpx/Swap70/Pagr1a/Fcer2a/Il12rb1/Exosc6/Icam1/Rora/Il13ra2/Pdcd1/Il23a/Nlrp3/Il31ra/Il7r/Il2rb/H2-Q6/Il12a/Pf4/Gimap3/Pirb/Irf7/Gcnt3/Ccr2/Btk",68,"negative vs positive","negative","positive","Adaptive Immune Response Based On Somatic Recombination Of Immune Receptors Built From Immunoglobulin Superfamily Domains","Adaptive
+Immune
+Response
+Based On
+Somatic
+Recombination
+Of Immune
+Receptors
+Built From
+Immunoglobulin
+Superfamily
+Domains"
+"28","BP","GO:0002532","production of molecular mediator involved in inflammatory response","26/2342","87/15618",0.298850574712644,1.99293265408286,3.90066217056004,0.000300534686791332,0.00856824392042088,0.00718752429884112,"Dusp10/Appl2/Hif1a/Syk/Extl3/Ppara/Apod/Gpsm3/Sirpa/Lbp/Pbxip1/Adora3/Chil5/Gbp5/Tlr4/Nppa/Tlr6/Ncf1/Il17rc/Alox5/Clec7a/Tlr3/Slamf8/Ticam1/Itgb6/Btk",26,"negative vs positive","negative","positive","Production Of Molecular Mediator Involved In Inflammatory Response","Production
+Of
+Molecular
+Mediator
+Involved
+In
+Inflammatory
+Response"
+"29","BP","GO:0002683","negative regulation of immune system process","104/2342","442/15618",0.235294117647059,1.5690962977847,5.09773041418177,1.06431458805878e-06,0.000124418460593283,0.000104369193622898,"Col3a1/Inpp5d/Rab7b/Adora1/Fcgr2b/Cd84/Ifi203/Dusp10/Tnfaip3/Enpp3/Arg1/Vsir/Cnn2/Irak3/Havcr2/Irgm2/Igtp/Rara/Cd300lf/Foxj1/Id2/Rin3/Gli3/Btn2a2/Irf4/Pik3r1/Bmp4/Lgals3/Nckap1l/Snai2/Apod/Parp14/Samsn1/Runx1/Ezr/H2-Oa/Tap1/H2-Aa/Lst1/Adgrf5/Tmem178/Gpr17/Lpxn/Anxa1/Fas/Pik3ap1/Tnfaip6/Dpp4/Spi1/Mdk/Rag2/Mertk/Sla2/Ada/Sdc4/Tnfaip8l2/Bank1/Cnr1/Trim32/Fgr/Pla2g5/Padi2/Isg15/Tnfrsf4/Fgl2/Slc4a2/Emilin1/Tlr6/Hspb1/Gper1/A2m/Ptpn6/Lag3/C5ar2/Pglyrp1/Cd37/Lrrc32/Trim30a/Tspan32/Igf2/Gdf15/Nlrx1/Cd276/Il13ra2/Pdcd1/Slamf8/Zc3h12d/Epx/Il7r/H2-Ob/Prg2/Sfn/Pf4/Oas1c/Oas1b/Oas1a/Gimap3/Cd22/Cebpa/Trim21/Acp5/Ccr1/Ccr2/Btk",104,"negative vs positive","negative","positive","Negative Regulation Of Immune System Process","Negative
+Regulation
+Of Immune
+System
+Process"
+"30","BP","GO:0002685","regulation of leukocyte migration","55/2342","197/15618",0.279187817258883,1.8618084244019,5.11265171048389,2.0155475280907e-06,0.000194790711952088,0.000163401391037362,"Adora1/Cnn2/Stk10/Ccl7/Rin3/Nedd9/Pik3r1/Lgals3/Mmp14/Ptk2b/Rac2/Nckap1l/Apod/Gpsm3/Ager/Vegfa/Csf1r/Capn1/Gcnt1/Anxa1/Dock8/Tnfaip6/Dpp4/Spi1/Mdk/Il1a/Lbp/Ada/Edn3/Tlr2/Adora3/Ptafr/Padi2/Emilin1/Cxcl10/Cmklr1/Slc8b1/Cd9/C5ar2/C5ar1/Swap70/Mtus1/Gdf15/Fut4/Icam1/Jam3/Dapk2/Adam10/Sell/Slamf8/Il23a/Aoc3/Il12a/Ccr1/Ccr2",55,"negative vs positive","negative","positive","Regulation Of Leukocyte Migration","Regulation
+Of
+Leukocyte
+Migration"
+"31","BP","GO:0002687","positive regulation of leukocyte migration","36/2342","136/15618",0.264705882352941,1.76523333500779,3.76450979712369,0.000350808963881777,0.00939113949321075,0.00787781532927499,"Ccl7/Nedd9/Pik3r1/Lgals3/Mmp14/Ptk2b/Rac2/Nckap1l/Gpsm3/Ager/Vegfa/Csf1r/Dock8/Spi1/Mdk/Il1a/Lbp/Edn3/Tlr2/Adora3/Ptafr/Cxcl10/Cmklr1/C5ar1/Swap70/Fut4/Icam1/Jam3/Dapk2/Adam10/Sell/Il23a/Aoc3/Il12a/Ccr1/Ccr2",36,"negative vs positive","negative","positive","Positive Regulation Of Leukocyte Migration","Positive
+Regulation
+Of
+Leukocyte
+Migration"
+"32","BP","GO:0002688","regulation of leukocyte chemotaxis","32/2342","103/15618",0.310679611650485,2.07181647086135,4.58375902133341,2.74477191142421e-05,0.00127241377552365,0.00106737214938054,"Ccl7/Rin3/Nedd9/Ptk2b/Rac2/Nckap1l/Gpsm3/Vegfa/Csf1r/Tnfaip6/Dpp4/Spi1/Mdk/Lbp/Edn3/Padi2/Cxcl10/Cmklr1/Slc8b1/C5ar2/C5ar1/Swap70/Mtus1/Jam3/Dapk2/Adam10/Sell/Slamf8/Il23a/Il12a/Ccr1/Ccr2",32,"negative vs positive","negative","positive","Regulation Of Leukocyte Chemotaxis","Regulation
+Of
+Leukocyte
+Chemotaxis"
+"33","BP","GO:0002694","regulation of leukocyte activation","120/2342","484/15618",0.247933884297521,1.65338659477313,6.13302400677715,6.99644095023508e-09,3.58753199831796e-06,3.00942336029035e-06,"Inpp5d/Sox13/Pla2g4a/Fcgr2b/Cd84/Dusp10/Tnfaip3/Enpp3/Arg1/Prdm1/Vsir/Icosl/Havcr2/Tcf7/Tnfsf13/Rara/Slc4a1/Cd300lf/Foxj1/Id2/Zfp36l1/Gli3/Btn2a2/Nedd9/Syk/Zmiz1/Bmp4/Lgals3/Mmp14/Rac2/Tnfrsf13c/Nfam1/Nckap1l/Samsn1/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Lst1/Adgrf5/Vav1/Tslp/Mzb1/Csf1r/Clcf1/Anxa1/Dock8/Fas/Calhm2/Prkcq/Dpp4/Spi1/Mdk/Rag2/Mertk/Il1a/Sirpa/Lbp/Ada/Sdc4/Tnfaip8l2/Vcam1/Bank1/Cnr1/Tlr4/Themis2/Fgr/Pla2g5/Tnfrsf1b/Tnfrsf4/Fgl2/Slc4a2/Tlr6/Rhoh/Hspb1/Gper1/Cav1/Fancd2/Ptpn6/Cd4/Lag3/Clec7a/Pglyrp1/Kcnn4/Cd37/Sphk2/Lrrc32/Pagr1a/Tspan32/Igf2/Il12rb1/Exosc6/Cd276/Rora/Il1rl2/Pdcd1/Slamf8/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Ticam1/Cd5/Il12a/Pf4/Gimap3/Cd22/Cebpa/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",120,"negative vs positive","negative","positive","Regulation Of Leukocyte Activation","Regulation
+Of
+Leukocyte
+Activation"
+"34","BP","GO:0002695","negative regulation of leukocyte activation","47/2342","164/15618",0.286585365853659,1.91114015538106,4.92657712284732,5.04538260843001e-06,0.000350838678454487,0.000294303190920487,"Inpp5d/Fcgr2b/Cd84/Tnfaip3/Enpp3/Arg1/Vsir/Havcr2/Cd300lf/Foxj1/Id2/Gli3/Btn2a2/Bmp4/Lgals3/Samsn1/Runx1/H2-Aa/Lst1/Adgrf5/Anxa1/Fas/Mdk/Rag2/Mertk/Sdc4/Tnfaip8l2/Bank1/Cnr1/Fgr/Pla2g5/Fgl2/Slc4a2/Hspb1/Gper1/Ptpn6/Lag3/Pglyrp1/Cd37/Lrrc32/Tspan32/Cd276/Pdcd1/Zc3h12d/Pf4/Gimap3/Btk",47,"negative vs positive","negative","positive","Negative Regulation Of Leukocyte Activation","Negative
+Regulation
+Of
+Leukocyte
+Activation"
+"35","BP","GO:0002696","positive regulation of leukocyte activation","70/2342","295/15618",0.23728813559322,1.58239372403711,4.24145068786577,4.4417397964306e-05,0.00187605928290721,0.00157374390916028,"Inpp5d/Sox13/Pla2g4a/Dusp10/Vsir/Icosl/Havcr2/Tnfsf13/Rara/Slc4a1/Gli3/Btn2a2/Syk/Zmiz1/Mmp14/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Tslp/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Dpp4/Spi1/Mdk/Il1a/Sirpa/Lbp/Ada/Vcam1/Tlr4/Tnfrsf4/Tlr6/Rhoh/Cav1/Cd4/Clec7a/Kcnn4/Sphk2/Pagr1a/Igf2/Il12rb1/Exosc6/Cd276/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Ticam1/Cd5/Il12a/Gimap3/Cebpa/Itgal/Cd209c/Il15/Tlr9/Ccr2/Btk",70,"negative vs positive","negative","positive","Positive Regulation Of Leukocyte Activation","Positive
+Regulation
+Of
+Leukocyte
+Activation"
+"36","BP","GO:0002697","regulation of immune effector process","94/2342","329/15618",0.285714285714286,1.90533121873856,6.97067017018419,1.41669541411113e-10,1.61559945025233e-07,1.35525557088862e-07,"Arid5a/Fzd5/Fcgr2b/Cd84/Dusp10/Tnfaip3/Enpp3/Arg1/Vsir/Hk1/Itgb2/Appl2/Irak3/Havcr2/Adora2b/Tnfsf13/Rara/Crhr1/Unc13d/Evpl/Foxj1/Rsad2/Syk/Lgals3/Lacc1/Rac2/Nckap1l/Tap1/Ager/Vav1/Mzb1/Clcf1/Anxa1/Traf2/Stxbp1/Dpp4/Spi1/Lbp/Tlr2/Fcgr1/Adora3/Tlr4/Tek/Ptafr/Fgr/Pla2g5/Tnfrsf1b/Nppa/Tnfrsf4/Fgl2/Spon2/P2rx7/Ncf1/Irf5/Tril/A2m/Ptpn6/Lag3/Clec7a/Pglyrp1/Cd37/Sphk2/Fes/Hpx/Gprc5b/Pagr1a/Itgam/Igf2/Fcer2a/Tlr3/Ddx60/Exosc6/Casp1/Nlrx1/Il13ra2/Tlr7/Pdcd1/Slamf8/Il23a/Nlrp3/Epx/Il7r/H2-DMb2/H2-Q6/Ticam1/Prg2/Il12a/Pf4/Gimap3/Cd22/Acp5/Tlr9/Ccr2/Btk",94,"negative vs positive","negative","positive","Regulation Of Immune Effector Process","Regulation
+Of Immune
+Effector
+Process"
+"37","BP","GO:0002698","negative regulation of immune effector process","31/2342","102/15618",0.303921568627451,2.02674938463857,4.36951546021212,5.82710802534168e-05,0.00233987112397875,0.00196281533485193,"Fcgr2b/Cd84/Dusp10/Tnfaip3/Enpp3/Arg1/Vsir/Irak3/Havcr2/Foxj1/Lgals3/Nckap1l/Tap1/Anxa1/Spi1/Fgl2/A2m/Ptpn6/Pglyrp1/Igf2/Nlrx1/Il13ra2/Pdcd1/Slamf8/Epx/Il7r/Prg2/Pf4/Cd22/Acp5/Ccr2",31,"negative vs positive","negative","positive","Negative Regulation Of Immune Effector Process","Negative
+Regulation
+Of Immune
+Effector
+Process"
+"38","BP","GO:0002699","positive regulation of immune effector process","61/2342","216/15618",0.282407407407407,1.88327877407724,5.49028309860408,3.70621413501371e-07,5.33625109609972e-05,4.47634716917003e-05,"Arid5a/Fzd5/Enpp3/Arg1/Hk1/Itgb2/Appl2/Adora2b/Tnfsf13/Rara/Crhr1/Rsad2/Syk/Lacc1/Vav1/Mzb1/Clcf1/Anxa1/Traf2/Stxbp1/Dpp4/Spi1/Lbp/Tlr2/Fcgr1/Adora3/Tlr4/Tek/Ptafr/Fgr/Pla2g5/Nppa/Tnfrsf4/Spon2/P2rx7/Irf5/Ptpn6/Lag3/Clec7a/Cd37/Sphk2/Hpx/Gprc5b/Pagr1a/Itgam/Fcer2a/Tlr3/Ddx60/Exosc6/Casp1/Tlr7/Il23a/Nlrp3/H2-DMb2/H2-Q6/Ticam1/Il12a/Gimap3/Tlr9/Ccr2/Btk",61,"negative vs positive","negative","positive","Positive Regulation Of Immune Effector Process","Positive
+Regulation
+Of Immune
+Effector
+Process"
+"39","BP","GO:0002700","regulation of production of molecular mediator of immune response","47/2342","159/15618",0.29559748427673,1.97123890240562,5.17002403039305,1.97192098895829e-06,0.000193860232397245,0.000162620852519537,"Arid5a/Fzd5/Fcgr2b/Tnfaip3/Arg1/Vsir/Hk1/Irak3/Tnfsf13/Evpl/Rsad2/Syk/Lacc1/Mzb1/Clcf1/Traf2/Tlr2/Tlr4/Tek/Tnfrsf1b/Tnfrsf4/Spon2/P2rx7/Irf5/Tril/Clec7a/Cd37/Sphk2/Hpx/Gprc5b/Pagr1a/Tlr3/Exosc6/Casp1/Nlrx1/Il13ra2/Tlr7/Nlrp3/Epx/Ticam1/Prg2/Gimap3/Cd22/Acp5/Tlr9/Ccr2/Btk",47,"negative vs positive","negative","positive","Regulation Of Production Of Molecular Mediator Of Immune Response","Regulation
+Of
+Production
+Of
+Molecular
+Mediator
+Of Immune
+Response"
+"40","BP","GO:0002702","positive regulation of production of molecular mediator of immune response","32/2342","110/15618",0.290909090909091,1.93997360453381,4.15520766461314,0.000113252451404202,0.00424845709149183,0.00356384445415992,"Arid5a/Fzd5/Hk1/Tnfsf13/Rsad2/Syk/Lacc1/Mzb1/Clcf1/Traf2/Tlr2/Tlr4/Tek/Tnfrsf4/Spon2/P2rx7/Irf5/Clec7a/Cd37/Sphk2/Hpx/Gprc5b/Pagr1a/Tlr3/Exosc6/Casp1/Tlr7/Nlrp3/Ticam1/Gimap3/Tlr9/Btk",32,"negative vs positive","negative","positive","Positive Regulation Of Production Of Molecular Mediator Of Immune Response","Positive
+Regulation
+Of
+Production
+Of
+Molecular
+Mediator
+Of Immune
+Response"
+"41","BP","GO:0002703","regulation of leukocyte mediated immunity","58/2342","204/15618",0.284313725490196,1.89599135982318,5.41028143113439,5.57597285445214e-07,7.22595391274684e-05,6.0615360408207e-05,"Arid5a/Fzd5/Fcgr2b/Cd84/Arg1/Vsir/Itgb2/Havcr2/Adora2b/Tnfsf13/Crhr1/Unc13d/Foxj1/Rsad2/Syk/Rac2/Nckap1l/Tap1/Ager/Vav1/Clcf1/Traf2/Stxbp1/Dpp4/Spi1/Tlr2/Fcgr1/Adora3/Tlr4/Ptafr/Fgr/Tnfrsf1b/Nppa/P2rx7/Ptpn6/Lag3/Clec7a/Sphk2/Fes/Hpx/Pagr1a/Itgam/Igf2/Fcer2a/Tlr3/Exosc6/Il13ra2/Pdcd1/Il23a/Nlrp3/Il7r/H2-Q6/Ticam1/Il12a/Gimap3/Tlr9/Ccr2/Btk",58,"negative vs positive","negative","positive","Regulation Of Leukocyte Mediated Immunity","Regulation
+Of
+Leukocyte
+Mediated
+Immunity"
+"42","BP","GO:0002718","regulation of cytokine production involved in immune response","33/2342","104/15618",0.317307692307692,2.11601688234908,4.79605515758069,1.26697278113873e-05,0.000708262627260099,0.000594130476521607,"Arid5a/Fzd5/Arg1/Vsir/Hk1/Irak3/Rsad2/Syk/Lacc1/Traf2/Tlr2/Tlr4/Tek/Tnfrsf1b/Spon2/P2rx7/Irf5/Tril/Clec7a/Sphk2/Gprc5b/Tlr3/Casp1/Nlrx1/Tlr7/Nlrp3/Epx/Ticam1/Prg2/Gimap3/Acp5/Tlr9/Ccr2",33,"negative vs positive","negative","positive","Regulation Of Cytokine Production Involved In Immune Response","Regulation
+Of
+Cytokine
+Production
+Involved
+In Immune
+Response"
+"43","BP","GO:0002720","positive regulation of cytokine production involved in immune response","22/2342","69/15618",0.318840579710145,2.12623918612854,3.93788089418836,0.000314088554191682,0.00873321006000497,0.00732590716325991,"Arid5a/Fzd5/Hk1/Rsad2/Syk/Lacc1/Traf2/Tlr2/Tlr4/Tek/Spon2/P2rx7/Irf5/Clec7a/Sphk2/Gprc5b/Tlr3/Casp1/Tlr7/Nlrp3/Ticam1/Gimap3",22,"negative vs positive","negative","positive","Positive Regulation Of Cytokine Production Involved In Immune Response","Positive
+Regulation
+Of
+Cytokine
+Production
+Involved
+In Immune
+Response"
+"44","BP","GO:0002757","immune response-activating signaling pathway","85/2342","389/15618",0.218508997429306,1.45716205032062,3.83502242489197,0.000166070812705849,0.00568458811493076,0.00476855182747427,"Rab7b/Ifi203/Traf3ip3/Tnfaip3/Icosl/Appl2/Irak3/Myo1g/Havcr2/Irgm2/Igtp/Cd79b/Cd300lf/Rsad2/Prkch/Btn2a2/Irf4/Syk/Tifab/Pik3r1/Lgals3/Lacc1/Nfam1/Nckap1l/Klhl6/Ezr/Trim15/Mog/Unc93b1/Slc15a3/Lpxn/Blnk/Pik3ap1/Fcna/Ifih1/Usp50/Sla2/Lbp/Ada/Tlr2/Alpk1/Tifa/Gbp5/Gbp2/Tlr4/Trim32/Themis2/Tlr1/Tlr6/Tec/Cmklr1/P2rx7/Lat2/Lrch4/Cav1/Tril/Ptpn6/Clec7a/Kcnj8/C5ar2/C5ar1/Kcnn4/Cd79a/Trim30a/Itgam/Fcer2a/Tlr3/Ddx60/Casp1/Nlrx1/Cd276/Tlr8/Tlr7/Tespa1/Lcp2/Nlrp3/Nlrp1b/Ticam1/Oas1c/Oas1b/Oas1a/Cd22/Irf7/Tlr9/Btk",85,"negative vs positive","negative","positive","Immune Response-Activating Signaling Pathway","Immune
+Response-Activating
+Signaling
+Pathway"
+"45","BP","GO:0002764","immune response-regulating signaling pathway","88/2342","406/15618",0.216748768472906,1.44542368318098,3.81945846676681,0.000172174761580737,0.00580911532859979,0.00487301224928602,"Rab7b/Ifi203/Traf3ip3/Tnfaip3/Icosl/Appl2/Irak3/Myo1g/Havcr2/Irgm2/Igtp/Cd79b/Cd300lf/Rsad2/Prkch/Btn2a2/Irf4/Syk/Tifab/Pik3r1/Lgals3/Lacc1/Nfam1/Nckap1l/Klhl6/Ezr/Trim15/Mog/Vav1/Unc93b1/Slc15a3/Lpxn/Blnk/Pik3ap1/Fcna/Ifih1/Usp50/Sla2/Lbp/Ada/Tlr2/Fcgr1/Alpk1/Tifa/Gbp5/Gbp2/Tlr4/Trim32/Themis2/Tlr1/Tlr6/Tec/Cmklr1/P2rx7/Lat2/Lrch4/Cav1/Tril/Ptpn6/Clec7a/Kcnj8/C5ar2/C5ar1/Kcnn4/Cd79a/Trim30a/Itgam/Fcer2a/Tlr3/Ddx60/Casp1/Nlrx1/Cd276/Tlr8/Tlr7/Tespa1/Lcp2/Nlrp3/Nlrp1b/Ticam1/Oas1c/Oas1b/Oas1a/Pirb/Cd22/Irf7/Tlr9/Btk",88,"negative vs positive","negative","positive","Immune Response-Regulating Signaling Pathway","Immune
+Response-Regulating
+Signaling
+Pathway"
+"46","BP","GO:0002819","regulation of adaptive immune response","45/2342","179/15618",0.251396648044693,1.67647858632024,3.82322285982045,0.000250401753842223,0.00773901556355128,0.00649192097339383,"Arid5a/Fzd5/Slc11a1/Pla2g4a/Fcgr2b/Dusp10/Tnfaip3/Arg1/Vsir/Havcr2/Tnfsf13/Foxj1/Rsad2/Tnfrsf13c/Nckap1l/Samsn1/Ager/Clcf1/Anxa1/Prkcq/Traf2/Dpp4/Ada/Fcgr1/Tnfrsf1b/P2rx7/Ptpn6/Cd4/Clec7a/Hpx/Pagr1a/Fcer2a/Il12rb1/Exosc6/Pdcd1/Il23a/Nlrp3/Il7r/H2-Q6/Il12a/Pf4/Gimap3/Irf7/Ccr2/Btk",45,"negative vs positive","negative","positive","Regulation Of Adaptive Immune Response","Regulation
+Of
+Adaptive
+Immune
+Response"
+"47","BP","GO:0002822","regulation of adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains","42/2342","163/15618",0.257668711656442,1.71830484143907,3.87192306923456,0.000224720206026603,0.0070381750974828,0.00590401662259998,"Arid5a/Fzd5/Slc11a1/Pla2g4a/Fcgr2b/Tnfaip3/Arg1/Vsir/Havcr2/Tnfsf13/Foxj1/Rsad2/Tnfrsf13c/Nckap1l/Ager/Clcf1/Anxa1/Prkcq/Traf2/Dpp4/Ada/Fcgr1/Tnfrsf1b/P2rx7/Ptpn6/Cd4/Clec7a/Hpx/Pagr1a/Fcer2a/Il12rb1/Exosc6/Pdcd1/Il23a/Nlrp3/Il7r/H2-Q6/Il12a/Pf4/Gimap3/Ccr2/Btk",42,"negative vs positive","negative","positive","Regulation Of Adaptive Immune Response Based On Somatic Recombination Of Immune Receptors Built From Immunoglobulin Superfamily Domains","Regulation
+Of
+Adaptive
+Immune
+Response
+Based On
+Somatic
+Recombination
+Of Immune
+Receptors
+Built From
+Immunoglobulin
+Superfamily
+Domains"
+"48","BP","GO:0002831","regulation of response to biotic stimulus","101/2342","455/15618",0.221978021978022,1.48029579301996,4.36697335508124,2.16447448541025e-05,0.00108261697507099,0.000908159931828639,"Casp8/Ikbke/Rab7b/Cd84/Ifi204/Ifi203/Dusp10/Traf3ip3/Tnfaip3/Arg1/Appl2/Irak3/Havcr2/Irgm2/Igtp/Cd300lf/Evpl/Rsad2/Irf4/Syk/Tifab/Cd180/Pik3r1/Lacc1/Parp14/Tap1/Trim15/Vav1/Unc93b1/Slc15a3/Pik3ap1/Fcna/Dpp4/Ifih1/Spi1/Usp50/Sirpa/Lbp/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Fgr/Pla2g5/Isg15/Fgl2/Emilin1/Tlr1/Tlr6/Gbp4/Ptpn11/P2rx7/Ncf1/Lrch4/Cav1/Tril/A2m/Ptpn6/Lag3/Clec7a/Kcnj8/Apoe/Cd37/Trim5/Trim12a/Trim30a/Hpx/Tspan32/Igf2/Tlr3/Ddx60/Il12rb1/Casp1/Nlrx1/Sin3a/Usp27x/Tlr8/Tlr7/Pdcd1/Slamf8/Il23a/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Il12a/Sfn/Oas1c/Oas1b/Oas1a/Gimap3/Trim21/Irf7/Il15/Tlr9/Ccr1/Btk",101,"negative vs positive","negative","positive","Regulation Of Response To Biotic Stimulus","Regulation
+Of
+Response
+To Biotic
+Stimulus"
+"49","BP","GO:0002833","positive regulation of response to biotic stimulus","75/2342","339/15618",0.221238938053097,1.47536709415597,3.71655126764571,0.00026393848736855,0.00800519816476315,0.00671520989139244,"Ikbke/Rab7b/Ifi204/Ifi203/Traf3ip3/Tnfaip3/Arg1/Appl2/Irak3/Havcr2/Irgm2/Igtp/Cd300lf/Rsad2/Irf4/Syk/Tifab/Cd180/Pik3r1/Lacc1/Trim15/Vav1/Unc93b1/Slc15a3/Pik3ap1/Fcna/Dpp4/Ifih1/Spi1/Usp50/Lbp/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Pla2g5/Emilin1/Tlr1/Tlr6/Ptpn11/P2rx7/Lrch4/Cav1/Tril/Lag3/Clec7a/Kcnj8/Trim5/Trim12a/Trim30a/Hpx/Tlr3/Ddx60/Casp1/Nlrx1/Sin3a/Usp27x/Tlr8/Tlr7/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Il12a/Oas1c/Oas1b/Oas1a/Gimap3/Irf7/Tlr9/Btk",75,"negative vs positive","negative","positive","Positive Regulation Of Response To Biotic Stimulus","Positive
+Regulation
+Of
+Response
+To Biotic
+Stimulus"
+"50","BP","GO:0002886","regulation of myeloid leukocyte mediated immunity","22/2342","57/15618",0.385964912280702,2.57386848847139,4.99972071504204,1.1412049004312e-05,0.00065071503422587,0.000545856322900987,"Cd84/Arg1/Itgb2/Adora2b/Crhr1/Unc13d/Syk/Rac2/Stxbp1/Spi1/Fcgr1/Adora3/Ptafr/Fgr/Nppa/Sphk2/Fes/Itgam/Il13ra2/Ticam1/Ccr2/Btk",22,"negative vs positive","negative","positive","Regulation Of Myeloid Leukocyte Mediated Immunity","Regulation
+Of Myeloid
+Leukocyte
+Mediated
+Immunity"
+"51","BP","GO:0003002","regionalization","86/2342","351/15618",0.245014245014245,1.63391651521455,5.04507237111461,1.60720015257653e-06,0.000169708430925767,0.000142360964781828,"Sox17/Fzd5/Hes6/Gli2/Tdrd5/Hey2/Gja1/Nodal/Gdf11/Hes7/Hnf1b/Hoxb2/Tcap/Ccdc103/Foxj1/Osr1/Hif1a/Asb2/Dnah11/Gli3/Foxc1/Ror2/Msx2/Fgfr4/Tifab/Ptch1/Foxd1/Bmp4/Otx2/Bmp1/Zic2/Dnah5/Acvrl1/Trp63/Mdfi/Daam2/Tgif1/Six3/Lrp5/Lbx1/Ldb1/Lhx3/Eng/Crb2/Hoxd3/Neurod1/Alx4/Dll4/Nkx2-2/Aurka/Bhlhe22/Notch2/Wls/Stil/Heyl/Hes3/Hes5/Msx1/Tbx3/Lfng/Smo/Tcf7l1/Nat8f5/Wnt7a/Folr1/Mical2/Palb2/Tbx6/Itgam/Fgfr2/Ifitm1/Sox1/Hhip/Adgrg1/Cdon/Smad3/Aldh1a2/Tbx18/Otx1/Tbx2/Meox1/Six1/Emx2/Foxc2/Smad6/Foxb1",86,"negative vs positive","negative","positive","Regionalization","Regionalization"
+"52","BP","GO:0003007","heart morphogenesis","61/2342","256/15618",0.23828125,1.58901646562767,3.99100403011641,0.000117734875329195,0.00434481805739277,0.00364467744517948,"Sox17/Fhl2/Tnni1/Tnnt2/Prox1/Adgrg6/Hey2/Gja1/Nodal/Tcap/Fzd2/Ccdc103/Id2/Hif1a/Asb2/Dnah11/Foxc1/Msx2/Ptch1/Synpo2l/Zmiz1/Bmp4/Myh6/Zfpm2/Acvrl1/Emp2/Snai2/Adamts1/Vegfa/Nfatc1/Lbx1/Eng/Mybpc3/Dll4/Npy2r/Efna1/Gja5/Notch2/Tek/Stil/Heyl/Msx1/Tbx3/Myl2/Smo/Plxnd1/Kcnj8/Abcc9/Tead2/Folr1/Mical2/Fgfr2/Yap1/Epor/Smad3/Aldh1a2/Bmp5/Tbx2/Six1/Foxc2/Smad6",61,"negative vs positive","negative","positive","Heart Morphogenesis","Heart
+Morphogenesis"
+"53","BP","GO:0006691","leukotriene metabolic process","11/2342","20/15618",0.55,3.66776259607173,5.01402329815983,3.79617179987293e-05,0.00165603952998776,0.00138917898138499,"Pla2g4a/Alox12/Syk/Cyp4f15/Cyp4f14/Tlr2/Ptgr1/Tlr4/Pla2g5/Ncf1/Alox5",11,"negative vs positive","negative","positive","Leukotriene Metabolic Process","Leukotriene
+Metabolic
+Process"
+"54","BP","GO:0006909","phagocytosis","47/2342","191/15618",0.246073298429319,1.64097898158374,3.74350451500632,0.000313802564446731,0.00873321006000497,0.00732590716325991,"Slc11a1/Rab7b/Ncf2/Fcgr2b/Itgb2/Cnn2/Appl2/Myo1g/Dock2/Rara/Cd300lf/Unc13d/Syk/Slc48a1/Nckap1l/Ager/Vav1/Anxa1/Gsn/Itgav/Mertk/Sirpa/Hck/Lbp/Elmo2/Tlr2/Fcgr1/Tlr4/Fgr/Pla2g5/Spon2/P2rx7/Clec7a/Siglece/P2ry6/Itgam/Dock1/Fcer2a/Nfix/Elmo3/Irf8/Srpx/Il2rb/Itgal/Il15/Ccr2/Btk",47,"negative vs positive","negative","positive","Phagocytosis","Phagocytosis"
+"55","BP","GO:0006935","chemotaxis","87/2342","354/15618",0.245762711864407,1.63890778560987,5.10698122656009,1.22290832266541e-06,0.00013409660107381,0.000112487761501854,"Gpr35/Slamf9/Itgb2/Dock2/Ccl7/Ccl9/Ccl4/Ccl6/Pik3cg/Dock4/Rin3/Agtr1a/Nedd9/Syk/Bmp4/Lgals3/Cmtm5/Ptk2b/Enpp2/Rac2/Nckap1l/Snai2/Gpsm3/Ager/Vegfa/Vav1/Ecscr/Csf1r/Anxa1/Ch25h/Prkcq/Eng/Tnfaip6/Dpp4/Itgav/Spi1/Mdk/Fgf7/Lbp/Elmo2/Prex1/Edn3/Vcam1/Ptgr1/Ptafr/Padi2/Epha2/Hgf/Pdgfra/Cxcl10/Cmklr1/Slc8b1/Hspb1/Il17rc/Alox5/Ntf3/C5ar2/C5ar1/Fes/Swap70/Itgam/Lsp1/Mtus1/Jam3/Smad3/Dapk2/Adam10/Ackr4/Sema3b/Ccrl2/Itga9/Ccr9/Ccr5/Cxcr6/Plxnb3/Cysltr1/Amot/Sell/Slamf8/Il23a/Lox/Agtr1b/Il12a/S100a7a/Pf4/Ccr1/Ccr2",87,"negative vs positive","negative","positive","Chemotaxis","Chemotaxis"
+"56","BP","GO:0006959","humoral immune response","34/2342","123/15618",0.276422764227642,1.84336922788528,3.94396584160992,0.000209931866630861,0.00664718340698899,0.00557603082969189,"Fcgr2b/Ccl7/Ccl9/Wfdc17/Ccl4/Wfdc18/Ccl6/Evpl/Foxj1/Lgals3/Ang/Cfb/Tslp/Fcna/Slpi/Wfdc3/Notch2/Ifnk/Spon2/Cxcl10/Alox5/A2m/C1s1/Ptpn6/Pglyrp1/Cd37/Hpx/Adm/Fcer2a/Trf/Rnase6/Pf4/Gimap3/Ccr2",34,"negative vs positive","negative","positive","Humoral Immune Response","Humoral
+Immune
+Response"
+"57","BP","GO:0007159","leukocyte cell-cell adhesion","84/2342","338/15618",0.248520710059172,1.65729993582585,5.13119939699036,1.14503211389108e-06,0.000128019080655038,0.000107389595985987,"Sox13/F11r/Dusp10/Arg1/Vsir/Itgb2/Icosl/Stk10/Havcr2/Rara/Slc4a1/Foxj1/Gli3/Btn2a2/Syk/Zmiz1/Bmp4/Lgals3/Rac2/Tnfrsf13c/Ppara/Nckap1l/Runx1/Ezr/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Capn1/Gcnt1/Anxa1/Dock8/Prkcq/Dpp4/Mdk/Rag2/Il1a/Sirpa/Ada/Sdc4/Tnfaip8l2/Vcam1/Ptafr/Pla2g5/Fgl2/Slc4a2/Rhoh/Hspb1/Cav1/Alox5/Ptpn6/Cd4/Lag3/Cd37/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Fut4/Icam1/Ets1/Cd276/Il1rl2/Pdcd1/Sell/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Lrg1/Cd5/Il12a/Pf4/Gimap3/Itgal/Cd209c/Il15/Ccr2",84,"negative vs positive","negative","positive","Leukocyte Cell-Cell Adhesion","Leukocyte
+Cell-Cell
+Adhesion"
+"58","BP","GO:0007162","negative regulation of cell adhesion","68/2342","263/15618",0.258555133079848,1.72421608387748,4.97484733805819,2.74092329010444e-06,0.000233264844778739,0.000195675654834793,"Myoc/Tnfaip3/Arg1/Vsir/Erbb3/Havcr2/Alox12/B4galnt2/Foxj1/Gli3/Btn2a2/Spock1/Pik3r1/Fam107a/Bmp4/Lgals3/Mmp14/Enpp2/Ppara/Plxnb2/Acvrl1/Snai2/Apod/Runx1/H2-Aa/Ager/Vegfa/Cyp1b1/Mbp/Lpxn/Anxa1/Spi1/Mdk/Rag2/Sdc4/Tnfaip8l2/Tnc/Dab1/Hspg2/Pla2g5/Fgl2/Slc4a2/Ptpn11/Hspb1/Nat8f5/Nat8/Plxnd1/Ptpn6/Lag3/Cd9/Cd37/Lrrc32/Swap70/Tspan32/Jam3/Dscaml1/Cd276/Adam10/Plxnb1/Plxnb3/Pdcd1/Zc3h12d/Notch4/Postn/Akna/Pf4/Gimap3/Acp5",68,"negative vs positive","negative","positive","Negative Regulation Of Cell Adhesion","Negative
+Regulation
+Of Cell
+Adhesion"
+"59","BP","GO:0007229","integrin-mediated signaling pathway","30/2342","94/15618",0.319148936170213,2.12829551029308,4.60833028966446,2.72878482583376e-05,0.00127241377552365,0.00106737214938054,"Col3a1/Itgb2/Itga7/Itgb4/Fut8/Nid1/Syk/Ptk2b/Diaph3/Emp2/Itgb5/Vav1/Lama1/Ctnna1/Itgav/Slc2a10/Plpp3/Phactr4/Fgr/Isg15/Tec/Ptpn11/Itgam/Tspan32/Lamb2/Itga9/Timp1/Itgb6/Itgal/Itga11",30,"negative vs positive","negative","positive","Integrin-Mediated Signaling Pathway","Integrin-Mediated
+Signaling
+Pathway"
+"60","BP","GO:0007249","canonical NF-kappaB signal transduction","57/2342","243/15618",0.234567901234568,1.56425340797672,3.7233031180649,0.000298596650444034,0.00855576935091398,0.00717705992921286,"Casp8/Ikbke/Traf5/Tnfaip3/Edar/Irak3/Fbxw11/Irgm2/Igtp/Map3k14/Tifab/Ajuba/Card6/Irak4/Mas1/Jmjd8/Ltb/Unc5cl/Traf2/Traf1/Capn3/Il1a/Sirpa/Rassf2/Tnfsf10/Trim59/Tlr2/S100a13/Otud7b/Alpk1/Tifa/Gbp7/Tlr4/Trim32/Tlr6/Rhoh/Hspb1/Cav1/Erc1/Cd4/Tnfrsf1a/Clec7a/Nup62/Sphk2/Trim5/Trim12a/Trim30a/Gprc5b/Tlr3/Casp1/Nlrx1/Rora/Tlr8/Tlr7/Ticam1/Tlr9/Eda",57,"negative vs positive","negative","positive","Canonical Nf-Kappab Signal Transduction","Canonical
+Nf-Kappab
+Signal
+Transduction"
+"61","BP","GO:0007272","ensheathment of neurons","45/2342","177/15618",0.254237288135593,1.69542184718262,3.90801192786133,0.000190582134480401,0.00620971046175569,0.00520905394934702,"Cntn2/Myoc/Kcnj10/Adgrg6/Erbb3/Tmem98/Rara/Cntnap1/Itgb4/Mir338/Id4/Ntrk2/Serinc5/Zfp488/Sox10/Srebf2/Olig2/Sh3tc2/Mbp/Abca2/Mall/Mal/B4galt5/Cldn11/Tlr2/Tspan2/Pou3f1/Tnfrsf1b/Hes5/Hgf/Fgfr3/Ntf3/Cd9/Ercc2/Mag/Lgi4/Cyfip1/Nkx6-2/Pllp/Fa2h/Jam3/Trf/Mobp/Plp1/Gpm6b",45,"negative vs positive","negative","positive","Ensheathment Of Neurons","Ensheathment
+Of Neurons"
+"62","BP","GO:0007389","pattern specification process","92/2342","389/15618",0.236503856041131,1.57716363093526,4.84168680649772,3.51135493630789e-06,0.000270564133065238,0.000226964393038166,"Sox17/Fzd5/Wnt6/Hes6/Gli2/Tdrd5/Hey2/Gja1/Nodal/Gdf11/Meis1/Hes7/Hnf1b/Hoxb2/Tcap/Ccdc103/Foxj1/Osr1/Hif1a/Asb2/Dnah11/Gli3/Foxc1/Ror2/Msx2/Fgfr4/Tifab/Ptch1/Foxd1/Fst/Bmp4/Otx2/Bmp1/Zic2/Dnah5/Mfng/Acvrl1/Trp63/Mdfi/Daam2/Tgif1/Six3/Lrp5/Lbx1/Ldb1/Lhx3/Eng/Crb2/Hoxd3/Neurod1/Alx4/Dll4/Nkx2-2/Aurka/Bhlhe22/Notch2/Wls/Stil/Heyl/Hes3/Hes5/Msx1/Tbx3/Lfng/Smo/Tcf7l1/Nat8f5/Wnt7a/Folr1/Mical2/Palb2/Tbx6/Itgam/Fgfr2/Ifitm1/Sox1/Hhip/Adgrg1/Cdon/Smad3/Aldh1a2/Bmp5/Tbx18/Otx1/Tbx2/Meox1/Six1/Emx2/Grhl3/Foxc2/Smad6/Foxb1",92,"negative vs positive","negative","positive","Pattern Specification Process","Pattern
+Specification
+Process"
+"63","BP","GO:0007405","neuroblast proliferation","24/2342","78/15618",0.307692307692308,2.05189515864153,3.91158596361642,0.000312630422189495,0.00873321006000497,0.00732590716325991,"Prox1/Hif1a/Gli3/Id4/Dct/Sox10/Plxnb2/Nde1/Tead3/Vegfa/Six3/Ctnna1/Skor2/Fgfr3/Smo/Kcna1/Wdr62/Fgfr2/Hhip/Nfix/Cdon/Aspm/Kctd11/Akna",24,"negative vs positive","negative","positive","Neuroblast Proliferation","Neuroblast
+Proliferation"
+"64","BP","GO:0008015","blood circulation","107/2342","476/15618",0.224789915966387,1.49904735591931,4.64421421064614,6.95275704959386e-06,0.000426286244051443,0.000357592847010238,"Myl1/Kcne4/Adora1/Tnni1/Tnnt2/Ncf2/F11r/Atp1a2/Hey2/Gja1/Ctnna3/Tbxa2r/Tac2/Egfr/Kcnmb1/Adora2b/Ccl4/Tcap/Id2/Dock4/Hif1a/Bdkrb2/Agtr1a/Foxc1/Hrh2/Tmem161b/Ocln/Pik3r1/Vstm4/Gch1/Myh6/Dock5/Ppara/Adm2/Acvrl1/Emp2/Popdc2/Drd3/Kcne2/Mas1/Cbs/Ager/Vegfa/Epas1/Lrp5/Capn1/Dusp5/Eng/Gsn/Mybpc3/Adra2b/Myh7b/Ada/Edn3/Gja5/Atp1a1/Enpep/Ank2/Cnr1/Svep1/Ptafr/Nppa/Emilin1/Ucn/Sod3/Corin/Myl2/Gper1/Gna12/Cav1/Kcnd2/Slc4a5/Alox5/Scnn1a/Kcnj8/Abcc9/Gpr4/Apoe/Kcnn4/Chrna7/Anpep/P2ry2/Adm/Scnn1b/Scnn1g/Atp2a1/Klf2/Cdh5/Icam1/Kcnj5/Smad3/Htr1b/Tbx18/Gpd1l/Itga9/Cysltr1/Amot/Ace2/F5/Tbx2/Aoc3/Ntsr1/Agtr1b/Postn/Crhr2/Foxc2/Smad6",107,"negative vs positive","negative","positive","Blood Circulation","Blood
+Circulation"
+"65","BP","GO:0008217","regulation of blood pressure","50/2342","188/15618",0.265957446808511,1.7735795919109,4.48187349686836,2.45158199757272e-05,0.00118758844318849,0.000996215895779598,"Adora1/Ncf2/F11r/Atp1a2/Gja1/Tbxa2r/Tac2/Id2/Bdkrb2/Agtr1a/Pik3r1/Gch1/Myh6/Ppara/Adm2/Acvrl1/Emp2/Drd3/Mas1/Lrp5/Eng/Adra2b/Edn3/Gja5/Atp1a1/Enpep/Cnr1/Ptafr/Nppa/Emilin1/Ucn/Corin/Gna12/Slc4a5/Scnn1a/Kcnj8/Abcc9/Kcnn4/Chrna7/Anpep/Adm/Scnn1b/Scnn1g/Smad3/Ace2/Aoc3/Ntsr1/Agtr1b/Postn/Crhr2",50,"negative vs positive","negative","positive","Regulation Of Blood Pressure","Regulation
+Of Blood
+Pressure"
+"66","BP","GO:0008366","axon ensheathment","45/2342","177/15618",0.254237288135593,1.69542184718262,3.90801192786133,0.000190582134480401,0.00620971046175569,0.00520905394934702,"Cntn2/Myoc/Kcnj10/Adgrg6/Erbb3/Tmem98/Rara/Cntnap1/Itgb4/Mir338/Id4/Ntrk2/Serinc5/Zfp488/Sox10/Srebf2/Olig2/Sh3tc2/Mbp/Abca2/Mall/Mal/B4galt5/Cldn11/Tlr2/Tspan2/Pou3f1/Tnfrsf1b/Hes5/Hgf/Fgfr3/Ntf3/Cd9/Ercc2/Mag/Lgi4/Cyfip1/Nkx6-2/Pllp/Fa2h/Jam3/Trf/Mobp/Plp1/Gpm6b",45,"negative vs positive","negative","positive","Axon Ensheathment","Axon
+Ensheathment"
+"67","BP","GO:0009595","detection of biotic stimulus","14/2342","28/15618",0.5,3.33432963279248,5.19250316448555,1.3973265584458e-05,0.000751656229835658,0.000630531467882595,"Itgav/Lbp/Tlr2/Tlr4/Tlr1/Tlr6/Smo/Clec7a/Pglyrp1/Srpx/Nlrp3/Naip5/Nlrc4/Tlr9",14,"negative vs positive","negative","positive","Detection Of Biotic Stimulus","Detection
+Of Biotic
+Stimulus"
+"68","BP","GO:0009611","response to wounding","122/2342","490/15618",0.248979591836735,1.6603600620436,6.23801924695538,4.00349415385426e-09,2.85349045815962e-06,2.3936680835676e-06,"Dst/Col3a1/Cflar/Slc11a1/Vil1/Pla2g4a/Angptl1/F11r/Hmga2-ps1/Tnfaip3/Mrln/Cnn2/Tbxa2r/Tspan8/Alox12/Scarf1/Fkbp10/Slc4a1/Grin2c/Itgb4/Evpl/Mir338/Hif1a/Fntb/Max/Zfp36l1/F13a1/Syk/Msx2/Ajuba/Extl3/Slc1a3/Ppara/Acvrl1/Snai2/Serpind1/Cldn1/Apod/Itgb5/Vegfa/Nrep/Ctnna1/Nfatc1/Neat1/Anxa1/Myof/Hps6/Prkcq/Eng/Stxbp1/Itgav/Mdk/Slc1a2/Adra2b/Mertk/Il1a/Procr/Matn4/Sdc4/Aurka/Il6ra/Cers2/Notch2/Rhoc/6330407A03Rik/Svep1/Tnc/Tlr4/Nfib/Plpp3/Pdpn/Fgl2/Emilin1/Fgfr3/Tec/Pdgfra/Cav1/Wnt7a/Alox5/Adipor2/Ptpn6/Vwf/Cd9/Tspan9/Clec7a/Gipr/Gpr4/Apoe/Plaur/Cadm4/Zfp36/Mag/Abhd2/Tsku/Folr1/Scnn1b/Scnn1g/Tspan32/Proz/Plat/Tlr3/Nfix/Wfdc1/Yap1/Smad3/Cd109/Lamb2/Ndp/Timp1/F8/2810403D21Rik/F5/Clec10a/Apoh/F12/Mir17hg/Lrg1/Itgb6/Grhl3/Pf4/Foxc2/Ccr2",122,"negative vs positive","negative","positive","Response To Wounding","Response
+To
+Wounding"
+"69","BP","GO:0009952","anterior/posterior pattern specification","49/2342","177/15618",0.27683615819209,1.84612601137663,4.7549132347941,9.18375636282882e-06,0.000551218724008947,0.00046239322894952,"Sox17/Fzd5/Hes6/Gli2/Tdrd5/Hey2/Nodal/Gdf11/Hes7/Hnf1b/Hoxb2/Tcap/Osr1/Gli3/Foxc1/Ror2/Msx2/Tifab/Bmp4/Otx2/Six3/Lrp5/Ldb1/Crb2/Hoxd3/Neurod1/Alx4/Aurka/Wls/Heyl/Hes3/Hes5/Msx1/Tbx3/Lfng/Smo/Tcf7l1/Palb2/Tbx6/Ifitm1/Cdon/Smad3/Aldh1a2/Tbx18/Otx1/Meox1/Emx2/Foxc2/Foxb1",49,"negative vs positive","negative","positive","Anterior/Posterior Pattern Specification","Anterior/Posterior
+Pattern
+Specification"
+"70","BP","GO:0010001","glial cell differentiation","70/2342","277/15618",0.252707581227437,1.68522075303591,4.8328374268008,4.69782164708827e-06,0.000334837237896216,0.000280880283741699,"Slc45a3/Cntn2/Sox13/Crb1/Myoc/Kcnj10/Dusp10/Adgrg6/Erbb3/Egfr/Tmem98/Cntnap1/Itgb4/Id2/Gli3/Id4/Ror2/Ntrk2/Zfp488/Bmp4/Otx2/Enpp2/Sox10/Drd3/Olig2/Ager/Daam2/Gpr17/Csf1r/Sh3tc2/Clcf1/Pfkfb3/Vim/Abca2/Mdk/Mal/Nkx2-2/Nkx2-2os/B4galt5/Tlr2/Tspan2/Tlr4/Nfib/Dab1/Plpp3/Pou3f1/Tnfrsf1b/Trp73/Hes5/Fgfr3/Prdm8/Ptpn11/Smo/Ntf3/C5ar1/Ercc2/Mag/Lgi4/Sox6/Itgam/Nkx6-2/Sox1/Nfix/Fa2h/Lamb2/Mobp/Ndp/Plp1/Gpm6b/Spint1",70,"negative vs positive","negative","positive","Glial Cell Differentiation","Glial Cell
+Differentiation"
+"71","BP","GO:0010837","regulation of keratinocyte proliferation","17/2342","40/15618",0.425,2.83418018787361,4.87837040793065,2.58126998209514e-05,0.00123063164298033,0.00103232294960265,"Zfp36l1/Bcl11b/Ptch1/Extl3/Snai2/Trp63/Nfatc1/Mdk/Fgf7/Notch2/Zfp36/Fgfr2/Cdh3/Yap1/Cd109/Lrg1/Sfn",17,"negative vs positive","negative","positive","Regulation Of Keratinocyte Proliferation","Regulation
+Of
+Keratinocyte
+Proliferation"
+"72","BP","GO:0010838","positive regulation of keratinocyte proliferation","7/2342","11/15618",0.636363636363636,4.24369225991771,4.5199632166134,0.000319290925468672,0.00875286950491522,0.00734239860996784,"Extl3/Trp63/Mdk/Fgf7/Notch2/Cdh3/Lrg1",7,"negative vs positive","negative","positive","Positive Regulation Of Keratinocyte Proliferation","Positive
+Regulation
+Of
+Keratinocyte
+Proliferation"
+"73","BP","GO:0014003","oligodendrocyte development","22/2342","58/15618",0.379310344827586,2.52949144556671,4.90134057994614,1.58008860685584e-05,0.000826574792320366,0.000693377366446445,"Cntn2/Kcnj10/Cntnap1/Id2/Id4/Zfp488/Sox10/Abca2/Mal/Nkx2-2/B4galt5/Tlr2/Hes5/Fgfr3/Prdm8/Ercc2/Mag/Nkx6-2/Fa2h/Mobp/Plp1/Gpm6b",22,"negative vs positive","negative","positive","Oligodendrocyte Development","Oligodendrocyte
+Development"
+"74","BP","GO:0014013","regulation of gliogenesis","38/2342","130/15618",0.292307692307692,1.94930040070945,4.56495287958955,2.40975819441221e-05,0.00118758844318849,0.000996215895779598,"Dusp10/Egfr/Tmem98/Id2/Prkch/Id4/Zcchc24/Zfp488/Bmp4/Cysltr2/Enpp2/Sox10/Drd3/Olig2/Daam2/Csf1r/Clcf1/Fas/Vim/Mdk/Nkx2-2/Nkx2-2os/E2f1/Tlr2/Cers2/Cdkn2b/Dab1/Tnfrsf1b/Mfn2/Trp73/Hes5/Fgfr3/Ntf3/Mag/Nkx6-2/Trf/Cysltr1/Spint1",38,"negative vs positive","negative","positive","Regulation Of Gliogenesis","Regulation
+Of
+Gliogenesis"
+"75","BP","GO:0014888","striated muscle adaptation","18/2342","49/15618",0.36734693877551,2.44971156694958,4.26882069568124,0.000149013023318283,0.00527746744696178,0.00442703614225744,"Cflar/Igfbp5/Tnni1/Myoc/Hey2/Tcap/Asb2/Cmya5/Bmp4/Myh6/Nfatc1/Gsn/Foxo1/Nppa/Tnnt1/Smad3/Mlip/Cacna1s",18,"negative vs positive","negative","positive","Striated Muscle Adaptation","Striated
+Muscle
+Adaptation"
+"76","BP","GO:0015711","organic anion transport","90/2342","375/15618",0.24,1.60047822374039,4.94352005204347,2.35091089472259e-06,0.000219752359372266,0.000184340623047791,"Slc11a1/Tnfrsf11a/Adora1/Pla2g4a/Kcnj10/Arg1/Slc16a10/Gja1/Slc16a9/Slc5a8/Slc47a1/Slc2a4/Slc13a5/Car4/Slc4a1/Ttyh2/Slc25a19/Slc25a10/Slc16a3/Slc25a21/Bdkrb2/Syk/Hrh2/Ntrk2/Slc35d2/Slc1a3/Cpt1b/Drd3/Slc22a3/Nfkbie/Slc25a2/Atp8b1/Slc22a8/Slc22a6/Anxa1/Apba1/Slc16a12/Calhm2/Ptges/Stxbp1/Pla2r1/Slc1a2/Il1a/Slc4a11/Slc52a3/Slc2a10/Gnat2/Slc26a7/Mfsd2a/Pla2g5/Slc4a2/Mfsd10/Slc2a9/Slc4a4/Hnf1a/P2rx7/Slc4a5/Trh/Slc6a1/Slc25a18/Slc6a13/Slco1a4/Kcnj8/Apoe/Ceacam2/Slc17a7/Ucp2/P2ry2/Folr1/Slc25a22/Slc22a18/Ces1d/Kcnk1/Aqp9/Htr1b/Rbp1/Slco2a1/Slc38a3/Slc6a20b/Slc6a20a/Slc38a5/Ace2/Llgl2/Slc25a47/Slc22a12/Ntsr1/Slc17a9/Crabp2/Abcg3/Drd4",90,"negative vs positive","negative","positive","Organic Anion Transport","Organic
+Anion
+Transport"
+"77","BP","GO:0015718","monocarboxylic acid transport","38/2342","138/15618",0.27536231884058,1.83629747892919,4.14451276179622,0.000100427354613854,0.00381757850672131,0.00320239929379195,"Tnfrsf11a/Pla2g4a/Slc16a9/Slc5a8/Slc16a3/Bdkrb2/Syk/Hrh2/Cpt1b/Drd3/Slc22a3/Atp8b1/Slc22a8/Slc22a6/Anxa1/Slc16a12/Ptges/Pla2r1/Il1a/Slc26a7/Mfsd2a/Pla2g5/Hnf1a/P2rx7/Slc6a13/Slco1a4/Kcnj8/Apoe/Ceacam2/Ucp2/P2ry2/Ces1d/Aqp9/Rbp1/Slco2a1/Ntsr1/Crabp2/Drd4",38,"negative vs positive","negative","positive","Monocarboxylic Acid Transport","Monocarboxylic
+Acid
+Transport"
+"78","BP","GO:0015849","organic acid transport","71/2342","305/15618",0.232786885245902,1.55237641920175,4.09179189209418,7.51773879309124e-05,0.00295628597229008,0.00247989873508578,"Slc11a1/Tnfrsf11a/Adora1/Pla2g4a/Kcnj10/Arg1/Slc16a10/Gja1/Slc16a9/Slc5a8/Slc47a1/Slc13a5/Ttyh2/Slc25a10/Slc16a3/Slc25a21/Bdkrb2/Syk/Hrh2/Ntrk2/Slc1a3/Cpt1b/Drd3/Slc22a3/Nfkbie/Slc25a2/Atp8b1/Slc22a8/Slc22a6/Anxa1/Apba1/Slc16a12/Ptges/Stxbp1/Pla2r1/Slc1a2/Il1a/Gnat2/Slc26a7/Mfsd2a/Pla2g5/Hnf1a/P2rx7/Trh/Slc6a1/Slc25a18/Slc6a13/Slco1a4/Kcnj8/Apoe/Ceacam2/Slc17a7/Ucp2/P2ry2/Folr1/Slc25a22/Ces1d/Kcnk1/Aqp9/Htr1b/Rbp1/Slco2a1/Slc38a3/Slc6a20b/Slc6a20a/Slc38a5/Ace2/Llgl2/Ntsr1/Crabp2/Drd4",71,"negative vs positive","negative","positive","Organic Acid Transport","Organic
+Acid
+Transport"
+"79","BP","GO:0015850","organic hydroxy compound transport","21/418","254/15618",0.0826771653543307,3.08911954187545,5.56664021391712,4.98750338398904e-06,0.00594510403371494,0.00557550378294354,"Oprk1/Slc19a2/Commd1/Abca5/Dtnbp1/Slc18a3/Sncg/Htr2a/Syt4/Gal/Slc18a2/Crh/Rab3b/Cd36/Slc10a4/Spp1/Nucb2/Nrg1/Slc6a2/Apoa1/Agtr2",21,"positive vs negative","positive","negative","Organic Hydroxy Compound Transport","Organic
+Hydroxy
+Compound
+Transport"
+"80","BP","GO:0019221","cytokine-mediated signaling pathway","107/2342","415/15618",0.257831325301205,1.71938925642793,6.23852582029257,4.91156174449968e-09,3.11174722968191e-06,2.61030837041012e-06,"St18/Gpr35/Tnfrsf11a/Ikbke/Traf5/Arg1/Edar/Appl2/Irak3/Egfr/Vrk2/Flt4/Irgm2/Igtp/Ccl7/Ccl9/Ccl4/Ccl6/Cd300lf/Hif1a/Foxc1/Syk/Ror2/Fgfr4/Ntrk2/Pik3r1/Ptk2b/Osmr/Csf2rb/Tnfrsf13c/Irak4/Parp14/Hcls1/Tslp/Iigp1/Csf1r/Traf2/Traf1/Ifih1/Spi1/Mertk/Il1a/Birc7/Il6ra/Tifa/Ifnk/Cntfr/Musk/Trim32/Tek/Epha8/Padi2/Epha2/Tnfrsf1b/Isg15/Tnfrsf4/Fgfr3/Pdgfra/Cxcl10/Cav1/Irf5/Il17rc/Adipor2/Ptpn6/Cd4/Tnfrsf1a/Il11/Hpx/Il21r/Fgfr2/Ifitm2/Ifitm1/Crlf1/Il12rb1/Casp1/Yap1/Epor/Il10ra/Sin3a/Ackr4/Ccrl2/Ccr9/Ccr5/Cxcr6/Usp27x/Il13ra2/Il1rl2/Socs3/Naip5/Il31ra/Il7r/Il2rb/Il12a/Tie1/Pf4/Oas1c/Oas1b/Oas1a/Dok1/Pirb/Cebpa/Sigirr/Irf7/Il15/Ccr1/Ccr2/Eda",107,"negative vs positive","negative","positive","Cytokine-Mediated Signaling Pathway","Cytokine-Mediated
+Signaling
+Pathway"
+"81","BP","GO:0021782","glial cell development","43/2342","142/15618",0.302816901408451,2.0193827353532,5.12519878191247,2.65034771371698e-06,0.000231765212071425,0.000194417678682006,"Cntn2/Myoc/Kcnj10/Adgrg6/Erbb3/Egfr/Cntnap1/Itgb4/Id2/Id4/Ror2/Ntrk2/Zfp488/Sox10/Ager/Csf1r/Sh3tc2/Vim/Abca2/Mdk/Mal/Nkx2-2/B4galt5/Tlr2/Tspan2/Tlr4/Pou3f1/Hes5/Fgfr3/Prdm8/Smo/C5ar1/Ercc2/Mag/Lgi4/Itgam/Nkx6-2/Nfix/Fa2h/Lamb2/Mobp/Plp1/Gpm6b",43,"negative vs positive","negative","positive","Glial Cell Development","Glial Cell
+Development"
+"82","BP","GO:0022010","central nervous system myelination","18/2342","34/15618",0.529411764705882,3.53046667001557,6.20382071776585,2.70904592846044e-07,4.41342282402326e-05,3.70222697712007e-05,"Cntn2/Kcnj10/Cntnap1/Id4/Sox10/Abca2/Mal/B4galt5/Tlr2/Hes5/Fgfr3/Ercc2/Mag/Nkx6-2/Fa2h/Mobp/Plp1/Gpm6b",18,"negative vs positive","negative","positive","Central Nervous System Myelination","Central
+Nervous
+System
+Myelination"
+"83","BP","GO:0022407","regulation of cell-cell adhesion","101/2342","418/15618",0.241626794258373,1.61132676034469,5.32106277674257,4.11392760384193e-07,5.70879045987678e-05,4.78885411391757e-05,"Sox13/F11r/Kif26b/Dusp10/Tnfaip3/Arg1/Vsir/Nodal/Itgb2/Icosl/Havcr2/Alox12/B4galnt2/Rara/Slc4a1/Foxj1/Gli3/Btn2a2/Syk/Pik3r1/Zmiz1/Bmp4/Lgals3/Tnfrsf13c/Ppara/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vegfa/Vav1/Mbp/Capn1/Gcnt1/Anxa1/Dock8/Prkcq/Dpp4/Spi1/Mdk/Rag2/Il1a/Sirpa/Ada/Sdc4/Il6ra/Tnfaip8l2/Vcam1/Plpp3/Ptafr/Pla2g5/Pdpn/Fgl2/Slc4a2/Emilin1/Rhoh/Hspb1/Cav1/Alox5/Ptpn6/Cd4/Lag3/Cd9/Plaur/Ceacam2/Cd37/Lrrc32/Swap70/Tspan32/Igf2/Il12rb1/Piezo1/Fut4/Icam1/Ets1/Cd276/Tbx18/Ccr5/Il1rl2/Pdcd1/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Notch4/Cd5/Il12a/Akna/Sfn/Pf4/Gimap3/Itgal/Cd209c/Il15/Ccr2",101,"negative vs positive","negative","positive","Regulation Of Cell-Cell Adhesion","Regulation
+Of
+Cell-Cell
+Adhesion"
+"84","BP","GO:0022409","positive regulation of cell-cell adhesion","69/2342","269/15618",0.256505576208178,1.71054828745488,4.9372864266591,3.13991950775097e-06,0.000246829093800918,0.000207054108850334,"Sox13/F11r/Kif26b/Dusp10/Vsir/Nodal/Itgb2/Icosl/Havcr2/Rara/Slc4a1/Gli3/Btn2a2/Syk/Zmiz1/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Capn1/Gcnt1/Anxa1/Dock8/Prkcq/Dpp4/Mdk/Il1a/Sirpa/Ada/Il6ra/Vcam1/Plpp3/Ptafr/Pdpn/Emilin1/Rhoh/Cav1/Alox5/Cd4/Plaur/Ceacam2/Igf2/Il12rb1/Piezo1/Fut4/Icam1/Ets1/Cd276/Tbx18/Ccr5/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Gimap3/Itgal/Cd209c/Il15/Ccr2",69,"negative vs positive","negative","positive","Positive Regulation Of Cell-Cell Adhesion","Positive
+Regulation
+Of
+Cell-Cell
+Adhesion"
+"85","BP","GO:0030098","lymphocyte differentiation","83/2342","378/15618",0.21957671957672,1.46428232551204,3.83790478565663,0.000166450669651377,0.00568458811493076,0.00476855182747427,"Fzd5/Inpp5d/Sox13/Ly9/Dusp10/Tnfaip3/Prdm1/Vsir/Dock2/Tcf7/Igtp/Tmem98/Rara/Cd79b/Foxj1/Rsad2/Id2/Zfp36l1/Bcl11b/Gli3/Btn2a2/Irf4/Syk/Pik3r1/Zmiz1/Bmp4/Mmp14/Ptk2b/Ly6d/Mfng/Nfam1/Nckap1l/Runx1/H2-Oa/H2-Aa/Vav1/Fzd8/Nfatc1/Clcf1/Anxa1/Fas/Dpp4/Spi1/Mdk/Rag2/Dll4/Mertk/Il1a/Ada/Prex1/Il6ra/Notch2/Fgl2/Slc4a2/Rhoh/Hspb1/Lfng/Gimap1/Fancd2/Ptpn6/Cd4/Lag3/Pglyrp1/Cd79a/Lyl1/Irf8/Mpzl2/Rora/Ccr9/Il1rl2/Slamf8/Il23a/Tespa1/Nlrp3/Il7r/Il12a/Pf4/Gimap3/Il15/Cd3g/Tlr9/Ccr2/Btk",83,"negative vs positive","negative","positive","Lymphocyte Differentiation","Lymphocyte
+Differentiation"
+"86","BP","GO:0030198","extracellular matrix organization","72/2342","286/15618",0.251748251748252,1.6788233116158,4.86630122144578,3.99809623871679e-06,0.000299962430962673,0.000251625336685999,"Col9a1/Col3a1/Col5a2/Cflar/Adamts4/Lamb3/Col13a1/Mmp11/Mfap4/P3h4/Fkbp10/Nid1/Foxc1/Ecm2/Fgfr4/Lgals3/Mmp14/Scara3/Loxl2/Scx/Myh11/Adamts1/Adamts10/Tnxb/Lama1/Cyp1b1/Adamtsl2/Eng/Dpp4/Matn4/Slc2a10/Hapln2/Pbxip1/Adamtsl4/Col24a1/Col8a2/Hspg2/Pdpn/Tnfrsf1b/Mmp23/Emilin1/Pdgfra/Antxr2/Dmp1/Cav1/Tnfrsf1a/Mansc4/Ercc2/Aplp1/Apbb1/Crispld2/Ets1/Phldb1/Loxl1/Smad3/Myo1e/Impg1/Col6a4/Col6a5/Lamb2/Col4a6/Egfl6/Gpm6b/Col22a1/Lox/Hpse2/Spint1/Postn/Tie1/Foxc2/Col5a3/Adamts7",72,"negative vs positive","negative","positive","Extracellular Matrix Organization","Extracellular
+Matrix
+Organization"
+"87","BP","GO:0030225","macrophage differentiation","20/2342","55/15618",0.363636363636364,2.42496700566726,4.44629346084277,7.67021953132988e-05,0.00299558847723582,0.0025128678839483,"Casp8/Cflar/Id2/Ror2/Bmp4/Diaph3/Hcls1/Vegfa/Csf1r/Spi1/Tlr2/Tspan2/Tlr4/Cd4/Ucp2/Itgam/Nfix/Ndp/Cebpa/Il15",20,"negative vs positive","negative","positive","Macrophage Differentiation","Macrophage
+Differentiation"
+"88","BP","GO:0030593","neutrophil chemotaxis","22/2342","65/15618",0.338461538461538,2.25708467450568,4.26552756450233,0.000118442756340672,0.00434481805739277,0.00364467744517948,"Itgb2/Syk/Lgals3/Rac2/Nckap1l/Vav1/Tnfaip6/Dpp4/Mdk/Lbp/Prex1/Edn3/Cxcl10/C5ar2/C5ar1/Itgam/Jam3/Dapk2/Itga9/Sell/Il23a/Pf4",22,"negative vs positive","negative","positive","Neutrophil Chemotaxis","Neutrophil
+Chemotaxis"
+"89","BP","GO:0030595","leukocyte chemotaxis","47/2342","174/15618",0.270114942528736,1.8013045142672,4.46427506544226,2.76814717246025e-05,0.00127290122398132,0.00106778104852796,"Gpr35/Slamf9/Itgb2/Ccl7/Ccl4/Rin3/Nedd9/Syk/Lgals3/Ptk2b/Rac2/Nckap1l/Gpsm3/Vegfa/Vav1/Csf1r/Anxa1/Ch25h/Tnfaip6/Dpp4/Spi1/Mdk/Lbp/Prex1/Edn3/Padi2/Cxcl10/Cmklr1/Slc8b1/Il17rc/Alox5/C5ar2/C5ar1/Swap70/Itgam/Mtus1/Jam3/Dapk2/Adam10/Itga9/Sell/Slamf8/Il23a/Il12a/Pf4/Ccr1/Ccr2",47,"negative vs positive","negative","positive","Leukocyte Chemotaxis","Leukocyte
+Chemotaxis"
+"90","BP","GO:0030856","regulation of epithelial cell differentiation","47/2342","142/15618",0.330985915492958,2.20723229213024,6.06965888133029,4.8084697545089e-08,1.43620019148889e-05,1.20476539535998e-05,"F11r/Hey2/Nodal/Btg1/Foxj1/Osr1/Prkch/Zfp36l1/Sfrp4/Foxc1/Msx2/Ptch1/Fst/Bmp4/Extl3/Spry2/Acvrl1/Trp63/Vegfa/Foxp4/Csf1r/Il1a/Nkx2-2/Id1/Wwtr1/Cdkn2b/Trp73/Hes5/Fgfr3/Msx1/Prom1/Tbx3/Cav1/Smo/Tnfrsf1a/Cdkn1b/Zfp36/Sult2b1/Cdkn1c/Cdh5/Yap1/S1pr2/Cd109/Notch4/Sfn/Atoh8/Tlr9",47,"negative vs positive","negative","positive","Regulation Of Epithelial Cell Differentiation","Regulation
+Of
+Epithelial
+Cell
+Differentiation"
+"91","BP","GO:0030857","negative regulation of epithelial cell differentiation","21/2342","51/15618",0.411764705882353,2.74591852112322,5.24523832879436,5.43078842444823e-06,0.000364310065837692,0.000305603747377,"Nodal/Osr1/Msx2/Fst/Extl3/Spry2/Acvrl1/Trp63/Vegfa/Foxp4/Csf1r/Il1a/Id1/Hes5/Fgfr3/Msx1/Tbx3/Cav1/Smo/Yap1/Notch4",21,"negative vs positive","negative","positive","Negative Regulation Of Epithelial Cell Differentiation","Negative
+Regulation
+Of
+Epithelial
+Cell
+Differentiation"
+"92","BP","GO:0031348","negative regulation of defense response","56/2342","208/15618",0.269230769230769,1.79540826381134,4.85041697915719,5.52459178595293e-06,0.000366293283296554,0.000307267381583478,"Adora1/Fcgr2b/Ifi203/Dusp10/Tnfaip3/Enpp3/Arg1/Irak3/Havcr2/Irgm2/Igtp/Extl3/Ppara/Parp14/Tap1/Gpr17/Tnfaip6/Mdk/Sirpa/Ada/Tnfaip8l2/Pla2g5/Tnfrsf1b/Isg15/Hgf/Fgl2/Gper1/Alox5/A2m/Ptpn6/Tnfrsf1a/Pglyrp1/Apoe/Zfp36/Siglece/Chrna7/Igf2/Cdh5/Wfdc1/Ets1/Nlrx1/Il10ra/Cd276/Smad3/Rora/Slamf8/Nlrp3/Socs3/Sfn/Pf4/Oas1c/Oas1b/Oas1a/Trim21/Acp5/Ccr1",56,"negative vs positive","negative","positive","Negative Regulation Of Defense Response","Negative
+Regulation
+Of Defense
+Response"
+"93","BP","GO:0031349","positive regulation of defense response","99/2342","420/15618",0.235714285714286,1.57189825545931,4.99009513609582,1.76822140165925e-06,0.000180042829147518,0.000151030038517662,"Tnfrsf11a/Ikbke/Rab7b/Ifi204/Ifi203/Traf3ip3/Tnfaip3/Arg1/Gja1/Appl2/Irak3/Havcr2/Irgm2/Igtp/Adora2b/Cd300lf/Rsad2/Pik3cg/Irf4/Syk/Tifab/Pik3r1/Lacc1/Gpsm3/Trim15/Vav1/Tslp/Csf1r/Unc93b1/Slc15a3/Pik3ap1/Fcna/Dpp4/Ifih1/Spi1/Mdk/Usp50/Lbp/Tlr2/Fcgr1/Adora3/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Cnr1/Tlr4/Trim32/Pla2g5/Nppa/Emilin1/Ucn/Tlr1/Tlr6/Clock/P2rx7/Lrch4/Cav1/Tril/Lag3/Tnfrsf1a/Clec7a/Kcnj8/Gpr4/Kcnn4/Nkg7/Trim5/Trim12a/Trim30a/Hpx/Gprc5b/Tlr3/Ddx60/Casp1/Casp12/Ets1/Nlrx1/Sin3a/Ccr5/Usp27x/Tlr8/Tlr7/Nlrp3/Nlrp1b/Aoc3/Gsdmd/Ticam1/Nlrc4/Il12a/Oas1c/Oas1b/Oas1a/Gimap3/Cebpa/Irf7/Tlr9/Ccr2/Btk",99,"negative vs positive","negative","positive","Positive Regulation Of Defense Response","Positive
+Regulation
+Of Defense
+Response"
+"94","BP","GO:0032102","negative regulation of response to external stimulus","74/2342","318/15618",0.232704402515723,1.55182636997889,4.17569647929453,5.42201409478493e-05,0.00220830888346169,0.00185245353734607,"Adora1/Fcgr2b/Ifi203/Dusp10/Tnfaip3/Enpp3/Arg1/Tspan8/Irak3/Havcr2/Irgm2/Igtp/Alox12/Rin3/Slc6a3/Extl3/Ppara/Parp14/Drd3/Tap1/Gpr17/Tnfaip6/Dpp4/Mdk/Sirpa/Ada/Tnfaip8l2/Cers2/Ptgr1/Pla2g5/Padi2/Tnfrsf1b/Isg15/Hgf/Fgl2/Pdgfra/Gper1/Alox5/A2m/Ptpn6/Tnfrsf1a/Cd9/C5ar2/Pglyrp1/Apoe/Plaur/Zfp36/Siglece/Chrna7/Igf2/Plat/Cdh5/Wfdc1/Ets1/Nlrx1/Il10ra/Cd276/Smad3/Rora/Cd109/Slamf8/Nlrp3/Apoh/Socs3/F12/Sfn/Pf4/Oas1c/Oas1b/Oas1a/Trim21/Drd4/Acp5/Ccr1",74,"negative vs positive","negative","positive","Negative Regulation Of Response To External Stimulus","Negative
+Regulation
+Of
+Response
+To
+External
+Stimulus"
+"95","BP","GO:0032291","axon ensheathment in central nervous system","18/2342","34/15618",0.529411764705882,3.53046667001557,6.20382071776585,2.70904592846044e-07,4.41342282402326e-05,3.70222697712007e-05,"Cntn2/Kcnj10/Cntnap1/Id4/Sox10/Abca2/Mal/B4galt5/Tlr2/Hes5/Fgfr3/Ercc2/Mag/Nkx6-2/Fa2h/Mobp/Plp1/Gpm6b",18,"negative vs positive","negative","positive","Axon Ensheathment In Central Nervous System","Axon
+Ensheathment
+In Central
+Nervous
+System"
+"96","BP","GO:0032496","response to lipopolysaccharide","67/2342","291/15618",0.230240549828179,1.53539577592506,3.8721438671399,0.000166490041247534,0.00568458811493076,0.00476855182747427,"Arid5a/Slc11a1/Ncl/Tnfrsf11a/Cdc73/Ncf2/Fmo1/Cd84/Dusp10/Tnfaip3/Gja1/Tbxa2r/Irak3/Havcr2/Irgm2/Igtp/Rara/Mir381/Tifab/Cd180/Gch1/Gjb2/Extl3/Irak4/Cldn1/Vim/Spi1/Il1a/Sirpa/E2f1/Lbp/Slpi/Hmgcs2/Gbp5/Gbp2/Cnr1/Tlr4/Ptafr/Alpl/Tnfrsf1b/Spon2/Cxcl10/Ptpn11/P2rx7/Nr2c2/Adipor2/Ptpn6/Kcnj8/Zfp36/Trim5/Trim12a/Trim30a/Adm/Ptger1/Irf8/Casp1/Il10ra/Ccr5/Ldoc1/Nlrp3/Ticam1/Il12a/Pf4/Acp5/Smad6/Tlr9/Btk",67,"negative vs positive","negative","positive","Response To Lipopolysaccharide","Response
+To
+Lipopolysaccharide"
+"97","BP","GO:0032602","chemokine production","31/2342","92/15618",0.33695652173913,2.24704823079494,5.03855498100658,5.84164596808008e-06,0.000380067830149136,0.000318822245232083,"Cd84/Slamf9/Havcr2/Adora2b/Syk/Snai2/Apod/Ager/Tslp/Csf1r/Mbp/Sirpa/Lbp/Tlr2/Il6ra/Chil5/Tlr4/Trim32/Epha2/Clec7a/Kcnn4/P2ry2/Tlr3/Tlr7/Ticam1/Postn/Oas1c/Oas1b/Oas1a/Sigirr/Tlr9",31,"negative vs positive","negative","positive","Chemokine Production","Chemokine
+Production"
+"98","BP","GO:0032611","interleukin-1 beta production","29/2342","77/15618",0.376623376623377,2.51157297015538,5.58462001272218,8.82718692536337e-07,0.000107090680528557,8.98336783624886e-05,"Casp8/Fzd5/Slamf9/Ifi203/Tnfaip3/Hk1/Ager/Aqp4/Tnfaip8/Usp50/Sirpa/Tlr2/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Chrna7/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4/Acp5",29,"negative vs positive","negative","positive","Interleukin-1 Beta Production","Interleukin-1
+Beta
+Production"
+"99","BP","GO:0032612","interleukin-1 production","32/2342","92/15618",0.347826086956522,2.31953365759477,5.33142401304064,1.90556307407537e-06,0.000190623169269785,0.000159905422134783,"Casp8/Fzd5/Slamf9/Ifi203/Tnfaip3/Hk1/Havcr2/Ager/Aqp4/Tnfaip8/Anxa1/Usp50/Sirpa/Tlr2/S100a13/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Chrna7/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4/Acp5",32,"negative vs positive","negative","positive","Interleukin-1 Production","Interleukin-1
+Production"
+"100","BP","GO:0032635","interleukin-6 production","54/2342","141/15618",0.382978723404255,2.55395461235169,7.78508078448906,9.49112112480183e-12,1.80394575512067e-08,1.51325103126665e-08,"Arid5a/Ncl/Inpp5d/Rab7b/Cd84/Tnfaip3/Irak3/Havcr2/Adora2b/Foxj1/Syk/Nckap1l/Zbtb20/Mapk13/Ager/Aqp4/Tslp/Mbp/Unc93b1/Afap1l2/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Il6ra/Bank1/Tlr4/Ptafr/Hgf/Ucn/Spon2/Tlr1/Tlr6/P2rx7/Il17rc/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Sphk2/Chrna7/Trim30a/Tlr3/Klf2/Nlrx1/Ccr5/Tlr8/Tlr7/Il1rl2/Ticam1/Crhr2/Tlr9/Btk",54,"negative vs positive","negative","positive","Interleukin-6 Production","Interleukin-6
+Production"
+"101","BP","GO:0032640","tumor necrosis factor production","52/2342","165/15618",0.315151515151515,2.10163807157829,5.97493430828376,5.96603368747869e-08,1.51141592106097e-05,1.2678605743693e-05,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Slamf9/Tnfaip3/Vsir/Irak3/Havcr2/Ccl4/Rara/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Tlr6/Ptpn11/Hspb1/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Kcnn4/Zfp36/Sphk2/Chrna7/Trim30a/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Acp5/Tlr9/Ccr2/Btk",52,"negative vs positive","negative","positive","Tumor Necrosis Factor Production","Tumor
+Necrosis
+Factor
+Production"
+"102","BP","GO:0032642","regulation of chemokine production","30/2342","84/15618",0.357142857142857,2.3816640234232,5.33284634541886,2.11484217402614e-06,0.000200980501271617,0.000168593734013592,"Cd84/Havcr2/Adora2b/Syk/Snai2/Apod/Ager/Tslp/Csf1r/Mbp/Sirpa/Lbp/Tlr2/Il6ra/Chil5/Tlr4/Trim32/Epha2/Clec7a/Kcnn4/P2ry2/Tlr3/Tlr7/Ticam1/Postn/Oas1c/Oas1b/Oas1a/Sigirr/Tlr9",30,"negative vs positive","negative","positive","Regulation Of Chemokine Production","Regulation
+Of
+Chemokine
+Production"
+"103","BP","GO:0032651","regulation of interleukin-1 beta production","27/2342","74/15618",0.364864864864865,2.43315946176749,5.19024202690707,4.22970944204327e-06,0.000309202605622189,0.000259376514232721,"Casp8/Fzd5/Ifi203/Tnfaip3/Hk1/Ager/Aqp4/Usp50/Sirpa/Tlr2/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Chrna7/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4/Acp5",27,"negative vs positive","negative","positive","Regulation Of Interleukin-1 Beta Production","Regulation
+Of
+Interleukin-1
+Beta
+Production"
+"104","BP","GO:0032652","regulation of interleukin-1 production","30/2342","89/15618",0.337078651685393,2.24786267379269,4.95848131743798,8.14766198938825e-06,0.000494233709186083,0.000414590997533933,"Casp8/Fzd5/Ifi203/Tnfaip3/Hk1/Havcr2/Ager/Aqp4/Anxa1/Usp50/Sirpa/Tlr2/S100a13/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Chrna7/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4/Acp5",30,"negative vs positive","negative","positive","Regulation Of Interleukin-1 Production","Regulation
+Of
+Interleukin-1
+Production"
+"105","BP","GO:0032653","regulation of interleukin-10 production","17/2342","47/15618",0.361702127659574,2.41206824499882,4.07197395819423,0.000280439412989234,0.00828531364178555,0.00695018648826332,"Fcgr2b/Cd84/Vsir/Irf4/Syk/Ager/Tslp/Tlr2/Tlr4/Isg15/Hgf/Clec7a/Il23a/Epx/Prg2/Tlr9/Btk",17,"negative vs positive","negative","positive","Regulation Of Interleukin-10 Production","Regulation
+Of
+Interleukin-10
+Production"
+"106","BP","GO:0032675","regulation of interleukin-6 production","54/2342","135/15618",0.4,2.66746370623399,8.1724890226338,1.24505897386366e-12,3.5496631344853e-09,2.97765683012446e-09,"Arid5a/Ncl/Inpp5d/Rab7b/Cd84/Tnfaip3/Irak3/Havcr2/Adora2b/Foxj1/Syk/Nckap1l/Zbtb20/Mapk13/Ager/Aqp4/Tslp/Mbp/Unc93b1/Afap1l2/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Il6ra/Bank1/Tlr4/Ptafr/Hgf/Ucn/Spon2/Tlr1/Tlr6/P2rx7/Il17rc/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Sphk2/Chrna7/Trim30a/Tlr3/Klf2/Nlrx1/Ccr5/Tlr8/Tlr7/Il1rl2/Ticam1/Crhr2/Tlr9/Btk",54,"negative vs positive","negative","positive","Regulation Of Interleukin-6 Production","Regulation
+Of
+Interleukin-6
+Production"
+"107","BP","GO:0032680","regulation of tumor necrosis factor production","51/2342","160/15618",0.31875,2.12563514090521,6.01090149957008,5.28940793077282e-08,1.43620019148889e-05,1.20476539535998e-05,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Tnfaip3/Vsir/Irak3/Havcr2/Ccl4/Rara/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Tlr6/Ptpn11/Hspb1/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Kcnn4/Zfp36/Sphk2/Chrna7/Trim30a/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Acp5/Tlr9/Ccr2/Btk",51,"negative vs positive","negative","positive","Regulation Of Tumor Necrosis Factor Production","Regulation
+Of Tumor
+Necrosis
+Factor
+Production"
+"108","BP","GO:0032715","negative regulation of interleukin-6 production","19/2342","39/15618",0.487179487179487,3.24883400118242,5.90579737503018,6.83890391661871e-07,8.66565114056886e-05,7.26923494669367e-05,"Inpp5d/Cd84/Tnfaip3/Irak3/Havcr2/Foxj1/Nckap1l/Aqp4/Sirpa/Bank1/Tlr4/Hgf/Ptpn6/Tnfrsf1a/C5ar2/Chrna7/Trim30a/Klf2/Nlrx1",19,"negative vs positive","negative","positive","Negative Regulation Of Interleukin-6 Production","Negative
+Regulation
+Of
+Interleukin-6
+Production"
+"109","BP","GO:0032722","positive regulation of chemokine production","24/2342","61/15618",0.39344262295082,2.62373479301704,5.33673597022669,3.09988410466236e-06,0.000246829093800918,0.000207054108850334,"Cd84/Havcr2/Adora2b/Syk/Ager/Tslp/Csf1r/Mbp/Lbp/Tlr2/Il6ra/Chil5/Tlr4/Trim32/Clec7a/P2ry2/Tlr3/Tlr7/Ticam1/Postn/Oas1c/Oas1b/Oas1a/Tlr9",24,"negative vs positive","negative","positive","Positive Regulation Of Chemokine Production","Positive
+Regulation
+Of
+Chemokine
+Production"
+"110","BP","GO:0032728","positive regulation of interferon-beta production","16/2342","42/15618",0.380952380952381,2.54044162498475,4.19856179885923,0.000211003191277623,0.00664718340698899,0.00557603082969189,"Traf3ip3/Zbtb20/Ifih1/Tlr2/Tlr4/Isg15/Ptpn11/Tlr3/Tlr8/Tlr7/Ticam1/Oas1c/Oas1b/Oas1a/Irf7/Tlr9",16,"negative vs positive","negative","positive","Positive Regulation Of Interferon-Beta Production","Positive
+Regulation
+Of
+Interferon-Beta
+Production"
+"111","BP","GO:0032731","positive regulation of interleukin-1 beta production","22/2342","45/15618",0.488888888888889,3.26023341873043,6.37722934197434,8.34048540278117e-08,1.79509170837135e-05,1.50582375950071e-05,"Casp8/Fzd5/Ifi203/Hk1/Ager/Usp50/Tlr2/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4",22,"negative vs positive","negative","positive","Positive Regulation Of Interleukin-1 Beta Production","Positive
+Regulation
+Of
+Interleukin-1
+Beta
+Production"
+"112","BP","GO:0032732","positive regulation of interleukin-1 production","24/2342","53/15618",0.452830188679245,3.01977023347244,6.186200167451,1.37688794633958e-07,2.61700502334277e-05,2.19529081690072e-05,"Casp8/Fzd5/Ifi203/Hk1/Havcr2/Ager/Usp50/Tlr2/S100a13/Gbp5/Tlr4/Tlr6/P2rx7/Hspb1/Clec7a/Casp1/Smad3/Ccr5/Tlr8/Nlrp3/Nlrp1b/Naip5/Gsdmd/Nlrc4",24,"negative vs positive","negative","positive","Positive Regulation Of Interleukin-1 Production","Positive
+Regulation
+Of
+Interleukin-1
+Production"
+"113","BP","GO:0032755","positive regulation of interleukin-6 production","35/2342","90/15618",0.388888888888889,2.59336749217193,6.36704727716075,2.60754324861906e-08,9.29263225226618e-06,7.79518192218751e-06,"Arid5a/Ncl/Rab7b/Adora2b/Syk/Zbtb20/Mapk13/Ager/Tslp/Mbp/Unc93b1/Ifih1/Il1a/Lbp/Tlr2/Il6ra/Tlr4/Ptafr/Ucn/Spon2/Tlr1/Tlr6/P2rx7/Il17rc/Clec7a/Sphk2/Tlr3/Ccr5/Tlr8/Tlr7/Il1rl2/Ticam1/Crhr2/Tlr9/Btk",35,"negative vs positive","negative","positive","Positive Regulation Of Interleukin-6 Production","Positive
+Regulation
+Of
+Interleukin-6
+Production"
+"114","BP","GO:0032760","positive regulation of tumor necrosis factor production","38/2342","100/15618",0.38,2.53409052092229,6.46385702037629,1.40902847380684e-08,5.7387716840333e-06,4.81400404885586e-06,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Havcr2/Ccl4/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Ptpn11/Hspb1/Tnfrsf1a/Clec7a/Sphk2/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Tlr9/Ccr2/Btk",38,"negative vs positive","negative","positive","Positive Regulation Of Tumor Necrosis Factor Production","Positive
+Regulation
+Of Tumor
+Necrosis
+Factor
+Production"
+"115","BP","GO:0032943","mononuclear cell proliferation","72/2342","265/15618",0.271698113207547,1.81186214008346,5.59844260106623,1.83250901223644e-07,3.2653019961788e-05,2.73911873407973e-05,"Slc11a1/Inpp5d/Fcgr2b/Arg1/Gja1/Vsir/Itgb2/Icosl/Cnn2/Dock2/Havcr2/Tnfsf13/Slfn2/Slc4a1/Foxj1/Btn2a2/Syk/Cd180/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Emp2/Rasal3/H2-Aa/Ager/Cfb/Lst1/Ccnd3/Mzb1/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Rag2/Il1a/Bcl2l1/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/P2rx7/Ptpn6/Cd4/Cd79a/Cd37/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/Il7r/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",72,"negative vs positive","negative","positive","Mononuclear Cell Proliferation","Mononuclear
+Cell
+Proliferation"
+"116","BP","GO:0032944","regulation of mononuclear cell proliferation","57/2342","203/15618",0.280788177339901,1.87248068048445,5.25521758553421,1.08300077474622e-06,0.000124418460593283,0.000104369193622898,"Inpp5d/Fcgr2b/Arg1/Vsir/Icosl/Cnn2/Havcr2/Tnfsf13/Slc4a1/Foxj1/Btn2a2/Syk/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Rasal3/H2-Aa/Ager/Lst1/Mzb1/Csf1r/Clcf1/Anxa1/Prkcq/Il1a/Bcl2l1/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/Ptpn6/Cd4/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",57,"negative vs positive","negative","positive","Regulation Of Mononuclear Cell Proliferation","Regulation
+Of
+Mononuclear
+Cell
+Proliferation"
+"117","BP","GO:0032946","positive regulation of mononuclear cell proliferation","33/2342","121/15618",0.272727272727273,1.81872525425045,3.79721933909903,0.000338176465942913,0.00918229623241187,0.00770262587090024,"Icosl/Havcr2/Tnfsf13/Slc4a1/Syk/Tnfrsf13c/Nckap1l/Rasal3/Ager/Csf1r/Clcf1/Anxa1/Prkcq/Il1a/Bcl2l1/Ada/Vcam1/Tlr4/Tnfrsf4/Cd4/Igf2/Il12rb1/Cd276/Il23a/H2-DMb2/Ticam1/Il12a/Itgal/Cd209c/Il15/Tlr9/Ccr2/Btk",33,"negative vs positive","negative","positive","Positive Regulation Of Mononuclear Cell Proliferation","Positive
+Regulation
+Of
+Mononuclear
+Cell
+Proliferation"
+"118","BP","GO:0033555","multicellular organismal response to stress","14/418","113/15618",0.123893805309735,4.62912308930008,6.42051976095867,1.9156164588811e-06,0.00529212019041204,0.00496311519093747,"Lypd1/Adcyap1/Cacna1b/Dbh/Scn3a/Scn9a/Bdnf/Crh/Penk/Ret/Grin2b/Gabra5/Calca/Slc6a2",14,"positive vs negative","positive","negative","Multicellular Organismal Response To Stress","Multicellular
+Organismal
+Response
+To Stress"
+"119","BP","GO:0033627","cell adhesion mediated by integrin","30/2342","78/15618",0.384615384615385,2.56486894830191,5.81913450479426,3.3754815705428e-07,5.06499892506186e-05,4.24880561123172e-05,"Itgb2/Itga7/Itgb4/Syk/Nckap1l/Snai2/Itgb5/Cyp1b1/Lpxn/Dpp4/Itgav/Ada/Efna1/Vcam1/Plpp3/Epha8/Epha2/Emilin1/Ptpn11/Ptpn6/Swap70/Itgam/Piezo1/Icam1/Jam3/Itga9/Itgb6/Itgal/Foxc2/Itga11",30,"negative vs positive","negative","positive","Cell Adhesion Mediated By Integrin","Cell
+Adhesion
+Mediated
+By
+Integrin"
+"120","BP","GO:0033628","regulation of cell adhesion mediated by integrin","16/2342","41/15618",0.390243902439024,2.60240361583804,4.3149976480547,0.000151545996018026,0.00533404487219003,0.0044744964646258,"Syk/Nckap1l/Snai2/Cyp1b1/Lpxn/Dpp4/Ada/Efna1/Epha8/Epha2/Ptpn11/Ptpn6/Swap70/Piezo1/Jam3/Foxc2",16,"negative vs positive","negative","positive","Regulation Of Cell Adhesion Mediated By Integrin","Regulation
+Of Cell
+Adhesion
+Mediated
+By
+Integrin"
+"121","BP","GO:0034341","response to type II interferon","33/2342","117/15618",0.282051282051282,1.8809038954214,4.01698520205554,0.000171041718857733,0.00580523738646902,0.00486975921359361,"Slc11a1/Sp100/Rab7b/Arg1/Tgtp1/Irgm2/Igtp/Myo1c/Gch1/Cldn1/Parp14/Aqp4/Vim/Stxbp1/Gsn/Sirpa/Tlr2/Gbp5/Gbp7/Gbp2/Tlr4/Gbp9/Gbp4/Capg/Hpx/Ifitm2/Ifitm1/Tlr3/Il12rb1/Irf8/Casp1/Calcoco2/Trim21",33,"negative vs positive","negative","positive","Response To Type Ii Interferon","Response
+To Type Ii
+Interferon"
+"122","BP","GO:0035150","regulation of tube size","44/2342","175/15618",0.251428571428571,1.67669147248994,3.78096381377264,0.000290697636913645,0.0083980247716554,0.00704473491524712,"Adora1/Atp1a2/Gja1/Tbxa2r/Egfr/Kcnmb1/Adora2b/Dock4/Hif1a/Bdkrb2/Agtr1a/Foxc1/Hrh2/Vstm4/Gch1/Dock5/Mas1/Cbs/Vegfa/Dusp5/Adra2b/Edn3/Gja5/Svep1/Nppa/Ucn/Sod3/Gper1/Cav1/Alox5/Kcnj8/Abcc9/Apoe/P2ry2/Adm/Scnn1b/Klf2/Icam1/Htr1b/Itga9/Cysltr1/Agtr1b/Foxc2/Smad6",44,"negative vs positive","negative","positive","Regulation Of Tube Size","Regulation
+Of Tube
+Size"
+"123","BP","GO:0035296","regulation of tube diameter","44/2342","174/15618",0.252873563218391,1.68632763037781,3.82370905500479,0.000253804964991948,0.00773901556355128,0.00649192097339383,"Adora1/Atp1a2/Gja1/Tbxa2r/Egfr/Kcnmb1/Adora2b/Dock4/Hif1a/Bdkrb2/Agtr1a/Foxc1/Hrh2/Vstm4/Gch1/Dock5/Mas1/Cbs/Vegfa/Dusp5/Adra2b/Edn3/Gja5/Svep1/Nppa/Ucn/Sod3/Gper1/Cav1/Alox5/Kcnj8/Abcc9/Apoe/P2ry2/Adm/Scnn1b/Klf2/Icam1/Htr1b/Itga9/Cysltr1/Agtr1b/Foxc2/Smad6",44,"negative vs positive","negative","positive","Regulation Of Tube Diameter","Regulation
+Of Tube
+Diameter"
+"124","BP","GO:0035590","purinergic nucleotide receptor signaling pathway","11/2342","24/15618",0.458333333333333,3.05646883005978,4.23455341874588,0.000315510570389517,0.00873321006000497,0.00732590716325991,"Cntn2/Adora1/Adora2b/P2rx3/Ada/P2ry13/Adora3/P2rx7/Hcar2/P2ry6/P2ry2",11,"negative vs positive","negative","positive","Purinergic Nucleotide Receptor Signaling Pathway","Purinergic
+Nucleotide
+Receptor
+Signaling
+Pathway"
+"125","BP","GO:0036303","lymph vessel morphogenesis","12/2342","21/15618",0.571428571428571,3.81066243747713,5.41322937186199,9.81967363528836e-06,0.000583247698629315,0.000489260932003841,"Ptpn14/Prox1/Flt4/Foxc1/Acvrl1/Vegfa/Nfatc1/Svep1/Epha2/Pdpn/Tie1/Foxc2",12,"negative vs positive","negative","positive","Lymph Vessel Morphogenesis","Lymph
+Vessel
+Morphogenesis"
+"126","BP","GO:0038084","vascular endothelial growth factor signaling pathway","25/2342","83/15618",0.301204819277108,2.00863230891114,3.86967883009633,0.000340990190733668,0.00921481548608234,0.00772990484756192,"Egfr/Flt4/Myo1c/Foxc1/Ror2/Fgfr4/Ntrk2/Spry2/Vegfa/Csf1r/Tcf4/Mertk/Musk/Tek/Epha8/Epha2/Emilin1/Fgfr3/Pdgfra/Cadm4/Fgfr2/Tspan32/Adgrg1/Il12a/Tie1",25,"negative vs positive","negative","positive","Vascular Endothelial Growth Factor Signaling Pathway","Vascular
+Endothelial
+Growth
+Factor
+Signaling
+Pathway"
+"127","BP","GO:0042060","wound healing","87/2342","332/15618",0.262048192771084,1.74751010875269,5.78226262424068,6.09655667913053e-08,1.51141592106097e-05,1.2678605743693e-05,"Dst/Col3a1/Cflar/Slc11a1/Vil1/Pla2g4a/Angptl1/F11r/Cnn2/Tbxa2r/Tspan8/Alox12/Fkbp10/Slc4a1/Evpl/Hif1a/Fntb/F13a1/Syk/Msx2/Ajuba/Ppara/Acvrl1/Snai2/Serpind1/Cldn1/Itgb5/Vegfa/Nfatc1/Anxa1/Myof/Hps6/Prkcq/Eng/Stxbp1/Itgav/Adra2b/Mertk/Il1a/Procr/Sdc4/Il6ra/Notch2/Rhoc/Svep1/Tlr4/Plpp3/Pdpn/Fgl2/Emilin1/Tec/Pdgfra/Cav1/Wnt7a/Alox5/Adipor2/Ptpn6/Vwf/Cd9/Tspan9/Clec7a/Gpr4/Apoe/Plaur/Cadm4/Tsku/Scnn1b/Scnn1g/Tspan32/Proz/Plat/Wfdc1/Yap1/Smad3/Cd109/Timp1/F8/F5/Clec10a/Apoh/F12/Lrg1/Itgb6/Grhl3/Pf4/Foxc2/Ccr2",87,"negative vs positive","negative","positive","Wound Healing","Wound
+Healing"
+"128","BP","GO:0042063","gliogenesis","94/2342","377/15618",0.249336870026525,1.66274262855434,5.47100961646232,2.28272074703137e-07,3.94426475744633e-05,3.30867083716445e-05,"Col3a1/Srgap2/Slc45a3/Cntn2/Sox13/Crb1/Myoc/Kcnj10/Dusp10/Adgrg6/Erbb3/Egfr/Atp1b2/Tmem98/Cntnap1/Itgb4/Id2/Prkch/Syne2/Gli3/Id4/Ror2/Ntrk2/Zcchc24/Zmiz1/Zfp488/Bmp4/Otx2/Mmp14/Ptk2b/Cysltr2/Enpp2/Sox10/Drd3/Olig2/Ager/Daam2/Gpr17/Csf1r/Sh3tc2/Apcdd1/Clcf1/Fas/Pfkfb3/Vim/Abca2/Mdk/Mal/Nkx2-2/Nkx2-2os/E2f1/B4galt5/Tlr2/Cers2/Tspan2/Tlr4/Nfib/Cdkn2b/Dab1/Plpp3/Pou3f1/Tnfrsf1b/Mfn2/Trp73/Hes5/Fgfr3/Prdm8/Ptpn11/Smo/Ntf3/Cd9/C5ar1/Ercc2/Mag/Lgi4/Sox6/Itgam/Nkx6-2/Sox1/Arhgef7/Nfix/Adgrg1/Fa2h/Cspg4/Trf/Lamb2/Mobp/Ndp/Cysltr1/Plp1/Gpm6b/Spint1/Rras/Ccr2",94,"negative vs positive","negative","positive","Gliogenesis","Gliogenesis"
+"129","BP","GO:0042098","T cell proliferation","51/2342","188/15618",0.271276595744681,1.80905118374911,4.68738458973306,1.13223992928096e-05,0.00065071503422587,0.000545856322900987,"Slc11a1/Arg1/Gja1/Vsir/Itgb2/Icosl/Dock2/Havcr2/Slfn2/Slc4a1/Foxj1/Btn2a2/Syk/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Rasal3/H2-Aa/Ager/Ccnd3/Anxa1/Dock8/Prkcq/Il1a/Sdc4/Vcam1/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/P2rx7/Ptpn6/Cd4/Cd37/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/H2-DMb2/Il12a/Itgal/Cd209a/Cd209c/Il15/Ccr2",51,"negative vs positive","negative","positive","T Cell Proliferation","T Cell
+Proliferation"
+"130","BP","GO:0042110","T cell activation","117/2342","489/15618",0.239263803680982,1.59556878133628,5.62004601579178,8.84157804715126e-08,1.80052421517344e-05,1.51038085136298e-05,"Fzd5/Slc11a1/Sox13/Ly9/Cd48/Cd84/Slamf9/Dusp10/Arg1/Prdm1/Gja1/Vsir/Itgb2/Icosl/Dock2/Havcr2/Tcf7/Igtp/Tmem98/Slfn2/Rara/Slc4a1/Foxj1/Rsad2/Zfp36l1/Bcl11b/Gli3/Btn2a2/Irf4/Syk/Zmiz1/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Ccnd3/Vav1/Fzd8/Anxa1/Dock8/Fas/Prkcq/Apbb1ip/Traf2/Gsn/Dpp4/Itgav/Spi1/Mdk/Rag2/Dll4/Il1a/Sirpa/Sla2/Ada/Sdc4/Prex1/Cdh26/Il6ra/Tnfaip8l2/Vcam1/Ifnk/Pla2g5/Tnfrsf1b/Tnfrsf4/Fgl2/Slc4a2/Rhoh/P2rx7/Hspb1/Lfng/Cav1/Gimap1/Fancd2/Ptpn6/Cd4/Lag3/Nkg7/Cd37/Chrna7/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Icam1/Mpzl2/Cd276/Smad3/Rora/Ccr9/Il1rl2/Pdcd1/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Pf4/Gimap3/Itgal/Cd209a/Cd209c/Il15/Cd3g/Ccr2",117,"negative vs positive","negative","positive","T Cell Activation","T Cell
+Activation"
+"131","BP","GO:0042129","regulation of T cell proliferation","41/2342","149/15618",0.275167785234899,1.83500020059721,4.30137417127747,5.54917202640878e-05,0.00224406942514772,0.00188245148846596,"Arg1/Vsir/Icosl/Havcr2/Slc4a1/Foxj1/Btn2a2/Syk/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Rasal3/H2-Aa/Ager/Anxa1/Prkcq/Il1a/Sdc4/Vcam1/Pla2g5/Tnfrsf1b/Slc4a2/Ptpn6/Cd4/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/H2-DMb2/Il12a/Itgal/Cd209a/Cd209c/Il15/Ccr2",41,"negative vs positive","negative","positive","Regulation Of T Cell Proliferation","Regulation
+Of T Cell
+Proliferation"
+"132","BP","GO:0042330","taxis","89/2342","356/15618",0.25,1.66716481639624,5.34824185335154,4.20500174175421e-07,5.70879045987678e-05,4.78885411391757e-05,"Gpr35/Slamf9/Itgb2/Dock2/Ccl7/Ccl9/Ccl4/Ccl6/Pik3cg/Dock4/Rin3/Agtr1a/Nedd9/Syk/Opn4/Bmp4/Lgals3/Cmtm5/Ptk2b/Enpp2/Rac2/Nckap1l/Snai2/Gpsm3/Ager/Vegfa/Vav1/Ecscr/Csf1r/Anxa1/Ch25h/Prkcq/Eng/Tnfaip6/Dpp4/Itgav/Spi1/Mdk/Fgf7/Lbp/Elmo2/Prex1/Edn3/Vcam1/Ptgr1/Ptafr/Padi2/Epha2/Hgf/Pdgfra/Cxcl10/Cmklr1/Slc8b1/Hspb1/Il17rc/Alox5/Ntf3/C5ar2/C5ar1/Fes/Swap70/Itgam/Lsp1/Mtus1/Jam3/Smad3/Dapk2/Adam10/Ackr4/Sema3b/Ccrl2/Itga9/Ccr9/Ccr5/Cxcr6/Plxnb3/Cysltr1/Amot/Sell/Slamf8/Il23a/Lox/Agtr1b/Il12a/S100a7a/Pf4/Rho/Ccr1/Ccr2",89,"negative vs positive","negative","positive","Taxis","Taxis"
+"133","BP","GO:0042475","odontogenesis of dentin-containing tooth","25/2342","78/15618",0.320512820512821,2.13739079025159,4.22951072047939,0.000114780029936545,0.00427761915489005,0.00358830723103996,"Wnt10a/Wnt6/Gli2/Edar/Fam20a/Bcl11b/Gli3/Foxc1/Msx2/Fst/Bmp4/Ppara/Trp63/Ctnna1/Apcdd1/Foxo1/Tnc/Slc4a2/Msx1/Pdgfra/Dmp1/Smo/Adm/Itgb6/Eda",25,"negative vs positive","negative","positive","Odontogenesis Of Dentin-Containing Tooth","Odontogenesis
+Of
+Dentin-Containing
+Tooth"
+"134","BP","GO:0042476","odontogenesis","32/2342","112/15618",0.285714285714286,1.90533121873856,4.03854797797921,0.000164107435482539,0.00568458811493076,0.00476855182747427,"Wnt10a/Wnt6/Gli2/Edar/Fam20a/Osr1/Bcl11b/Gli3/Foxc1/Aspn/Msx2/Fst/Bmp4/Ppara/Aqp6/Trp63/Ctnna1/Apcdd1/Foxo1/Wls/Tnc/Alpl/Slc4a2/Msx1/Pdgfra/Dmp1/Smo/Adm/Fgfr2/Sp7/Itgb6/Eda",32,"negative vs positive","negative","positive","Odontogenesis","Odontogenesis"
+"135","BP","GO:0042552","myelination","44/2342","175/15618",0.251428571428571,1.67669147248994,3.78096381377264,0.000290697636913645,0.0083980247716554,0.00704473491524712,"Cntn2/Myoc/Kcnj10/Adgrg6/Erbb3/Tmem98/Rara/Cntnap1/Itgb4/Mir338/Id4/Ntrk2/Serinc5/Zfp488/Sox10/Srebf2/Olig2/Sh3tc2/Mbp/Abca2/Mall/Mal/B4galt5/Tlr2/Tspan2/Pou3f1/Tnfrsf1b/Hes5/Hgf/Fgfr3/Ntf3/Cd9/Ercc2/Mag/Lgi4/Cyfip1/Nkx6-2/Pllp/Fa2h/Jam3/Trf/Mobp/Plp1/Gpm6b",44,"negative vs positive","negative","positive","Myelination","Myelination"
+"136","BP","GO:0042742","defense response to bacterium","63/2342","184/15618",0.342391304347826,2.28329094419485,7.35450456354094,5.33253050950046e-11,7.60152224129291e-08,6.37658385136055e-08,"Slc11a1/Adamts4/Slamf9/Stab2/Havcr2/Irgm2/Igtp/Wfdc17/Wfdc18/Evpl/Syk/Stab1/Ang/Tslp/Tnfaip8/Iigp1/Mpeg1/Rag2/Hck/Lbp/Slpi/Wfdc3/Tlr2/Fcgr1/Notch2/Gbp5/Gbp7/Gbp2/Tlr4/Fgr/Epha2/Isg15/Emilin1/Spon2/Gbp9/Gbp4/P2rx7/Ncf1/Cd4/Tnfrsf1a/C5ar1/Pglyrp1/Adm/Scnn1b/Irf8/Casp1/Trf/Slamf8/Il23a/Nlrp3/Epx/Naip5/Rnase6/Il7r/Gsdmd/Nlrc4/Prg2/Oas1c/Oas1b/Oas1a/Hp/Acp5/Tlr9",63,"negative vs positive","negative","positive","Defense Response To Bacterium","Defense
+Response
+To
+Bacterium"
+"137","BP","GO:0042832","defense response to protozoan","18/2342","32/15618",0.5625,3.75112083689155,6.54298535289792,7.83899002980678e-08,1.79509170837135e-05,1.50582375950071e-05,"Slc11a1/Arg1/Tgtp1/Tgtp2/Irgm2/Igtp/Irf4/Iigp1/Gbp7/Gbp2/Gbp9/Gbp4/Nkg7/Cd37/Tspan32/Irf8/Il12a/Pf4",18,"negative vs positive","negative","positive","Defense Response To Protozoan","Defense
+Response
+To
+Protozoan"
+"138","BP","GO:0043062","extracellular structure organization","72/2342","287/15618",0.250871080139373,1.67297375303874,4.83295177523314,4.56793064353073e-06,0.000329700513030534,0.00027657131038246,"Col9a1/Col3a1/Col5a2/Cflar/Adamts4/Lamb3/Col13a1/Mmp11/Mfap4/P3h4/Fkbp10/Nid1/Foxc1/Ecm2/Fgfr4/Lgals3/Mmp14/Scara3/Loxl2/Scx/Myh11/Adamts1/Adamts10/Tnxb/Lama1/Cyp1b1/Adamtsl2/Eng/Dpp4/Matn4/Slc2a10/Hapln2/Pbxip1/Adamtsl4/Col24a1/Col8a2/Hspg2/Pdpn/Tnfrsf1b/Mmp23/Emilin1/Pdgfra/Antxr2/Dmp1/Cav1/Tnfrsf1a/Mansc4/Ercc2/Aplp1/Apbb1/Crispld2/Ets1/Phldb1/Loxl1/Smad3/Myo1e/Impg1/Col6a4/Col6a5/Lamb2/Col4a6/Egfl6/Gpm6b/Col22a1/Lox/Hpse2/Spint1/Postn/Tie1/Foxc2/Col5a3/Adamts7",72,"negative vs positive","negative","positive","Extracellular Structure Organization","Extracellular
+Structure
+Organization"
+"139","BP","GO:0043122","regulation of canonical NF-kappaB signal transduction","53/2342","221/15618",0.239819004524887,1.59927122658825,3.7684272587592,0.000269256265060994,0.00808052222830414,0.00677839594702026,"Casp8/Ikbke/Traf5/Tnfaip3/Edar/Irak3/Fbxw11/Irgm2/Igtp/Tifab/Ajuba/Card6/Irak4/Mas1/Jmjd8/Ltb/Unc5cl/Traf2/Traf1/Capn3/Il1a/Sirpa/Tnfsf10/Trim59/S100a13/Otud7b/Alpk1/Tifa/Gbp7/Tlr4/Trim32/Tlr6/Rhoh/Hspb1/Cav1/Cd4/Tnfrsf1a/Clec7a/Nup62/Sphk2/Trim5/Trim12a/Trim30a/Gprc5b/Tlr3/Casp1/Nlrx1/Rora/Tlr8/Tlr7/Ticam1/Tlr9/Eda",53,"negative vs positive","negative","positive","Regulation Of Canonical Nf-Kappab Signal Transduction","Regulation
+Of
+Canonical
+Nf-Kappab
+Signal
+Transduction"
+"140","BP","GO:0043129","surfactant homeostasis","12/2342","23/15618",0.521739130434783,3.47930048639216,4.99757157423438,3.36776582770856e-05,0.00150023443356205,0.00125848091456478,"Pla2g4a/Tmem63a/Adgrf5/Vegfa/Tmem63b/Epas1/Fgf7/Rcn3/Itgb6/Oas1c/Oas1b/Oas1a",12,"negative vs positive","negative","positive","Surfactant Homeostasis","Surfactant
+Homeostasis"
+"141","BP","GO:0043299","leukocyte degranulation","26/2342","71/15618",0.366197183098592,2.44204423810154,5.11496995832399,5.8656557441466e-06,0.000380067830149136,0.000318822245232083,"Cd84/Itgb2/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Nckap1l/Ptgds/Stxbp1/Spi1/Adora3/Ptafr/Fgr/Nppa/Lat2/Nkg7/Sphk2/Fes/Itgam/Cbl/Il13ra2/Ccr2/Btk",26,"negative vs positive","negative","positive","Leukocyte Degranulation","Leukocyte
+Degranulation"
+"142","BP","GO:0043300","regulation of leukocyte degranulation","19/2342","46/15618",0.41304347826087,2.75444621839379,5.00501526809239,1.43324684348372e-05,0.000763773224443382,0.00064069588359961,"Cd84/Itgb2/Adora2b/Crhr1/Unc13d/Syk/Rac2/Nckap1l/Stxbp1/Spi1/Adora3/Ptafr/Fgr/Nppa/Sphk2/Fes/Itgam/Il13ra2/Ccr2",19,"negative vs positive","negative","positive","Regulation Of Leukocyte Degranulation","Regulation
+Of
+Leukocyte
+Degranulation"
+"143","BP","GO:0043303","mast cell degranulation","19/2342","47/15618",0.404255319148936,2.69584097970456,4.89028793831515,2.06952777581091e-05,0.00105361137300659,0.000883828403504206,"Cd84/Adora2b/Crhr1/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Ptgds/Stxbp1/Adora3/Fgr/Nppa/Lat2/Sphk2/Fes/Cbl/Il13ra2/Btk",19,"negative vs positive","negative","positive","Mast Cell Degranulation","Mast Cell
+Degranulation"
+"144","BP","GO:0043304","regulation of mast cell degranulation","13/2342","30/15618",0.433333333333333,2.88975234842015,4.35139943652305,0.000182034864669465,0.00605372160175357,0.00507820173131648,"Cd84/Adora2b/Crhr1/Unc13d/Syk/Rac2/Stxbp1/Adora3/Fgr/Nppa/Sphk2/Fes/Il13ra2",13,"negative vs positive","negative","positive","Regulation Of Mast Cell Degranulation","Regulation
+Of Mast
+Cell
+Degranulation"
+"145","BP","GO:0043410","positive regulation of MAPK cascade","94/2342","448/15618",0.209821428571429,1.39922761376113,3.6010190442394,0.000349304606152049,0.00939113949321075,0.00787781532927499,"Cflar/Fzd5/Gpbar1/Tnfrsf11a/Adora1/Myoc/Fcgr2b/Cd84/Edar/Nodal/Igfbp3/Egfr/Havcr2/Flt4/Pde6g/Pik3cg/Syk/Fgfr4/Ntrk2/Bmp4/Ajuba/Ptk2b/Sorbs3/Cysltr2/Spry2/Fgd2/Ager/Vegfa/Unc5cl/Fzd8/Csf1r/Map3k11/Traf2/Gsn/Spi1/Fgf7/Adra2b/Il1a/Rassf2/Edn3/Birc7/Rnf13/Tlr2/Efna1/Il6ra/Notch2/Ngf/Bank1/Lpar3/Glipr2/Tlr4/Tek/Epha8/Pla2g5/Trp73/Hgf/Fgfr3/Tlr6/Klb/Pdgfra/Ptpn11/P2rx7/Fzd10/Gper1/Tgfa/Wnt7a/Cd4/Ntf3/Clec7a/Il11/C5ar1/Apoe/Kcnn4/Chrna7/P2ry6/Trim5/Trim12a/Trim30a/Fgfr2/Igf2/Tlr3/Gdf15/Nkd1/Icam1/Epor/Npsr1/Cdon/Cspg4/Naip5/Crhr2/Drd4/Tlr9/Ccr1/Ccr2",94,"negative vs positive","negative","positive","Positive Regulation Of Mapk Cascade","Positive
+Regulation
+Of Mapk
+Cascade"
+"146","BP","GO:0043616","keratinocyte proliferation","18/2342","48/15618",0.375,2.50074722459436,4.37363453253563,0.000109486289582658,0.00413437631258488,0.00346814708862739,"Zfp36l1/Bcl11b/Ptch1/Fst/Extl3/Snai2/Trp63/Nfatc1/Mdk/Fgf7/Notch2/Zfp36/Fgfr2/Cdh3/Yap1/Cd109/Lrg1/Sfn",18,"negative vs positive","negative","positive","Keratinocyte Proliferation","Keratinocyte
+Proliferation"
+"147","BP","GO:0045047","protein targeting to ER","8/418","41/15618",0.195121951219512,7.29046563192905,6.68802617890128,1.08384500776586e-05,0.00968957436942678,0.00908718472300534,"Srp54a/Sgtb/Sec61a2/Hspa5/Srp14/Tram1l1/Spcs2/Herpud1",8,"positive vs negative","positive","negative","Protein Targeting To Er","Protein
+Targeting
+To Er"
+"148","BP","GO:0045088","regulation of innate immune response","87/2342","382/15618",0.227748691099476,1.51877841912537,4.31158278769538,2.9502293983382e-05,0.00133509587534321,0.00111995341571001,"Casp8/Ikbke/Rab7b/Ifi204/Ifi203/Dusp10/Traf3ip3/Tnfaip3/Arg1/Appl2/Irak3/Havcr2/Irgm2/Igtp/Cd300lf/Rsad2/Irf4/Syk/Tifab/Pik3r1/Lacc1/Parp14/Tap1/Trim15/Vav1/Unc93b1/Slc15a3/Pik3ap1/Fcna/Dpp4/Ifih1/Spi1/Usp50/Lbp/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Fgr/Pla2g5/Isg15/Tlr1/Tlr6/P2rx7/Ncf1/Lrch4/Cav1/Tril/A2m/Ptpn6/Lag3/Clec7a/Kcnj8/Apoe/Trim5/Trim12a/Trim30a/Hpx/Igf2/Tlr3/Ddx60/Casp1/Nlrx1/Sin3a/Usp27x/Tlr8/Tlr7/Slamf8/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Il12a/Sfn/Oas1c/Oas1b/Oas1a/Gimap3/Trim21/Irf7/Tlr9/Ccr1/Btk",87,"negative vs positive","negative","positive","Regulation Of Innate Immune Response","Regulation
+Of Innate
+Immune
+Response"
+"149","BP","GO:0045089","positive regulation of innate immune response","71/2342","318/15618",0.223270440251572,1.48891449011488,3.69963928169451,0.000286883795167341,0.0083980247716554,0.00704473491524712,"Ikbke/Rab7b/Ifi204/Ifi203/Traf3ip3/Tnfaip3/Appl2/Irak3/Havcr2/Irgm2/Igtp/Cd300lf/Rsad2/Irf4/Syk/Tifab/Pik3r1/Lacc1/Trim15/Vav1/Unc93b1/Slc15a3/Pik3ap1/Fcna/Dpp4/Ifih1/Spi1/Usp50/Lbp/Tlr2/Alpk1/Tifa/Gbp5/Gbp7/Gbp2/Tlr4/Trim32/Pla2g5/Tlr1/Tlr6/P2rx7/Lrch4/Cav1/Tril/Lag3/Clec7a/Kcnj8/Trim5/Trim12a/Trim30a/Hpx/Tlr3/Ddx60/Casp1/Nlrx1/Sin3a/Usp27x/Tlr8/Tlr7/Nlrp3/Nlrp1b/Ticam1/Nlrc4/Il12a/Oas1c/Oas1b/Oas1a/Gimap3/Irf7/Tlr9/Btk",71,"negative vs positive","negative","positive","Positive Regulation Of Innate Immune Response","Positive
+Regulation
+Of Innate
+Immune
+Response"
+"150","BP","GO:0045165","cell fate commitment","61/2342","229/15618",0.266375545851528,1.77636775196805,4.97094156352104,3.13557795668108e-06,0.000246829093800918,0.000207054108850334,"Sox17/Wnt10a/Wnt6/Gli2/Sox13/Cdc73/Ly9/Prox1/Hey2/Prdm1/Nodal/Hnf1b/Rara/Id2/Tunar/Bcl11b/Gli3/Irf4/Ror2/Ptch1/Bmp4/Otx2/Spry2/Olig2/Runx1/Tead3/Epas1/Lbx1/Lhx3/Neurod1/Rag2/Dll4/Nkx2-2/Il6ra/Notch2/Nfib/Pdpn/Hes5/Fgfr3/Barhl2/Tbx3/Myl2/Smo/Wnt7a/Ntf3/Tead4/Sox6/Tbx6/Fgfr2/Nkx6-2/Sox1/Nfix/Cdon/Tbx18/Slamf8/Il23a/Tbx2/Six1/Spdef/Prdm11/Foxc2",61,"negative vs positive","negative","positive","Cell Fate Commitment","Cell Fate
+Commitment"
+"151","BP","GO:0045229","external encapsulating structure organization","72/2342","286/15618",0.251748251748252,1.6788233116158,4.86630122144578,3.99809623871679e-06,0.000299962430962673,0.000251625336685999,"Col9a1/Col3a1/Col5a2/Cflar/Adamts4/Lamb3/Col13a1/Mmp11/Mfap4/P3h4/Fkbp10/Nid1/Foxc1/Ecm2/Fgfr4/Lgals3/Mmp14/Scara3/Loxl2/Scx/Myh11/Adamts1/Adamts10/Tnxb/Lama1/Cyp1b1/Adamtsl2/Eng/Dpp4/Matn4/Slc2a10/Hapln2/Pbxip1/Adamtsl4/Col24a1/Col8a2/Hspg2/Pdpn/Tnfrsf1b/Mmp23/Emilin1/Pdgfra/Antxr2/Dmp1/Cav1/Tnfrsf1a/Mansc4/Ercc2/Aplp1/Apbb1/Crispld2/Ets1/Phldb1/Loxl1/Smad3/Myo1e/Impg1/Col6a4/Col6a5/Lamb2/Col4a6/Egfl6/Gpm6b/Col22a1/Lox/Hpse2/Spint1/Postn/Tie1/Foxc2/Col5a3/Adamts7",72,"negative vs positive","negative","positive","External Encapsulating Structure Organization","External
+Encapsulating
+Structure
+Organization"
+"152","BP","GO:0045576","mast cell activation","28/2342","70/15618",0.4,2.66746370623399,5.87255066864403,3.18353164803388e-07,5.042360404747e-05,4.22981514873274e-05,"Cd48/Cd84/Enpp3/Adora2b/Crhr1/Cd300lf/Unc13d/Syk/Cplx2/Ptgdr/Rac2/Tslp/Ptgds/Stxbp1/Adora3/Cnr1/Tlr4/Fgr/Nppa/Rhoh/Lat2/Ptpn6/Sphk2/Fes/Cbl/Il13ra2/Lcp2/Btk",28,"negative vs positive","negative","positive","Mast Cell Activation","Mast Cell
+Activation"
+"153","BP","GO:0045604","regulation of epidermal cell differentiation","16/2342","42/15618",0.380952380952381,2.54044162498475,4.19856179885923,0.000211003191277623,0.00664718340698899,0.00557603082969189,"Hey2/Prkch/Zfp36l1/Sfrp4/Foxc1/Msx2/Ptch1/Bmp4/Extl3/Trp63/Hes5/Fgfr3/Zfp36/Sult2b1/Cd109/Sfn",16,"negative vs positive","negative","positive","Regulation Of Epidermal Cell Differentiation","Regulation
+Of
+Epidermal
+Cell
+Differentiation"
+"154","BP","GO:0045619","regulation of lymphocyte differentiation","47/2342","191/15618",0.246073298429319,1.64097898158374,3.74350451500632,0.000313802564446731,0.00873321006000497,0.00732590716325991,"Inpp5d/Sox13/Dusp10/Prdm1/Vsir/Tcf7/Rara/Foxj1/Id2/Zfp36l1/Gli3/Btn2a2/Syk/Zmiz1/Bmp4/Mmp14/Nfam1/Nckap1l/Runx1/H2-Oa/H2-Aa/Anxa1/Fas/Spi1/Mdk/Rag2/Ada/Fgl2/Slc4a2/Rhoh/Hspb1/Fancd2/Ptpn6/Lag3/Pglyrp1/Il1rl2/Slamf8/Il23a/Tespa1/Nlrp3/Il7r/Il12a/Pf4/Gimap3/Il15/Tlr9/Ccr2",47,"negative vs positive","negative","positive","Regulation Of Lymphocyte Differentiation","Regulation
+Of
+Lymphocyte
+Differentiation"
+"155","BP","GO:0045685","regulation of glial cell differentiation","28/2342","89/15618",0.314606741573034,2.09800516220651,4.36301060813358,6.64750815861217e-05,0.00263222857780601,0.00220806118952732,"Slc45a3/Cntn2/Dusp10/Tmem98/Id2/Id4/Zfp488/Bmp4/Enpp2/Drd3/Olig2/Daam2/Csf1r/Clcf1/Mdk/Nkx2-2/Nkx2-2os/Tlr2/Dab1/Tnfrsf1b/Trp73/Hes5/Fgfr3/Ntf3/Mag/Nkx6-2/Sox1/Spint1",28,"negative vs positive","negative","positive","Regulation Of Glial Cell Differentiation","Regulation
+Of Glial
+Cell
+Differentiation"
+"156","BP","GO:0045765","regulation of angiogenesis","67/2342","269/15618",0.24907063197026,1.66096717767358,4.59276917897317,1.24550560658559e-05,0.000703155739480302,0.000589846532186028,"Sp100/Glul/Nodal/Itgb2/Tbxa2r/Btg1/Sparc/Epn2/Pik3cg/Hif1a/Agtr1a/Foxc1/Stab1/Lgals3/Ptk2b/Cysltr2/Spry2/Adm2/Acvrl1/Emp2/Adamts1/Runx1/Jmjd8/Vegfa/Cyp1b1/Ecscr/Tcf4/Clic3/Eng/Mdk/Il1a/Id1/Efna1/Tek/Angptl3/E2f2/Epha2/Hgf/Emilin1/Cxcl10/Hspb1/Plxnd1/Alox5/Ptpn6/Tnfrsf1a/C5ar1/Gpr4/Adm/Igf2/Tlr3/Klf2/Hhip/Cdh5/Ets1/Foxo4/Cysltr1/Tnmd/Amot/Apoh/Notch4/Lrg1/Tie1/Pf4/Crhr2/Rras/Foxc2/Ccr2",67,"negative vs positive","negative","positive","Regulation Of Angiogenesis","Regulation
+Of
+Angiogenesis"
+"157","BP","GO:0045785","positive regulation of cell adhesion","101/2342","441/15618",0.229024943310658,1.52728931025869,4.71773913677614,5.39198698158217e-06,0.000364310065837692,0.000305603747377,"Sox13/Myoc/F11r/Kif26b/Dusp10/Vsir/Nodal/Itgb2/Icosl/Havcr2/Rara/Slc4a1/Unc13d/Nid1/Gli3/Btn2a2/Nedd9/Ecm2/Syk/Zmiz1/Ptk2b/Dock5/Enpp2/Tnfrsf13c/Nckap1l/Emp2/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vegfa/Vav1/Lama1/Capn1/Gcnt1/Anxa1/Dock8/Ldb1/Prkcq/Apbb1ip/Dpp4/Itgav/Mdk/Il1a/Sirpa/Ada/Sdc4/Prex1/Npy2r/Il6ra/Vcam1/Tek/Plpp3/Ptafr/Pdpn/Emilin1/Rhoh/Dmp1/Ptpn11/Col26a1/Cav1/Fbln2/Alox5/Ptpn6/Cd4/Plaur/Ceacam2/Dock1/Igf2/Pik3r2/Il12rb1/Adgrg1/Piezo1/Fut4/Icam1/Ets1/Cd276/Smad3/Tbx18/Lamb2/Ccr5/Egfl6/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Sfn/Gimap3/Rras/Itgal/Cd209c/Il15/Foxc2/Ccr2",101,"negative vs positive","negative","positive","Positive Regulation Of Cell Adhesion","Positive
+Regulation
+Of Cell
+Adhesion"
+"158","BP","GO:0046651","lymphocyte proliferation","70/2342","259/15618",0.27027027027027,1.80234034204999,5.46871977120251,3.35736216513799e-07,5.06499892506186e-05,4.24880561123172e-05,"Slc11a1/Inpp5d/Fcgr2b/Arg1/Gja1/Vsir/Itgb2/Icosl/Dock2/Havcr2/Tnfsf13/Slfn2/Slc4a1/Foxj1/Btn2a2/Syk/Cd180/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Emp2/Rasal3/H2-Aa/Ager/Cfb/Lst1/Ccnd3/Mzb1/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Rag2/Il1a/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/P2rx7/Ptpn6/Cd4/Cd79a/Cd37/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/Il7r/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",70,"negative vs positive","negative","positive","Lymphocyte Proliferation","Lymphocyte
+Proliferation"
+"159","BP","GO:0046849","bone remodeling","28/2342","90/15618",0.311111111111111,2.07469399373755,4.29444400003442,8.28576964272624e-05,0.00319226070965034,0.00267784760003898,"Inpp5d/Tnfrsf11a/Gja1/Tns3/Egfr/P3h4/Syk/Ptk2b/Dock5/Rac2/Vegfa/Csf1r/Lrp5/Itgav/Mdk/Rassf2/Notch2/Epha2/Slc4a2/Fgfr3/Hnf1a/P2rx7/Pdk4/Lrrk1/Cbl/Htr1b/Trf/Acp5",28,"negative vs positive","negative","positive","Bone Remodeling","Bone
+Remodeling"
+"160","BP","GO:0046942","carboxylic acid transport","71/2342","302/15618",0.235099337748344,1.56779737700839,4.1848780145801,5.3942306176239e-05,0.00220830888346169,0.00185245353734607,"Slc11a1/Tnfrsf11a/Adora1/Pla2g4a/Kcnj10/Arg1/Slc16a10/Gja1/Slc16a9/Slc5a8/Slc47a1/Slc13a5/Ttyh2/Slc25a10/Slc16a3/Slc25a21/Bdkrb2/Syk/Hrh2/Ntrk2/Slc1a3/Cpt1b/Drd3/Slc22a3/Nfkbie/Slc25a2/Atp8b1/Slc22a8/Slc22a6/Anxa1/Apba1/Slc16a12/Ptges/Stxbp1/Pla2r1/Slc1a2/Il1a/Gnat2/Slc26a7/Mfsd2a/Pla2g5/Hnf1a/P2rx7/Trh/Slc6a1/Slc25a18/Slc6a13/Slco1a4/Kcnj8/Apoe/Ceacam2/Slc17a7/Ucp2/P2ry2/Folr1/Slc25a22/Ces1d/Kcnk1/Aqp9/Htr1b/Rbp1/Slco2a1/Slc38a3/Slc6a20b/Slc6a20a/Slc38a5/Ace2/Llgl2/Ntsr1/Crabp2/Drd4",71,"negative vs positive","negative","positive","Carboxylic Acid Transport","Carboxylic
+Acid
+Transport"
+"161","BP","GO:0048265","response to pain","9/418","46/15618",0.195652173913043,7.3102766798419,7.10755570420324,2.95979876421255e-06,0.00529212019041204,0.00496311519093747,"Cacna1b/Dbh/Scn3a/Scn9a/Crh/Ret/Grin2b/Calca/Slc6a2",9,"positive vs negative","positive","negative","Response To Pain","Response
+To Pain"
+"162","BP","GO:0048546","digestive tract morphogenesis","19/2342","44/15618",0.431818181818182,2.87964831922987,5.24398550295983,6.57028672548163e-06,0.000411689834161497,0.000345348558479914,"Sox17/Gli2/Nodal/Egfr/Tcf7/Hnf1b/Id2/Hif1a/Gli3/Sox10/Trp63/Foxp4/Trp73/Fgfr3/Pdgfra/Fgfr2/Stra6/Smad3/Rbpms2",19,"negative vs positive","negative","positive","Digestive Tract Morphogenesis","Digestive
+Tract
+Morphogenesis"
+"163","BP","GO:0048562","embryonic organ morphogenesis","63/2342","274/15618",0.22992700729927,1.5333048676345,3.74059046760326,0.000267018455353303,0.00805576313452135,0.00675762662837878,"Sox17/Fzd5/Gli2/Prox1/Gja1/Cdh23/Nodal/Lrig3/Tcf7/Sparc/Hnf1b/Hoxb2/Tcap/Fzd2/Ccdc103/Ush1g/Osr1/Id2/Hif1a/Asb2/Gli3/Ror2/Tifab/Bmp4/Otx2/Mmp14/Spry2/Mdfi/Six3/Lbx1/Eng/Crb2/Hoxd3/Neurod1/Alx4/Efna1/Notch2/Stil/Phactr4/Hspg2/Epha2/Msx1/Pdgfra/Tbx3/Smo/Mfap5/Tead2/Folr1/Mical2/Fgfr2/Yap1/Dscaml1/Stra6/Smad3/Rbpms2/Aldh1a2/Tbx18/Otx1/Tbx2/Six1/Grhl3/Foxc2/Tecta",63,"negative vs positive","negative","positive","Embryonic Organ Morphogenesis","Embryonic
+Organ
+Morphogenesis"
+"164","BP","GO:0048565","digestive tract development","35/2342","117/15618",0.299145299145299,1.99489807090149,4.53680685161809,2.90880921809471e-05,0.00132688241292608,0.00111306350206504,"Sox17/Col3a1/Fzd5/Gli2/Prdm1/Nodal/Egfr/Tcf7/Hnf1b/Ccdc103/Id2/Hif1a/Gli3/Hrh2/Klf5/Sox10/Trp63/Filip1l/Foxp4/Alx4/Nkx2-2/Ada/Hmgcs2/Trp73/Fgfr3/Pdgfra/Smo/Fgfr2/Yap1/Stra6/Smad3/Rbpms2/Aldh1a2/Spdef/Tlr9",35,"negative vs positive","negative","positive","Digestive Tract Development","Digestive
+Tract
+Development"
+"165","BP","GO:0048568","embryonic organ development","103/2342","441/15618",0.233560090702948,1.55753266293708,4.98833109792961,1.71766121509363e-06,0.000178074622699344,0.000149378996390153,"Sox17/Fzd5/Gli2/Prox1/Hey2/Prdm1/Gja1/Cdh23/Nodal/E2f7/Lrig3/Egfr/Tcf7/Sparc/Epn2/Hnf1b/Hoxb2/Tcap/Rara/Fzd2/Ccdc103/Ush1g/Osr1/Id2/Hif1a/Zfp36l1/Esrrb/Asb2/Gli3/Foxc1/Ror2/Tifab/Ptch1/Bmp4/Otx2/Mmp14/Spry2/Zfpm2/Nfe2/Runx1/Tead3/Vegfa/Mdfi/Six3/Epas1/Pcdh12/Lbx1/Ldb1/Eng/Crb2/Hoxd3/Neurod1/Itgav/Alx4/Lmo2/Ada/Efna1/Gja5/Notch2/Vcam1/Stil/Phactr4/Hspg2/Epha2/En2/Msx1/Pdgfra/Tbx3/Smo/A2m/Mfap5/Tead4/Ercc2/Zfp568/Tead2/Folr1/Adm/Mical2/Palb2/Fgfr2/Igf2/Cdkn1c/Yap1/St14/Dscaml1/Stra6/Smad3/Rbpms2/Aldh1a2/Bmp5/Tbx18/Otx1/Tbx2/Llgl2/Socs3/Six1/Spint1/Nes/Grhl3/Cebpa/Fendrr/Foxc2/Tecta",103,"negative vs positive","negative","positive","Embryonic Organ Development","Embryonic
+Organ
+Development"
+"166","BP","GO:0048608","reproductive structure development","69/2342","304/15618",0.226973684210526,1.51361016225448,3.79826015063372,0.00020994298522016,0.00664718340698899,0.00557603082969189,"Gli2/Pla2g4a/Gja1/Sgpl1/Tcf7/Gdf9/Hnf1b/Rara/Osr1/Gm4787/Adam4/Gli3/Foxc1/Id4/Ror2/Tifab/Ptch1/Fst/Bmp4/Mmp14/Zfpm2/Scx/Trp63/Adamts1/Runx1/Mas1/Vegfa/Cyp1b1/Six3/Ctnna1/Tnfaip6/Itgav/Kif18a/Fgf7/Mertk/Il1a/Bcl2l1/Tnfsf10/Schip1/Msh4/Tnc/Mfn2/Pdgfra/Antxr2/Hnf1a/Tbx3/Ptpn11/Nudt1/Lfng/Wnt7a/A2m/Cdkn1b/Plaur/Fgfr2/Cdkn1c/Adam5/Tex15/Tlr3/Ing2/Adgrg1/Icam1/Cbl/Stra6/Bmp5/Aspm/Amh/Rxfp2/Lhb/Tlr9",69,"negative vs positive","negative","positive","Reproductive Structure Development","Reproductive
+Structure
+Development"
+"167","BP","GO:0048709","oligodendrocyte differentiation","43/2342","127/15618",0.338582677165354,2.2578925072453,5.97811537354723,8.50008350158303e-08,1.79509170837135e-05,1.50582375950071e-05,"Slc45a3/Cntn2/Sox13/Kcnj10/Dusp10/Tmem98/Cntnap1/Id2/Gli3/Id4/Ntrk2/Zfp488/Bmp4/Otx2/Enpp2/Sox10/Drd3/Olig2/Daam2/Gpr17/Abca2/Mdk/Mal/Nkx2-2/Nkx2-2os/B4galt5/Tlr2/Tspan2/Tnfrsf1b/Trp73/Hes5/Fgfr3/Prdm8/Ercc2/Mag/Sox6/Nkx6-2/Sox1/Nfix/Fa2h/Mobp/Plp1/Gpm6b",43,"negative vs positive","negative","positive","Oligodendrocyte Differentiation","Oligodendrocyte
+Differentiation"
+"168","BP","GO:0048713","regulation of oligodendrocyte differentiation","20/2342","53/15618",0.377358490566038,2.51647519456037,4.6446961872471,4.15323235202132e-05,0.0017805812685132,0.0014936515874622,"Slc45a3/Dusp10/Tmem98/Id2/Id4/Zfp488/Bmp4/Enpp2/Drd3/Olig2/Daam2/Mdk/Nkx2-2/Nkx2-2os/Tlr2/Tnfrsf1b/Trp73/Hes5/Nkx6-2/Sox1",20,"negative vs positive","negative","positive","Regulation Of Oligodendrocyte Differentiation","Regulation
+Of
+Oligodendrocyte
+Differentiation"
+"169","BP","GO:0048715","negative regulation of oligodendrocyte differentiation","9/2342","17/15618",0.529411764705882,3.53046667001557,4.38437297674296,0.000291618538194979,0.0083980247716554,0.00704473491524712,"Dusp10/Tmem98/Id2/Id4/Bmp4/Drd3/Daam2/Hes5/Nkx6-2",9,"negative vs positive","negative","positive","Negative Regulation Of Oligodendrocyte Differentiation","Negative
+Regulation
+Of
+Oligodendrocyte
+Differentiation"
+"170","BP","GO:0048771","tissue remodeling","53/2342","184/15618",0.28804347826087,1.92086381019567,5.27744477986079,1.0910071956619e-06,0.000124418460593283,0.000104369193622898,"Igfbp5/Tmbim1/Inpp5d/Tnfrsf11a/Crb1/Gja1/Tns3/Egfr/Flt4/P3h4/Hif1a/Foxc1/Syk/Mmp14/Ptk2b/Dock5/Rac2/Acvrl1/Cbs/Vegfa/Epas1/Csf1r/Lrp5/Capn1/Itgav/Mdk/Dll4/Il1a/Rassf2/Gja5/Notch2/Gnat2/Epha2/Slc4a2/Fgfr3/Fam114a1/Hnf1a/P2rx7/Pdk4/Cav1/Lrrk1/Cbl/Cspg4/Htr1b/Trf/Ndp/Timp1/Il23a/Clec10a/Tie1/Foxc2/Acp5/Ccr2",53,"negative vs positive","negative","positive","Tissue Remodeling","Tissue
+Remodeling"
+"171","BP","GO:0048844","artery morphogenesis","24/2342","77/15618",0.311688311688312,2.0785431477148,3.98475876867081,0.000251753378419355,0.00773901556355128,0.00649192097339383,"Col3a1/Prox1/Hey2/Prdm1/Fkbp10/Foxc1/Zmiz1/Bmp4/Acvrl1/Adgrf4/Adgrf5/Vegfa/Eng/Mdk/Dll4/Gja5/Angptl3/Apoe/Folr1/Stra6/Tbx2/Six1/Notch4/Foxc2",24,"negative vs positive","negative","positive","Artery Morphogenesis","Artery
+Morphogenesis"
+"172","BP","GO:0050670","regulation of lymphocyte proliferation","55/2342","199/15618",0.276381909547739,1.84309678194559,5.02729643573479,2.82756925158904e-06,0.000237099998125893,0.00019889279689196,"Inpp5d/Fcgr2b/Arg1/Vsir/Icosl/Havcr2/Tnfsf13/Slc4a1/Foxj1/Btn2a2/Syk/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Rasal3/H2-Aa/Ager/Lst1/Mzb1/Csf1r/Clcf1/Anxa1/Prkcq/Il1a/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/Ptpn6/Cd4/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",55,"negative vs positive","negative","positive","Regulation Of Lymphocyte Proliferation","Regulation
+Of
+Lymphocyte
+Proliferation"
+"173","BP","GO:0050673","epithelial cell proliferation","96/2342","429/15618",0.223776223776224,1.49228738810293,4.34251566148183,2.45765409148092e-05,0.00118758844318849,0.000996215895779598,"Cflar/Igfbp5/Gpbar1/Gli2/Cdc73/Glul/Dusp10/Prox1/Tnfaip3/Arg1/Prdm1/Gja1/Nodal/Igfbp3/Egfr/Flt4/Sparc/Adora2b/Hnf1b/Osr1/Id2/Nkx2-9/Zfp36l1/Bcl11b/Agtr1a/Ptch1/Fst/Vstm4/Bmp4/Ang/Mmp14/Extl3/Loxl2/Acvrl1/Snai2/Cldn1/Trp63/Ager/Vegfa/Mcc/Nfatc1/Eng/Celf1/Mdk/Dll4/Fgf7/Id1/Bcl2l1/Notch2/Enpep/Nfib/Cdkn2b/Tek/Col8a2/Hspg2/Epha2/Hes5/Hgf/Fgfr3/Fgfbp1/Ncf1/Cav1/Smo/Tgfa/Wnt7a/Alox5/Cdkn1b/C5ar1/Apoe/Ceacam2/Zfp36/Fgfr2/Igf2/Cdkn1c/Cdh3/Fa2h/Wfdc1/Yap1/Smad3/Aldh1a2/Bmp5/Cd109/Tbx18/Plxnb3/Tnmd/Tbx2/Apoh/Six1/Lrg1/Uhrf1/Agtr1b/Il12a/Tie1/Sfn/Atoh8/Btk",96,"negative vs positive","negative","positive","Epithelial Cell Proliferation","Epithelial
+Cell
+Proliferation"
+"174","BP","GO:0050678","regulation of epithelial cell proliferation","80/2342","358/15618",0.223463687150838,1.49020318784022,3.9409325905748,0.000118869101535123,0.00434481805739277,0.00364467744517948,"Cflar/Gpbar1/Gli2/Cdc73/Glul/Dusp10/Prox1/Tnfaip3/Arg1/Gja1/Nodal/Egfr/Flt4/Sparc/Adora2b/Osr1/Nkx2-9/Zfp36l1/Bcl11b/Agtr1a/Ptch1/Bmp4/Ang/Extl3/Acvrl1/Snai2/Cldn1/Trp63/Ager/Vegfa/Mcc/Nfatc1/Eng/Celf1/Mdk/Dll4/Fgf7/Id1/Notch2/Nfib/Cdkn2b/Tek/Hspg2/Hes5/Fgfr3/Fgfbp1/Cav1/Smo/Tgfa/Wnt7a/Alox5/Cdkn1b/C5ar1/Apoe/Ceacam2/Zfp36/Fgfr2/Igf2/Cdkn1c/Cdh3/Fa2h/Wfdc1/Yap1/Smad3/Aldh1a2/Bmp5/Cd109/Tbx18/Plxnb3/Tnmd/Apoh/Six1/Lrg1/Uhrf1/Agtr1b/Il12a/Tie1/Sfn/Atoh8/Btk",80,"negative vs positive","negative","positive","Regulation Of Epithelial Cell Proliferation","Regulation
+Of
+Epithelial
+Cell
+Proliferation"
+"175","BP","GO:0050727","regulation of inflammatory response","86/2342","297/15618",0.28956228956229,1.93099224525356,6.80360921254419,4.14928729320198e-10,3.94320602430629e-07,3.30778271233506e-07,"Tnfrsf11a/Adora1/Fcgr2b/Dusp10/Tnfaip3/Enpp3/Irgm2/Igtp/Adora2b/Pik3cg/Extl3/Lacc1/Ppara/Mas1/Gpsm3/Ager/Gpr17/Tslp/Csf1r/Clcf1/Anxa1/Pik3ap1/Calhm2/Ptges/Tnfaip6/Celf1/Mdk/Sirpa/Lbp/Ada/Tlr2/Tnfaip8l2/Fcgr1/Adora3/Gbp5/Gbp2/Cnr1/Tnc/Tlr4/Pla2g5/Tnfrsf1b/Nppa/Hgf/Tlr6/Clock/Ncf1/Gper1/Fancd2/Alox5/Ptpn6/Tnfrsf1a/Pglyrp1/Gpr4/Apoe/Kcnn4/Zfp36/Nkg7/Siglece/Chrna7/Gprc5b/Cdh5/Wfdc1/Casp1/Casp12/Ets1/Nlrx1/Il10ra/Cd276/Smad3/Rora/Ccr5/Il1rl2/Slamf8/Nlrp3/Nlrp1b/Aoc3/Socs3/F12/Gsdmd/Akna/Pf4/Cebpa/Acp5/Tlr9/Ccr2/Btk",86,"negative vs positive","negative","positive","Regulation Of Inflammatory Response","Regulation
+Of
+Inflammatory
+Response"
+"176","BP","GO:0050728","negative regulation of inflammatory response","40/2342","129/15618",0.310077519379845,2.06780132266201,5.11484230272993,3.04926577230338e-06,0.000246829093800918,0.000207054108850334,"Adora1/Fcgr2b/Dusp10/Tnfaip3/Enpp3/Irgm2/Igtp/Extl3/Ppara/Gpr17/Tnfaip6/Mdk/Sirpa/Ada/Tnfaip8l2/Pla2g5/Tnfrsf1b/Hgf/Gper1/Alox5/Ptpn6/Tnfrsf1a/Pglyrp1/Apoe/Zfp36/Siglece/Chrna7/Cdh5/Wfdc1/Ets1/Nlrx1/Il10ra/Cd276/Smad3/Rora/Slamf8/Nlrp3/Socs3/Pf4/Acp5",40,"negative vs positive","negative","positive","Negative Regulation Of Inflammatory Response","Negative
+Regulation
+Of
+Inflammatory
+Response"
+"177","BP","GO:0050729","positive regulation of inflammatory response","34/2342","114/15618",0.298245614035088,1.98889837745517,4.45082827944317,4.02480670012217e-05,0.00173859453061338,0.00145843075321811,"Tnfrsf11a/Adora2b/Pik3cg/Gpsm3/Tslp/Csf1r/Mdk/Lbp/Tlr2/Fcgr1/Adora3/Gbp5/Gbp2/Cnr1/Tlr4/Nppa/Tlr6/Clock/Tnfrsf1a/Gpr4/Kcnn4/Nkg7/Gprc5b/Casp1/Casp12/Ets1/Ccr5/Nlrp3/Nlrp1b/Aoc3/Gsdmd/Cebpa/Ccr2/Btk",34,"negative vs positive","negative","positive","Positive Regulation Of Inflammatory Response","Positive
+Regulation
+Of
+Inflammatory
+Response"
+"178","BP","GO:0050731","positive regulation of peptidyl-tyrosine phosphorylation","37/2342","137/15618",0.27007299270073,1.80102476515798,3.95517177822189,0.000189433056937243,0.00620971046175569,0.00520905394934702,"Nedd9/Syk/Enpp2/Parp14/Hcls1/Vegfa/Csf1r/Clcf1/Fgf7/Adnp/Efna1/Il6ra/Bank1/Musk/Tlr4/Plpp3/Hes5/Fgfr3/Pdgfra/Ptpn11/Tgfa/Cd4/Tnfrsf1a/Ntf3/Tspan9/Clec7a/Il11/Lrrk1/Hpx/Gprc5b/Crlf1/Icam1/Cspg4/Il23a/Il31ra/Il12a/Il15",37,"negative vs positive","negative","positive","Positive Regulation Of Peptidyl-Tyrosine Phosphorylation","Positive
+Regulation
+Of
+Peptidyl-Tyrosine
+Phosphorylation"
+"179","BP","GO:0050830","defense response to Gram-positive bacterium","24/2342","63/15618",0.380952380952381,2.54044162498475,5.14563694634291,6.02559251722064e-06,0.000386044140822383,0.000323835510328215,"Stab2/Havcr2/Ang/Tnfaip8/Mpeg1/Hck/Lbp/Tlr2/Gbp7/Gbp2/Fgr/Epha2/Gbp9/Gbp4/P2rx7/Ncf1/C5ar1/Pglyrp1/Adm/Nlrp3/Rnase6/Il7r/Gsdmd/Acp5",24,"negative vs positive","negative","positive","Defense Response To Gram-Positive Bacterium","Defense
+Response
+To
+Gram-Positive
+Bacterium"
+"180","BP","GO:0050863","regulation of T cell activation","75/2342","315/15618",0.238095238095238,1.58777601561547,4.42626566717306,2.13291920052627e-05,0.00107627480366378,0.000902839762197611,"Sox13/Dusp10/Arg1/Prdm1/Vsir/Icosl/Havcr2/Tcf7/Rara/Slc4a1/Foxj1/Gli3/Btn2a2/Syk/Zmiz1/Bmp4/Lgals3/Rac2/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Anxa1/Dock8/Fas/Prkcq/Dpp4/Mdk/Rag2/Il1a/Sirpa/Ada/Sdc4/Tnfaip8l2/Vcam1/Pla2g5/Tnfrsf1b/Fgl2/Slc4a2/Rhoh/Hspb1/Cav1/Fancd2/Ptpn6/Cd4/Lag3/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Cd276/Il1rl2/Pdcd1/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Pf4/Gimap3/Itgal/Cd209a/Cd209c/Il15/Ccr2",75,"negative vs positive","negative","positive","Regulation Of T Cell Activation","Regulation
+Of T Cell
+Activation"
+"181","BP","GO:0050866","negative regulation of cell activation","52/2342","184/15618",0.282608695652174,1.88462109679575,5.06973880149278,2.56211248924803e-06,0.000228268209588942,0.000191484196564853,"Inpp5d/Fcgr2b/Cd84/Tnfaip3/Enpp3/Arg1/Vsir/Havcr2/Alox12/Cd300lf/Foxj1/Id2/Gli3/Btn2a2/Bmp4/Lgals3/Samsn1/Runx1/H2-Aa/Lst1/Adgrf5/Anxa1/Fas/Mdk/Rag2/Mertk/Sdc4/Tnfaip8l2/Bank1/Cnr1/Fgr/Pla2g5/Fgl2/Slc4a2/Emilin1/Pdgfra/Hspb1/Gper1/Ptpn6/Lag3/Cd9/Pglyrp1/Apoe/Cd37/Lrrc32/Tspan32/Cd276/Pdcd1/Zc3h12d/Pf4/Gimap3/Btk",52,"negative vs positive","negative","positive","Negative Regulation Of Cell Activation","Negative
+Regulation
+Of Cell
+Activation"
+"182","BP","GO:0050867","positive regulation of cell activation","74/2342","316/15618",0.234177215189873,1.56164805586483,4.2363548526779,4.35200414243751e-05,0.00185187519553572,0.00155345693819608,"Inpp5d/Sox13/Pla2g4a/Dusp10/Vsir/Icosl/Havcr2/Tnfsf13/Rara/Slc4a1/Gli3/Btn2a2/Syk/Zmiz1/Mmp14/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Tslp/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Dpp4/Spi1/Mdk/Capn3/Il1a/Sirpa/Lbp/Ada/Vcam1/Svep1/Tlr4/Pdpn/Tnfrsf4/Tlr6/Rhoh/Cav1/Smo/Cd4/Clec7a/Kcnn4/Sphk2/Pagr1a/Igf2/Il12rb1/Exosc6/Cd276/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Ticam1/Cd5/Il12a/Gimap3/Cebpa/Itgal/Cd209c/Il15/Tlr9/Ccr2/Btk",74,"negative vs positive","negative","positive","Positive Regulation Of Cell Activation","Positive
+Regulation
+Of Cell
+Activation"
+"183","BP","GO:0050878","regulation of body fluid levels","66/2342","293/15618",0.225255972696246,1.50215532944917,3.64443554296349,0.000356340221514361,0.00949463524801348,0.00796463338200323,"Sctr/Adora1/Pla2g4a/Angptl1/F11r/Gja1/Tbxa2r/Tspan8/Egfr/Alox12/Slc4a1/Hif1a/Prl2c3/F13a1/Syk/Tifab/Slc6a3/Aqp6/Aqp2/Emp2/Serpind1/Vegfa/Aqp4/Hps6/Prkcq/Stxbp1/Adra2b/Mertk/Procr/Ada/Il6ra/Gja5/Adora3/Aqp7/Svep1/Tlr4/Pdpn/Trp73/Fgl2/Emilin1/Tec/Pdgfra/Btc/Cav1/Slc4a5/Ptpn6/Scnn1a/Vwf/Cd9/Tspan9/Apoe/Kcnn4/Plaur/P2ry2/Adm/Scnn1b/Scnn1g/Tspan32/Proz/Plat/F8/F5/Apoh/F12/Pf4/Foxb1",66,"negative vs positive","negative","positive","Regulation Of Body Fluid Levels","Regulation
+Of Body
+Fluid
+Levels"
+"184","BP","GO:0050886","endocrine process","27/2342","92/15618",0.293478260869565,1.95710652359559,3.86707885287032,0.000321529256381462,0.00877205655448372,0.00735849378492755,"Gja1/Cry1/Gdf9/Crhr1/Agtr1a/Fgfr4/Foxd1/Drd3/Runx1/Mas1/Rab11fip3/Edn3/Gja5/Enpep/Mfn2/Ucn/Corin/Tbx3/Ptpn11/Hcar2/Kcnn4/Anpep/Rab11fip1/Rab8b/Ace2/Agtr1b/Crhr2",27,"negative vs positive","negative","positive","Endocrine Process","Endocrine
+Process"
+"185","BP","GO:0050900","leukocyte migration","82/2342","306/15618",0.26797385620915,1.78702633914368,5.83972839579295,5.09579393869235e-08,1.43620019148889e-05,1.20476539535998e-05,"Gpr35/Adora1/F11r/Slamf9/Itgb2/Cnn2/Itga7/Myo1g/Stk10/Ccl7/Ccl4/Foxj1/Rin3/Asb2/Nedd9/Syk/Ror2/Pik3r1/Lgals3/Mmp14/Ptk2b/Rac2/Irak4/Nckap1l/Emp2/Apod/Gpsm3/Ager/Vegfa/Vav1/Csf1r/Capn1/Gcnt1/Anxa1/Dock8/Ch25h/Tnfaip6/Dpp4/Spi1/Mdk/Il1a/Sirpa/Lbp/Ada/Prex1/Edn3/Tlr2/Adora3/Vcam1/Ptafr/Padi2/Emilin1/Cxcl10/Cmklr1/Slc8b1/Il17rc/Alox5/Cd9/C5ar2/C5ar1/Kcnn4/Swap70/Itgam/Mtus1/Gdf15/Fut4/Icam1/Jam3/Dapk2/Adam10/Itga9/Sell/Slamf8/Il23a/Nlrp3/Epx/Aoc3/Il12a/Pf4/Itgal/Ccr1/Ccr2",82,"negative vs positive","negative","positive","Leukocyte Migration","Leukocyte
+Migration"
+"186","BP","GO:0051091","positive regulation of DNA-binding transcription factor activity","47/2342","185/15618",0.254054054054054,1.69419992152699,3.98936593562372,0.000141548686279931,0.00504444130730106,0.00423156072668426,"Cflar/Sp100/Tnfrsf11a/Ikbke/Rab7b/Fcgr2b/Cd84/Traf5/Nodal/Rtkn2/Irak3/Adcy1/Neurod2/Fzd2/Prkch/Tssk4/Zic2/Ager/Trim15/Lrp5/Ppp2r5b/Prkcq/Traf2/Traf1/Neurod1/Capn3/Tlr2/Ngf/Tlr4/Trim32/Plpp3/Cytl1/Clock/Erc1/Lpar5/Clec7a/Trim5/Trim12a/Trim30a/Tlr3/Thap11/Carm1/Ndp/Nlrp3/Ticam1/Nlrc4/Trim21",47,"negative vs positive","negative","positive","Positive Regulation Of Dna-Binding Transcription Factor Activity","Positive
+Regulation
+Of
+Dna-Binding
+Transcription
+Factor
+Activity"
+"187","BP","GO:0051249","regulation of lymphocyte activation","105/2342","421/15618",0.249406175771971,1.66320480495587,5.79386549588565,4.44924926073453e-08,1.4094232935949e-05,1.18230342928525e-05,"Inpp5d/Sox13/Fcgr2b/Dusp10/Tnfaip3/Arg1/Prdm1/Vsir/Icosl/Havcr2/Tcf7/Tnfsf13/Rara/Slc4a1/Foxj1/Id2/Zfp36l1/Gli3/Btn2a2/Nedd9/Syk/Zmiz1/Bmp4/Lgals3/Mmp14/Rac2/Tnfrsf13c/Nfam1/Nckap1l/Samsn1/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Lst1/Vav1/Mzb1/Csf1r/Clcf1/Anxa1/Dock8/Fas/Prkcq/Dpp4/Spi1/Mdk/Rag2/Mertk/Il1a/Sirpa/Ada/Sdc4/Tnfaip8l2/Vcam1/Bank1/Tlr4/Themis2/Fgr/Pla2g5/Tnfrsf1b/Tnfrsf4/Fgl2/Slc4a2/Rhoh/Hspb1/Cav1/Fancd2/Ptpn6/Cd4/Lag3/Clec7a/Pglyrp1/Cd37/Lrrc32/Pagr1a/Tspan32/Igf2/Il12rb1/Exosc6/Cd276/Il1rl2/Pdcd1/Slamf8/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Ticam1/Cd5/Il12a/Pf4/Gimap3/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",105,"negative vs positive","negative","positive","Regulation Of Lymphocyte Activation","Regulation
+Of
+Lymphocyte
+Activation"
+"188","BP","GO:0051250","negative regulation of lymphocyte activation","41/2342","141/15618",0.290780141843972,1.93911368715591,4.7048194729857,1.34676736783088e-05,0.000745559954502106,0.000625417569690703,"Inpp5d/Fcgr2b/Tnfaip3/Arg1/Vsir/Havcr2/Foxj1/Id2/Gli3/Btn2a2/Bmp4/Lgals3/Samsn1/Runx1/H2-Aa/Lst1/Anxa1/Fas/Mdk/Rag2/Mertk/Sdc4/Tnfaip8l2/Bank1/Fgr/Pla2g5/Fgl2/Slc4a2/Hspb1/Ptpn6/Lag3/Pglyrp1/Cd37/Lrrc32/Tspan32/Cd276/Pdcd1/Zc3h12d/Pf4/Gimap3/Btk",41,"negative vs positive","negative","positive","Negative Regulation Of Lymphocyte Activation","Negative
+Regulation
+Of
+Lymphocyte
+Activation"
+"189","BP","GO:0051251","positive regulation of lymphocyte activation","63/2342","270/15618",0.233333333333333,1.55602049530316,3.87084174230921,0.000173357713430451,0.00581462165870842,0.00487763126828464,"Inpp5d/Sox13/Dusp10/Vsir/Icosl/Havcr2/Tnfsf13/Rara/Slc4a1/Gli3/Btn2a2/Syk/Zmiz1/Mmp14/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Dpp4/Spi1/Mdk/Il1a/Sirpa/Ada/Vcam1/Tlr4/Tnfrsf4/Rhoh/Cav1/Cd4/Clec7a/Pagr1a/Igf2/Il12rb1/Exosc6/Cd276/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Ticam1/Cd5/Il12a/Gimap3/Itgal/Cd209c/Il15/Tlr9/Ccr2/Btk",63,"negative vs positive","negative","positive","Positive Regulation Of Lymphocyte Activation","Positive
+Regulation
+Of
+Lymphocyte
+Activation"
+"190","BP","GO:0051607","defense response to virus","59/2342","253/15618",0.233201581027668,1.55514188406922,3.73900978704371,0.000278323807654447,0.00828531364178555,0.00695018648826332,"Ifi203/Traf3ip3/Irgm2/Igtp/Slfn8/Map3k14/Unc13d/Rsad2/Serinc5/Mx2/Trim15/Unc93b1/Ifih1/Bcl2l1/Gbp5/Gbp7/Gbp2/Ifnk/Trim32/Fv1/Isg15/Fgl2/Spon2/Cxcl10/Gbp4/Irf5/Apobec1/Kcnj8/Abcc9/Cd37/Isg20/Trim34a/Trim5/Trim12a/Trim30a/Ifitm2/Ifitm1/Tspan32/Tlr3/Ddx60/Il12rb1/Casp1/Sin3a/Usp27x/Tlr8/Tlr7/Il23a/Nlrp3/Nlrp1b/Rnase6/Ticam1/Oas1c/Oas1b/Oas1a/Trim21/Trim34b/Irf7/Il15/Tlr9",59,"negative vs positive","negative","positive","Defense Response To Virus","Defense
+Response
+To Virus"
+"191","BP","GO:0055123","digestive system development","38/2342","129/15618",0.294573643410853,1.96441125652891,4.61959672406621,1.98910133072891e-05,0.00102178880971317,0.000857133849865544,"Sox17/Col3a1/Fzd5/Gli2/Prdm1/Nodal/Egfr/Tcf7/Hnf1b/Ccdc103/Id2/Hif1a/Gli3/Hrh2/Klf5/Sox10/Trp63/Filip1l/Foxp4/Alx4/Nkx2-2/Ada/Hmgcs2/Wls/Trp73/Fgfr3/Pdgfra/Smo/Fgfr2/Igf2/Cdkn1c/Yap1/Stra6/Smad3/Rbpms2/Aldh1a2/Spdef/Tlr9",38,"negative vs positive","negative","positive","Digestive System Development","Digestive
+System
+Development"
+"192","BP","GO:0060193","positive regulation of lipase activity","9/2342","16/15618",0.5625,3.75112083689155,4.62421639795882,0.000158281882933671,0.00553695273918892,0.00464470698127609,"Agtr1a/Ang/Plin5/Rhoc/Pla2g5/Fgfr3/Fgfr2/Apoh/Agtr1b",9,"negative vs positive","negative","positive","Positive Regulation Of Lipase Activity","Positive
+Regulation
+Of Lipase
+Activity"
+"193","BP","GO:0060249","anatomical structure homeostasis","62/2342","249/15618",0.248995983935743,1.66046937536654,4.41253519045996,2.61147717994773e-05,0.00123063164298033,0.00103232294960265,"Col9a1/Col3a1/Inpp5d/Tnfrsf11a/Adora1/Crb1/Cdh23/Tns3/Egfr/Atp1b2/Ush1g/Esrrb/Bdkrb2/Foxc1/Mak/Syk/Ocln/Vstm4/Ptk2b/Scx/Rac2/Ildr1/Vegfa/Csf1r/Mbp/Ldb1/Crb2/Neurod1/Itgav/Ada/Wwtr1/Gnat2/Rpe65/Tlr4/Trim32/Nfib/Mfsd2a/Alpl/Slc4a2/Cytl1/Prom1/Hnf1a/Ptpn11/P2rx7/Pdk4/Smo/Lsr/Lrrk1/Ascl3/Tex15/Nfix/Cdh3/Yap1/Cbl/Il10ra/Trf/Ndp/Abca4/Rho/Acp5/Tlr9/Ccr2",62,"negative vs positive","negative","positive","Anatomical Structure Homeostasis","Anatomical
+Structure
+Homeostasis"
+"194","BP","GO:0060326","cell chemotaxis","69/2342","241/15618",0.286307053941909,1.90928418807205,5.97490468785904,3.60286299746368e-08,1.20844263597282e-05,1.0137095641161e-05,"Gpr35/Slamf9/Itgb2/Ccl7/Ccl9/Ccl4/Ccl6/Dock4/Rin3/Agtr1a/Nedd9/Syk/Lgals3/Ptk2b/Enpp2/Rac2/Nckap1l/Snai2/Gpsm3/Vegfa/Vav1/Csf1r/Anxa1/Ch25h/Prkcq/Eng/Tnfaip6/Dpp4/Spi1/Mdk/Lbp/Elmo2/Prex1/Edn3/Vcam1/Padi2/Epha2/Hgf/Pdgfra/Cxcl10/Cmklr1/Slc8b1/Hspb1/Il17rc/Alox5/C5ar2/C5ar1/Swap70/Itgam/Mtus1/Jam3/Dapk2/Adam10/Ackr4/Ccrl2/Itga9/Ccr9/Ccr5/Cxcr6/Plxnb3/Sell/Slamf8/Il23a/Lox/Agtr1b/Il12a/Pf4/Ccr1/Ccr2",69,"negative vs positive","negative","positive","Cell Chemotaxis","Cell
+Chemotaxis"
+"195","BP","GO:0060669","embryonic placenta morphogenesis","13/2342","27/15618",0.481481481481481,3.21083594268906,4.8290315348983,4.73936902381887e-05,0.0019725461440741,0.00165468250820076,"Fzd5/Zfp36l1/Vcam1/Zfp568/Adm/Fgfr2/Igf2/Cdkn1c/St14/Bmp5/Llgl2/Socs3/Spint1",13,"negative vs positive","negative","positive","Embryonic Placenta Morphogenesis","Embryonic
+Placenta
+Morphogenesis"
+"196","BP","GO:0061458","reproductive system development","69/2342","308/15618",0.224025974025974,1.49395288742001,3.67732420180358,0.000313140884643672,0.00873321006000497,0.00732590716325991,"Gli2/Pla2g4a/Gja1/Sgpl1/Tcf7/Gdf9/Hnf1b/Rara/Osr1/Gm4787/Adam4/Gli3/Foxc1/Id4/Ror2/Tifab/Ptch1/Fst/Bmp4/Mmp14/Zfpm2/Scx/Trp63/Adamts1/Runx1/Mas1/Vegfa/Cyp1b1/Six3/Ctnna1/Tnfaip6/Itgav/Kif18a/Fgf7/Mertk/Il1a/Bcl2l1/Tnfsf10/Schip1/Msh4/Tnc/Mfn2/Pdgfra/Antxr2/Hnf1a/Tbx3/Ptpn11/Nudt1/Lfng/Wnt7a/A2m/Cdkn1b/Plaur/Fgfr2/Cdkn1c/Adam5/Tex15/Tlr3/Ing2/Adgrg1/Icam1/Cbl/Stra6/Bmp5/Aspm/Amh/Rxfp2/Lhb/Tlr9",69,"negative vs positive","negative","positive","Reproductive System Development","Reproductive
+System
+Development"
+"197","BP","GO:0070661","leukocyte proliferation","76/2342","294/15618",0.258503401360544,1.72387110266822,5.26268604170556,7.3275483947475e-07,9.08297411888049e-05,7.61930890291365e-05,"Slc11a1/Inpp5d/Fcgr2b/Enpp3/Arg1/Gja1/Vsir/Itgb2/Icosl/Cnn2/Dock2/Havcr2/Tnfsf13/Slfn2/Slc4a1/Foxj1/Btn2a2/Syk/Cd180/Bmp4/Lgals3/Csf2rb/Rac2/Tnfrsf13c/Nckap1l/Emp2/Rasal3/H2-Aa/Ager/Cfb/Lst1/Ccnd3/Mzb1/Csf1r/Clcf1/Anxa1/Dock8/Prkcq/Rag2/Il1a/Bcl2l1/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/P2rx7/Ptpn6/Cd4/Cd79a/Cd37/Lrrc32/Itgam/Tspan32/Igf2/Il12rb1/Nfix/Cd276/Ndp/Zc3h12d/Il23a/Il7r/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",76,"negative vs positive","negative","positive","Leukocyte Proliferation","Leukocyte
+Proliferation"
+"198","BP","GO:0070663","regulation of leukocyte proliferation","59/2342","222/15618",0.265765765765766,1.77230133634916,4.86763439262647,4.88426001876711e-06,0.000343827785518643,0.000288422060107573,"Inpp5d/Fcgr2b/Enpp3/Arg1/Vsir/Icosl/Cnn2/Havcr2/Tnfsf13/Slc4a1/Foxj1/Btn2a2/Syk/Bmp4/Lgals3/Csf2rb/Rac2/Tnfrsf13c/Nckap1l/Rasal3/H2-Aa/Ager/Lst1/Mzb1/Csf1r/Clcf1/Anxa1/Prkcq/Il1a/Bcl2l1/Ada/Sdc4/Vcam1/Tlr4/Pla2g5/Tnfrsf1b/Tnfrsf4/Slc4a2/Ptpn6/Cd4/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Cd276/Zc3h12d/Il23a/H2-DMb2/Ticam1/Il12a/Cd22/Itgal/Cd209a/Cd209c/Il15/Tlr9/Ccr2/Btk",59,"negative vs positive","negative","positive","Regulation Of Leukocyte Proliferation","Regulation
+Of
+Leukocyte
+Proliferation"
+"199","BP","GO:0071216","cellular response to biotic stimulus","56/2342","223/15618",0.251121076233184,1.67464089180609,4.26180794778068,4.88053924320801e-05,0.00201658222933131,0.00169162245012488,"Arid5a/Fzd5/Ncl/Cdc73/Fcgr2b/Cd84/Tnfaip3/Tbxa2r/Irak3/Havcr2/Irgm2/Igtp/Eme1/Rara/Mir381/Syk/Tifab/Cd180/Gch1/Irak4/Vim/Spi1/Il1a/Sirpa/Lbp/Tlr2/Txnip/Notch2/Hmgcs2/Gbp5/Gbp2/Tlr4/Ptafr/Tnfrsf1b/Spon2/Tlr1/Tlr6/Cxcl10/Ptpn11/Nr2c2/Ptpn6/Clec7a/Zfp36/Trim5/Trim12a/Trim30a/Irf8/Casp1/Ccr5/Ldoc1/Nlrp3/Ticam1/Il12a/Pf4/Tlr9/Btk",56,"negative vs positive","negative","positive","Cellular Response To Biotic Stimulus","Cellular
+Response
+To Biotic
+Stimulus"
+"200","BP","GO:0071219","cellular response to molecule of bacterial origin","50/2342","197/15618",0.253807106598985,1.69255311309263,4.10854983311556,9.06603487591673e-05,0.00346943160150854,0.00291035411346984,"Arid5a/Fzd5/Ncl/Cdc73/Fcgr2b/Cd84/Tnfaip3/Tbxa2r/Irak3/Havcr2/Irgm2/Igtp/Rara/Mir381/Tifab/Cd180/Gch1/Irak4/Vim/Spi1/Il1a/Sirpa/Lbp/Tlr2/Hmgcs2/Gbp5/Gbp2/Tlr4/Ptafr/Tnfrsf1b/Spon2/Tlr1/Tlr6/Cxcl10/Ptpn11/Nr2c2/Ptpn6/Zfp36/Trim5/Trim12a/Trim30a/Irf8/Casp1/Ccr5/Ldoc1/Nlrp3/Ticam1/Il12a/Pf4/Tlr9",50,"negative vs positive","negative","positive","Cellular Response To Molecule Of Bacterial Origin","Cellular
+Response
+To
+Molecule
+Of
+Bacterial
+Origin"
+"201","BP","GO:0071621","granulocyte chemotaxis","29/2342","91/15618",0.318681318681319,2.12517712859301,4.52122836943111,3.8046506213328e-05,0.00165603952998776,0.00138917898138499,"Itgb2/Ccl7/Ccl4/Syk/Lgals3/Rac2/Nckap1l/Vegfa/Vav1/Csf1r/Anxa1/Tnfaip6/Dpp4/Mdk/Lbp/Prex1/Edn3/Cxcl10/Cmklr1/Il17rc/C5ar2/C5ar1/Itgam/Jam3/Dapk2/Itga9/Sell/Il23a/Pf4",29,"negative vs positive","negative","positive","Granulocyte Chemotaxis","Granulocyte
+Chemotaxis"
+"202","BP","GO:0071639","positive regulation of monocyte chemotactic protein-1 production","7/2342","11/15618",0.636363636363636,4.24369225991771,4.5199632166134,0.000319290925468672,0.00875286950491522,0.00734239860996784,"Cd84/Syk/Ager/Clec7a/Oas1c/Oas1b/Oas1a",7,"negative vs positive","negative","positive","Positive Regulation Of Monocyte Chemotactic Protein-1 Production","Positive
+Regulation
+Of
+Monocyte
+Chemotactic
+Protein-1
+Production"
+"203","BP","GO:0071706","tumor necrosis factor superfamily cytokine production","52/2342","167/15618",0.311377245508982,2.0764687533558,5.87408188129005,9.24670784759086e-08,1.81809407403321e-05,1.5251194359148e-05,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Slamf9/Tnfaip3/Vsir/Irak3/Havcr2/Ccl4/Rara/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Tlr6/Ptpn11/Hspb1/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Kcnn4/Zfp36/Sphk2/Chrna7/Trim30a/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Acp5/Tlr9/Ccr2/Btk",52,"negative vs positive","negative","positive","Tumor Necrosis Factor Superfamily Cytokine Production","Tumor
+Necrosis
+Factor
+Superfamily
+Cytokine
+Production"
+"204","BP","GO:0090022","regulation of neutrophil chemotaxis","12/2342","28/15618",0.428571428571429,2.85799682810784,4.13294432543912,0.000364842542329462,0.00967596361098881,0.00811674179850711,"Rac2/Nckap1l/Tnfaip6/Dpp4/Mdk/Lbp/C5ar2/C5ar1/Jam3/Dapk2/Sell/Il23a",12,"negative vs positive","negative","positive","Regulation Of Neutrophil Chemotaxis","Regulation
+Of
+Neutrophil
+Chemotaxis"
+"205","BP","GO:0097529","myeloid leukocyte migration","52/2342","184/15618",0.282608695652174,1.88462109679575,5.06973880149278,2.56211248924803e-06,0.000228268209588942,0.000191484196564853,"Gpr35/Itgb2/Cnn2/Ccl7/Ccl4/Rin3/Syk/Ror2/Pik3r1/Lgals3/Mmp14/Ptk2b/Rac2/Irak4/Nckap1l/Emp2/Ager/Vegfa/Vav1/Csf1r/Anxa1/Tnfaip6/Dpp4/Spi1/Mdk/Il1a/Sirpa/Lbp/Prex1/Edn3/Tlr2/Emilin1/Cxcl10/Cmklr1/Il17rc/Cd9/C5ar2/C5ar1/Swap70/Itgam/Mtus1/Fut4/Jam3/Dapk2/Itga9/Sell/Slamf8/Il23a/Epx/Pf4/Ccr1/Ccr2",52,"negative vs positive","negative","positive","Myeloid Leukocyte Migration","Myeloid
+Leukocyte
+Migration"
+"206","BP","GO:0097530","granulocyte migration","37/2342","115/15618",0.321739130434783,2.14556863327516,5.17870042701215,2.68265590963067e-06,0.000231765212071425,0.000194417678682006,"Itgb2/Ccl7/Ccl4/Syk/Lgals3/Rac2/Irak4/Nckap1l/Emp2/Vegfa/Vav1/Csf1r/Anxa1/Tnfaip6/Dpp4/Mdk/Il1a/Sirpa/Lbp/Prex1/Edn3/Tlr2/Cxcl10/Cmklr1/Il17rc/C5ar2/C5ar1/Itgam/Fut4/Jam3/Dapk2/Itga9/Sell/Slamf8/Il23a/Epx/Pf4",37,"negative vs positive","negative","positive","Granulocyte Migration","Granulocyte
+Migration"
+"207","BP","GO:0097746","blood vessel diameter maintenance","44/2342","174/15618",0.252873563218391,1.68632763037781,3.82370905500479,0.000253804964991948,0.00773901556355128,0.00649192097339383,"Adora1/Atp1a2/Gja1/Tbxa2r/Egfr/Kcnmb1/Adora2b/Dock4/Hif1a/Bdkrb2/Agtr1a/Foxc1/Hrh2/Vstm4/Gch1/Dock5/Mas1/Cbs/Vegfa/Dusp5/Adra2b/Edn3/Gja5/Svep1/Nppa/Ucn/Sod3/Gper1/Cav1/Alox5/Kcnj8/Abcc9/Apoe/P2ry2/Adm/Scnn1b/Klf2/Icam1/Htr1b/Itga9/Cysltr1/Agtr1b/Foxc2/Smad6",44,"negative vs positive","negative","positive","Blood Vessel Diameter Maintenance","Blood
+Vessel
+Diameter
+Maintenance"
+"208","BP","GO:0098581","detection of external biotic stimulus","11/2342","20/15618",0.55,3.66776259607173,5.01402329815983,3.79617179987293e-05,0.00165603952998776,0.00138917898138499,"Itgav/Lbp/Tlr2/Tlr4/Tlr1/Tlr6/Clec7a/Pglyrp1/Naip5/Nlrc4/Tlr9",11,"negative vs positive","negative","positive","Detection Of External Biotic Stimulus","Detection
+Of
+External
+Biotic
+Stimulus"
+"209","BP","GO:0140962","multicellular organismal-level chemical homeostasis","24/2342","70/15618",0.342857142857143,2.28639746248628,4.5304939773038,4.65861045304094e-05,0.00195319094141466,0.00163844627698282,"Slc11a1/Sctr/Pla2g4a/Tmem63a/Aqp6/Aqp2/Adgrf5/Vegfa/Tmem63b/Epas1/Aqp4/Fgf7/Aqp7/Scnn1a/Rcn3/Scnn1b/Scnn1g/Trf/Heph/Itgb6/Cybrd1/Oas1c/Oas1b/Oas1a",24,"negative vs positive","negative","positive","Multicellular Organismal-Level Chemical Homeostasis","Multicellular
+Organismal-Level
+Chemical
+Homeostasis"
+"210","BP","GO:1901342","regulation of vasculature development","68/2342","276/15618",0.246376811594203,1.64300300746296,4.52673618331196,1.57994506104043e-05,0.000826574792320366,0.000693377366446445,"Sp100/Glul/Nodal/Itgb2/Tbxa2r/Btg1/Sparc/Epn2/Pik3cg/Hif1a/Agtr1a/Foxc1/Stab1/Lgals3/Ptk2b/Cysltr2/Spry2/Adm2/Acvrl1/Emp2/Adamts1/Runx1/Jmjd8/Vegfa/Cyp1b1/Ecscr/Tcf4/Clic3/Eng/Mdk/Il1a/Id1/Efna1/Tek/Angptl3/E2f2/Epha2/Hgf/Emilin1/Cxcl10/Hspb1/Plxnd1/Alox5/Ptpn6/Tnfrsf1a/C5ar1/Gpr4/Adm/Igf2/Tlr3/Klf2/Hhip/Cdh5/Ets1/Adam10/Foxo4/Cysltr1/Tnmd/Amot/Apoh/Notch4/Lrg1/Tie1/Pf4/Crhr2/Rras/Foxc2/Ccr2",68,"negative vs positive","negative","positive","Regulation Of Vasculature Development","Regulation
+Of
+Vasculature
+Development"
+"211","BP","GO:1902105","regulation of leukocyte differentiation","67/2342","296/15618",0.226351351351351,1.50946003646687,3.71669460727828,0.000279441606712544,0.00828531364178555,0.00695018648826332,"Casp8/Inpp5d/Tnfrsf11a/Sox13/Dusp10/Prdm1/Vsir/Tcf7/Ccl9/Rara/Foxj1/Id2/Zfp36l1/Gli3/Btn2a2/Nedd9/Syk/Ror2/Pik3r1/Zmiz1/Bmp4/Mmp14/Klf10/Nfam1/Nckap1l/Hcls1/Runx1/H2-Oa/H2-Aa/Ager/Tmem178/Csf1r/Anxa1/Fas/Tnfaip6/Spi1/Mdk/Rag2/Rassf2/Ada/Notch2/Fgl2/Slc4a2/Fgfr3/Rhoh/Hspb1/Fancd2/Ptpn6/Cd4/Lag3/Pglyrp1/Fes/Itgam/Rbp1/Il1rl2/Slamf8/Il23a/Tespa1/Nlrp3/Il7r/Il12a/Pf4/Gimap3/Il15/Tlr9/Ccr1/Ccr2",67,"negative vs positive","negative","positive","Regulation Of Leukocyte Differentiation","Regulation
+Of
+Leukocyte
+Differentiation"
+"212","BP","GO:1902622","regulation of neutrophil migration","16/2342","43/15618",0.372093023255814,2.48136158719441,4.08545007455573,0.00028968057044112,0.0083980247716554,0.00704473491524712,"Rac2/Nckap1l/Tnfaip6/Dpp4/Mdk/Il1a/Lbp/Tlr2/C5ar2/C5ar1/Fut4/Jam3/Dapk2/Sell/Slamf8/Il23a",16,"negative vs positive","negative","positive","Regulation Of Neutrophil Migration","Regulation
+Of
+Neutrophil
+Migration"
+"213","BP","GO:1903037","regulation of leukocyte cell-cell adhesion","77/2342","308/15618",0.25,1.66716481639624,4.96683264418217,2.48725849895403e-06,0.000228268209588942,0.000191484196564853,"Sox13/Dusp10/Arg1/Vsir/Itgb2/Icosl/Havcr2/Rara/Slc4a1/Foxj1/Gli3/Btn2a2/Syk/Zmiz1/Bmp4/Lgals3/Tnfrsf13c/Ppara/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Capn1/Gcnt1/Anxa1/Dock8/Prkcq/Dpp4/Mdk/Rag2/Il1a/Sirpa/Ada/Sdc4/Tnfaip8l2/Vcam1/Ptafr/Pla2g5/Fgl2/Slc4a2/Rhoh/Hspb1/Cav1/Alox5/Ptpn6/Cd4/Lag3/Cd37/Lrrc32/Tspan32/Igf2/Il12rb1/Fut4/Icam1/Ets1/Cd276/Il1rl2/Pdcd1/Zc3h12d/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Pf4/Gimap3/Itgal/Cd209c/Il15/Ccr2",77,"negative vs positive","negative","positive","Regulation Of Leukocyte Cell-Cell Adhesion","Regulation
+Of
+Leukocyte
+Cell-Cell
+Adhesion"
+"214","BP","GO:1903039","positive regulation of leukocyte cell-cell adhesion","57/2342","223/15618",0.255605381165919,1.70454519344549,4.45071791743641,2.4385042294258e-05,0.00118758844318849,0.000996215895779598,"Sox13/Dusp10/Vsir/Itgb2/Icosl/Havcr2/Rara/Slc4a1/Gli3/Btn2a2/Syk/Zmiz1/Tnfrsf13c/Nckap1l/Runx1/Rasal3/H2-Oa/H2-Aa/H2-Eb1/Ager/Vav1/Capn1/Gcnt1/Anxa1/Dock8/Prkcq/Dpp4/Mdk/Il1a/Sirpa/Ada/Vcam1/Ptafr/Rhoh/Cav1/Alox5/Cd4/Igf2/Il12rb1/Fut4/Icam1/Ets1/Cd276/Il1rl2/Il23a/Tespa1/Nlrp3/Il7r/H2-DMb2/H2-Ob/Cd5/Il12a/Gimap3/Itgal/Cd209c/Il15/Ccr2",57,"negative vs positive","negative","positive","Positive Regulation Of Leukocyte Cell-Cell Adhesion","Positive
+Regulation
+Of
+Leukocyte
+Cell-Cell
+Adhesion"
+"215","BP","GO:1903131","mononuclear cell differentiation","105/2342","460/15618",0.228260869565217,1.52219396279657,4.77472583762528,4.13687772466508e-06,0.00030634385436416,0.000256978433094712,"Casp8/Cflar/Fzd5/Inpp5d/Sox13/Ly9/Slamf9/Ifi203/Dusp10/Tnfaip3/Prdm1/Vsir/Dock2/Tcf7/Igtp/Tmem98/Rara/Cd79b/Foxj1/Rsad2/Id2/Zfp36l1/Bcl11b/Gli3/Btn2a2/Irf4/Syk/Ror2/Pik3r1/Zmiz1/Bmp4/Mmp14/Ptk2b/Diaph3/Ly6d/Mfng/Nfam1/Nckap1l/Hcls1/Runx1/H2-Oa/H2-Aa/Ager/Vegfa/Vav1/Fzd8/Csf1r/Nfatc1/Clcf1/Anxa1/Fas/Dpp4/Spi1/Mdk/Rag2/Dll4/Mertk/Il1a/Ada/Prex1/Tlr2/Il6ra/Notch2/Tspan2/Tlr4/Fgl2/Slc4a2/Rhoh/Hspb1/Lfng/Gimap1/Fancd2/Ptpn6/Cd4/Lag3/Pglyrp1/Cd79a/Fes/Ucp2/Itgam/Lyl1/Nfix/Irf8/Mpzl2/Rora/Ccr9/Ndp/Il1rl2/Slamf8/Il23a/Tespa1/Nlrp3/Il31ra/Il7r/Itgb6/Il12a/Pf4/Gimap3/Pirb/Cebpa/Il15/Cd3g/Tlr9/Ccr2/Btk",105,"negative vs positive","negative","positive","Mononuclear Cell Differentiation","Mononuclear
+Cell
+Differentiation"
+"216","BP","GO:1903555","regulation of tumor necrosis factor superfamily cytokine production","51/2342","162/15618",0.314814814814815,2.09939273175823,5.90772733701328,8.28204700259687e-08,1.79509170837135e-05,1.50582375950071e-05,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Tnfaip3/Vsir/Irak3/Havcr2/Ccl4/Rara/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Sirpa/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Tlr6/Ptpn11/Hspb1/Ptpn6/Tnfrsf1a/Clec7a/C5ar2/Kcnn4/Zfp36/Sphk2/Chrna7/Trim30a/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Acp5/Tlr9/Ccr2/Btk",51,"negative vs positive","negative","positive","Regulation Of Tumor Necrosis Factor Superfamily Cytokine Production","Regulation
+Of Tumor
+Necrosis
+Factor
+Superfamily
+Cytokine
+Production"
+"217","BP","GO:1903557","positive regulation of tumor necrosis factor superfamily cytokine production","38/2342","101/15618",0.376237623762376,2.50900051576464,6.39005834716635,1.93513954368483e-08,7.35611045206059e-06,6.17071865719569e-06,"Arid5a/Fzd5/Ncl/Fcgr2b/Cd84/Havcr2/Ccl4/Syk/Pik3r1/Zbtb20/Ager/Csf1r/Ifih1/Il1a/Lbp/Tlr2/Fcgr1/Tlr4/Ptafr/Tnfrsf8/Spon2/Tlr1/Ptpn11/Hspb1/Tnfrsf1a/Clec7a/Sphk2/Tlr3/Ccr5/Il23a/Ticam1/Cd2/Oas1c/Oas1b/Oas1a/Tlr9/Ccr2/Btk",38,"negative vs positive","negative","positive","Positive Regulation Of Tumor Necrosis Factor Superfamily Cytokine Production","Positive
+Regulation
+Of Tumor
+Necrosis
+Factor
+Superfamily
+Cytokine
+Production"
+"218","BP","GO:1903706","regulation of hemopoiesis","81/2342","368/15618",0.220108695652174,1.46782989269669,3.81448212773318,0.000182609630919259,0.00605372160175357,0.00507820173131648,"Casp8/Inpp5d/Tnfrsf11a/Rab7b/Sox13/Cdc73/Dusp10/Prdm1/Vsir/Meis1/Tcf7/Ccl9/Rara/Foxj1/Id2/Hif1a/Zfp36l1/Gli3/Btn2a2/Nedd9/Syk/Ror2/Pik3r1/Zmiz1/Bmp4/Mmp14/Ptk2b/Klf10/Nfam1/Acvr1b/Nckap1l/Snai2/Hcls1/Runx1/H2-Oa/H2-Aa/Ager/Tmem178/Csf1r/Anxa1/Fas/Ldb1/Tnfaip6/Spi1/Mdk/Rag2/Lmo2/Rassf2/Ada/Notch2/Isg15/Fgl2/Slc4a2/Fgfr3/Rhoh/Hspb1/Fancd2/Ptpn6/Cd4/Lag3/Pglyrp1/Zfp36/Fes/Itgam/Ets1/Rbp1/Il1rl2/Slamf8/Il23a/Tespa1/Nlrp3/Il7r/Lox/Il12a/Pf4/Gimap3/Cebpa/Il15/Tlr9/Ccr1/Ccr2",81,"negative vs positive","negative","positive","Regulation Of Hemopoiesis","Regulation
+Of
+Hemopoiesis"
+"219","BP","GO:1990266","neutrophil migration","28/2342","86/15618",0.325581395348837,2.17119138879511,4.5742725098296,3.32873739112876e-05,0.0014945244570249,0.00125369106550262,"Itgb2/Syk/Lgals3/Rac2/Irak4/Nckap1l/Emp2/Vav1/Tnfaip6/Dpp4/Mdk/Il1a/Lbp/Prex1/Edn3/Tlr2/Cxcl10/C5ar2/C5ar1/Itgam/Fut4/Jam3/Dapk2/Itga9/Sell/Slamf8/Il23a/Pf4",28,"negative vs positive","negative","positive","Neutrophil Migration","Neutrophil
+Migration"
+"220","BP","GO:1990573","potassium ion import across plasma membrane","17/2342","43/15618",0.395348837209302,2.63644668639406,4.51315957881503,7.8235113939225e-05,0.00303467088218681,0.0025456524005717,"Kcnj13/Atp1a2/Kcnj10/Kcnj12/Atp1b2/Kcnk5/Slc12a8/Kcne2/Slc12a5/Atp1a1/Kcnj8/Abcc9/Kcnj11/Slc12a4/Kcnj5/Atp1b3/Kcnj4",17,"negative vs positive","negative","positive","Potassium Ion Import Across Plasma Membrane","Potassium
+Ion Import
+Across
+Plasma
+Membrane"
+"221","CC","GO:0005788","endoplasmic reticulum lumen","12/423","106/15718",0.113207547169811,4.20661046433828,5.50871287193677,2.76719343130701e-05,0.000668738412565862,0.000564766378670262,"Resp18/P4ha2/Pdia6/Dnajb9/Pcsk1/Sdf2l1/Pdia5/Poglut1/Hspa5/Bdnf/Erp29/Manf",12,"positive vs negative","positive","negative","Endoplasmic Reticulum Lumen","Endoplasmic
+Reticulum
+Lumen"
+"222","CC","GO:0005840","ribosome","19/423","233/15718",0.0815450643776824,3.0300835032823,5.19178294402479,1.84490709507612e-05,0.000516226517076527,0.000435966253985984,"Rpl31/Rps12/Canx/Psma6/Rpl36al/Mrpl32/Rpl3/Rpl17/Rpl35/Rpl13-ps6/Elavl4/Rpl11/Mrps18c/Rpl6/Rps19/Mrps12/Rps11/Eef1a1/Mcts1",19,"positive vs negative","positive","negative","Ribosome","Ribosome"
+"223","CC","GO:0008021","synaptic vesicle","21/423","268/15718",0.0783582089552239,2.91166507886101,5.24922551981988,1.24303588530885e-05,0.000386229007220966,0.000326180093212624,"Oprk1/Slc35d3/Atp2b1/Dtnbp1/Slc18a3/Mal2/Slc5a7/Syt4/Slc18a2/Bdnf/Slc9b2/Penk/Rab3b/Slc10a4/Grin2b/Syt5/Slc17a6/Slc6a2/Hspa8/Slc35g2/Clcn5",21,"positive vs negative","positive","negative","Synaptic Vesicle","Synaptic
+Vesicle"
+"224","CC","GO:0009897","external side of plasma membrane","114/2363","334/15718",0.341317365269461,2.27034547071747,9.87086432347968,1.32228155234548e-18,7.89402086750249e-16,7.29342666767399e-16,"Tnfrsf11a/Fcgr2b/Ly9/Cd48/Cd84/Slamf9/Enpp3/Vsir/Itgb2/Icosl/Stab2/Itga7/Tnfsf13/Slc2a4/Mgl2/Atp1b2/Car4/Cd79b/Gm4787/Adam4/Btn2a2/Lgals3/Osmr/Ly6a/Ly6c1/Csf2rb/Tnfrsf13c/H2-Aa/H2-Eb1/Ly6g6d/Ly6g5b/Mog/Aqp4/Cd248/Fas/Eng/Itgav/Prn/Ada/Tlr2/Il6ra/Fcgr1/Vcam1/Enpep/Cntfr/Musk/Tlr4/Igsf21/Pdpn/Tnfrsf4/Pdgfra/Cxcl10/Antxr2/P2rx7/Cd4/Lag3/Scnn1a/Vwf/Cd9/Clec7a/Mill2/Apoe/Plaur/Cd79a/Cd33/Siglece/Chrna7/Anpep/Folr1/Scnn1b/Scnn1g/Il21r/Itgam/Fcer2a/Crlf1/Il12rb1/Adgre5/Cdh5/Icam1/Epor/St14/Kcnj5/Cd276/Ackr4/Ccrl2/Itga9/Ccr9/Ccr5/Cxcr6/Gpc4/Amot/Il13ra2/Rs1/Tlr8/Pdcd1/Sell/Clec10a/Il31ra/Il7r/Il2rb/H2-Q6/Cd5/Itgb6/Cd2/Clec4a1/Pirb/Cd22/Itgal/Cd209a/Cd209c/Cd3g/Itga11/Ccr1/Ccr2",114,"negative vs positive","negative","positive","External Side Of Plasma Membrane","External
+Side Of
+Plasma
+Membrane"
+"225","CC","GO:0009925","basal plasma membrane","73/2363","281/15718",0.259786476868327,1.72802532518678,5.1797993416584,1.08880971499606e-06,9.28599142646637e-05,8.57949309260051e-05,"Adora1/Kcnj10/Slc16a10/Lin7a/Erbb3/Egfr/Gm2a/Slc47a1/Slc13a5/Myo1c/Myo1d/Slc4a1/Abca8a/Slc16a5/Itgb4/Slc16a3/Agtr1a/Nedd9/Slc1a3/Aqp2/Cldn1/Cldn8/Ezr/Slc22a3/Ager/Hspa1a/Aqp4/Slc14a2/Slc22a8/Slc22a6/Anxa1/Slc16a12/Prom2/Slc4a11/Aurka/Atp1a1/Ank2/Slc26a7/Aqp7/Car9/Tek/Plpp3/Epb41/Ldlrap1/Pdpn/Slc4a2/Slc2a9/Slc4a4/Cav1/Slc4a5/Tgfa/Slc6a13/Slco1a4/C5ar2/C5ar1/Kcnn4/Ceacam2/P2ry6/P2ry2/Inppl1/Folr1/St14/Megf11/Car12/Aqp9/Atp1b3/Slco2a1/Trf/Slc38a3/Itga9/Heph/Kcnj4/Tlr9",73,"negative vs positive","negative","positive","Basal Plasma Membrane","Basal
+Plasma
+Membrane"
+"226","CC","GO:0016323","basolateral plasma membrane","65/2363","251/15718",0.258964143426295,1.72255539838108,4.8539992992134,4.64926973769772e-06,0.000308401559267282,0.000284937700883463,"Adora1/Kcnj10/Slc16a10/Lin7a/Erbb3/Egfr/Gm2a/Slc47a1/Slc13a5/Myo1d/Slc4a1/Abca8a/Slc16a5/Slc16a3/Agtr1a/Nedd9/Slc1a3/Aqp2/Cldn1/Cldn8/Ezr/Slc22a3/Hspa1a/Aqp4/Slc14a2/Slc22a8/Slc22a6/Anxa1/Slc16a12/Prom2/Slc4a11/Aurka/Atp1a1/Ank2/Slc26a7/Aqp7/Car9/Tek/Plpp3/Epb41/Pdpn/Slc4a2/Slc2a9/Slc4a4/Cav1/Slc4a5/Tgfa/Slc6a13/Slco1a4/C5ar1/Kcnn4/Ceacam2/P2ry6/P2ry2/Folr1/St14/Megf11/Car12/Aqp9/Atp1b3/Slco2a1/Slc38a3/Heph/Kcnj4/Tlr9",65,"negative vs positive","negative","positive","Basolateral Plasma Membrane","Basolateral
+Plasma
+Membrane"
+"227","CC","GO:0016324","apical plasma membrane","96/2363","368/15718",0.260869565217391,1.73522971903807,6.00326499312582,1.85185585316898e-08,5.52778972170942e-06,5.10722351084499e-06,"Kcne4/Crb1/Cfap126/Kcnj10/Cnksr3/Enpp3/Gja1/Slc5a8/Erbb3/Egfr/Gm2a/Slc47a1/Atp1b2/Car4/Slc16a3/Slc6a19/Ocln/Lmo7/Osmr/Aqp6/Aqp2/Emp2/Cldn1/Upk1b/Kcne2/Ezr/Slc22a3/Cyp4f15/Cyp4f14/Ager/Hspa1a/Mtcl1/Atp8b1/Slc14a2/Acy3/Slc22a8/Anxa1/Fas/Crb2/Dpp4/Prom2/Mal/Slc4a11/Il6ra/Atp1a1/Vcam1/Enpep/Clca4a/Slc26a7/Cntfr/Tek/Pdpn/Slc4a2/Slc5a1/Slc2a9/Prom1/Cav1/Slc13a1/Slc4a5/Scnn1a/Cd9/Kcna1/Ptprh/Kcnn4/Ceacam2/Upk1a/Chrna7/P2ry6/P2ry2/Folr1/Scnn1b/Scnn1g/Slc5a11/Slc22a18/Slc20a2/Fat1/Pard6a/Kcnk1/C1qtnf5/Il10ra/Cspg4/Car12/Atp1b3/Trf/Zmynd10/Slc38a3/Myrip/Slc6a20b/Slc6a20a/Ace2/Aspm/Slc39a4/Slc22a12/Sapcd2/Cybrd1/Tlr9",96,"negative vs positive","negative","positive","Apical Plasma Membrane","Apical
+Plasma
+Membrane"
+"228","CC","GO:0022625","cytosolic large ribosomal subunit","9/423","58/15718",0.155172413793103,5.76595744680851,6.04711945738834,2.25044379978526e-05,0.000575848854650935,0.000486318814938115,"Rpl31/Rps12/Rpl36al/Rpl3/Rpl17/Rpl35/Rpl13-ps6/Rpl11/Rpl6",9,"positive vs negative","positive","negative","Cytosolic Large Ribosomal Subunit","Cytosolic
+Large
+Ribosomal
+Subunit"
+"229","CC","GO:0022626","cytosolic ribosome","13/423","119/15718",0.109243697478992,4.0593201819735,5.5709633708243,1.89876420074125e-05,0.000516226517076527,0.000435966253985984,"Rpl31/Rps12/Rpl36al/Rpl3/Rpl17/Rpl35/Rpl13-ps6/Rpl11/Rpl6/Rps19/Rps11/Eef1a1/Mcts1",13,"positive vs negative","positive","negative","Cytosolic Ribosome","Cytosolic
+Ribosome"
+"230","CC","GO:0030133","transport vesicle","28/423","404/15718",0.0693069306930693,2.5753341291576,5.33456870367208,4.94651977104683e-06,0.000195612372764125,0.000165199559817736,"Oprk1/Resp18/Pam/Slc35d3/Atp2b1/Nts/Dtnbp1/Pcsk1/Slc18a3/Mal2/Slc5a7/Syt4/Dpysl3/Slc18a2/Dbh/Bdnf/Nrsn2/Slc9b2/Penk/Rab3b/Slc10a4/Grin2b/Syt5/Slc17a6/Slc6a2/Hspa8/Slc35g2/Clcn5",28,"positive vs negative","positive","negative","Transport Vesicle","Transport
+Vesicle"
+"231","CC","GO:0030141","secretory granule","27/423","330/15718",0.0818181818181818,3.04023210831721,6.22910610731964,3.05362638970542e-07,3.32081869880465e-05,2.80451476317682e-05,"Resp18/Scg2/Pam/Fstl4/Cyb561/Slirp/Pcsk1/Crhbp/Sst/Morn2/Adcyap1/Syt4/Gal/Slc18a2/Dbh/Bdnf/Crh/Skil/Serpini1/Penk/Rab3b/Cyp51/Cacna2d1/Calcr/Snx10/Syt5/Calca",27,"positive vs negative","positive","negative","Secretory Granule","Secretory
+Granule"
+"232","CC","GO:0030312","external encapsulating structure","104/2363","424/15718",0.245283018867925,1.63155247167416,5.54531939989442,1.43990509599625e-07,2.14905835577441e-05,1.9855533429001e-05,"Col9a1/Col3a1/Col5a2/Wnt6/Fmod/Angptl1/Myoc/Adamts4/Lamb3/Col13a1/Mmp11/Lum/Emid1/Sparc/Mfap4/Phospho1/Itgb4/Ltbp2/Nid1/F13a1/Ecm2/Aspn/Cd180/Lgals3/Ang/Mmp14/Scara3/Loxl2/Bmp1/Plxnb2/Adamts1/Runx1/Adamts10/Tnxb/Vegfa/Lama1/Anxa1/Clic3/Fcna/Adamtsl2/Fbln7/Matn4/Col20a1/Frem2/Bcan/Hapln2/S100a13/S100a6/Lingo4/Adamtsl4/Col24a1/Svep1/Tnc/Angptl3/Col8a2/Tinagl1/Hspg2/Alpl/Mmp23/Fgl2/Emilin1/Spon2/Sod3/Igfbp7/Dmp1/Col26a1/Gpc2/Tril/Fbln2/Wnt7a/Mfap5/Vwf/Tspan9/Apoe/Hapln3/Tsku/Lrrc32/Fgfr2/Muc6/Igf2/Crispld2/Cspg4/Loxl1/Adam10/Impg1/Trf/Col6a4/Col6a5/Lamb2/Ndp/Timp1/Gpc4/Col4a6/Egfl6/Epyc/Col22a1/Lox/Hpse2/Prg2/Postn/Pf4/Col5a3/Tecta/Adamts7",104,"negative vs positive","negative","positive","External Encapsulating Structure","External
+Encapsulating
+Structure"
+"233","CC","GO:0030658","transport vesicle membrane","18/423","235/15718",0.0765957446808511,2.84617473970122,4.74197705565036,6.93723222872654e-05,0.00131204174760698,0.00110805219580117,"Oprk1/Pam/Slc35d3/Atp2b1/Dtnbp1/Slc18a3/Mal2/Slc5a7/Slc18a2/Dbh/Slc9b2/Rab3b/Slc10a4/Grin2b/Syt5/Slc17a6/Slc6a2/Slc35g2",18,"positive vs negative","positive","negative","Transport Vesicle Membrane","Transport
+Vesicle
+Membrane"
+"234","CC","GO:0030672","synaptic vesicle membrane","15/423","164/15718",0.0914634146341463,3.39863345441965,5.13505421237446,3.74292240870173e-05,0.000740077839902388,0.000625014316094212,"Oprk1/Slc35d3/Atp2b1/Dtnbp1/Slc18a3/Mal2/Slc5a7/Slc18a2/Slc9b2/Rab3b/Slc10a4/Syt5/Slc17a6/Slc6a2/Slc35g2",15,"positive vs negative","positive","negative","Synaptic Vesicle Membrane","Synaptic
+Vesicle
+Membrane"
+"235","CC","GO:0031012","extracellular matrix","104/2363","423/15718",0.245862884160756,1.63540956971594,5.57242119695821,1.27071663160548e-07,2.14905835577441e-05,1.9855533429001e-05,"Col9a1/Col3a1/Col5a2/Wnt6/Fmod/Angptl1/Myoc/Adamts4/Lamb3/Col13a1/Mmp11/Lum/Emid1/Sparc/Mfap4/Phospho1/Itgb4/Ltbp2/Nid1/F13a1/Ecm2/Aspn/Cd180/Lgals3/Ang/Mmp14/Scara3/Loxl2/Bmp1/Plxnb2/Adamts1/Runx1/Adamts10/Tnxb/Vegfa/Lama1/Anxa1/Clic3/Fcna/Adamtsl2/Fbln7/Matn4/Col20a1/Frem2/Bcan/Hapln2/S100a13/S100a6/Lingo4/Adamtsl4/Col24a1/Svep1/Tnc/Angptl3/Col8a2/Tinagl1/Hspg2/Alpl/Mmp23/Fgl2/Emilin1/Spon2/Sod3/Igfbp7/Dmp1/Col26a1/Gpc2/Tril/Fbln2/Wnt7a/Mfap5/Vwf/Tspan9/Apoe/Hapln3/Tsku/Lrrc32/Fgfr2/Muc6/Igf2/Crispld2/Cspg4/Loxl1/Adam10/Impg1/Trf/Col6a4/Col6a5/Lamb2/Ndp/Timp1/Gpc4/Col4a6/Egfl6/Epyc/Col22a1/Lox/Hpse2/Prg2/Postn/Pf4/Col5a3/Tecta/Adamts7",104,"negative vs positive","negative","positive","Extracellular Matrix","Extracellular
+Matrix"
+"236","CC","GO:0031045","dense core granule","12/423","55/15718",0.218181818181818,8.10728562217924,8.78067512971704,1.9021589330974e-08,4.13719567948685e-06,3.49396561921575e-06,"Scg2/Crhbp/Sst/Adcyap1/Syt4/Slc18a2/Bdnf/Crh/Penk/Cacna2d1/Syt5/Calca",12,"positive vs negative","positive","negative","Dense Core Granule","Dense Core
+Granule"
+"237","CC","GO:0031258","lamellipodium membrane","11/2363","22/15718",0.5,3.32585696148963,4.59192291627757,0.000122045691277743,0.00560471366867789,0.00517829491737144,"Syne2/Dock8/Dpp4/Itgav/Epha2/Pdpn/Plxnd1/Vasp/Piezo1/Cspg4/Plek2",11,"negative vs positive","negative","positive","Lamellipodium Membrane","Lamellipodium
+Membrane"
+"238","CC","GO:0031983","vesicle lumen","6/423","15/15718",0.4,14.8633569739953,8.93311633975751,1.49356335608808e-06,8.12125074872893e-05,6.85860014835184e-05,"Pcsk1/Adcyap1/Dbh/Crh/Serpini1/Penk",6,"positive vs negative","positive","negative","Vesicle Lumen","Vesicle
+Lumen"
+"239","CC","GO:0034702","monoatomic ion channel complex","21/423","284/15718",0.073943661971831,2.74762760962941,4.94252743760416,2.9647892872636e-05,0.000678780705241929,0.000573247346955676,"Sumo1/Dpp10/Cacna1b/Lrrc8a/Kcnh7/Scn3a/Scn9a/Kcna4/Grin3a/Cacna2d1/Grin2b/Slc17a6/Gabra5/Cnga4/Cacng3/Chrnb3/Olfm2/Scn3b/Gabrq/Gabra3/Glra2",21,"positive vs negative","positive","negative","Monoatomic Ion Channel Complex","Monoatomic
+Ion
+Channel
+Complex"
+"240","CC","GO:0034774","secretory granule lumen","6/423","13/15718",0.461538461538462,17.1500272776869,9.68737776410765,5.36115247284106e-07,4.66420265137173e-05,3.93903623794007e-05,"Pcsk1/Adcyap1/Dbh/Crh/Serpini1/Penk",6,"positive vs negative","positive","negative","Secretory Granule Lumen","Secretory
+Granule
+Lumen"
+"241","CC","GO:0042734","presynaptic membrane","18/423","259/15718",0.0694980694980695,2.58243653988335,4.27037246029988,0.000236094484118909,0.00366789644970448,0.00309763063749997,"Oprk1/Atp2b1/Grip1/Canx/Htr2a/Pcdh17/Slc5a7/Kcna4/Cacna2d1/Grm8/Chrm2/Grin2b/Ap2s1/Gabra5/Nrg1/Slc6a2/Cntn5/Gabra3",18,"positive vs negative","positive","negative","Presynaptic Membrane","Presynaptic
+Membrane"
+"242","CC","GO:0043195","terminal bouton","10/423","85/15718",0.117647058823529,4.37157558058685,5.18324178717166,9.25636303408967e-05,0.00167771579992875,0.00141687311355144,"Grip1/Slc18a3/Adcyap1/Slc18a2/Dbh/Bdnf/Grin2b/Calca/Hspa8/Prph",10,"positive vs negative","positive","negative","Terminal Bouton","Terminal
+Bouton"
+"243","CC","GO:0043198","dendritic shaft","9/423","71/15718",0.126760563380282,4.7102187593647,5.21066820212234,0.000115629580453747,0.00201195469989519,0.00169914625593084,"Grip1/Htr2a/Abi3bp/Cacna1b/Hspa5/Zfp804a/Kcna4/Lzts1/Hspa8",9,"positive vs negative","positive","negative","Dendritic Shaft","Dendritic
+Shaft"
+"244","CC","GO:0043204","perikaryon","19/423","206/15718",0.0922330097087379,3.42723037021736,5.83164366681772,3.12167857978127e-06,0.000135793018220485,0.000114680613088807,"Oprk1/Resp18/Pam/Grip1/Pcsk1/Crhbp/Slc5a7/Adcyap1/Pde11a/Bdnf/Crh/Serpini1/Penk/Elavl4/Asl/Cnga4/Nucb2/Hspa8/Prph",19,"positive vs negative","positive","negative","Perikaryon","Perikaryon"
+"245","CC","GO:0043235","receptor complex","88/2363","356/15718",0.247191011235955,1.64424389107353,5.17185295888417,9.15240000986719e-07,9.10663800981785e-05,8.41378527222878e-05,"Gpbar1/Traf5/Itgb2/Erbb3/Itga7/Egfr/Gabra6/Flt4/Trpv3/Cd79b/Gprc5c/Grin2c/Itgb4/Syk/Ror2/Fgfr4/Ntrk2/Chrna2/Ptk2b/Kctd12/Osmr/Csf2rb/Shisa8/Plxnb2/Acvrl1/Acvr1b/Gpr84/Itgb5/Csf1r/Lrp5/Pkd2l1/Apbb1ip/Traf2/Eng/Traf1/Pla2r1/Itgav/Calcrl/P2rx3/Mertk/Gpr160/Tlr2/Il6ra/Notch2/Gpr63/Gabrr2/Cntfr/Gabbr2/Musk/Tlr4/Tek/Epha2/Emilin1/Fgfr3/Tlr1/Tlr6/Pdgfra/Tril/Plxnd1/Ptpn6/Tnfrsf1a/Cd79a/Ceacam2/Chrna7/Gprc5b/Itgam/Fgfr2/Tspan32/Crlf1/Il12rb1/Gria4/Smad3/Htr1b/Trf/Plxnb1/Itga9/Porcn/Plxnb3/Plp1/Il13ra2/Kctd12b/Tlr7/Il31ra/Itgb6/Tie1/Itgal/Cd3g/Itga11",88,"negative vs positive","negative","positive","Receptor Complex","Receptor
+Complex"
+"246","CC","GO:0043679","axon terminus","19/423","191/15718",0.0994764397905759,3.69638458777369,6.23497925492531,1.00238094473435e-06,6.22908158513491e-05,5.26061578514721e-05,"Oprk1/Nts/Grip1/Pcsk1/Crhbp/Slc18a3/Sncg/Adcyap1/Slc18a2/Cacna1b/Dbh/Scn9a/Bdnf/Penk/Chrm2/Grin2b/Calca/Hspa8/Prph",19,"positive vs negative","positive","negative","Axon Terminus","Axon
+Terminus"
+"247","CC","GO:0044306","neuron projection terminus","21/423","212/15718",0.0990566037735849,3.680784156296,6.53521919082387,2.89906708785329e-07,3.32081869880465e-05,2.80451476317682e-05,"Oprk1/Nts/Grip1/Pcsk1/Crhbp/Slc18a3/Sncg/Adcyap1/Syt4/Slc18a2/Cacna1b/Dbh/Scn9a/Bdnf/Penk/Uchl1/Chrm2/Grin2b/Calca/Hspa8/Prph",21,"positive vs negative","positive","negative","Neuron Projection Terminus","Neuron
+Projection
+Terminus"
+"248","CC","GO:0044391","ribosomal subunit","15/423","186/15718",0.0806451612903226,2.99664455120872,4.55537158106457,0.000156658263600647,0.00252393869134376,0.00213152959051173,"Rpl31/Rps12/Rpl36al/Mrpl32/Rpl3/Rpl17/Rpl35/Rpl13-ps6/Rpl11/Mrps18c/Rpl6/Rps19/Mrps12/Rps11/Mcts1",15,"positive vs negative","positive","negative","Ribosomal Subunit","Ribosomal
+Subunit"
+"249","CC","GO:0045177","apical part of cell","108/2363","448/15718",0.241071428571429,1.60353817786107,5.45153716353883,2.11862801472616e-07,2.52964184958303e-05,2.3371812204558e-05,"Kcne4/Crb1/Cfap126/Kcnj10/Cnksr3/Enpp3/Gja1/Edar/Cdh23/Slc5a8/Erbb3/Egfr/Gm2a/Slc47a1/Atp1b2/Car4/Crhr1/Slc16a3/Ptch1/Slc6a19/Ocln/Lmo7/Osmr/Aqp6/Aqp2/Emp2/Cldn1/Upk1b/Drd3/Kcne2/Ezr/Slc22a3/Cyp4f15/Cyp4f14/Ager/Hspa1a/Adgrf5/Mtcl1/Atp8b1/Slc14a2/Acy3/Slc22a8/Anxa1/Fas/Crb2/Dpp4/Prom2/Mal/Slc4a11/Il6ra/Atp1a1/Vcam1/Enpep/Clca4a/Slc26a7/Cntfr/Tek/Dab1/Pdpn/Slc4a2/Slc5a1/Slc2a9/Prom1/Cav1/Slc13a1/Slc4a5/Scnn1a/Cd9/Kcna1/Ptprh/C5ar2/C5ar1/Kcnn4/Ceacam2/Upk1a/Chrna7/P2ry6/P2ry2/Folr1/Scnn1b/Scnn1g/Slc5a11/Slc22a18/Slc20a2/Plat/Fat1/Pard6a/Kcnk1/C1qtnf5/Il10ra/Cspg4/Car12/Atp1b3/Trf/Zmynd10/Slc38a3/Myrip/Slc6a20b/Slc6a20a/Ace2/Aspm/Slc39a4/Myo7b/Slc22a12/Sapcd2/Cybrd1/Tlr9/Eda",108,"negative vs positive","negative","positive","Apical Part Of Cell","Apical
+Part Of
+Cell"
+"250","CC","GO:0045178","basal part of cell","76/2363","298/15718",0.25503355704698,1.69641026223632,5.1053538544324,1.42067592959717e-06,0.000106017941246189,9.79518667248575e-05,"Mpp4/Adora1/Kcnj10/Slc16a10/Lin7a/Erbb3/Egfr/Gm2a/Slc47a1/Slc13a5/Myo1c/Myo1d/Slc4a1/Abca8a/Slc16a5/Itgb4/Slc16a3/Agtr1a/Nedd9/Slc1a3/Aqp2/Cldn1/Cldn8/Ezr/Slc22a3/Ager/Hspa1a/Aqp4/Slc14a2/Slc22a8/Slc22a6/Anxa1/Slc16a12/Prom2/Slc4a11/Aurka/Cldn11/Atp1a1/Ank2/Slc26a7/Aqp7/Car9/Tek/Plpp3/Epb41/Ldlrap1/Pdpn/Slc4a2/Slc2a9/Slc4a4/Cav1/Slc4a5/Tgfa/Slc6a13/Slco1a4/C5ar2/C5ar1/Kcnn4/Ceacam2/P2ry6/P2ry2/Inppl1/Folr1/St14/Phldb1/Megf11/Car12/Aqp9/Atp1b3/Slco2a1/Trf/Slc38a3/Itga9/Heph/Kcnj4/Tlr9",76,"negative vs positive","negative","positive","Basal Part Of Cell","Basal Part
+Of Cell"
+"251","CC","GO:0060205","cytoplasmic vesicle lumen","6/423","14/15718",0.428571428571429,15.9250253292806,9.29082374044379,9.16923922312157e-07,6.22908158513491e-05,5.26061578514721e-05,"Pcsk1/Adcyap1/Dbh/Crh/Serpini1/Penk",6,"positive vs negative","positive","negative","Cytoplasmic Vesicle Lumen","Cytoplasmic
+Vesicle
+Lumen"
+"252","CC","GO:0062023","collagen-containing extracellular matrix","77/2363","321/15718",0.2398753894081,1.59558246750593,4.53493542407537,1.38094805389435e-05,0.000824425988174929,0.000761701873937517,"Col9a1/Col3a1/Col5a2/Fmod/Angptl1/Myoc/Adamts4/Lamb3/Col13a1/Lum/Emid1/Sparc/Mfap4/Itgb4/Ltbp2/Nid1/F13a1/Ecm2/Aspn/Lgals3/Ang/Scara3/Loxl2/Bmp1/Plxnb2/Adamts1/Runx1/Adamts10/Tnxb/Vegfa/Lama1/Anxa1/Fcna/Matn4/Frem2/Bcan/Hapln2/S100a13/S100a6/Adamtsl4/Col24a1/Tnc/Angptl3/Col8a2/Tinagl1/Hspg2/Fgl2/Emilin1/Sod3/Igfbp7/Gpc2/Fbln2/Mfap5/Vwf/Tspan9/Hapln3/Fgfr2/Igf2/Cspg4/Loxl1/Adam10/Impg1/Trf/Col6a4/Col6a5/Lamb2/Ndp/Timp1/Gpc4/Col4a6/Egfl6/Col22a1/Lox/Prg2/Postn/Pf4/Col5a3",77,"negative vs positive","negative","positive","Collagen-Containing Extracellular Matrix","Collagen-Containing
+Extracellular
+Matrix"
+"253","CC","GO:0070382","exocytic vesicle","22/423","283/15718",0.0777385159010601,2.88863828116516,5.33173994628781,8.77232375831612e-06,0.000293535448835963,0.000247898056004237,"Oprk1/Slc35d3/Atp2b1/Dtnbp1/Slc18a3/Mal2/Slc5a7/Syt4/Dpysl3/Slc18a2/Bdnf/Slc9b2/Penk/Rab3b/Slc10a4/Grin2b/Syt5/Slc17a6/Slc6a2/Hspa8/Slc35g2/Clcn5",22,"positive vs negative","positive","negative","Exocytic Vesicle","Exocytic
+Vesicle"
+"254","CC","GO:0098636","protein complex involved in cell adhesion","19/2363","50/15718",0.38,2.52765129073212,4.5508989597034,5.95707595925252e-05,0.00323306758879432,0.00298708880636203,"Itgb2/Itga7/Itgb4/Nid1/Itgb5/Lama1/Itgav/Tnc/Emilin1/Plaur/Itgam/Tspan32/Jam3/Lamb2/Itga9/Plp1/Itgb6/Itgal/Itga11",19,"negative vs positive","negative","positive","Protein Complex Involved In Cell Adhesion","Protein
+Complex
+Involved
+In Cell
+Adhesion"
+"255","CC","GO:0098802","plasma membrane signaling receptor complex","44/2363","168/15718",0.261904761904762,1.74211555125647,4.06776371337271,0.000114617384776159,0.00560471366867789,0.00517829491737144,"Traf5/Itgb2/Erbb3/Itga7/Cd79b/Grin2c/Itgb4/Syk/Chrna2/Ptk2b/Osmr/Csf2rb/Shisa8/Acvrl1/Acvr1b/Itgb5/Apbb1ip/Traf2/Traf1/Itgav/Calcrl/Tlr2/Il6ra/Cntfr/Gabbr2/Emilin1/Tlr1/Tlr6/Ptpn6/Cd79a/Ceacam2/Chrna7/Itgam/Tspan32/Il12rb1/Gria4/Trf/Itga9/Porcn/Plp1/Itgb6/Itgal/Cd3g/Itga11",44,"negative vs positive","negative","positive","Plasma Membrane Signaling Receptor Complex","Plasma
+Membrane
+Signaling
+Receptor
+Complex"
+"256","CC","GO:0098982","GABA-ergic synapse","14/423","163/15718",0.0858895705521472,3.19151836864929,4.67718102620046,0.000133063635546053,0.00222625697932819,0.00188012991115678,"Atp2b1/Grip1/Gabarap/Pcdh17/Sst/Cbln4/Cacna2d1/Grm8/Gabra5/Nrg1/Cdh13/Cntn5/Gabra3/Glra2",14,"positive vs negative","positive","negative","Gaba-Ergic Synapse","Gaba-Ergic
+Synapse"
+"257","CC","GO:0098992","neuronal dense core vesicle","11/423","37/15718",0.297297297297297,11.0470896428343,10.1750026593435,2.1453952122875e-09,9.33246917345061e-07,7.88150451671933e-07,"Scg2/Sst/Adcyap1/Syt4/Slc18a2/Bdnf/Crh/Penk/Cacna2d1/Syt5/Calca",11,"positive vs negative","positive","negative","Neuronal Dense Core Vesicle","Neuronal
+Dense Core
+Vesicle"
+"258","CC","GO:0099501","exocytic vesicle membrane","15/423","164/15718",0.0914634146341463,3.39863345441965,5.13505421237446,3.74292240870173e-05,0.000740077839902388,0.000625014316094212,"Oprk1/Slc35d3/Atp2b1/Dtnbp1/Slc18a3/Mal2/Slc5a7/Slc18a2/Slc9b2/Rab3b/Slc10a4/Syt5/Slc17a6/Slc6a2/Slc35g2",15,"positive vs negative","positive","negative","Exocytic Vesicle Membrane","Exocytic
+Vesicle
+Membrane"
+"259","CC","GO:0150034","distal axon","26/423","403/15718",0.0645161290322581,2.39731564096698,4.72572899337586,3.71719735716318e-05,0.000740077839902388,0.000625014316094212,"Oprk1/Nts/Grip1/Dtnbp1/Pcsk1/Crhbp/Slc18a3/Sncg/Dscam/Adcyap1/Dpysl3/Slc18a2/Cacna1b/Dbh/Scn9a/Zfp804a/Bdnf/Penk/Elavl4/Chrm2/Grin2b/Calca/Hspa8/Fgf13/Dcx/Prph",26,"positive vs negative","positive","negative","Distal Axon","Distal
+Axon"
+"260","CC","GO:1902495","transmembrane transporter complex","28/423","390/15718",0.0717948717948718,2.66778202097351,5.54637353600562,2.51651035999195e-06,0.000121631334066278,0.000102720715279204,"Sumo1/Dpp10/Ndufa12/Uqcr10/Uqcrq/Cox6c/Ndufb8/Cacna1b/Lrrc8a/Kcnh7/Scn3a/Scn9a/Kcna4/Ndufb6/Grin3a/Ndufs5/Cacna2d1/Grin2b/Slc17a6/Gabra5/Cnga4/Cacng3/Chrnb3/Olfm2/Scn3b/Gabrq/Gabra3/Glra2",28,"positive vs negative","positive","negative","Transmembrane Transporter Complex","Transmembrane
+Transporter
+Complex"
+"261","CC","GO:1990351","transporter complex","28/423","415/15718",0.0674698795180723,2.5070722606739,5.17428212953836,8.20101267741396e-06,0.000293535448835963,0.000247898056004237,"Sumo1/Dpp10/Ndufa12/Uqcr10/Uqcrq/Cox6c/Ndufb8/Cacna1b/Lrrc8a/Kcnh7/Scn3a/Scn9a/Kcna4/Ndufb6/Grin3a/Ndufs5/Cacna2d1/Grin2b/Slc17a6/Gabra5/Cnga4/Cacng3/Chrnb3/Olfm2/Scn3b/Gabrq/Gabra3/Glra2",28,"positive vs negative","positive","negative","Transporter Complex","Transporter
+Complex"
+"262","MF","GO:0003735","structural constituent of ribosome","15/413","158/15444",0.0949367088607595,3.55012719526772,5.34060407407911,2.23771965415451e-05,0.00802222496014391,0.00730203255566208,"Rpl31/Rps12/Ubb/Rpl36al/Mrpl32/Rpl3/Rpl17/Rpl35/Rpl13-ps6/Rpl11/Mrps18c/Rpl6/Rps19/Mrps12/Rps11",15,"positive vs negative","positive","negative","Structural Constituent Of Ribosome","Structural
+Constituent
+Of
+Ribosome"
+"263","MF","GO:0004930","G protein-coupled receptor activity","100/2338","328/15444",0.304878048780488,2.01391641803501,7.83923426713049,9.30293658010552e-13,1.07728005597622e-09,9.76318712670022e-10,"Fzd5/Gpbar1/Gpr35/Sctr/Adora1/Adgrg6/Npffr1/Tbxa2r/Gpr182/Vmn2r86/Vmn2r87/Adora2b/Gpr179/Fzd2/Crhr1/Gprc5c/Galr2/Gpr65/Bdkrb2/Agtr1a/Hrh2/Opn4/Ptgdr/Ltb4r1/Cysltr2/Kctd12/Rxfp3/Galr3/Gpr84/Drd3/Mas1/Sstr5/Adgrf4/Adgrf5/Fzd8/Gpr17/Mc5r/Calcrl/Chrm4/Adra2b/Gpr160/P2ry13/Vmn2r2/Npy2r/Adora3/Gpr88/Lpar3/Gpr63/Cnr1/Gabbr2/Ptafr/Grm3/Cmklr1/Tmem116/Hcar2/Hcar1/Fzd10/Gper1/Smo/Tas2r126/Prokr1/Gpr162/Lpar5/C5ar2/C5ar1/Gipr/Gpr4/Vmn2r57/Sphk2/P2ry6/P2ry2/Gprc5b/Mrgprf/Ptger1/Adgre5/Adgrg1/S1pr2/Npsr1/Htr1b/Ackr4/Ccrl2/Ccr9/Ccr5/Cxcr6/Cysltr1/Kctd12b/Nmur1/S1pr4/Adgre4/Ntsr1/Agtr1b/Rxfp2/Crhr2/Vmn1r4/Rho/Drd4/Ccr1/Ccr2/Brs3/Gpr174",100,"negative vs positive","negative","positive","G Protein-Coupled Receptor Activity","G
+Protein-Coupled
+Receptor
+Activity"
+"264","MF","GO:0005126","cytokine receptor binding","50/2338","184/15444",0.271739130434783,1.79501245955294,4.58203694996871,1.69518307008057e-05,0.00392604399030661,0.00355810004393754,"Casp8/Cflar/Tmbim1/Traf5/Tnfsf13/Ccl7/Ccl9/Ccl4/Ccl6/Cd300lf/Prl2c3/Syk/Pik3r1/Osmr/Irak4/Ltb/Vegfa/Tslp/Clcf1/Traf2/Eng/Traf1/Il1a/Tnfsf10/Il6ra/Ngf/Ifnk/Rasl11b/Cxcl10/Ptpn6/Ntf3/Il11/Cadm4/Crlf1/Il12rb1/Cdh5/Smad3/Ccrl2/Amh/Il23a/Socs3/Lrg1/Il12a/Nes/Pf4/Il15/Smad6/Tlr9/Ccr2/Eda",50,"negative vs positive","negative","positive","Cytokine Receptor Binding","Cytokine
+Receptor
+Binding"
+"265","MF","GO:0019955","cytokine binding","39/2338","116/15444",0.336206896551724,2.22086369133654,5.57450660043406,5.27003612369201e-07,0.000203423394374511,0.00018435880755512,"Tnfrsf11a/Tcap/Sost/Tmc8/Osmr/Acvrl1/Ager/Csf1r/Traf2/Eng/Itgav/Il6ra/Gbp2/Cntfr/Pdpn/Tnfrsf1b/A2m/Cd4/Tnfrsf1a/Zfp36/Tsku/Lrrc32/Crlf1/Il12rb1/Casp1/Il10ra/Cd109/Ackr4/Ccrl2/Ccr9/Ccr5/Cxcr6/Il13ra2/Trim16/Il31ra/Il2rb/Il12a/Ccr1/Ccr2",39,"negative vs positive","negative","positive","Cytokine Binding","Cytokine
+Binding"
+"266","MF","GO:0030594","neurotransmitter receptor activity","11/413","87/15444",0.126436781609195,4.72806211906154,5.78011525798176,1.97573705113448e-05,0.00802222496014391,0.00730203255566208,"Htr2a/Htr1f/Grin3a/Drd5/Chrm2/Grin2b/Gabra5/Chrnb3/Gabrq/Gabra3/Glra2",11,"positive vs negative","positive","negative","Neurotransmitter Receptor Activity","Neurotransmitter
+Receptor
+Activity"
+"267","MF","GO:0038187","pattern recognition receptor activity","21/2338","39/15444",0.538461538461538,3.55688622754491,6.75251975449777,2.17231985767076e-08,1.25777319759137e-05,1.13989626215671e-05,"Mgl2/Fcna/Ifih1/Tlr2/Tlr4/Ptafr/Clec7a/Pglyrp1/Trim5/Trim12a/Trim30a/Fcer2a/Tlr3/Tlr8/Tlr7/Clec10a/Nlrp1b/Clec4a1/Cd209a/Cd209c/Tlr9",21,"negative vs positive","negative","positive","Pattern Recognition Receptor Activity","Pattern
+Recognition
+Receptor
+Activity"
+"268","MF","GO:0140375","immune receptor activity","32/2338","95/15444",0.336842105263158,2.22505965512584,5.05861939050937,5.1375632343609e-06,0.00148732455634748,0.00134793435385732,"Gpr35/Fcgr2b/Osmr/Csf2rb/H2-Eb1/Il6ra/Fcgr1/Cntfr/Cmklr1/Il17rc/Cd4/C5ar2/C5ar1/Il21r/Fcer2a/Crlf1/Il12rb1/Epor/Il10ra/Ackr4/Ccrl2/Ccr9/Ccr5/Cxcr6/Il13ra2/Il1rl2/Il31ra/Il7r/Il2rb/Pirb/Ccr1/Ccr2",32,"negative vs positive","negative","positive","Immune Receptor Activity","Immune
+Receptor
+Activity"
