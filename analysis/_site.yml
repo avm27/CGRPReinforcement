@@ -1,7 +1,7 @@
-name: "CGRPReinforcement"
+name: CGRPReinforcement
 output_dir: ../docs
 navbar:
-  title: "CGRPReinforcement"
+  title: CGRPReinforcement
   left:
   - text: CGRPPBN vs nCGRPPBN
     href: index.html
