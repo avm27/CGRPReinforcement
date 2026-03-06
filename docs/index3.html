@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>PBN RNAseq DeSeq2 RNA-Sequencing Analysis – By Sex</title>
+
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CGRPReinforcement</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">CGRPPBN vs nCGRPPBN</a>
+</li>
+<li>
+  <a href="index2.html">CGRPPBN DEGs</a>
+</li>
+<li>
+  <a href="index3.html">Sex-specific Analyses</a>
+</li>
+<li>
+  <a href="about.html">Tuesta Lab</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/avm27/CGRPReinforcement">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">PBN RNAseq DeSeq2 RNA-Sequencing Analysis –
+By Sex</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-03-05
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>CGRPReinforcement/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20260305code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20260305)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20260305code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20260305)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it
+difficult for you and others to run your code on a different machine.
+Change the absolute path(s) below to the suggested relative path(s) to
+make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+~/Documents/GitHubRepos/CGRPReinforcement/
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3fbf1eb">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 3fbf1eb
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong3fbf1eb"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 3fbf1eb.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  data/gene_count_matrix_LT19_PBN2_LT15_Merged.csv
+    Untracked:  data/sample_info_ComparativeAnalysis_CombineCellType.csv
+    Untracked:  data/sample_info_PBN_CGRP.csv
+    Untracked:  data/sample_info_PBN_DG_Exclusions.csv
+    Untracked:  output/CGRPEnrichedGeneSet.csv
+    Untracked:  output/FIgure1B_PCA_byHATag.pdf
+    Untracked:  output/Figure1B_PBNRNAseq_PCA_byHATag.pdf
+    Untracked:  output/Figure1C_Heatmap.pdf
+    Untracked:  output/Figure1D_VolcanoPlot.pdf
+    Untracked:  output/Figure1E_GOHA.pdf
+    Untracked:  output/Figure1F_GOHA.pdf
+    Untracked:  output/Figure2A_PCA_byCellTypeSpecific.pdf
+    Untracked:  output/Figure2B_Heatmap_Unsupervised_Condensed.pdf
+    Untracked:  output/Figure2C_GOCGRP_CellTypes.pdf
+    Untracked:  output/PBNRNASeq_CellType_GODetails.csv
+    Untracked:  output/SFig2D_GO_SexSpecific.pdf
+    Untracked:  output/SFig2E_GO_SexSpecific.pdf
+    Untracked:  output/SFigure2A_PCA_bySex.pdf
+    Untracked:  output/SFigure2B_Heatmap_Unsupervised_Condensed.pdf
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_CGRPvsnonCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_ExcitatoryvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_PBNvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_PVvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_VIPvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_mDAvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byHATag.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_bySex.csv
+    Untracked:  renv.lock
+    Untracked:  renv/
+
+Unstaged changes:
+    Modified:   .Rprofile
+    Modified:   CGRPReinforcement.Rproj
+    Modified:   README.md
+    Modified:   analysis/_site.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/index3.Rmd</code>) and HTML
+(<code>docs/index3.html</code>) files. If you’ve configured a remote Git
+repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
+in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+3fbf1eb
+</td>
+<td>
+avm27
+</td>
+<td>
+2026-03-05
+</td>
+<td>
+Publish supplementary analyses
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="deseq2-analysis" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> DESeq2 Analysis</h1>
+<p>DESeq2 is called our post-processing ## Setup and Analysis
+###Building DESeq2 input files from gene count matrices output by String
+Tie.</p>
+<p>###Running DeSeq2 analysis with factor levels of Sex
+<img src="figure/index3.Rmd/DESeq2%20Analysis-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<div id="plot-estimates-and-gather-results" class="section level2"
+number="1.1">
+<h2><span class="header-section-number">1.1</span> Plot Estimates and
+Gather Results</h2>
+<p>These results include overview for each result file and dispersion
+estimates based on count values</p>
+<div id="dispersion-estimates-male-vs-female-based-on-count-values"
+class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Dispersion
+Estimates Male vs Female based on count values</h3>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Male vs Female Results Overview
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mrpl15|Mrpl15
+</td>
+<td style="text-align:left;">
+2594.56084
+</td>
+<td style="text-align:left;">
+-0.8822184
+</td>
+<td style="text-align:left;">
+1.158788
+</td>
+<td style="text-align:left;">
+-0.7613289
+</td>
+<td style="text-align:left;">
+0.4464606
+</td>
+<td style="text-align:left;">
+0.8282371
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xkr4|Xkr4
+</td>
+<td style="text-align:left;">
+4142.27356
+</td>
+<td style="text-align:left;">
+-0.5554987
+</td>
+<td style="text-align:left;">
+1.387592
+</td>
+<td style="text-align:left;">
+-0.4003328
+</td>
+<td style="text-align:left;">
+0.6889114
+</td>
+<td style="text-align:left;">
+0.9565360
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm39585|Gm39585
+</td>
+<td style="text-align:left;">
+4629.85053
+</td>
+<td style="text-align:left;">
+0.0779191
+</td>
+<td style="text-align:left;">
+1.273748
+</td>
+<td style="text-align:left;">
+0.0611731
+</td>
+<td style="text-align:left;">
+0.9512213
+</td>
+<td style="text-align:left;">
+0.9953081
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lypla1|Lypla1
+</td>
+<td style="text-align:left;">
+344.21524
+</td>
+<td style="text-align:left;">
+8.3085625
+</td>
+<td style="text-align:left;">
+2.342904
+</td>
+<td style="text-align:left;">
+3.5462666
+</td>
+<td style="text-align:left;">
+0.0003907
+</td>
+<td style="text-align:left;">
+0.0027594
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm39587|Gm39587
+</td>
+<td style="text-align:left;">
+15.29417
+</td>
+<td style="text-align:left;">
+-7.4329285
+</td>
+<td style="text-align:left;">
+4.788106
+</td>
+<td style="text-align:left;">
+-1.5523735
+</td>
+<td style="text-align:left;">
+0.1205729
+</td>
+<td style="text-align:left;">
+0.3459054
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcea1|Tcea1
+</td>
+<td style="text-align:left;">
+2114.19399
+</td>
+<td style="text-align:left;">
+-0.4797092
+</td>
+<td style="text-align:left;">
+1.185218
+</td>
+<td style="text-align:left;">
+-0.4047433
+</td>
+<td style="text-align:left;">
+0.6856662
+</td>
+<td style="text-align:left;">
+0.9561913
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rgs20|Rgs20
+</td>
+<td style="text-align:left;">
+528.75426
+</td>
+<td style="text-align:left;">
+-2.6806331
+</td>
+<td style="text-align:left;">
+4.021172
+</td>
+<td style="text-align:left;">
+-0.6666299
+</td>
+<td style="text-align:left;">
+0.5050086
+</td>
+<td style="text-align:left;">
+0.8733440
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Npbwr1|Npbwr1
+</td>
+<td style="text-align:left;">
+223.18919
+</td>
+<td style="text-align:left;">
+24.0328680
+</td>
+<td style="text-align:left;">
+4.784983
+</td>
+<td style="text-align:left;">
+5.0225609
+</td>
+<td style="text-align:left;">
+0.0000005
+</td>
+<td style="text-align:left;">
+0.0000117
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oprk1|Oprk1
+</td>
+<td style="text-align:left;">
+3851.97457
+</td>
+<td style="text-align:left;">
+-2.2609229
+</td>
+<td style="text-align:left;">
+1.172976
+</td>
+<td style="text-align:left;">
+-1.9275105
+</td>
+<td style="text-align:left;">
+0.0539160
+</td>
+<td style="text-align:left;">
+0.2273601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atp6v1h|Atp6v1h
+</td>
+<td style="text-align:left;">
+11939.74461
+</td>
+<td style="text-align:left;">
+-0.7726858
+</td>
+<td style="text-align:left;">
+1.139111
+</td>
+<td style="text-align:left;">
+-0.6783236
+</td>
+<td style="text-align:left;">
+0.4975665
+</td>
+<td style="text-align:left;">
+0.8682639
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rb1cc1|Rb1cc1
+</td>
+<td style="text-align:left;">
+10509.93492
+</td>
+<td style="text-align:left;">
+-0.2458336
+</td>
+<td style="text-align:left;">
+1.096540
+</td>
+<td style="text-align:left;">
+-0.2241902
+</td>
+<td style="text-align:left;">
+0.8226093
+</td>
+<td style="text-align:left;">
+0.9785956
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4732440D04Rik|4732440D04Rik
+</td>
+<td style="text-align:left;">
+3174.37104
+</td>
+<td style="text-align:left;">
+0.2404387
+</td>
+<td style="text-align:left;">
+1.179166
+</td>
+<td style="text-align:left;">
+0.2039058
+</td>
+<td style="text-align:left;">
+0.8384271
+</td>
+<td style="text-align:left;">
+0.9804075
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm26901|Gm26901
+</td>
+<td style="text-align:left;">
+206.47389
+</td>
+<td style="text-align:left;">
+1.0927276
+</td>
+<td style="text-align:left;">
+4.459863
+</td>
+<td style="text-align:left;">
+0.2450137
+</td>
+<td style="text-align:left;">
+0.8064458
+</td>
+<td style="text-align:left;">
+0.9765120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+St18|St18
+</td>
+<td style="text-align:left;">
+299.20686
+</td>
+<td style="text-align:left;">
+5.1173676
+</td>
+<td style="text-align:left;">
+2.867771
+</td>
+<td style="text-align:left;">
+1.7844406
+</td>
+<td style="text-align:left;">
+0.0743521
+</td>
+<td style="text-align:left;">
+0.2611709
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pcmtd1|Pcmtd1
+</td>
+<td style="text-align:left;">
+5333.11591
+</td>
+<td style="text-align:left;">
+0.0619351
+</td>
+<td style="text-align:left;">
+1.091540
+</td>
+<td style="text-align:left;">
+0.0567410
+</td>
+<td style="text-align:left;">
+0.9547515
+</td>
+<td style="text-align:left;">
+0.9957376
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rrs1|Rrs1
+</td>
+<td style="text-align:left;">
+714.82020
+</td>
+<td style="text-align:left;">
+-2.7344061
+</td>
+<td style="text-align:left;">
+3.929187
+</td>
+<td style="text-align:left;">
+-0.6959215
+</td>
+<td style="text-align:left;">
+0.4864780
+</td>
+<td style="text-align:left;">
+0.8597060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adhfe1|Adhfe1
+</td>
+<td style="text-align:left;">
+86.94688
+</td>
+<td style="text-align:left;">
+-5.4207586
+</td>
+<td style="text-align:left;">
+4.591687
+</td>
+<td style="text-align:left;">
+-1.1805593
+</td>
+<td style="text-align:left;">
+0.2377779
+</td>
+<td style="text-align:left;">
+0.5704719
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+31.53375
+</td>
+<td style="text-align:left;">
+0.5424424
+</td>
+<td style="text-align:left;">
+4.569364
+</td>
+<td style="text-align:left;">
+0.1187129
+</td>
+<td style="text-align:left;">
+0.9055028
+</td>
+<td style="text-align:left;">
+0.9905408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sntg1|Sntg1
+</td>
+<td style="text-align:left;">
+2256.87584
+</td>
+<td style="text-align:left;">
+-0.2054899
+</td>
+<td style="text-align:left;">
+1.392018
+</td>
+<td style="text-align:left;">
+-0.1476201
+</td>
+<td style="text-align:left;">
+0.8826426
+</td>
+<td style="text-align:left;">
+0.9891279
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mybl1|Mybl1
+</td>
+<td style="text-align:left;">
+1024.41207
+</td>
+<td style="text-align:left;">
+-1.0176845
+</td>
+<td style="text-align:left;">
+2.923438
+</td>
+<td style="text-align:left;">
+-0.3481123
+</td>
+<td style="text-align:left;">
+0.7277559
+</td>
+<td style="text-align:left;">
+0.9648555
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>out of 16384 with nonzero total read count adjusted p-value &lt; 0.1
+LFC &gt; 0 (up) : 2632, 16% LFC &lt; 0 (down) : 493, 3% outliers [1] :
+0, 0% low counts [2] : 0, 0% (mean count &lt; 9) [1] see ‘cooksCutoff’
+argument of ?results [2] see ‘independentFiltering’ argument of
+?results</p>
+</div>
+</div>
+<div id="significant-degs-by-comparison" class="section level2"
+number="1.2">
+<h2><span class="header-section-number">1.2</span> Significant DEGs By
+Comparison</h2>
+<p>This subsection is for annotation the results files to include all
+necessary information for downstream analyses. This is due to the use of
+StringTie to generate count matrices with the specific mm10 annotation
+files that we use. Other methods will probably not require this, but our
+gene names are split by the “|” delimiter and must be separated in order
+to accurately generate the required Gene Symbols for mapping to entrez,
+ensemble and descriptions from Org.mm.eg.db.</p>
+<p>After annotation we subset the results to only view the significantly
+differentially expressed genes with an adjusted p-value &gt; 0.05.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>results_sig1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res1, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig1, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs Male vs Female&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs Male vs Female
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Lypla1|Lypla1
+</td>
+<td style="text-align:left;">
+344.21524
+</td>
+<td style="text-align:left;">
+8.308563
+</td>
+<td style="text-align:left;">
+2.342904
+</td>
+<td style="text-align:left;">
+3.546267
+</td>
+<td style="text-align:left;">
+0.0003907
+</td>
+<td style="text-align:left;">
+0.0027594
+</td>
+<td style="text-align:left;">
+Lypla1
+</td>
+<td style="text-align:left;">
+lysophospholipase 1
+</td>
+<td style="text-align:left;">
+18777
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Npbwr1|Npbwr1
+</td>
+<td style="text-align:left;">
+223.18919
+</td>
+<td style="text-align:left;">
+24.032868
+</td>
+<td style="text-align:left;">
+4.784983
+</td>
+<td style="text-align:left;">
+5.022561
+</td>
+<td style="text-align:left;">
+0.0000005
+</td>
+<td style="text-align:left;">
+0.0000117
+</td>
+<td style="text-align:left;">
+Npbwr1
+</td>
+<td style="text-align:left;">
+neuropeptides B/W receptor 1
+</td>
+<td style="text-align:left;">
+226304
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cpa6|Cpa6
+</td>
+<td style="text-align:left;">
+154.78569
+</td>
+<td style="text-align:left;">
+23.526707
+</td>
+<td style="text-align:left;">
+4.785092
+</td>
+<td style="text-align:left;">
+4.916668
+</td>
+<td style="text-align:left;">
+0.0000009
+</td>
+<td style="text-align:left;">
+0.0000151
+</td>
+<td style="text-align:left;">
+Cpa6
+</td>
+<td style="text-align:left;">
+carboxypeptidase A6
+</td>
+<td style="text-align:left;">
+329093
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm30898|Gm30898
+</td>
+<td style="text-align:left;">
+179.43219
+</td>
+<td style="text-align:left;">
+11.034557
+</td>
+<td style="text-align:left;">
+3.174950
+</td>
+<td style="text-align:left;">
+3.475506
+</td>
+<td style="text-align:left;">
+0.0005099
+</td>
+<td style="text-align:left;">
+0.0035444
+</td>
+<td style="text-align:left;">
+Gm30898
+</td>
+<td style="text-align:left;">
+predicted gene, 30898
+</td>
+<td style="text-align:left;">
+102632954
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sulf1|Sulf1
+</td>
+<td style="text-align:left;">
+436.39612
+</td>
+<td style="text-align:left;">
+12.316934
+</td>
+<td style="text-align:left;">
+2.797531
+</td>
+<td style="text-align:left;">
+4.402787
+</td>
+<td style="text-align:left;">
+0.0000107
+</td>
+<td style="text-align:left;">
+0.0000979
+</td>
+<td style="text-align:left;">
+Sulf1
+</td>
+<td style="text-align:left;">
+sulfatase 1
+</td>
+<td style="text-align:left;">
+240725
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lactb2|Lactb2
+</td>
+<td style="text-align:left;">
+393.44442
+</td>
+<td style="text-align:left;">
+12.167148
+</td>
+<td style="text-align:left;">
+2.988152
+</td>
+<td style="text-align:left;">
+4.071797
+</td>
+<td style="text-align:left;">
+0.0000467
+</td>
+<td style="text-align:left;">
+0.0003837
+</td>
+<td style="text-align:left;">
+Lactb2
+</td>
+<td style="text-align:left;">
+lactamase, beta 2
+</td>
+<td style="text-align:left;">
+212442
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sbspon|Sbspon
+</td>
+<td style="text-align:left;">
+235.73077
+</td>
+<td style="text-align:left;">
+11.428343
+</td>
+<td style="text-align:left;">
+2.963135
+</td>
+<td style="text-align:left;">
+3.856841
+</td>
+<td style="text-align:left;">
+0.0001149
+</td>
+<td style="text-align:left;">
+0.0008890
+</td>
+<td style="text-align:left;">
+Sbspon
+</td>
+<td style="text-align:left;">
+somatomedin B and thrombospondin, type 1 domain containing
+</td>
+<td style="text-align:left;">
+226866
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rdh10|Rdh10
+</td>
+<td style="text-align:left;">
+129.50333
+</td>
+<td style="text-align:left;">
+10.563879
+</td>
+<td style="text-align:left;">
+3.602388
+</td>
+<td style="text-align:left;">
+2.932466
+</td>
+<td style="text-align:left;">
+0.0033628
+</td>
+<td style="text-align:left;">
+0.0204820
+</td>
+<td style="text-align:left;">
+Rdh10
+</td>
+<td style="text-align:left;">
+retinol dehydrogenase 10 (all-trans)
+</td>
+<td style="text-align:left;">
+98711
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pi15|Pi15
+</td>
+<td style="text-align:left;">
+115.59202
+</td>
+<td style="text-align:left;">
+23.118089
+</td>
+<td style="text-align:left;">
+4.785213
+</td>
+<td style="text-align:left;">
+4.831152
+</td>
+<td style="text-align:left;">
+0.0000014
+</td>
+<td style="text-align:left;">
+0.0000186
+</td>
+<td style="text-align:left;">
+Pi15
+</td>
+<td style="text-align:left;">
+peptidase inhibitor 15
+</td>
+<td style="text-align:left;">
+94227
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tfap2d|Tfap2d
+</td>
+<td style="text-align:left;">
+81.19816
+</td>
+<td style="text-align:left;">
+-23.331718
+</td>
+<td style="text-align:left;">
+4.785379
+</td>
+<td style="text-align:left;">
+-4.875626
+</td>
+<td style="text-align:left;">
+0.0000011
+</td>
+<td style="text-align:left;">
+0.0000164
+</td>
+<td style="text-align:left;">
+Tfap2d
+</td>
+<td style="text-align:left;">
+transcription factor AP-2, delta
+</td>
+<td style="text-align:left;">
+226896
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crispld1|Crispld1
+</td>
+<td style="text-align:left;">
+785.29810
+</td>
+<td style="text-align:left;">
+-13.115964
+</td>
+<td style="text-align:left;">
+2.570012
+</td>
+<td style="text-align:left;">
+-5.103463
+</td>
+<td style="text-align:left;">
+0.0000003
+</td>
+<td style="text-align:left;">
+0.0000094
+</td>
+<td style="text-align:left;">
+Crispld1
+</td>
+<td style="text-align:left;">
+cysteine-rich secretory protein LCCL domain containing 1
+</td>
+<td style="text-align:left;">
+83691
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6720483E21Rik|6720483E21Rik
+</td>
+<td style="text-align:left;">
+230.73796
+</td>
+<td style="text-align:left;">
+11.397524
+</td>
+<td style="text-align:left;">
+3.021300
+</td>
+<td style="text-align:left;">
+3.772390
+</td>
+<td style="text-align:left;">
+0.0001617
+</td>
+<td style="text-align:left;">
+0.0012163
+</td>
+<td style="text-align:left;">
+6720483E21Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 6720483E21 gene
+</td>
+<td style="text-align:left;">
+77741
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gsta3|Gsta3
+</td>
+<td style="text-align:left;">
+154.92284
+</td>
+<td style="text-align:left;">
+10.822416
+</td>
+<td style="text-align:left;">
+3.556736
+</td>
+<td style="text-align:left;">
+3.042795
+</td>
+<td style="text-align:left;">
+0.0023439
+</td>
+<td style="text-align:left;">
+0.0146632
+</td>
+<td style="text-align:left;">
+Gsta3
+</td>
+<td style="text-align:left;">
+glutathione S-transferase, alpha 3
+</td>
+<td style="text-align:left;">
+14859
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kcnq5|Kcnq5
+</td>
+<td style="text-align:left;">
+252.64807
+</td>
+<td style="text-align:left;">
+11.528447
+</td>
+<td style="text-align:left;">
+3.058465
+</td>
+<td style="text-align:left;">
+3.769357
+</td>
+<td style="text-align:left;">
+0.0001637
+</td>
+<td style="text-align:left;">
+0.0012301
+</td>
+<td style="text-align:left;">
+Kcnq5
+</td>
+<td style="text-align:left;">
+potassium voltage-gated channel, subfamily Q, member 5
+</td>
+<td style="text-align:left;">
+226922
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Col19a1|Col19a1
+</td>
+<td style="text-align:left;">
+653.38426
+</td>
+<td style="text-align:left;">
+12.899192
+</td>
+<td style="text-align:left;">
+2.824932
+</td>
+<td style="text-align:left;">
+4.566196
+</td>
+<td style="text-align:left;">
+0.0000050
+</td>
+<td style="text-align:left;">
+0.0000482
+</td>
+<td style="text-align:left;">
+Col19a1
+</td>
+<td style="text-align:left;">
+collagen, type XIX, alpha 1
+</td>
+<td style="text-align:left;">
+12823
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Neurl3|Neurl3
+</td>
+<td style="text-align:left;">
+232.18338
+</td>
+<td style="text-align:left;">
+24.091527
+</td>
+<td style="text-align:left;">
+4.784973
+</td>
+<td style="text-align:left;">
+5.034830
+</td>
+<td style="text-align:left;">
+0.0000005
+</td>
+<td style="text-align:left;">
+0.0000115
+</td>
+<td style="text-align:left;">
+Neurl3
+</td>
+<td style="text-align:left;">
+neuralized E3 ubiquitin protein ligase 3
+</td>
+<td style="text-align:left;">
+214854
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167617|LOC108167617
+</td>
+<td style="text-align:left;">
+215.58652
+</td>
+<td style="text-align:left;">
+-11.250951
+</td>
+<td style="text-align:left;">
+3.065674
+</td>
+<td style="text-align:left;">
+-3.669976
+</td>
+<td style="text-align:left;">
+0.0002426
+</td>
+<td style="text-align:left;">
+0.0017679
+</td>
+<td style="text-align:left;">
+LOC108167617
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ankrd39|Ankrd39
+</td>
+<td style="text-align:left;">
+152.18279
+</td>
+<td style="text-align:left;">
+23.503110
+</td>
+<td style="text-align:left;">
+4.785098
+</td>
+<td style="text-align:left;">
+4.911730
+</td>
+<td style="text-align:left;">
+0.0000009
+</td>
+<td style="text-align:left;">
+0.0000151
+</td>
+<td style="text-align:left;">
+Ankrd39
+</td>
+<td style="text-align:left;">
+ankyrin repeat domain 39
+</td>
+<td style="text-align:left;">
+109346
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sema4c|Sema4c
+</td>
+<td style="text-align:left;">
+110.23821
+</td>
+<td style="text-align:left;">
+10.331521
+</td>
+<td style="text-align:left;">
+3.740892
+</td>
+<td style="text-align:left;">
+2.761780
+</td>
+<td style="text-align:left;">
+0.0057487
+</td>
+<td style="text-align:left;">
+0.0335783
+</td>
+<td style="text-align:left;">
+Sema4c
+</td>
+<td style="text-align:left;">
+sema domain, immunoglobulin domain (Ig), transmembrane domain (TM) and
+short cytoplasmic domain, (semaphorin) 4C
+</td>
+<td style="text-align:left;">
+20353
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm33533|Gm33533
+</td>
+<td style="text-align:left;">
+228.63408
+</td>
+<td style="text-align:left;">
+11.384298
+</td>
+<td style="text-align:left;">
+3.016416
+</td>
+<td style="text-align:left;">
+3.774114
+</td>
+<td style="text-align:left;">
+0.0001606
+</td>
+<td style="text-align:left;">
+0.0012085
+</td>
+<td style="text-align:left;">
+Gm33533
+</td>
+<td style="text-align:left;">
+predicted gene, 33533
+</td>
+<td style="text-align:left;">
+102636476
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="visualizing-differentially-expressed-genes"
+class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Visualizing
+Differentially Expressed Genes</h2>
+<div id="principal-components-analysis" class="section level3"
+number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Principal
+Components Analysis</h3>
+<p>For visualization I am converting all analyses to logarithmic.
+Following this I have completed a PCA based on the top 500 genes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co">#rlog transformation of dds for visualization</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>ddsMat_rlog <span class="ot">&lt;-</span> <span class="fu">rlog</span>(dds, <span class="at">blind =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Plot PCA by column variable (dds)</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>pcaData2 <span class="ot">&lt;-</span> <span class="fu">plotPCA</span>(ddsMat_rlog, <span class="at">intgroup =</span> <span class="st">&quot;sex&quot;</span>, <span class="at">returnData =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>pcaData2<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(pcaData2<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>percentVar2 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">attr</span>(pcaData2, <span class="st">&quot;percentVar&quot;</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="do">## you only need the following line but the rest is additional formatting</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pcaData2, <span class="fu">aes</span>(PC1, PC2, <span class="at">color=</span>sex, <span class="at">label =</span> <span class="fu">colnames</span>(dds))) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co"># remove default ggplot2 theme</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="co"># Increase point size</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="dv">125</span>)) <span class="sc">+</span><span class="co"># change limits to fix figure dimensions</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="dv">125</span>)) <span class="sc">+</span><span class="co"># change limits to fix figure dimensions</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">paste0</span>(<span class="st">&quot;PC1: &quot;</span>,percentVar2[<span class="dv">1</span>],<span class="st">&quot;% variance&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">&quot;PC2: &quot;</span>,percentVar2[<span class="dv">2</span>],<span class="st">&quot;% variance&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="at">box.padding =</span> <span class="fl">0.5</span>, <span class="at">max.overlaps =</span> <span class="cn">Inf</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>  <span class="co">#scale_color_manual(values = custom_colors) +  # Set custom colors</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Supp Figure 2A. Principal Component Analysis (PCA)&quot;</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">&quot;Top 500 Variable Genes (rlog transformed)&quot;</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>pca</span></code></pre></div>
+<p><img src="figure/index3.Rmd/PCA%20Plots-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#pdf(paste0(path, &quot;output/SFigure2A_PCA_bySex.pdf&quot;), width = 10, height = 8)</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#pca</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#dev.off()</span></span></code></pre></div>
+</div>
+<div id="heatmaps-of-significantly-differentially-expressed-genes"
+class="section level3 tabset" number="1.3.2">
+<h3 class="tabset"><span class="header-section-number">1.3.2</span>
+Heatmaps of Significantly Differentially Expressed Genes</h3>
+<p>To generate the heatmaps we use two methods, the first utilizes all
+differential expressed genes based on a specified cut-off. In our case
+we select for any significant DEGs with a L2FC &gt; 1.5 or an L2FC &lt;
+-1.5 with a L2FC Standard Error &lt; 0.75. We then plot these using a
+wards D correlation clustering method and generate both supervised and
+unsupervised clusters (by group). Rows are scaled based on a correlation
+z-score. The second method is less stringent and utilizes all
+significant DEGs, without filtering.</p>
+<div id="highly-significiant" class="section level4" number="1.3.2.1">
+<h4><span class="header-section-number">1.3.2.1</span> Highly
+Significiant</h4>
+<p>Cut-Off of L2FC &gt; 1.5 or an L2FC &lt; -1.5 with a L2FC Standard
+Error &lt; 0.75</p>
+<div
+id="supervised-and-condensed-highly-significant-degs-l2fc---1-and-l2fcse-1.5."
+class="section level5" number="1.3.2.1.1">
+<h5><span class="header-section-number">1.3.2.1.1</span> Supervised and
+Condensed Highly Significant DEGs (L2FC &gt; +/- 1 and L2FCSE &lt;
+1.5).</h5>
+<p><img src="figure/index3.Rmd/Sup%20HM%20Highly%20Sig%20DEGs-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div
+id="unsupervised-and-condensed-highly-significant-degs-l2fc---1-and-l2fcse-1.5"
+class="section level5" number="1.3.2.1.2">
+<h5><span class="header-section-number">1.3.2.1.2</span> Unsupervised
+and Condensed Highly Significant DEGs (L2FC &gt; +/- 1 and L2FCSE &lt;
+1.5)</h5>
+<p><img src="figure/index3.Rmd/unnamed-chunk-4-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="all-degs" class="section level4" number="1.3.2.2">
+<h4><span class="header-section-number">1.3.2.2</span> All DEGs</h4>
+<div id="supervised-and-condensed-all-degs" class="section level5"
+number="1.3.2.2.1">
+<h5><span class="header-section-number">1.3.2.2.1</span> Supervised and
+Condensed All DEGs</h5>
+<p><img src="figure/index3.Rmd/unnamed-chunk-6-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="unsupervised-and-condensed-all-degs" class="section level5"
+number="1.3.2.2.2">
+<h5><span class="header-section-number">1.3.2.2.2</span> Unsupervised
+and Condensed All DEGs</h5>
+<p><img src="figure/index3.Rmd/unnamed-chunk-7-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="gene-ontology-analysis" class="section level1 tabset"
+number="2">
+<h1 class="tabset"><span class="header-section-number">2</span> Gene
+Ontology Analysis</h1>
+<p>To generate GO analysis we first created a background of genes using
+any genes that met the original DESEQ2 filtering criteria of &gt; 50
+genes counts per row and having a mappable Entrez ID. This generates the
+necessary background to ensure that we are not just detecting background
+functional pathways as we are utilizing this specific cell type. We then
+filter our genes that have L2FC &lt; 0 or L2FC &gt; 0 to determine
+directionality of the affected GO pathways. GO enrich is then used to
+conduct the pathway analysis utilizing the Entrez IDs as inputs and an
+“FDR” multiple testing correction.</p>
+<div id="pull-only-the-enriched-samples-from-either-side--1-or-1-lfc"
+class="section level3" number="2.0.1">
+<h3><span class="header-section-number">2.0.1</span> Pull only the
+Enriched samples from either side (&lt;-1 or &gt;1 LFC)</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Generate Background for KEGG/GO</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>background_mm10 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res1, <span class="fu">is.na</span>(entrez) <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>gene_matrix_background <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">sort</span>(background_mm10<span class="sc">$</span>entrez))</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># Remove any genes that do not have any entrez identifiers</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>results_sig_entrez <span class="ot">&lt;-</span> <span class="fu">subset</span>(results_sig1, <span class="fu">is.na</span>(entrez) <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co"># Create a matrix of gene log2 fold changes</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>gene_matrix <span class="ot">&lt;-</span> results_sig_entrez<span class="sc">$</span>log2FoldChange</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># Add the entrezID&#39;s as names for each logFC entry</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="fu">names</span>(gene_matrix) <span class="ot">&lt;-</span> results_sig_entrez<span class="sc">$</span>entrez</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co"># Pull only the Enriched samples from either side +/- 1 LFC</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>gene_matrix_enrich <span class="ot">&lt;-</span> gene_matrix[<span class="fu">which</span>(gene_matrix <span class="sc">&gt;</span> <span class="dv">1</span>)]</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>gene_matrix_enrich2 <span class="ot">&lt;-</span> gene_matrix[<span class="fu">which</span>(gene_matrix <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span>)]</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>go_enrich1 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichGO</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich),</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>                      <span class="at">OrgDb =</span> <span class="st">&#39;org.Mm.eg.db&#39;</span>, </span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>                      <span class="at">readable =</span> T,</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>                      <span class="at">ont =</span> <span class="st">&quot;ALL&quot;</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.05</span>, </span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>go_enrich2 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichGO</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich2),</span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>                      <span class="at">OrgDb =</span> <span class="st">&#39;org.Mm.eg.db&#39;</span>, </span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>                      <span class="at">readable =</span> T,</span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a>                      <span class="at">ont =</span> <span class="st">&quot;ALL&quot;</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.05</span>, </span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a>KEGG_enrich1 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichKEGG</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich),</span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a>                      <span class="at">organism =</span> <span class="st">&#39;mmu&#39;</span>,</span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a>                      <span class="at">keyType =</span> <span class="st">&quot;ncbi-geneid&quot;</span>,</span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.01</span>,</span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<pre><code>Reading KEGG annotation online: &quot;https://rest.kegg.jp/link/mmu/pathway&quot;...</code></pre>
+<pre><code>Reading KEGG annotation online: &quot;https://rest.kegg.jp/list/pathway/mmu&quot;...</code></pre>
+<pre><code>Reading KEGG annotation online: &quot;https://rest.kegg.jp/conv/ncbi-geneid/mmu&quot;...</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>KEGG_enrich2 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichKEGG</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich2),</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                      <span class="at">organism =</span> <span class="st">&#39;mmu&#39;</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                      <span class="at">keyType =</span> <span class="st">&quot;ncbi-geneid&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.01</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>go_enrich_dataset1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(go_enrich1)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>go_enrich_dataset2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(go_enrich2)</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>KEGG_enrich_dataset1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(KEGG_enrich1)</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>KEGG_enrich_dataset2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(KEGG_enrich2)</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;Male vs Female&quot;</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>go_enrich_dataset2<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;Female vs Male&quot;</span></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>go_enrich_dataset2<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>go_enrich_dataset2<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>MergedGO1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(go_enrich_dataset1, go_enrich_dataset2, <span class="at">all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a>MergedGO1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(MergedGO1<span class="sc">$</span>Dataset)</span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a>MergedGO1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(MergedGO1<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male vs Female&quot;</span>, <span class="st">&quot;Female vs Male&quot;</span>))</span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a>MergedGO1<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(MergedGO1<span class="sc">$</span>Description)</span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a>MergedGO1<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(MergedGO1<span class="sc">$</span>Description_title_case)</span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a>MergedGO1<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(MergedGO1<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(MergedGO1, <span class="fu">aes</span>(<span class="at">x =</span> Dataset, <span class="at">y =</span> Description, <span class="at">size =</span> Count, <span class="at">color =</span> qvalue, <span class="at">group =</span> Dataset)) <span class="sc">+</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> <span class="co"># change legend key width</span></span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Enriched Pathways in PBN Nuclei Cell Types&quot;</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a>  <span class="co">#facet_grid(~Region+Comparison2, scales = &quot;free_x&quot;)</span></span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> S1 <span class="sc">+</span> <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&quot;red2&quot;</span>, <span class="at">high =</span> <span class="st">&quot;mediumblue&quot;</span>, <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span>) <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a>S2</span></code></pre></div>
+<p><img src="figure/index3.Rmd/unnamed-chunk-8-1.png" alt="" width="672" style="display: block; margin: auto;" />
+### Set the Fold Enrichment for most important pathways</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>go_filtered1 <span class="ot">&lt;-</span> go_enrich_dataset1 <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="fu">filter</span>(FoldEnrichment <span class="sc">&gt;=</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>go_filtered2 <span class="ot">&lt;-</span> go_enrich_dataset2 <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="fu">filter</span>(FoldEnrichment <span class="sc">&gt;=</span> <span class="dv">2</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;Male vs Female&quot;</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>go_filtered2<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;Female vs Male&quot;</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>go_filtered2<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>go_filtered2<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span></code></pre></div>
+<div id="combined-filtered" class="section level4" number="2.0.1.1">
+<h4><span class="header-section-number">2.0.1.1</span> Combined
+Filtered</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>MergedGO1_filtered <span class="ot">&lt;-</span> <span class="fu">merge</span>(go_filtered1, go_filtered2, <span class="at">all=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>MergedGO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(MergedGO1_filtered<span class="sc">$</span>Dataset)</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>MergedGO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(MergedGO1_filtered<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male vs Female&quot;</span>, <span class="st">&quot;Female vs Male&quot;</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>MergedGO1_filtered<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(MergedGO1_filtered<span class="sc">$</span>Description)</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>MergedGO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(MergedGO1_filtered<span class="sc">$</span>Description_title_case)</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>MergedGO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(MergedGO1_filtered<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(MergedGO1_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Dataset, <span class="at">y =</span> Description, <span class="at">size =</span> Count, <span class="at">color =</span> qvalue, <span class="at">group =</span> Dataset)) <span class="sc">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> <span class="co"># change legend key width</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Enriched Pathways in PBN Nuclei Cell Types&quot;</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>  <span class="co">#facet_grid(~Region+Comparison2, scales = &quot;free_x&quot;)</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> S1 <span class="sc">+</span> <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&quot;red2&quot;</span>, <span class="at">high =</span> <span class="st">&quot;mediumblue&quot;</span>, <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span>) <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>S2</span></code></pre></div>
+<p><img src="figure/index3.Rmd/unnamed-chunk-10-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="male-only" class="section level4" number="2.0.1.2">
+<h4><span class="header-section-number">2.0.1.2</span> Male Only</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>GO1_filtered <span class="ot">&lt;-</span> go_filtered1</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(GO1_filtered<span class="sc">$</span>Dataset)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(GO1_filtered<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male vs Female&quot;</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO1_filtered<span class="sc">$</span>Description)</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO1_filtered<span class="sc">$</span>Description_title_case)</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(GO1_filtered<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(GO1_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Count, <span class="at">y =</span> <span class="fu">reorder</span>(Description, Count), <span class="at">fill =</span> qvalue)) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dataset, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> <span class="co"># change legend key width</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Supp Figure 2C: Enriched Pathways in Male CGRPPBN Neurons&quot;</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> S1 <span class="sc">+</span> <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&quot;red2&quot;</span>, <span class="at">high =</span> <span class="st">&quot;mediumblue&quot;</span>, <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span>) <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a>S2</span></code></pre></div>
+<p><img src="figure/index3.Rmd/unnamed-chunk-11-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">pdf</span>(<span class="fu">paste0</span>(path, <span class="st">&quot;output/SFig2D_GO_SexSpecific.pdf&quot;</span>), <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>S2</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>png 
+  2 </code></pre>
+</div>
+<div id="female-only" class="section level4" number="2.0.1.3">
+<h4><span class="header-section-number">2.0.1.3</span> Female Only</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>GO2_filtered <span class="ot">&lt;-</span> go_filtered2</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>GO2_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(GO2_filtered<span class="sc">$</span>Dataset)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>GO2_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(GO2_filtered<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Female vs Male&quot;</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>GO2_filtered<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO2_filtered<span class="sc">$</span>Description)</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>GO2_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO2_filtered<span class="sc">$</span>Description_title_case)</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>GO2_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(GO2_filtered<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(GO2_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Count, <span class="at">y =</span> <span class="fu">reorder</span>(Description, Count), <span class="at">fill =</span> qvalue)) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dataset, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> <span class="co"># change legend key width</span></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Supp Figure 2C: Enriched Pathways in Female CGRPPBN Neurons&quot;</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> S1 <span class="sc">+</span> <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&quot;red2&quot;</span>, <span class="at">high =</span> <span class="st">&quot;mediumblue&quot;</span>, <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span>) <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a>S2</span></code></pre></div>
+<p><img src="figure/index3.Rmd/unnamed-chunk-12-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">#pdf(paste0(path, &quot;output/SFig2E_GO_SexSpecific.pdf&quot;), width = 10, height = 8)</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#S2</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#dev.off()</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 4.5.2 (2025-10-31)
+Platform: x86_64-conda-linux-gnu
+Running under: Ubuntu 22.04.5 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/avm27/anaconda3/envs/workflowr_env/lib/libopenblasp-r0.3.30.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices datasets  utils     methods  
+[8] base     
+
+other attached packages:
+ [1] DOSE_4.2.0                  vidger_1.28.0              
+ [3] org.Mm.eg.db_3.21.0         AnnotationDbi_1.70.0       
+ [5] clusterProfiler_4.16.0      DESeq2_1.48.2              
+ [7] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+ [9] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[11] GenomicRanges_1.60.0        GenomeInfoDb_1.44.3        
+[13] IRanges_2.42.0              S4Vectors_0.46.0           
+[15] BiocGenerics_0.54.1         generics_0.1.4             
+[17] knitr_1.51                  RColorBrewer_1.1-3         
+[19] pheatmap_1.0.13             kableExtra_1.4.0           
+[21] plotly_4.12.0               ggrepel_0.9.7              
+[23] gridExtra_2.3               reshape2_1.4.5             
+[25] lubridate_1.9.5             forcats_1.0.1              
+[27] stringr_1.6.0               dplyr_1.2.0                
+[29] purrr_1.2.1                 readr_2.2.0                
+[31] tidyr_1.3.2                 tibble_3.3.1               
+[33] ggplot2_4.0.2               tidyverse_2.0.0            
+[35] workflowr_1.7.2            
+
+loaded via a namespace (and not attached):
+  [1] rstudioapi_0.18.0       jsonlite_2.0.0          magrittr_2.0.4         
+  [4] ggtangle_0.1.1          farver_2.1.2            rmarkdown_2.30         
+  [7] fs_1.6.6                vctrs_0.7.1             memoise_2.0.1          
+ [10] ggtree_3.16.3           htmltools_0.5.9         S4Arrays_1.8.1         
+ [13] gridGraphics_0.5-1      SparseArray_1.8.1       sass_0.4.10            
+ [16] bslib_0.10.0            htmlwidgets_1.6.4       plyr_1.8.9             
+ [19] cachem_1.1.0            igraph_2.2.2            whisker_0.4.1          
+ [22] lifecycle_1.0.5         pkgconfig_2.0.3         gson_0.1.0             
+ [25] Matrix_1.7-4            R6_2.6.1                fastmap_1.2.0          
+ [28] GenomeInfoDbData_1.2.14 digest_0.6.39           aplot_0.2.9            
+ [31] enrichplot_1.28.4       GGally_2.4.0            patchwork_1.3.2        
+ [34] ps_1.9.1                rprojroot_2.1.1         textshaping_1.0.4      
+ [37] RSQLite_2.4.6           labeling_0.4.3          timechange_0.4.0       
+ [40] httr_1.4.8              abind_1.4-8             compiler_4.5.2         
+ [43] bit64_4.6.0-1           withr_3.0.2             S7_0.2.1               
+ [46] BiocParallel_1.42.2     DBI_1.3.0               ggstats_0.12.0         
+ [49] R.utils_2.13.0          rappdirs_0.3.4          DelayedArray_0.34.1    
+ [52] tools_4.5.2             otel_0.2.0              ape_5.8-1              
+ [55] httpuv_1.6.16           R.oo_1.27.1             glue_1.8.0             
+ [58] callr_3.7.6             nlme_3.1-168            GOSemSim_2.34.0        
+ [61] promises_1.5.0          grid_4.5.2              getPass_0.2-4          
+ [64] fgsea_1.34.2            gtable_0.3.6            tzdb_0.5.0             
+ [67] R.methodsS3_1.8.2       data.table_1.18.2.1     hms_1.1.4              
+ [70] xml2_1.5.2              XVector_0.48.0          pillar_1.11.1          
+ [73] limma_3.64.3            yulab.utils_0.2.4       later_1.4.8            
+ [76] splines_4.5.2           treeio_1.32.0           lattice_0.22-9         
+ [79] renv_1.1.7              bit_4.6.0               tidyselect_1.2.1       
+ [82] GO.db_3.21.0            locfit_1.5-9.12         Biostrings_2.76.0      
+ [85] git2r_0.35.0            edgeR_4.6.3             svglite_2.2.2          
+ [88] xfun_0.56               statmod_1.5.1           stringi_1.8.7          
+ [91] UCSC.utils_1.4.0        ggfun_0.2.0             lazyeval_0.2.2         
+ [94] yaml_2.3.12             evaluate_1.0.5          codetools_0.2-20       
+ [97] qvalue_2.40.0           BiocManager_1.30.27     ggplotify_0.1.3        
+[100] cli_3.6.5               systemfonts_1.3.1       processx_3.8.6         
+[103] jquerylib_0.1.4         Rcpp_1.1.1              png_0.1-8              
+[106] parallel_4.5.2          blob_1.3.0              tidytree_0.4.7         
+[109] viridisLite_0.4.3       scales_1.4.0            crayon_1.5.3           
+[112] rlang_1.1.7             cowplot_1.2.0           fastmatch_1.1-8        
+[115] KEGGREST_1.48.1        </code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 4.5.2 (2025-10-31)
+Platform: x86_64-conda-linux-gnu
+Running under: Ubuntu 22.04.5 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/avm27/anaconda3/envs/workflowr_env/lib/libopenblasp-r0.3.30.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices datasets  utils     methods  
+[8] base     
+
+other attached packages:
+ [1] DOSE_4.2.0                  vidger_1.28.0              
+ [3] org.Mm.eg.db_3.21.0         AnnotationDbi_1.70.0       
+ [5] clusterProfiler_4.16.0      DESeq2_1.48.2              
+ [7] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+ [9] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[11] GenomicRanges_1.60.0        GenomeInfoDb_1.44.3        
+[13] IRanges_2.42.0              S4Vectors_0.46.0           
+[15] BiocGenerics_0.54.1         generics_0.1.4             
+[17] knitr_1.51                  RColorBrewer_1.1-3         
+[19] pheatmap_1.0.13             kableExtra_1.4.0           
+[21] plotly_4.12.0               ggrepel_0.9.7              
+[23] gridExtra_2.3               reshape2_1.4.5             
+[25] lubridate_1.9.5             forcats_1.0.1              
+[27] stringr_1.6.0               dplyr_1.2.0                
+[29] purrr_1.2.1                 readr_2.2.0                
+[31] tidyr_1.3.2                 tibble_3.3.1               
+[33] ggplot2_4.0.2               tidyverse_2.0.0            
+[35] workflowr_1.7.2            
+
+loaded via a namespace (and not attached):
+  [1] rstudioapi_0.18.0       jsonlite_2.0.0          magrittr_2.0.4         
+  [4] ggtangle_0.1.1          farver_2.1.2            rmarkdown_2.30         
+  [7] fs_1.6.6                vctrs_0.7.1             memoise_2.0.1          
+ [10] ggtree_3.16.3           htmltools_0.5.9         S4Arrays_1.8.1         
+ [13] gridGraphics_0.5-1      SparseArray_1.8.1       sass_0.4.10            
+ [16] bslib_0.10.0            htmlwidgets_1.6.4       plyr_1.8.9             
+ [19] cachem_1.1.0            igraph_2.2.2            whisker_0.4.1          
+ [22] lifecycle_1.0.5         pkgconfig_2.0.3         gson_0.1.0             
+ [25] Matrix_1.7-4            R6_2.6.1                fastmap_1.2.0          
+ [28] GenomeInfoDbData_1.2.14 digest_0.6.39           aplot_0.2.9            
+ [31] enrichplot_1.28.4       GGally_2.4.0            patchwork_1.3.2        
+ [34] ps_1.9.1                rprojroot_2.1.1         textshaping_1.0.4      
+ [37] RSQLite_2.4.6           labeling_0.4.3          timechange_0.4.0       
+ [40] httr_1.4.8              abind_1.4-8             compiler_4.5.2         
+ [43] bit64_4.6.0-1           withr_3.0.2             S7_0.2.1               
+ [46] BiocParallel_1.42.2     DBI_1.3.0               ggstats_0.12.0         
+ [49] R.utils_2.13.0          rappdirs_0.3.4          DelayedArray_0.34.1    
+ [52] tools_4.5.2             otel_0.2.0              ape_5.8-1              
+ [55] httpuv_1.6.16           R.oo_1.27.1             glue_1.8.0             
+ [58] callr_3.7.6             nlme_3.1-168            GOSemSim_2.34.0        
+ [61] promises_1.5.0          grid_4.5.2              getPass_0.2-4          
+ [64] fgsea_1.34.2            gtable_0.3.6            tzdb_0.5.0             
+ [67] R.methodsS3_1.8.2       data.table_1.18.2.1     hms_1.1.4              
+ [70] xml2_1.5.2              XVector_0.48.0          pillar_1.11.1          
+ [73] limma_3.64.3            yulab.utils_0.2.4       later_1.4.8            
+ [76] splines_4.5.2           treeio_1.32.0           lattice_0.22-9         
+ [79] renv_1.1.7              bit_4.6.0               tidyselect_1.2.1       
+ [82] GO.db_3.21.0            locfit_1.5-9.12         Biostrings_2.76.0      
+ [85] git2r_0.35.0            edgeR_4.6.3             svglite_2.2.2          
+ [88] xfun_0.56               statmod_1.5.1           stringi_1.8.7          
+ [91] UCSC.utils_1.4.0        ggfun_0.2.0             lazyeval_0.2.2         
+ [94] yaml_2.3.12             evaluate_1.0.5          codetools_0.2-20       
+ [97] qvalue_2.40.0           BiocManager_1.30.27     ggplotify_0.1.3        
+[100] cli_3.6.5               systemfonts_1.3.1       processx_3.8.6         
+[103] jquerylib_0.1.4         Rcpp_1.1.1              png_0.1-8              
+[106] parallel_4.5.2          blob_1.3.0              tidytree_0.4.7         
+[109] viridisLite_0.4.3       scales_1.4.0            crayon_1.5.3           
+[112] rlang_1.1.7             cowplot_1.2.0           fastmatch_1.1-8        
+[115] KEGGREST_1.48.1        </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

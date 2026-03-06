@@ -1,0 +1,5785 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>PBN RNAseq DeSeq2 RNA-Sequencing Analysis – By Cell Type</title>
+
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CGRPReinforcement</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">CGRPPBN vs nCGRPPBN</a>
+</li>
+<li>
+  <a href="index2.html">CGRPPBN DEGs</a>
+</li>
+<li>
+  <a href="index3.html">Sex-specific Analyses</a>
+</li>
+<li>
+  <a href="about.html">Tuesta Lab</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/avm27/CGRPReinforcement">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">PBN RNAseq DeSeq2 RNA-Sequencing Analysis –
+By Cell Type</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-03-05
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>CGRPReinforcement/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20260305code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20260305)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20260305code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20260305)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it
+difficult for you and others to run your code on a different machine.
+Change the absolute path(s) below to the suggested relative path(s) to
+make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+~/Documents/GitHubRepos/CGRPReinforcement/
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3fbf1eb">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 3fbf1eb
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong3fbf1eb"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 3fbf1eb.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  data/gene_count_matrix_LT19_PBN2_LT15_Merged.csv
+    Untracked:  data/sample_info_ComparativeAnalysis_CombineCellType.csv
+    Untracked:  data/sample_info_PBN_CGRP.csv
+    Untracked:  data/sample_info_PBN_DG_Exclusions.csv
+    Untracked:  output/CGRPEnrichedGeneSet.csv
+    Untracked:  output/FIgure1B_PCA_byHATag.pdf
+    Untracked:  output/Figure1B_PBNRNAseq_PCA_byHATag.pdf
+    Untracked:  output/Figure1C_Heatmap.pdf
+    Untracked:  output/Figure1D_VolcanoPlot.pdf
+    Untracked:  output/Figure1E_GOHA.pdf
+    Untracked:  output/Figure1F_GOHA.pdf
+    Untracked:  output/Figure2A_PCA_byCellTypeSpecific.pdf
+    Untracked:  output/Figure2B_Heatmap_Unsupervised_Condensed.pdf
+    Untracked:  output/Figure2C_GOCGRP_CellTypes.pdf
+    Untracked:  output/PBNRNASeq_CellType_GODetails.csv
+    Untracked:  output/SFig2D_GO_SexSpecific.pdf
+    Untracked:  output/SFig2E_GO_SexSpecific.pdf
+    Untracked:  output/SFigure2A_PCA_bySex.pdf
+    Untracked:  output/SFigure2B_Heatmap_Unsupervised_Condensed.pdf
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_CGRPvsnonCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_ExcitatoryvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_PBNvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_PVvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_VIPvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byCellType_mDAvsCGRP.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_byHATag.csv
+    Untracked:  output/SigDEGs_PBNRNAseq_bySex.csv
+    Untracked:  renv.lock
+    Untracked:  renv/
+
+Unstaged changes:
+    Modified:   .Rprofile
+    Modified:   CGRPReinforcement.Rproj
+    Modified:   README.md
+    Modified:   analysis/_site.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/index2.Rmd</code>) and HTML
+(<code>docs/index2.html</code>) files. If you’ve configured a remote Git
+repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
+in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+3fbf1eb
+</td>
+<td>
+avm27
+</td>
+<td>
+2026-03-05
+</td>
+<td>
+Publish supplementary analyses
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="deseq2-analysis" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> DESeq2 Analysis</h1>
+<p>DESeq2 is called our post-processing ## Setup and Analysis
+###Building DESeq2 input files from gene count matrices output by String
+Tie.</p>
+<p>###Running DeSeq2 analysis with factor levels of cell type.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>colData<span class="sc">$</span>celltype <span class="ot">&lt;-</span> <span class="fu">factor</span>(colData<span class="sc">$</span>celltype)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>colData<span class="sc">$</span>specific <span class="ot">&lt;-</span> <span class="fu">factor</span>(colData<span class="sc">$</span>specific)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSetFromMatrix</span>(<span class="at">countData =</span> countData, <span class="at">colData =</span> colData, <span class="at">design =</span> <span class="sc">~</span>celltype)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>dds2 <span class="ot">&lt;-</span> <span class="fu">DESeqDataSetFromMatrix</span>(<span class="at">countData =</span> countData, <span class="at">colData =</span> colData, <span class="at">design =</span> <span class="sc">~</span>specific)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="do">## Filter out counts less than 50 across the rows</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="do">## This helps to remove noise from the data set</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>keep <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="fu">counts</span>(dds)) <span class="sc">&gt;=</span> <span class="dv">50</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>dds <span class="ot">&lt;-</span> dds[keep,]</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>keep2 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="fu">counts</span>(dds2)) <span class="sc">&gt;=</span> <span class="dv">50</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>dds2 <span class="ot">&lt;-</span> dds2[keep2,]</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="do">## Re-level Conditions to Analyze Each group against nonCGRP in grouped condition and CGRP in ungrouped conditiong</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>dds<span class="sc">$</span>celltype <span class="ot">&lt;-</span> <span class="fu">relevel</span>(dds<span class="sc">$</span>celltype, <span class="at">ref =</span> <span class="st">&quot;nonCGRP&quot;</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(dds)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>dds2<span class="sc">$</span>specific <span class="ot">&lt;-</span> <span class="fu">relevel</span>(dds2<span class="sc">$</span>specific, <span class="at">ref =</span> <span class="st">&quot;CGRP&quot;</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>dds2 <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(dds2)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#resultsNames(dds)</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#resultsNames(dds2)</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="fu">plotDispEsts</span>(dds)</span></code></pre></div>
+<p><img src="figure/index2.Rmd/DESeq2%20Analysis-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">plotDispEsts</span>(dds2)</span></code></pre></div>
+<p><img src="figure/index2.Rmd/DESeq2%20Analysis-2.png" alt="" width="672" style="display: block; margin: auto;" />
+## Plot Estimates and Gather Results {.tabset}</p>
+<p>These results include overview for each result file and dispersion
+estimates based on count values</p>
+<div id="dispersion-estimates-based-on-count-values"
+class="section level3" number="1.0.1">
+<h3><span class="header-section-number">1.0.1</span> Dispersion
+Estimates based on count values</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds, <span class="at">name =</span> <span class="st">&quot;celltype_CGRP_vs_nonCGRP&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds2, <span class="at">name =</span> <span class="st">&quot;specific_PBN_vs_CGRP&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>res3 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds2, <span class="at">name =</span> <span class="st">&quot;specific_excitatory_vs_CGRP&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>res4 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds2, <span class="at">name =</span> <span class="st">&quot;specific_mDA_vs_CGRP&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>res5 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds2, <span class="at">name =</span> <span class="st">&quot;specific_PV_vs_CGRP&quot;</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>res6 <span class="ot">&lt;-</span> <span class="fu">results</span>(dds2, <span class="at">name =</span> <span class="st">&quot;specific_VIP_vs_CGRP&quot;</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#summary(res1)</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#summary(res2)</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#summary(res3)</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#summary(res4)</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#summary(res5)</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#summary(res6)</span></span></code></pre></div>
+</div>
+<div id="significant-degs-by-comparison" class="section level2 tabset"
+number="1.1">
+<h2 class="tabset"><span class="header-section-number">1.1</span>
+Significant DEGs By Comparison</h2>
+<p>This subsection is for annotation the results files to include all
+necessary information for downstream analyses. This is due to the use of
+StringTie to generate count matrices with the specific mm10 annotation
+files that we use. Other methods will probably not require this, but our
+gene names are split by the “|” delimiter and must be separated in order
+to accurately generate the required Gene Symbols for mapping to entrez,
+ensemble and descriptions from Org.mm.eg.db.</p>
+<p>After annotation we subset the results to only view the significantly
+differentially expressed genes with an adjusted p-value &gt; 0.05.</p>
+<div id="cgrp-vs-noncgrp" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> CGRP vs
+nonCGRP</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>results_sig1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res1, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig1, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs CGRP vs nonCGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs CGRP vs nonCGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sox17|Sox17
+</td>
+<td style="text-align:left;">
+12.302830
+</td>
+<td style="text-align:left;">
+-7.792357
+</td>
+<td style="text-align:left;">
+2.1755764
+</td>
+<td style="text-align:left;">
+-3.581744
+</td>
+<td style="text-align:left;">
+0.0003413
+</td>
+<td style="text-align:left;">
+0.0015752
+</td>
+<td style="text-align:left;">
+Sox17
+</td>
+<td style="text-align:left;">
+SRY (sex determining region Y)-box 17
+</td>
+<td style="text-align:left;">
+20671
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.424651
+</td>
+<td style="text-align:left;">
+-10.171540
+</td>
+<td style="text-align:left;">
+1.6914286
+</td>
+<td style="text-align:left;">
+-6.013580
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167788|LOC108167788
+</td>
+<td style="text-align:left;">
+3.248502
+</td>
+<td style="text-align:left;">
+-5.793485
+</td>
+<td style="text-align:left;">
+2.2524845
+</td>
+<td style="text-align:left;">
+-2.572042
+</td>
+<td style="text-align:left;">
+0.0101101
+</td>
+<td style="text-align:left;">
+0.0285848
+</td>
+<td style="text-align:left;">
+LOC108167788
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.965915
+</td>
+<td style="text-align:left;">
+-9.293980
+</td>
+<td style="text-align:left;">
+1.5464766
+</td>
+<td style="text-align:left;">
+-6.009777
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.604191
+</td>
+<td style="text-align:left;">
+-6.195075
+</td>
+<td style="text-align:left;">
+1.0722302
+</td>
+<td style="text-align:left;">
+-5.777748
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcf24|Tcf24
+</td>
+<td style="text-align:left;">
+8.319762
+</td>
+<td style="text-align:left;">
+-7.184292
+</td>
+<td style="text-align:left;">
+2.5774804
+</td>
+<td style="text-align:left;">
+-2.787332
+</td>
+<td style="text-align:left;">
+0.0053144
+</td>
+<td style="text-align:left;">
+0.0166150
+</td>
+<td style="text-align:left;">
+Tcf24
+</td>
+<td style="text-align:left;">
+transcription factor 24
+</td>
+<td style="text-align:left;">
+100039596
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.503702
+</td>
+<td style="text-align:left;">
+-8.478597
+</td>
+<td style="text-align:left;">
+1.4201683
+</td>
+<td style="text-align:left;">
+-5.970135
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Snhg6|Snhg6
+</td>
+<td style="text-align:left;">
+159.548423
+</td>
+<td style="text-align:left;">
+1.706234
+</td>
+<td style="text-align:left;">
+0.5484570
+</td>
+<td style="text-align:left;">
+3.110971
+</td>
+<td style="text-align:left;">
+0.0018647
+</td>
+<td style="text-align:left;">
+0.0068095
+</td>
+<td style="text-align:left;">
+Snhg6
+</td>
+<td style="text-align:left;">
+small nucleolar RNA host gene 6
+</td>
+<td style="text-align:left;">
+73824
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slco5a1|Slco5a1
+</td>
+<td style="text-align:left;">
+164.175059
+</td>
+<td style="text-align:left;">
+-4.014978
+</td>
+<td style="text-align:left;">
+1.1216357
+</td>
+<td style="text-align:left;">
+-3.579574
+</td>
+<td style="text-align:left;">
+0.0003442
+</td>
+<td style="text-align:left;">
+0.0015848
+</td>
+<td style="text-align:left;">
+Slco5a1
+</td>
+<td style="text-align:left;">
+solute carrier organic anion transporter family, member 5A1
+</td>
+<td style="text-align:left;">
+240726
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ncoa2|Ncoa2
+</td>
+<td style="text-align:left;">
+2039.170059
+</td>
+<td style="text-align:left;">
+-3.745487
+</td>
+<td style="text-align:left;">
+0.9777596
+</td>
+<td style="text-align:left;">
+-3.830683
+</td>
+<td style="text-align:left;">
+0.0001278
+</td>
+<td style="text-align:left;">
+0.0006676
+</td>
+<td style="text-align:left;">
+Ncoa2
+</td>
+<td style="text-align:left;">
+nuclear receptor coactivator 2
+</td>
+<td style="text-align:left;">
+17978
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eya1|Eya1
+</td>
+<td style="text-align:left;">
+129.715095
+</td>
+<td style="text-align:left;">
+-3.300441
+</td>
+<td style="text-align:left;">
+1.2068004
+</td>
+<td style="text-align:left;">
+-2.734869
+</td>
+<td style="text-align:left;">
+0.0062405
+</td>
+<td style="text-align:left;">
+0.0190479
+</td>
+<td style="text-align:left;">
+Eya1
+</td>
+<td style="text-align:left;">
+EYA transcriptional coactivator and phosphatase 1
+</td>
+<td style="text-align:left;">
+14048
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram1|Tram1
+</td>
+<td style="text-align:left;">
+3147.772029
+</td>
+<td style="text-align:left;">
+2.102354
+</td>
+<td style="text-align:left;">
+0.7050928
+</td>
+<td style="text-align:left;">
+2.981670
+</td>
+<td style="text-align:left;">
+0.0028668
+</td>
+<td style="text-align:left;">
+0.0098245
+</td>
+<td style="text-align:left;">
+Tram1
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 1
+</td>
+<td style="text-align:left;">
+72265
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC102634042|LOC102634042
+</td>
+<td style="text-align:left;">
+23.682138
+</td>
+<td style="text-align:left;">
+-8.680400
+</td>
+<td style="text-align:left;">
+1.4081871
+</td>
+<td style="text-align:left;">
+-6.164237
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+LOC102634042
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tmem70|Tmem70
+</td>
+<td style="text-align:left;">
+757.226673
+</td>
+<td style="text-align:left;">
+1.433986
+</td>
+<td style="text-align:left;">
+0.5657315
+</td>
+<td style="text-align:left;">
+2.534747
+</td>
+<td style="text-align:left;">
+0.0112529
+</td>
+<td style="text-align:left;">
+0.0312499
+</td>
+<td style="text-align:left;">
+Tmem70
+</td>
+<td style="text-align:left;">
+transmembrane protein 70
+</td>
+<td style="text-align:left;">
+70397
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167615|LOC108167615
+</td>
+<td style="text-align:left;">
+21.886438
+</td>
+<td style="text-align:left;">
+-8.589496
+</td>
+<td style="text-align:left;">
+1.8173943
+</td>
+<td style="text-align:left;">
+-4.726270
+</td>
+<td style="text-align:left;">
+0.0000023
+</td>
+<td style="text-align:left;">
+0.0000185
+</td>
+<td style="text-align:left;">
+LOC108167615
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm28783|Gm28783
+</td>
+<td style="text-align:left;">
+16.623948
+</td>
+<td style="text-align:left;">
+-8.186229
+</td>
+<td style="text-align:left;">
+2.2586001
+</td>
+<td style="text-align:left;">
+-3.624470
+</td>
+<td style="text-align:left;">
+0.0002896
+</td>
+<td style="text-align:left;">
+0.0013611
+</td>
+<td style="text-align:left;">
+Gm28783
+</td>
+<td style="text-align:left;">
+predicted gene 28783
+</td>
+<td style="text-align:left;">
+102634310
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jph1|Jph1
+</td>
+<td style="text-align:left;">
+500.093413
+</td>
+<td style="text-align:left;">
+-13.114937
+</td>
+<td style="text-align:left;">
+1.2067733
+</td>
+<td style="text-align:left;">
+-10.867772
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Jph1
+</td>
+<td style="text-align:left;">
+junctophilin 1
+</td>
+<td style="text-align:left;">
+57339
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mcm3|Mcm3
+</td>
+<td style="text-align:left;">
+10.063966
+</td>
+<td style="text-align:left;">
+-7.501371
+</td>
+<td style="text-align:left;">
+2.0444886
+</td>
+<td style="text-align:left;">
+-3.669070
+</td>
+<td style="text-align:left;">
+0.0002434
+</td>
+<td style="text-align:left;">
+0.0011716
+</td>
+<td style="text-align:left;">
+Mcm3
+</td>
+<td style="text-align:left;">
+minichromosome maintenance complex component 3
+</td>
+<td style="text-align:left;">
+17215
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram2|Tram2
+</td>
+<td style="text-align:left;">
+14.889437
+</td>
+<td style="text-align:left;">
+-8.030535
+</td>
+<td style="text-align:left;">
+2.0041586
+</td>
+<td style="text-align:left;">
+-4.006936
+</td>
+<td style="text-align:left;">
+0.0000615
+</td>
+<td style="text-align:left;">
+0.0003510
+</td>
+<td style="text-align:left;">
+Tram2
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 2
+</td>
+<td style="text-align:left;">
+170829
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm28836|Gm28836
+</td>
+<td style="text-align:left;">
+8.141567
+</td>
+<td style="text-align:left;">
+-7.156888
+</td>
+<td style="text-align:left;">
+1.2849058
+</td>
+<td style="text-align:left;">
+-5.569971
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000003
+</td>
+<td style="text-align:left;">
+Gm28836
+</td>
+<td style="text-align:left;">
+predicted gene 28836
+</td>
+<td style="text-align:left;">
+102635593
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="pbn-vs-cgrp" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> PBN vs CGRP</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>results_sig2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res2, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig2, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs PBN vs CGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs PBN vs CGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sox17|Sox17
+</td>
+<td style="text-align:left;">
+12.302830
+</td>
+<td style="text-align:left;">
+9.2051805
+</td>
+<td style="text-align:left;">
+1.7418033
+</td>
+<td style="text-align:left;">
+5.284857
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+0.0000013
+</td>
+<td style="text-align:left;">
+Sox17
+</td>
+<td style="text-align:left;">
+SRY (sex determining region Y)-box 17
+</td>
+<td style="text-align:left;">
+20671
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xkr4|Xkr4
+</td>
+<td style="text-align:left;">
+3132.014909
+</td>
+<td style="text-align:left;">
+-1.1700677
+</td>
+<td style="text-align:left;">
+0.4737793
+</td>
+<td style="text-align:left;">
+-2.469647
+</td>
+<td style="text-align:left;">
+0.0135246
+</td>
+<td style="text-align:left;">
+0.0473228
+</td>
+<td style="text-align:left;">
+Xkr4
+</td>
+<td style="text-align:left;">
+X-linked Kx blood group related 4
+</td>
+<td style="text-align:left;">
+497097
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.424651
+</td>
+<td style="text-align:left;">
+8.0180761
+</td>
+<td style="text-align:left;">
+1.8527937
+</td>
+<td style="text-align:left;">
+4.327560
+</td>
+<td style="text-align:left;">
+0.0000151
+</td>
+<td style="text-align:left;">
+0.0001152
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oprk1|Oprk1
+</td>
+<td style="text-align:left;">
+1128.796226
+</td>
+<td style="text-align:left;">
+-1.8928371
+</td>
+<td style="text-align:left;">
+0.5771447
+</td>
+<td style="text-align:left;">
+-3.279658
+</td>
+<td style="text-align:left;">
+0.0010393
+</td>
+<td style="text-align:left;">
+0.0052746
+</td>
+<td style="text-align:left;">
+Oprk1
+</td>
+<td style="text-align:left;">
+opioid receptor, kappa 1
+</td>
+<td style="text-align:left;">
+18387
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atp6v1h|Atp6v1h
+</td>
+<td style="text-align:left;">
+3278.554656
+</td>
+<td style="text-align:left;">
+-1.0906704
+</td>
+<td style="text-align:left;">
+0.3295678
+</td>
+<td style="text-align:left;">
+-3.309397
+</td>
+<td style="text-align:left;">
+0.0009350
+</td>
+<td style="text-align:left;">
+0.0048128
+</td>
+<td style="text-align:left;">
+Atp6v1h
+</td>
+<td style="text-align:left;">
+ATPase, H+ transporting, lysosomal V1 subunit H
+</td>
+<td style="text-align:left;">
+108664
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+St18|St18
+</td>
+<td style="text-align:left;">
+792.909976
+</td>
+<td style="text-align:left;">
+4.4843270
+</td>
+<td style="text-align:left;">
+1.3359404
+</td>
+<td style="text-align:left;">
+3.356682
+</td>
+<td style="text-align:left;">
+0.0007888
+</td>
+<td style="text-align:left;">
+0.0041335
+</td>
+<td style="text-align:left;">
+St18
+</td>
+<td style="text-align:left;">
+suppression of tumorigenicity 18
+</td>
+<td style="text-align:left;">
+240690
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.965915
+</td>
+<td style="text-align:left;">
+8.3190664
+</td>
+<td style="text-align:left;">
+1.4625796
+</td>
+<td style="text-align:left;">
+5.687941
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.604191
+</td>
+<td style="text-align:left;">
+3.6684526
+</td>
+<td style="text-align:left;">
+0.7917260
+</td>
+<td style="text-align:left;">
+4.633488
+</td>
+<td style="text-align:left;">
+0.0000036
+</td>
+<td style="text-align:left;">
+0.0000309
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sntg1|Sntg1
+</td>
+<td style="text-align:left;">
+1803.169975
+</td>
+<td style="text-align:left;">
+-1.6982178
+</td>
+<td style="text-align:left;">
+0.4056170
+</td>
+<td style="text-align:left;">
+-4.186752
+</td>
+<td style="text-align:left;">
+0.0000283
+</td>
+<td style="text-align:left;">
+0.0002059
+</td>
+<td style="text-align:left;">
+Sntg1
+</td>
+<td style="text-align:left;">
+syntrophin, gamma 1
+</td>
+<td style="text-align:left;">
+71096
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.503702
+</td>
+<td style="text-align:left;">
+8.2906586
+</td>
+<td style="text-align:left;">
+1.3264616
+</td>
+<td style="text-align:left;">
+6.250206
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A830018L16Rik|A830018L16Rik
+</td>
+<td style="text-align:left;">
+1154.554769
+</td>
+<td style="text-align:left;">
+-1.4797868
+</td>
+<td style="text-align:left;">
+0.4036522
+</td>
+<td style="text-align:left;">
+-3.665995
+</td>
+<td style="text-align:left;">
+0.0002464
+</td>
+<td style="text-align:left;">
+0.0014500
+</td>
+<td style="text-align:left;">
+A830018L16Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA A830018L16 gene
+</td>
+<td style="text-align:left;">
+320492
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rpl7|Rpl7
+</td>
+<td style="text-align:left;">
+663.473109
+</td>
+<td style="text-align:left;">
+-0.7585755
+</td>
+<td style="text-align:left;">
+0.2800276
+</td>
+<td style="text-align:left;">
+-2.708931
+</td>
+<td style="text-align:left;">
+0.0067500
+</td>
+<td style="text-align:left;">
+0.0264428
+</td>
+<td style="text-align:left;">
+Rpl7
+</td>
+<td style="text-align:left;">
+ribosomal protein L7
+</td>
+<td style="text-align:left;">
+19989
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC102634042|LOC102634042
+</td>
+<td style="text-align:left;">
+23.682138
+</td>
+<td style="text-align:left;">
+6.7194223
+</td>
+<td style="text-align:left;">
+1.2583411
+</td>
+<td style="text-align:left;">
+5.339905
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+0.0000010
+</td>
+<td style="text-align:left;">
+LOC102634042
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167615|LOC108167615
+</td>
+<td style="text-align:left;">
+21.886438
+</td>
+<td style="text-align:left;">
+8.4077126
+</td>
+<td style="text-align:left;">
+1.7597056
+</td>
+<td style="text-align:left;">
+4.777909
+</td>
+<td style="text-align:left;">
+0.0000018
+</td>
+<td style="text-align:left;">
+0.0000160
+</td>
+<td style="text-align:left;">
+LOC108167615
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm28783|Gm28783
+</td>
+<td style="text-align:left;">
+16.623948
+</td>
+<td style="text-align:left;">
+6.6255589
+</td>
+<td style="text-align:left;">
+2.5012709
+</td>
+<td style="text-align:left;">
+2.648877
+</td>
+<td style="text-align:left;">
+0.0080760
+</td>
+<td style="text-align:left;">
+0.0308160
+</td>
+<td style="text-align:left;">
+Gm28783
+</td>
+<td style="text-align:left;">
+predicted gene 28783
+</td>
+<td style="text-align:left;">
+102634310
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jph1|Jph1
+</td>
+<td style="text-align:left;">
+500.093413
+</td>
+<td style="text-align:left;">
+13.4165416
+</td>
+<td style="text-align:left;">
+1.0592705
+</td>
+<td style="text-align:left;">
+12.665832
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Jph1
+</td>
+<td style="text-align:left;">
+junctophilin 1
+</td>
+<td style="text-align:left;">
+57339
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mcm3|Mcm3
+</td>
+<td style="text-align:left;">
+10.063966
+</td>
+<td style="text-align:left;">
+8.5229120
+</td>
+<td style="text-align:left;">
+2.4987694
+</td>
+<td style="text-align:left;">
+3.410844
+</td>
+<td style="text-align:left;">
+0.0006476
+</td>
+<td style="text-align:left;">
+0.0034816
+</td>
+<td style="text-align:left;">
+Mcm3
+</td>
+<td style="text-align:left;">
+minichromosome maintenance complex component 3
+</td>
+<td style="text-align:left;">
+17215
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram2|Tram2
+</td>
+<td style="text-align:left;">
+14.889437
+</td>
+<td style="text-align:left;">
+6.0799211
+</td>
+<td style="text-align:left;">
+2.3432413
+</td>
+<td style="text-align:left;">
+2.594663
+</td>
+<td style="text-align:left;">
+0.0094684
+</td>
+<td style="text-align:left;">
+0.0352153
+</td>
+<td style="text-align:left;">
+Tram2
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 2
+</td>
+<td style="text-align:left;">
+170829
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Paqr8|Paqr8
+</td>
+<td style="text-align:left;">
+1654.525480
+</td>
+<td style="text-align:left;">
+2.1283186
+</td>
+<td style="text-align:left;">
+0.3814718
+</td>
+<td style="text-align:left;">
+5.579230
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000003
+</td>
+<td style="text-align:left;">
+Paqr8
+</td>
+<td style="text-align:left;">
+progestin and adipoQ receptor family member VIII
+</td>
+<td style="text-align:left;">
+74229
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm28836|Gm28836
+</td>
+<td style="text-align:left;">
+8.141567
+</td>
+<td style="text-align:left;">
+7.3469604
+</td>
+<td style="text-align:left;">
+1.2888716
+</td>
+<td style="text-align:left;">
+5.700304
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+Gm28836
+</td>
+<td style="text-align:left;">
+predicted gene 28836
+</td>
+<td style="text-align:left;">
+102635593
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="excitatory-vs-cgrp" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Excitatory vs
+CGRP</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>results_sig3 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res3, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig3, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs Excitatory vs CGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs Excitatory vs CGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Xkr4|Xkr4
+</td>
+<td style="text-align:left;">
+3132.014909
+</td>
+<td style="text-align:left;">
+1.3617384
+</td>
+<td style="text-align:left;">
+0.5807988
+</td>
+<td style="text-align:left;">
+2.344596
+</td>
+<td style="text-align:left;">
+0.0190477
+</td>
+<td style="text-align:left;">
+0.0461738
+</td>
+<td style="text-align:left;">
+Xkr4
+</td>
+<td style="text-align:left;">
+X-linked Kx blood group related 4
+</td>
+<td style="text-align:left;">
+497097
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcea1|Tcea1
+</td>
+<td style="text-align:left;">
+583.630443
+</td>
+<td style="text-align:left;">
+-2.9149873
+</td>
+<td style="text-align:left;">
+0.3752173
+</td>
+<td style="text-align:left;">
+-7.768799
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Tcea1
+</td>
+<td style="text-align:left;">
+transcription elongation factor A (SII) 1
+</td>
+<td style="text-align:left;">
+21399
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.424651
+</td>
+<td style="text-align:left;">
+11.8986899
+</td>
+<td style="text-align:left;">
+2.1515372
+</td>
+<td style="text-align:left;">
+5.530320
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167788|LOC108167788
+</td>
+<td style="text-align:left;">
+3.248502
+</td>
+<td style="text-align:left;">
+7.6557315
+</td>
+<td style="text-align:left;">
+3.1117067
+</td>
+<td style="text-align:left;">
+2.460300
+</td>
+<td style="text-align:left;">
+0.0138821
+</td>
+<td style="text-align:left;">
+0.0348037
+</td>
+<td style="text-align:left;">
+LOC108167788
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oprk1|Oprk1
+</td>
+<td style="text-align:left;">
+1128.796226
+</td>
+<td style="text-align:left;">
+-2.4671674
+</td>
+<td style="text-align:left;">
+0.7182494
+</td>
+<td style="text-align:left;">
+-3.434973
+</td>
+<td style="text-align:left;">
+0.0005926
+</td>
+<td style="text-align:left;">
+0.0020193
+</td>
+<td style="text-align:left;">
+Oprk1
+</td>
+<td style="text-align:left;">
+opioid receptor, kappa 1
+</td>
+<td style="text-align:left;">
+18387
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atp6v1h|Atp6v1h
+</td>
+<td style="text-align:left;">
+3278.554656
+</td>
+<td style="text-align:left;">
+-2.1023362
+</td>
+<td style="text-align:left;">
+0.4086913
+</td>
+<td style="text-align:left;">
+-5.144068
+</td>
+<td style="text-align:left;">
+0.0000003
+</td>
+<td style="text-align:left;">
+0.0000016
+</td>
+<td style="text-align:left;">
+Atp6v1h
+</td>
+<td style="text-align:left;">
+ATPase, H+ transporting, lysosomal V1 subunit H
+</td>
+<td style="text-align:left;">
+108664
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.965915
+</td>
+<td style="text-align:left;">
+10.9866359
+</td>
+<td style="text-align:left;">
+1.6455343
+</td>
+<td style="text-align:left;">
+6.676638
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.604191
+</td>
+<td style="text-align:left;">
+8.3072639
+</td>
+<td style="text-align:left;">
+0.9651065
+</td>
+<td style="text-align:left;">
+8.607613
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sntg1|Sntg1
+</td>
+<td style="text-align:left;">
+1803.169975
+</td>
+<td style="text-align:left;">
+1.4262427
+</td>
+<td style="text-align:left;">
+0.4974875
+</td>
+<td style="text-align:left;">
+2.866892
+</td>
+<td style="text-align:left;">
+0.0041452
+</td>
+<td style="text-align:left;">
+0.0117507
+</td>
+<td style="text-align:left;">
+Sntg1
+</td>
+<td style="text-align:left;">
+syntrophin, gamma 1
+</td>
+<td style="text-align:left;">
+71096
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcf24|Tcf24
+</td>
+<td style="text-align:left;">
+8.319762
+</td>
+<td style="text-align:left;">
+8.4526801
+</td>
+<td style="text-align:left;">
+3.6035620
+</td>
+<td style="text-align:left;">
+2.345646
+</td>
+<td style="text-align:left;">
+0.0189941
+</td>
+<td style="text-align:left;">
+0.0460613
+</td>
+<td style="text-align:left;">
+Tcf24
+</td>
+<td style="text-align:left;">
+transcription factor 24
+</td>
+<td style="text-align:left;">
+100039596
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.503702
+</td>
+<td style="text-align:left;">
+9.5653779
+</td>
+<td style="text-align:left;">
+1.4815075
+</td>
+<td style="text-align:left;">
+6.456517
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cspp1|Cspp1
+</td>
+<td style="text-align:left;">
+1847.399366
+</td>
+<td style="text-align:left;">
+0.8956858
+</td>
+<td style="text-align:left;">
+0.3435157
+</td>
+<td style="text-align:left;">
+2.607408
+</td>
+<td style="text-align:left;">
+0.0091230
+</td>
+<td style="text-align:left;">
+0.0239139
+</td>
+<td style="text-align:left;">
+Cspp1
+</td>
+<td style="text-align:left;">
+centrosome and spindle pole associated protein 1
+</td>
+<td style="text-align:left;">
+211660
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Snhg6|Snhg6
+</td>
+<td style="text-align:left;">
+159.548423
+</td>
+<td style="text-align:left;">
+-2.6232186
+</td>
+<td style="text-align:left;">
+0.7791542
+</td>
+<td style="text-align:left;">
+-3.366751
+</td>
+<td style="text-align:left;">
+0.0007606
+</td>
+<td style="text-align:left;">
+0.0025355
+</td>
+<td style="text-align:left;">
+Snhg6
+</td>
+<td style="text-align:left;">
+small nucleolar RNA host gene 6
+</td>
+<td style="text-align:left;">
+73824
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arfgef1|Arfgef1
+</td>
+<td style="text-align:left;">
+1817.378132
+</td>
+<td style="text-align:left;">
+1.4390453
+</td>
+<td style="text-align:left;">
+0.4572235
+</td>
+<td style="text-align:left;">
+3.147356
+</td>
+<td style="text-align:left;">
+0.0016475
+</td>
+<td style="text-align:left;">
+0.0051177
+</td>
+<td style="text-align:left;">
+Arfgef1
+</td>
+<td style="text-align:left;">
+ARF guanine nucleotide exchange factor 1
+</td>
+<td style="text-align:left;">
+211673
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram1|Tram1
+</td>
+<td style="text-align:left;">
+3147.772029
+</td>
+<td style="text-align:left;">
+-4.1693538
+</td>
+<td style="text-align:left;">
+0.6735905
+</td>
+<td style="text-align:left;">
+-6.189746
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Tram1
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 1
+</td>
+<td style="text-align:left;">
+72265
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Terf1|Terf1
+</td>
+<td style="text-align:left;">
+733.045019
+</td>
+<td style="text-align:left;">
+-1.2685827
+</td>
+<td style="text-align:left;">
+0.4627967
+</td>
+<td style="text-align:left;">
+-2.741123
+</td>
+<td style="text-align:left;">
+0.0061230
+</td>
+<td style="text-align:left;">
+0.0166808
+</td>
+<td style="text-align:left;">
+Terf1
+</td>
+<td style="text-align:left;">
+telomeric repeat binding factor 1
+</td>
+<td style="text-align:left;">
+21749
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rpl7|Rpl7
+</td>
+<td style="text-align:left;">
+663.473109
+</td>
+<td style="text-align:left;">
+-3.7717391
+</td>
+<td style="text-align:left;">
+0.4181704
+</td>
+<td style="text-align:left;">
+-9.019622
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Rpl7
+</td>
+<td style="text-align:left;">
+ribosomal protein L7
+</td>
+<td style="text-align:left;">
+19989
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC102634042|LOC102634042
+</td>
+<td style="text-align:left;">
+23.682138
+</td>
+<td style="text-align:left;">
+8.8335186
+</td>
+<td style="text-align:left;">
+1.4006193
+</td>
+<td style="text-align:left;">
+6.306866
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+LOC102634042
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tmem70|Tmem70
+</td>
+<td style="text-align:left;">
+757.226673
+</td>
+<td style="text-align:left;">
+-2.9430926
+</td>
+<td style="text-align:left;">
+0.5333228
+</td>
+<td style="text-align:left;">
+-5.518408
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+Tmem70
+</td>
+<td style="text-align:left;">
+transmembrane protein 70
+</td>
+<td style="text-align:left;">
+70397
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC108167615|LOC108167615
+</td>
+<td style="text-align:left;">
+21.886438
+</td>
+<td style="text-align:left;">
+9.8031417
+</td>
+<td style="text-align:left;">
+2.0464209
+</td>
+<td style="text-align:left;">
+4.790384
+</td>
+<td style="text-align:left;">
+0.0000017
+</td>
+<td style="text-align:left;">
+0.0000088
+</td>
+<td style="text-align:left;">
+LOC108167615
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="mda-vs-cgrp" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> mDA vs CGRP</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>results_sig4 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res4, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig4, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs mDA vs CGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs mDA vs CGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Gm39585|Gm39585
+</td>
+<td style="text-align:left;">
+3744.483689
+</td>
+<td style="text-align:left;">
+-1.7289108
+</td>
+<td style="text-align:left;">
+0.6050088
+</td>
+<td style="text-align:left;">
+-2.857662
+</td>
+<td style="text-align:left;">
+0.0042677
+</td>
+<td style="text-align:left;">
+0.0181669
+</td>
+<td style="text-align:left;">
+Gm39585
+</td>
+<td style="text-align:left;">
+predicted gene, 39585
+</td>
+<td style="text-align:left;">
+105243853
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.424651
+</td>
+<td style="text-align:left;">
+8.2148887
+</td>
+<td style="text-align:left;">
+2.1532606
+</td>
+<td style="text-align:left;">
+3.815093
+</td>
+<td style="text-align:left;">
+0.0001361
+</td>
+<td style="text-align:left;">
+0.0008671
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rb1cc1|Rb1cc1
+</td>
+<td style="text-align:left;">
+3235.534661
+</td>
+<td style="text-align:left;">
+-1.7595130
+</td>
+<td style="text-align:left;">
+0.2633677
+</td>
+<td style="text-align:left;">
+-6.680823
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Rb1cc1
+</td>
+<td style="text-align:left;">
+RB1-inducible coiled-coil 1
+</td>
+<td style="text-align:left;">
+12421
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4732440D04Rik|4732440D04Rik
+</td>
+<td style="text-align:left;">
+1015.037791
+</td>
+<td style="text-align:left;">
+-0.8743559
+</td>
+<td style="text-align:left;">
+0.3365638
+</td>
+<td style="text-align:left;">
+-2.597890
+</td>
+<td style="text-align:left;">
+0.0093799
+</td>
+<td style="text-align:left;">
+0.0354821
+</td>
+<td style="text-align:left;">
+4732440D04Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 4732440D04 gene
+</td>
+<td style="text-align:left;">
+654788
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pcmtd1|Pcmtd1
+</td>
+<td style="text-align:left;">
+1797.850882
+</td>
+<td style="text-align:left;">
+-0.7142460
+</td>
+<td style="text-align:left;">
+0.2036835
+</td>
+<td style="text-align:left;">
+-3.506646
+</td>
+<td style="text-align:left;">
+0.0004538
+</td>
+<td style="text-align:left;">
+0.0025402
+</td>
+<td style="text-align:left;">
+Pcmtd1
+</td>
+<td style="text-align:left;">
+protein-L-isoaspartate (D-aspartate) O-methyltransferase domain
+containing 1
+</td>
+<td style="text-align:left;">
+319263
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.965915
+</td>
+<td style="text-align:left;">
+5.5639438
+</td>
+<td style="text-align:left;">
+1.6832891
+</td>
+<td style="text-align:left;">
+3.305400
+</td>
+<td style="text-align:left;">
+0.0009484
+</td>
+<td style="text-align:left;">
+0.0049108
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.604191
+</td>
+<td style="text-align:left;">
+3.2095279
+</td>
+<td style="text-align:left;">
+0.9668119
+</td>
+<td style="text-align:left;">
+3.319703
+</td>
+<td style="text-align:left;">
+0.0009011
+</td>
+<td style="text-align:left;">
+0.0046963
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cpa6|Cpa6
+</td>
+<td style="text-align:left;">
+30.019318
+</td>
+<td style="text-align:left;">
+-24.0398351
+</td>
+<td style="text-align:left;">
+4.0725261
+</td>
+<td style="text-align:left;">
+-5.902930
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+Cpa6
+</td>
+<td style="text-align:left;">
+carboxypeptidase A6
+</td>
+<td style="text-align:left;">
+329093
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.503702
+</td>
+<td style="text-align:left;">
+4.9388593
+</td>
+<td style="text-align:left;">
+1.5329890
+</td>
+<td style="text-align:left;">
+3.221719
+</td>
+<td style="text-align:left;">
+0.0012742
+</td>
+<td style="text-align:left;">
+0.0063390
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cspp1|Cspp1
+</td>
+<td style="text-align:left;">
+1847.399366
+</td>
+<td style="text-align:left;">
+-1.0332346
+</td>
+<td style="text-align:left;">
+0.3420921
+</td>
+<td style="text-align:left;">
+-3.020340
+</td>
+<td style="text-align:left;">
+0.0025249
+</td>
+<td style="text-align:left;">
+0.0115440
+</td>
+<td style="text-align:left;">
+Cspp1
+</td>
+<td style="text-align:left;">
+centrosome and spindle pole associated protein 1
+</td>
+<td style="text-align:left;">
+211660
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Snhg6|Snhg6
+</td>
+<td style="text-align:left;">
+159.548423
+</td>
+<td style="text-align:left;">
+-1.8458579
+</td>
+<td style="text-align:left;">
+0.7198490
+</td>
+<td style="text-align:left;">
+-2.564229
+</td>
+<td style="text-align:left;">
+0.0103405
+</td>
+<td style="text-align:left;">
+0.0384813
+</td>
+<td style="text-align:left;">
+Snhg6
+</td>
+<td style="text-align:left;">
+small nucleolar RNA host gene 6
+</td>
+<td style="text-align:left;">
+73824
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prex2|Prex2
+</td>
+<td style="text-align:left;">
+283.588414
+</td>
+<td style="text-align:left;">
+-3.0973826
+</td>
+<td style="text-align:left;">
+1.0845122
+</td>
+<td style="text-align:left;">
+-2.856014
+</td>
+<td style="text-align:left;">
+0.0042900
+</td>
+<td style="text-align:left;">
+0.0182453
+</td>
+<td style="text-align:left;">
+Prex2
+</td>
+<td style="text-align:left;">
+phosphatidylinositol-3,4,5-trisphosphate-dependent Rac exchange factor 2
+</td>
+<td style="text-align:left;">
+109294
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A830018L16Rik|A830018L16Rik
+</td>
+<td style="text-align:left;">
+1154.554769
+</td>
+<td style="text-align:left;">
+-2.0550370
+</td>
+<td style="text-align:left;">
+0.4954733
+</td>
+<td style="text-align:left;">
+-4.147624
+</td>
+<td style="text-align:left;">
+0.0000336
+</td>
+<td style="text-align:left;">
+0.0002459
+</td>
+<td style="text-align:left;">
+A830018L16Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA A830018L16 gene
+</td>
+<td style="text-align:left;">
+320492
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram1|Tram1
+</td>
+<td style="text-align:left;">
+3147.772029
+</td>
+<td style="text-align:left;">
+-2.4100948
+</td>
+<td style="text-align:left;">
+0.6645366
+</td>
+<td style="text-align:left;">
+-3.626730
+</td>
+<td style="text-align:left;">
+0.0002870
+</td>
+<td style="text-align:left;">
+0.0016991
+</td>
+<td style="text-align:left;">
+Tram1
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 1
+</td>
+<td style="text-align:left;">
+72265
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC102634042|LOC102634042
+</td>
+<td style="text-align:left;">
+23.682138
+</td>
+<td style="text-align:left;">
+6.7935385
+</td>
+<td style="text-align:left;">
+1.3708436
+</td>
+<td style="text-align:left;">
+4.955736
+</td>
+<td style="text-align:left;">
+0.0000007
+</td>
+<td style="text-align:left;">
+0.0000073
+</td>
+<td style="text-align:left;">
+LOC102634042
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tmem70|Tmem70
+</td>
+<td style="text-align:left;">
+757.226673
+</td>
+<td style="text-align:left;">
+-1.3159079
+</td>
+<td style="text-align:left;">
+0.5077658
+</td>
+<td style="text-align:left;">
+-2.591565
+</td>
+<td style="text-align:left;">
+0.0095541
+</td>
+<td style="text-align:left;">
+0.0359856
+</td>
+<td style="text-align:left;">
+Tmem70
+</td>
+<td style="text-align:left;">
+transmembrane protein 70
+</td>
+<td style="text-align:left;">
+70397
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jph1|Jph1
+</td>
+<td style="text-align:left;">
+500.093413
+</td>
+<td style="text-align:left;">
+11.3651284
+</td>
+<td style="text-align:left;">
+1.0794377
+</td>
+<td style="text-align:left;">
+10.528749
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Jph1
+</td>
+<td style="text-align:left;">
+junctophilin 1
+</td>
+<td style="text-align:left;">
+57339
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tfap2b|Tfap2b
+</td>
+<td style="text-align:left;">
+491.912163
+</td>
+<td style="text-align:left;">
+-7.4152471
+</td>
+<td style="text-align:left;">
+1.1068095
+</td>
+<td style="text-align:left;">
+-6.699660
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Tfap2b
+</td>
+<td style="text-align:left;">
+transcription factor AP-2 beta
+</td>
+<td style="text-align:left;">
+21419
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm28836|Gm28836
+</td>
+<td style="text-align:left;">
+8.141567
+</td>
+<td style="text-align:left;">
+6.3090100
+</td>
+<td style="text-align:left;">
+1.4277014
+</td>
+<td style="text-align:left;">
+4.418998
+</td>
+<td style="text-align:left;">
+0.0000099
+</td>
+<td style="text-align:left;">
+0.0000817
+</td>
+<td style="text-align:left;">
+Gm28836
+</td>
+<td style="text-align:left;">
+predicted gene 28836
+</td>
+<td style="text-align:left;">
+102635593
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm32947|Gm32947
+</td>
+<td style="text-align:left;">
+15.670023
+</td>
+<td style="text-align:left;">
+3.4419519
+</td>
+<td style="text-align:left;">
+1.1004881
+</td>
+<td style="text-align:left;">
+3.127659
+</td>
+<td style="text-align:left;">
+0.0017620
+</td>
+<td style="text-align:left;">
+0.0084282
+</td>
+<td style="text-align:left;">
+Gm32947
+</td>
+<td style="text-align:left;">
+predicted gene, 32947
+</td>
+<td style="text-align:left;">
+102635667
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="pv-vs-cgrp" class="section level3" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> PV vs CGRP</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>results_sig5 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res5, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig5, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs PV vs CGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs PV vs CGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sox17|Sox17
+</td>
+<td style="text-align:left;">
+12.30283
+</td>
+<td style="text-align:left;">
+6.4671399
+</td>
+<td style="text-align:left;">
+2.1314308
+</td>
+<td style="text-align:left;">
+3.034178
+</td>
+<td style="text-align:left;">
+0.0024119
+</td>
+<td style="text-align:left;">
+0.0074668
+</td>
+<td style="text-align:left;">
+Sox17
+</td>
+<td style="text-align:left;">
+SRY (sex determining region Y)-box 17
+</td>
+<td style="text-align:left;">
+20671
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xkr4|Xkr4
+</td>
+<td style="text-align:left;">
+3132.01491
+</td>
+<td style="text-align:left;">
+2.3891418
+</td>
+<td style="text-align:left;">
+0.5801520
+</td>
+<td style="text-align:left;">
+4.118130
+</td>
+<td style="text-align:left;">
+0.0000382
+</td>
+<td style="text-align:left;">
+0.0001713
+</td>
+<td style="text-align:left;">
+Xkr4
+</td>
+<td style="text-align:left;">
+X-linked Kx blood group related 4
+</td>
+<td style="text-align:left;">
+497097
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm39585|Gm39585
+</td>
+<td style="text-align:left;">
+3744.48369
+</td>
+<td style="text-align:left;">
+2.1963359
+</td>
+<td style="text-align:left;">
+0.6045501
+</td>
+<td style="text-align:left;">
+3.633009
+</td>
+<td style="text-align:left;">
+0.0002801
+</td>
+<td style="text-align:left;">
+0.0010514
+</td>
+<td style="text-align:left;">
+Gm39585
+</td>
+<td style="text-align:left;">
+predicted gene, 39585
+</td>
+<td style="text-align:left;">
+105243853
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcea1|Tcea1
+</td>
+<td style="text-align:left;">
+583.63044
+</td>
+<td style="text-align:left;">
+-2.9376548
+</td>
+<td style="text-align:left;">
+0.3563344
+</td>
+<td style="text-align:left;">
+-8.244095
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Tcea1
+</td>
+<td style="text-align:left;">
+transcription elongation factor A (SII) 1
+</td>
+<td style="text-align:left;">
+21399
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.42465
+</td>
+<td style="text-align:left;">
+9.1383748
+</td>
+<td style="text-align:left;">
+2.1665400
+</td>
+<td style="text-align:left;">
+4.217958
+</td>
+<td style="text-align:left;">
+0.0000247
+</td>
+<td style="text-align:left;">
+0.0001138
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oprk1|Oprk1
+</td>
+<td style="text-align:left;">
+1128.79623
+</td>
+<td style="text-align:left;">
+-6.6529560
+</td>
+<td style="text-align:left;">
+0.8391192
+</td>
+<td style="text-align:left;">
+-7.928499
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Oprk1
+</td>
+<td style="text-align:left;">
+opioid receptor, kappa 1
+</td>
+<td style="text-align:left;">
+18387
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atp6v1h|Atp6v1h
+</td>
+<td style="text-align:left;">
+3278.55466
+</td>
+<td style="text-align:left;">
+-2.1517640
+</td>
+<td style="text-align:left;">
+0.4071360
+</td>
+<td style="text-align:left;">
+-5.285124
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+0.0000008
+</td>
+<td style="text-align:left;">
+Atp6v1h
+</td>
+<td style="text-align:left;">
+ATPase, H+ transporting, lysosomal V1 subunit H
+</td>
+<td style="text-align:left;">
+108664
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rb1cc1|Rb1cc1
+</td>
+<td style="text-align:left;">
+3235.53466
+</td>
+<td style="text-align:left;">
+-0.9104351
+</td>
+<td style="text-align:left;">
+0.2653085
+</td>
+<td style="text-align:left;">
+-3.431609
+</td>
+<td style="text-align:left;">
+0.0006000
+</td>
+<td style="text-align:left;">
+0.0021079
+</td>
+<td style="text-align:left;">
+Rb1cc1
+</td>
+<td style="text-align:left;">
+RB1-inducible coiled-coil 1
+</td>
+<td style="text-align:left;">
+12421
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pcmtd1|Pcmtd1
+</td>
+<td style="text-align:left;">
+1797.85088
+</td>
+<td style="text-align:left;">
+-0.8006752
+</td>
+<td style="text-align:left;">
+0.2091118
+</td>
+<td style="text-align:left;">
+-3.828934
+</td>
+<td style="text-align:left;">
+0.0001287
+</td>
+<td style="text-align:left;">
+0.0005212
+</td>
+<td style="text-align:left;">
+Pcmtd1
+</td>
+<td style="text-align:left;">
+protein-L-isoaspartate (D-aspartate) O-methyltransferase domain
+containing 1
+</td>
+<td style="text-align:left;">
+319263
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.96592
+</td>
+<td style="text-align:left;">
+9.7606242
+</td>
+<td style="text-align:left;">
+1.6515568
+</td>
+<td style="text-align:left;">
+5.909954
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.60419
+</td>
+<td style="text-align:left;">
+5.3406133
+</td>
+<td style="text-align:left;">
+0.9677687
+</td>
+<td style="text-align:left;">
+5.518481
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sntg1|Sntg1
+</td>
+<td style="text-align:left;">
+1803.16997
+</td>
+<td style="text-align:left;">
+1.7918492
+</td>
+<td style="text-align:left;">
+0.4965465
+</td>
+<td style="text-align:left;">
+3.608624
+</td>
+<td style="text-align:left;">
+0.0003078
+</td>
+<td style="text-align:left;">
+0.0011475
+</td>
+<td style="text-align:left;">
+Sntg1
+</td>
+<td style="text-align:left;">
+syntrophin, gamma 1
+</td>
+<td style="text-align:left;">
+71096
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cpa6|Cpa6
+</td>
+<td style="text-align:left;">
+30.01932
+</td>
+<td style="text-align:left;">
+-19.5304026
+</td>
+<td style="text-align:left;">
+4.0725261
+</td>
+<td style="text-align:left;">
+-4.795648
+</td>
+<td style="text-align:left;">
+0.0000016
+</td>
+<td style="text-align:left;">
+0.0000091
+</td>
+<td style="text-align:left;">
+Cpa6
+</td>
+<td style="text-align:left;">
+carboxypeptidase A6
+</td>
+<td style="text-align:left;">
+329093
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.50370
+</td>
+<td style="text-align:left;">
+8.3103233
+</td>
+<td style="text-align:left;">
+1.4998714
+</td>
+<td style="text-align:left;">
+5.540690
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Snhg6|Snhg6
+</td>
+<td style="text-align:left;">
+159.54842
+</td>
+<td style="text-align:left;">
+-2.4094163
+</td>
+<td style="text-align:left;">
+0.7531760
+</td>
+<td style="text-align:left;">
+-3.199008
+</td>
+<td style="text-align:left;">
+0.0013790
+</td>
+<td style="text-align:left;">
+0.0045067
+</td>
+<td style="text-align:left;">
+Snhg6
+</td>
+<td style="text-align:left;">
+small nucleolar RNA host gene 6
+</td>
+<td style="text-align:left;">
+73824
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arfgef1|Arfgef1
+</td>
+<td style="text-align:left;">
+1817.37813
+</td>
+<td style="text-align:left;">
+1.3986298
+</td>
+<td style="text-align:left;">
+0.4566827
+</td>
+<td style="text-align:left;">
+3.062585
+</td>
+<td style="text-align:left;">
+0.0021943
+</td>
+<td style="text-align:left;">
+0.0068627
+</td>
+<td style="text-align:left;">
+Arfgef1
+</td>
+<td style="text-align:left;">
+ARF guanine nucleotide exchange factor 1
+</td>
+<td style="text-align:left;">
+211673
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram1|Tram1
+</td>
+<td style="text-align:left;">
+3147.77203
+</td>
+<td style="text-align:left;">
+-3.4668196
+</td>
+<td style="text-align:left;">
+0.6681556
+</td>
+<td style="text-align:left;">
+-5.188641
+</td>
+<td style="text-align:left;">
+0.0000002
+</td>
+<td style="text-align:left;">
+0.0000014
+</td>
+<td style="text-align:left;">
+Tram1
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 1
+</td>
+<td style="text-align:left;">
+72265
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Terf1|Terf1
+</td>
+<td style="text-align:left;">
+733.04502
+</td>
+<td style="text-align:left;">
+-1.6874708
+</td>
+<td style="text-align:left;">
+0.4616282
+</td>
+<td style="text-align:left;">
+-3.655476
+</td>
+<td style="text-align:left;">
+0.0002567
+</td>
+<td style="text-align:left;">
+0.0009737
+</td>
+<td style="text-align:left;">
+Terf1
+</td>
+<td style="text-align:left;">
+telomeric repeat binding factor 1
+</td>
+<td style="text-align:left;">
+21749
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rpl7|Rpl7
+</td>
+<td style="text-align:left;">
+663.47311
+</td>
+<td style="text-align:left;">
+-3.5539379
+</td>
+<td style="text-align:left;">
+0.3874984
+</td>
+<td style="text-align:left;">
+-9.171491
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Rpl7
+</td>
+<td style="text-align:left;">
+ribosomal protein L7
+</td>
+<td style="text-align:left;">
+19989
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LOC102634042|LOC102634042
+</td>
+<td style="text-align:left;">
+23.68214
+</td>
+<td style="text-align:left;">
+9.7836804
+</td>
+<td style="text-align:left;">
+1.3652330
+</td>
+<td style="text-align:left;">
+7.166308
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+LOC102634042
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="vip-vs-cgrp" class="section level3" number="1.1.6">
+<h3><span class="header-section-number">1.1.6</span> VIP vs CGRP</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>results_sig6 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res6, padj <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">kable</span>((<span class="fu">head</span>(results_sig6, <span class="dv">20</span>)), <span class="at">caption =</span> <span class="st">&quot;Significant DEGs VIP vs CGRP&quot;</span>, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">align =</span> <span class="st">&quot;l&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">html_font =</span> <span class="st">&quot;Arial&quot;</span>, <span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;1000px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;500px&quot;</span>)</span></code></pre></div>
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:1000px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 10px; font-family: Arial; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Significant DEGs VIP vs CGRP
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+baseMean
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+log2FoldChange
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+lfcSE
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+stat
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+pvalue
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+padj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+symbol
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+entrez
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+ensembl
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sox17|Sox17
+</td>
+<td style="text-align:left;">
+12.30283
+</td>
+<td style="text-align:left;">
+5.2555508
+</td>
+<td style="text-align:left;">
+2.2226160
+</td>
+<td style="text-align:left;">
+2.364579
+</td>
+<td style="text-align:left;">
+0.0180506
+</td>
+<td style="text-align:left;">
+0.0461375
+</td>
+<td style="text-align:left;">
+Sox17
+</td>
+<td style="text-align:left;">
+SRY (sex determining region Y)-box 17
+</td>
+<td style="text-align:left;">
+20671
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xkr4|Xkr4
+</td>
+<td style="text-align:left;">
+3132.01491
+</td>
+<td style="text-align:left;">
+1.5729797
+</td>
+<td style="text-align:left;">
+0.5802608
+</td>
+<td style="text-align:left;">
+2.710815
+</td>
+<td style="text-align:left;">
+0.0067118
+</td>
+<td style="text-align:left;">
+0.0193892
+</td>
+<td style="text-align:left;">
+Xkr4
+</td>
+<td style="text-align:left;">
+X-linked Kx blood group related 4
+</td>
+<td style="text-align:left;">
+497097
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm39585|Gm39585
+</td>
+<td style="text-align:left;">
+3744.48369
+</td>
+<td style="text-align:left;">
+1.7487933
+</td>
+<td style="text-align:left;">
+0.6045609
+</td>
+<td style="text-align:left;">
+2.892667
+</td>
+<td style="text-align:left;">
+0.0038199
+</td>
+<td style="text-align:left;">
+0.0116791
+</td>
+<td style="text-align:left;">
+Gm39585
+</td>
+<td style="text-align:left;">
+predicted gene, 39585
+</td>
+<td style="text-align:left;">
+105243853
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tcea1|Tcea1
+</td>
+<td style="text-align:left;">
+583.63044
+</td>
+<td style="text-align:left;">
+-2.5473459
+</td>
+<td style="text-align:left;">
+0.3392613
+</td>
+<td style="text-align:left;">
+-7.508507
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Tcea1
+</td>
+<td style="text-align:left;">
+transcription elongation factor A (SII) 1
+</td>
+<td style="text-align:left;">
+21399
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm16041|Gm16041
+</td>
+<td style="text-align:left;">
+65.42465
+</td>
+<td style="text-align:left;">
+10.7910496
+</td>
+<td style="text-align:left;">
+2.1520046
+</td>
+<td style="text-align:left;">
+5.014418
+</td>
+<td style="text-align:left;">
+0.0000005
+</td>
+<td style="text-align:left;">
+0.0000034
+</td>
+<td style="text-align:left;">
+Gm16041
+</td>
+<td style="text-align:left;">
+predicted gene 16041
+</td>
+<td style="text-align:left;">
+102631647
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oprk1|Oprk1
+</td>
+<td style="text-align:left;">
+1128.79623
+</td>
+<td style="text-align:left;">
+-3.9283221
+</td>
+<td style="text-align:left;">
+0.7231942
+</td>
+<td style="text-align:left;">
+-5.431905
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+0.0000004
+</td>
+<td style="text-align:left;">
+Oprk1
+</td>
+<td style="text-align:left;">
+opioid receptor, kappa 1
+</td>
+<td style="text-align:left;">
+18387
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atp6v1h|Atp6v1h
+</td>
+<td style="text-align:left;">
+3278.55466
+</td>
+<td style="text-align:left;">
+-1.9960932
+</td>
+<td style="text-align:left;">
+0.4059613
+</td>
+<td style="text-align:left;">
+-4.916954
+</td>
+<td style="text-align:left;">
+0.0000009
+</td>
+<td style="text-align:left;">
+0.0000054
+</td>
+<td style="text-align:left;">
+Atp6v1h
+</td>
+<td style="text-align:left;">
+ATPase, H+ transporting, lysosomal V1 subunit H
+</td>
+<td style="text-align:left;">
+108664
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rb1cc1|Rb1cc1
+</td>
+<td style="text-align:left;">
+3235.53466
+</td>
+<td style="text-align:left;">
+-0.8045020
+</td>
+<td style="text-align:left;">
+0.2645042
+</td>
+<td style="text-align:left;">
+-3.041548
+</td>
+<td style="text-align:left;">
+0.0023537
+</td>
+<td style="text-align:left;">
+0.0075927
+</td>
+<td style="text-align:left;">
+Rb1cc1
+</td>
+<td style="text-align:left;">
+RB1-inducible coiled-coil 1
+</td>
+<td style="text-align:left;">
+12421
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4732440D04Rik|4732440D04Rik
+</td>
+<td style="text-align:left;">
+1015.03779
+</td>
+<td style="text-align:left;">
+-0.9159992
+</td>
+<td style="text-align:left;">
+0.3408473
+</td>
+<td style="text-align:left;">
+-2.687418
+</td>
+<td style="text-align:left;">
+0.0072007
+</td>
+<td style="text-align:left;">
+0.0206306
+</td>
+<td style="text-align:left;">
+4732440D04Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 4732440D04 gene
+</td>
+<td style="text-align:left;">
+654788
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gm26901|Gm26901
+</td>
+<td style="text-align:left;">
+295.69923
+</td>
+<td style="text-align:left;">
+3.9854764
+</td>
+<td style="text-align:left;">
+1.7000056
+</td>
+<td style="text-align:left;">
+2.344390
+</td>
+<td style="text-align:left;">
+0.0190582
+</td>
+<td style="text-align:left;">
+0.0482962
+</td>
+<td style="text-align:left;">
+Gm26901
+</td>
+<td style="text-align:left;">
+predicted gene, 26901
+</td>
+<td style="text-align:left;">
+102632124
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pcmtd1|Pcmtd1
+</td>
+<td style="text-align:left;">
+1797.85088
+</td>
+<td style="text-align:left;">
+-0.8798589
+</td>
+<td style="text-align:left;">
+0.2078704
+</td>
+<td style="text-align:left;">
+-4.232728
+</td>
+<td style="text-align:left;">
+0.0000231
+</td>
+<td style="text-align:left;">
+0.0001117
+</td>
+<td style="text-align:left;">
+Pcmtd1
+</td>
+<td style="text-align:left;">
+protein-L-isoaspartate (D-aspartate) O-methyltransferase domain
+containing 1
+</td>
+<td style="text-align:left;">
+319263
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2610203C22Rik|2610203C22Rik
+</td>
+<td style="text-align:left;">
+35.96592
+</td>
+<td style="text-align:left;">
+7.9408544
+</td>
+<td style="text-align:left;">
+1.6785811
+</td>
+<td style="text-align:left;">
+4.730695
+</td>
+<td style="text-align:left;">
+0.0000022
+</td>
+<td style="text-align:left;">
+0.0000129
+</td>
+<td style="text-align:left;">
+2610203C22Rik
+</td>
+<td style="text-align:left;">
+RIKEN cDNA 2610203C22 gene
+</td>
+<td style="text-align:left;">
+72481
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3110035E14Rik|3110035E14Rik
+</td>
+<td style="text-align:left;">
+755.60419
+</td>
+<td style="text-align:left;">
+5.5984319
+</td>
+<td style="text-align:left;">
+0.9665715
+</td>
+<td style="text-align:left;">
+5.792051
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000001
+</td>
+<td style="text-align:left;">
+3110035E14Rik
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sntg1|Sntg1
+</td>
+<td style="text-align:left;">
+1803.16997
+</td>
+<td style="text-align:left;">
+2.3460082
+</td>
+<td style="text-align:left;">
+0.4960372
+</td>
+<td style="text-align:left;">
+4.729501
+</td>
+<td style="text-align:left;">
+0.0000023
+</td>
+<td style="text-align:left;">
+0.0000129
+</td>
+<td style="text-align:left;">
+Sntg1
+</td>
+<td style="text-align:left;">
+syntrophin, gamma 1
+</td>
+<td style="text-align:left;">
+71096
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ppp1r42|Ppp1r42
+</td>
+<td style="text-align:left;">
+20.50370
+</td>
+<td style="text-align:left;">
+8.8185643
+</td>
+<td style="text-align:left;">
+1.4773092
+</td>
+<td style="text-align:left;">
+5.969342
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+0.0000000
+</td>
+<td style="text-align:left;">
+Ppp1r42
+</td>
+<td style="text-align:left;">
+protein phosphatase 1, regulatory subunit 42
+</td>
+<td style="text-align:left;">
+69312
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Snhg6|Snhg6
+</td>
+<td style="text-align:left;">
+159.54842
+</td>
+<td style="text-align:left;">
+-2.0568068
+</td>
+<td style="text-align:left;">
+0.7383123
+</td>
+<td style="text-align:left;">
+-2.785822
+</td>
+<td style="text-align:left;">
+0.0053392
+</td>
+<td style="text-align:left;">
+0.0158340
+</td>
+<td style="text-align:left;">
+Snhg6
+</td>
+<td style="text-align:left;">
+small nucleolar RNA host gene 6
+</td>
+<td style="text-align:left;">
+73824
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arfgef1|Arfgef1
+</td>
+<td style="text-align:left;">
+1817.37813
+</td>
+<td style="text-align:left;">
+1.2838069
+</td>
+<td style="text-align:left;">
+0.4564580
+</td>
+<td style="text-align:left;">
+2.812541
+</td>
+<td style="text-align:left;">
+0.0049152
+</td>
+<td style="text-align:left;">
+0.0146830
+</td>
+<td style="text-align:left;">
+Arfgef1
+</td>
+<td style="text-align:left;">
+ARF guanine nucleotide exchange factor 1
+</td>
+<td style="text-align:left;">
+211673
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tram1|Tram1
+</td>
+<td style="text-align:left;">
+3147.77203
+</td>
+<td style="text-align:left;">
+-3.2632395
+</td>
+<td style="text-align:left;">
+0.6668205
+</td>
+<td style="text-align:left;">
+-4.893730
+</td>
+<td style="text-align:left;">
+0.0000010
+</td>
+<td style="text-align:left;">
+0.0000061
+</td>
+<td style="text-align:left;">
+Tram1
+</td>
+<td style="text-align:left;">
+translocating chain-associating membrane protein 1
+</td>
+<td style="text-align:left;">
+72265
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Terf1|Terf1
+</td>
+<td style="text-align:left;">
+733.04502
+</td>
+<td style="text-align:left;">
+-1.4210234
+</td>
+<td style="text-align:left;">
+0.4575146
+</td>
+<td style="text-align:left;">
+-3.105963
+</td>
+<td style="text-align:left;">
+0.0018966
+</td>
+<td style="text-align:left;">
+0.0062363
+</td>
+<td style="text-align:left;">
+Terf1
+</td>
+<td style="text-align:left;">
+telomeric repeat binding factor 1
+</td>
+<td style="text-align:left;">
+21749
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kcnb2|Kcnb2
+</td>
+<td style="text-align:left;">
+1631.65625
+</td>
+<td style="text-align:left;">
+1.6210120
+</td>
+<td style="text-align:left;">
+0.5521366
+</td>
+<td style="text-align:left;">
+2.935889
+</td>
+<td style="text-align:left;">
+0.0033259
+</td>
+<td style="text-align:left;">
+0.0103080
+</td>
+<td style="text-align:left;">
+Kcnb2
+</td>
+<td style="text-align:left;">
+potassium voltage gated channel, Shab-related subfamily, member 2
+</td>
+<td style="text-align:left;">
+98741
+</td>
+<td style="text-align:left;">
+ENSMUSG0….
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="visualizing-differentially-expressed-genes"
+class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Visualizing
+Differentially Expressed Genes</h2>
+<div id="principal-components-analysis" class="section level3"
+number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Principal
+Components Analysis</h3>
+<p>For visualization I am converting all analyses to logarithmic.
+Following this I have completed a PCA based on the top 500 genes.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co">#rlog transformation of dds for visualization</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="do">############################################################# Combined</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>ddsMat_rlog <span class="ot">&lt;-</span> <span class="fu">rlog</span>(dds, <span class="at">blind =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># Plot PCA by column variable (dds)</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#pdf(paste0(path, &quot;output/PBNRNAseq_PCA_byCellTypeCombine.pdf&quot;), width = 10, height = 8)</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#pcaData2 &lt;- plotPCA(ddsMat_rlog, intgroup = &quot;celltype&quot;, returnData = TRUE)</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#pcaData2$celltype &lt;- factor(pcaData2$celltype, levels = c(&quot;CGRP&quot;, &quot;nonCGRP&quot;))</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#percentVar2 &lt;- round(100 * attr(pcaData2, &quot;percentVar&quot;))</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#ggplot(pcaData2, aes(PC1, PC2, color=celltype, label = colnames(dds))) +</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#  theme_bw() + # remove default ggplot2 theme</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#  geom_point(size = 2) + # Increase point size</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">#  scale_y_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#  scale_x_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co">#  xlab(paste0(&quot;PC1: &quot;,percentVar2[1],&quot;% variance&quot;)) +</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="do">##  ylab(paste0(&quot;PC2: &quot;,percentVar2[2],&quot;% variance&quot;)) + </span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="do">##  ggrepel::geom_label_repel(box.padding = 0.5, max.overlaps = Inf) +</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="co">#  coord_fixed() +</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>  <span class="co">#scale_color_manual(values = custom_colors) +  # Set custom colors#</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="co">#  ggtitle(label = &quot;Principal Component Analysis Combine(PCA)&quot;, </span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co">#          subtitle = &quot;All Genes (rlog transformed)&quot;)</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#dev.off()</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="do">############################################################# By Cell Type</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>ddsMat_rlog2 <span class="ot">&lt;-</span> <span class="fu">rlog</span>(dds2, <span class="at">blind =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co"># Plot PCA by column variable (dds)</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="co">#pdf(paste0(path, &quot;output/Figure2A_PCA_byCellTypeSpecific.pdf&quot;), width = 10, height = 8)</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>pcaData3 <span class="ot">&lt;-</span> <span class="fu">plotPCA</span>(ddsMat_rlog2, <span class="at">intgroup =</span> <span class="st">&quot;specific&quot;</span>, <span class="at">returnData =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>using ntop=500 top features by variance</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>pcaData3<span class="sc">$</span>specific <span class="ot">&lt;-</span> <span class="fu">factor</span>(pcaData3<span class="sc">$</span>specific, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;CGRP&quot;</span>, <span class="st">&quot;excitatory&quot;</span>, <span class="st">&quot;mDA&quot;</span>,<span class="st">&quot;PBN&quot;</span>, <span class="st">&quot;PV&quot;</span>, <span class="st">&quot;VIP&quot;</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>percentVar3 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">attr</span>(pcaData3, <span class="st">&quot;percentVar&quot;</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="do">## you only need the following line but the rest is additional formatting</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="fu">ggplot</span>(pcaData3, <span class="fu">aes</span>(PC1, PC2, <span class="at">color=</span>specific, <span class="at">label =</span> <span class="fu">colnames</span>(dds2))) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co"># remove default ggplot2 theme</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="co"># Increase point size</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">200</span>, <span class="dv">200</span>)) <span class="sc">+</span><span class="co"># change limits to fix figure dimensions</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">200</span>, <span class="dv">200</span>)) <span class="sc">+</span><span class="co"># change limits to fix figure dimensions</span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">paste0</span>(<span class="st">&quot;PC1: &quot;</span>,percentVar3[<span class="dv">1</span>],<span class="st">&quot;% variance&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">&quot;PC2: &quot;</span>,percentVar3[<span class="dv">2</span>],<span class="st">&quot;% variance&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="at">box.padding =</span> <span class="dv">1</span>, <span class="at">max.overlaps =</span> <span class="cn">Inf</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>  <span class="co">#scale_color_manual(values = custom_colors) +  # Set custom colors</span></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Figure 2A. Principal Component Analysis (PCA)&quot;</span>, </span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">&quot;Top 500 most variable genes (rlog transformed)&quot;</span>)</span></code></pre></div>
+<p><img src="figure/index2.Rmd/PCA%20Plots-1.png" alt="" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">#dev.off()</span></span></code></pre></div>
+</div>
+<div id="heatmaps-of-significantly-differentially-expressed-genes"
+class="section level3 tabset" number="1.2.2">
+<h3 class="tabset"><span class="header-section-number">1.2.2</span>
+Heatmaps of Significantly Differentially Expressed Genes</h3>
+<p>To generate the heatmaps we utilized all differential expressed genes
+based on a specified cut-off. In our case we select for any significant
+DEGs with a L2FC &gt; 1.5 or an L2FC &lt; -1.5 with a L2FC Standard
+Error &lt; 1. We then plot these using a wards D correlation clustering
+method and generate both supervised and unsupervised clusters (by
+group). Rows are scaled based on a correlation z-score.</p>
+<div id="highly-enriched" class="section level4" number="1.2.2.1">
+<h4><span class="header-section-number">1.2.2.1</span> Highly
+Enriched</h4>
+<p>Cut-Off of L2FC &gt; 1.5 or an L2FC &lt; -1.5 with a L2FC Standard
+Error &lt; 1</p>
+<p>There are 519 genes that are significantly enriched within CGRP
+neurons</p>
+<div
+id="supervised-and-condensed-highly-significant-degs-l2fc---1.5-and-l2fcse-1."
+class="section level5" number="1.2.2.1.1">
+<h5><span class="header-section-number">1.2.2.1.1</span> Supervised and
+Condensed Highly Significant DEGs (L2FC &gt; +/- 1.5 and L2FCSE &lt;
+1).</h5>
+<p><img src="figure/index2.Rmd/Sup%20HM%20Highly%20Sig%20DEGs-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div
+id="unsupervised-and-condensed-highly-significant-degs-l2fc---1.5-and-l2fcse-1"
+class="section level5" number="1.2.2.1.2">
+<h5><span class="header-section-number">1.2.2.1.2</span> Unsupervised
+and Condensed Highly Significant DEGs (L2FC &gt; +/- 1.5 and L2FCSE &lt;
+1)</h5>
+<p><img src="figure/index2.Rmd/unnamed-chunk-4-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="all-degs-heatmaps" class="section level4" number="1.2.2.2">
+<h4><span class="header-section-number">1.2.2.2</span> All DEGs
+Heatmaps</h4>
+<div id="supervised-and-condensed-all-degs" class="section level5"
+number="1.2.2.2.1">
+<h5><span class="header-section-number">1.2.2.2.1</span> Supervised and
+Condensed All DEGs</h5>
+<p><img src="figure/index2.Rmd/unnamed-chunk-6-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="unsupervised-and-condensed-degs-all" class="section level5"
+number="1.2.2.2.2">
+<h5><span class="header-section-number">1.2.2.2.2</span> Unsupervised
+and Condensed DEGs All</h5>
+<p><img src="figure/index2.Rmd/unnamed-chunk-7-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="gene-ontology-analysis" class="section level1 tabset"
+number="2">
+<h1 class="tabset"><span class="header-section-number">2</span> Gene
+Ontology Analysis</h1>
+<p>To generate GO analysis we first created a background of genes using
+any genes that met the original DESEQ2 filtering criteria of &gt; 50
+genes counts per row and having a mappable Entrez ID. This generates the
+necessary background to ensure that we are not just detecting background
+functional pathways as we are utilizing this specific cell type. We then
+filter our genes that have L2FC &lt; 1.5 or L2FC &gt; 1.5 to determine
+directionality of the affected GO pathways. GO enrich is then used to
+conduct the pathway analysis utilizing the Entrez IDs as inputs and an
+“FDR” multiple testing correction.</p>
+<div id="pull-only-the-cgrp-enriched-samples-l2fc-1.5"
+class="section level3" number="2.0.1">
+<h3><span class="header-section-number">2.0.1</span> Pull only the CGRP
+Enriched Samples (L2FC &gt;1.5)</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Generate Background for KEGG/GO</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>background_mm10 <span class="ot">&lt;-</span> <span class="fu">subset</span>(res1, <span class="fu">is.na</span>(entrez) <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>gene_matrix_background <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">sort</span>(background_mm10<span class="sc">$</span>entrez))</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co"># Remove any genes that do not have any entrez identifiers</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>results_sig_entrez <span class="ot">&lt;-</span> <span class="fu">subset</span>(results_sig1, <span class="fu">is.na</span>(entrez) <span class="sc">==</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="co"># Create a matrix of gene log2 fold changes</span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>gene_matrix <span class="ot">&lt;-</span> results_sig_entrez<span class="sc">$</span>log2FoldChange</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a><span class="co"># Add the entrezID&#39;s as names for each logFC entry</span></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="fu">names</span>(gene_matrix) <span class="ot">&lt;-</span> results_sig_entrez<span class="sc">$</span>entrez</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="co"># Pull only the Enriched samples from either side +/- 1.5 LFC</span></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>gene_matrix_enrich <span class="ot">&lt;-</span> gene_matrix[<span class="fu">which</span>(gene_matrix <span class="sc">&gt;</span> <span class="fl">1.5</span>)]</span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>gene_matrix_enrich2 <span class="ot">&lt;-</span> gene_matrix[<span class="fu">which</span>(gene_matrix <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">1.5</span>)]</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a>go_enrich1 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichGO</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich),</span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a>                      <span class="at">OrgDb =</span> <span class="st">&#39;org.Mm.eg.db&#39;</span>, </span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>                      <span class="at">readable =</span> T,</span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a>                      <span class="at">ont =</span> <span class="st">&quot;ALL&quot;</span>,</span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.01</span>, </span>
+<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a>KEGG_enrich1 <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichKEGG</span>(<span class="at">gene =</span> <span class="fu">names</span>(gene_matrix_enrich),</span>
+<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a>                      <span class="at">organism =</span> <span class="st">&#39;mmu&#39;</span>,</span>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a>                      <span class="at">keyType =</span> <span class="st">&quot;ncbi-geneid&quot;</span>,</span>
+<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a>                      <span class="at">pvalueCutoff =</span> <span class="fl">0.05</span>,</span>
+<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a>                      <span class="at">pAdjustMethod =</span> <span class="st">&quot;fdr&quot;</span>,</span>
+<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a>                      <span class="at">universe =</span> gene_matrix_background,</span>
+<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a>                      <span class="at">qvalueCutoff =</span> <span class="fl">0.05</span>)</span>
+<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a>go_enrich_dataset1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(go_enrich1)</span>
+<span id="cb14-37"><a href="#cb14-37" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" tabindex="-1"></a>KEGG_enrich_dataset1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(KEGG_enrich1)</span>
+<span id="cb14-39"><a href="#cb14-39" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;CGRP vs nonCGRP&quot;</span></span>
+<span id="cb14-41"><a href="#cb14-41" tabindex="-1"></a></span>
+<span id="cb14-42"><a href="#cb14-42" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;CGRP&quot;</span></span>
+<span id="cb14-43"><a href="#cb14-43" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;nonCGRP&quot;</span></span>
+<span id="cb14-45"><a href="#cb14-45" tabindex="-1"></a></span>
+<span id="cb14-46"><a href="#cb14-46" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb14-47"><a href="#cb14-47" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(go_enrich_dataset1<span class="sc">$</span>Dataset)</span>
+<span id="cb14-48"><a href="#cb14-48" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb14-49"><a href="#cb14-49" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(go_enrich_dataset1<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;CGRP vs nonCGRP&quot;</span>))</span>
+<span id="cb14-50"><a href="#cb14-50" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(go_enrich_dataset1<span class="sc">$</span>Description)</span>
+<span id="cb14-52"><a href="#cb14-52" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(go_enrich_dataset1<span class="sc">$</span>Description_title_case)</span>
+<span id="cb14-53"><a href="#cb14-53" tabindex="-1"></a>go_enrich_dataset1<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(go_enrich_dataset1<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb14-54"><a href="#cb14-54" tabindex="-1"></a></span>
+<span id="cb14-55"><a href="#cb14-55" tabindex="-1"></a><span class="co">#S1 &lt;- ggplot(go_enrich_dataset1, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +</span></span>
+<span id="cb14-56"><a href="#cb14-56" tabindex="-1"></a> <span class="co"># geom_col(alpha = 1) +</span></span>
+<span id="cb14-57"><a href="#cb14-57" tabindex="-1"></a><span class="co">#  facet_wrap(~Dataset, scales = &quot;free_y&quot;) +</span></span>
+<span id="cb14-58"><a href="#cb14-58" tabindex="-1"></a><span class="co">#  theme_linedraw() + # change legend key width</span></span>
+<span id="cb14-59"><a href="#cb14-59" tabindex="-1"></a><span class="co">#  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +</span></span>
+<span id="cb14-60"><a href="#cb14-60" tabindex="-1"></a><span class="co">#  ggtitle(&quot;Enriched Pathways in CGRP Neurons&quot;)</span></span>
+<span id="cb14-61"><a href="#cb14-61" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" tabindex="-1"></a><span class="co">#S2 &lt;- S1 + scale_color_gradient(low = &quot;red2&quot;, high = &quot;mediumblue&quot;, space = &quot;Lab&quot;) + scale_size(range = c(5, 10))</span></span>
+<span id="cb14-63"><a href="#cb14-63" tabindex="-1"></a><span class="co">#S2</span></span></code></pre></div>
+</div>
+<div
+id="set-the-fold-enrichment-filter-to-see-only-most-important-pathways"
+class="section level3" number="2.0.2">
+<h3><span class="header-section-number">2.0.2</span> Set the Fold
+Enrichment filter to see only most important pathways</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>go_filtered1 <span class="ot">&lt;-</span> go_enrich_dataset1 <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>  <span class="fu">filter</span>(FoldEnrichment <span class="sc">&gt;=</span> <span class="dv">3</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="st">&quot;CGRP vs nonCGRP&quot;</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Celltype <span class="ot">&lt;-</span> <span class="st">&quot;CGRP&quot;</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>go_filtered1<span class="sc">$</span>Comparison <span class="ot">&lt;-</span> <span class="st">&quot;nonCGRP&quot;</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>GO1_filtered <span class="ot">&lt;-</span> go_filtered1</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co"># Turn your &#39;Dataset&#39; column into a character vector</span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">as.character</span>(GO1_filtered<span class="sc">$</span>Dataset)</span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co"># Then turn it back into a factor with the levels in the correct order</span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Dataset <span class="ot">&lt;-</span> <span class="fu">factor</span>(GO1_filtered<span class="sc">$</span>Dataset, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;CGRP vs nonCGRP&quot;</span>))</span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>Description_title_case <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO1_filtered<span class="sc">$</span>Description)</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(GO1_filtered<span class="sc">$</span>Description_title_case)</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>GO1_filtered<span class="sc">$</span>GOPathways <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_wrap</span>(GO1_filtered<span class="sc">$</span>GOPathways, <span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(GO1_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Count, <span class="at">y =</span> <span class="fu">reorder</span>(Description, Count), <span class="at">fill =</span> qvalue)) <span class="sc">+</span></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dataset, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> <span class="co"># change legend key width</span></span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) stringr<span class="sc">::</span><span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Figure 2C. Enriched Pathways in CGRP Neurons&quot;</span>)</span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a></span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> S1 <span class="sc">+</span> <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&quot;red2&quot;</span>, <span class="at">high =</span> <span class="st">&quot;mediumblue&quot;</span>, <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span>) <span class="sc">+</span> <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a>S2</span></code></pre></div>
+<p><img src="figure/index2.Rmd/unnamed-chunk-9-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co">#pdf(paste0(path, &quot;output/Figure2C_GOCGRP_CellTypes.pdf&quot;), width = 10, height = 8)</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co">#S2</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#dev.off()</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="do">## write results from GO1 to a csv</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>go1_export <span class="ot">&lt;-</span> GO1_filtered[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">13</span>,<span class="dv">7</span>,<span class="dv">12</span>)]</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="fu">as.data.frame</span>(go1_export),<span class="fu">paste0</span>(path, <span class="st">&quot;output/PBNRNASeq_CellType_GODetails.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 4.5.2 (2025-10-31)
+Platform: x86_64-conda-linux-gnu
+Running under: Ubuntu 22.04.5 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/avm27/anaconda3/envs/workflowr_env/lib/libopenblasp-r0.3.30.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices datasets  utils     methods  
+[8] base     
+
+other attached packages:
+ [1] DOSE_4.2.0                  vidger_1.28.0              
+ [3] org.Mm.eg.db_3.21.0         AnnotationDbi_1.70.0       
+ [5] clusterProfiler_4.16.0      DESeq2_1.48.2              
+ [7] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+ [9] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[11] GenomicRanges_1.60.0        GenomeInfoDb_1.44.3        
+[13] IRanges_2.42.0              S4Vectors_0.46.0           
+[15] BiocGenerics_0.54.1         generics_0.1.4             
+[17] knitr_1.51                  RColorBrewer_1.1-3         
+[19] pheatmap_1.0.13             kableExtra_1.4.0           
+[21] plotly_4.12.0               ggrepel_0.9.7              
+[23] gridExtra_2.3               reshape2_1.4.5             
+[25] lubridate_1.9.5             forcats_1.0.1              
+[27] stringr_1.6.0               dplyr_1.2.0                
+[29] purrr_1.2.1                 readr_2.2.0                
+[31] tidyr_1.3.2                 tibble_3.3.1               
+[33] ggplot2_4.0.2               tidyverse_2.0.0            
+[35] workflowr_1.7.2            
+
+loaded via a namespace (and not attached):
+  [1] rstudioapi_0.18.0       jsonlite_2.0.0          magrittr_2.0.4         
+  [4] ggtangle_0.1.1          farver_2.1.2            rmarkdown_2.30         
+  [7] fs_1.6.6                vctrs_0.7.1             memoise_2.0.1          
+ [10] ggtree_3.16.3           htmltools_0.5.9         S4Arrays_1.8.1         
+ [13] gridGraphics_0.5-1      SparseArray_1.8.1       sass_0.4.10            
+ [16] bslib_0.10.0            htmlwidgets_1.6.4       plyr_1.8.9             
+ [19] cachem_1.1.0            igraph_2.2.2            whisker_0.4.1          
+ [22] lifecycle_1.0.5         pkgconfig_2.0.3         gson_0.1.0             
+ [25] Matrix_1.7-4            R6_2.6.1                fastmap_1.2.0          
+ [28] GenomeInfoDbData_1.2.14 digest_0.6.39           aplot_0.2.9            
+ [31] enrichplot_1.28.4       GGally_2.4.0            patchwork_1.3.2        
+ [34] ps_1.9.1                rprojroot_2.1.1         textshaping_1.0.4      
+ [37] RSQLite_2.4.6           labeling_0.4.3          timechange_0.4.0       
+ [40] httr_1.4.8              abind_1.4-8             compiler_4.5.2         
+ [43] bit64_4.6.0-1           withr_3.0.2             S7_0.2.1               
+ [46] BiocParallel_1.42.2     DBI_1.3.0               ggstats_0.12.0         
+ [49] R.utils_2.13.0          rappdirs_0.3.4          DelayedArray_0.34.1    
+ [52] tools_4.5.2             otel_0.2.0              ape_5.8-1              
+ [55] httpuv_1.6.16           R.oo_1.27.1             glue_1.8.0             
+ [58] callr_3.7.6             nlme_3.1-168            GOSemSim_2.34.0        
+ [61] promises_1.5.0          grid_4.5.2              getPass_0.2-4          
+ [64] fgsea_1.34.2            gtable_0.3.6            tzdb_0.5.0             
+ [67] R.methodsS3_1.8.2       data.table_1.18.2.1     hms_1.1.4              
+ [70] xml2_1.5.2              XVector_0.48.0          pillar_1.11.1          
+ [73] limma_3.64.3            yulab.utils_0.2.4       later_1.4.8            
+ [76] splines_4.5.2           treeio_1.32.0           lattice_0.22-9         
+ [79] renv_1.1.7              bit_4.6.0               tidyselect_1.2.1       
+ [82] GO.db_3.21.0            locfit_1.5-9.12         Biostrings_2.76.0      
+ [85] git2r_0.35.0            edgeR_4.6.3             svglite_2.2.2          
+ [88] xfun_0.56               statmod_1.5.1           stringi_1.8.7          
+ [91] UCSC.utils_1.4.0        ggfun_0.2.0             lazyeval_0.2.2         
+ [94] yaml_2.3.12             evaluate_1.0.5          codetools_0.2-20       
+ [97] qvalue_2.40.0           BiocManager_1.30.27     ggplotify_0.1.3        
+[100] cli_3.6.5               systemfonts_1.3.1       processx_3.8.6         
+[103] jquerylib_0.1.4         Rcpp_1.1.1              png_0.1-8              
+[106] parallel_4.5.2          blob_1.3.0              tidytree_0.4.7         
+[109] viridisLite_0.4.3       scales_1.4.0            crayon_1.5.3           
+[112] rlang_1.1.7             cowplot_1.2.0           fastmatch_1.1-8        
+[115] KEGGREST_1.48.1        </code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 4.5.2 (2025-10-31)
+Platform: x86_64-conda-linux-gnu
+Running under: Ubuntu 22.04.5 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/avm27/anaconda3/envs/workflowr_env/lib/libopenblasp-r0.3.30.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices datasets  utils     methods  
+[8] base     
+
+other attached packages:
+ [1] DOSE_4.2.0                  vidger_1.28.0              
+ [3] org.Mm.eg.db_3.21.0         AnnotationDbi_1.70.0       
+ [5] clusterProfiler_4.16.0      DESeq2_1.48.2              
+ [7] SummarizedExperiment_1.38.1 Biobase_2.68.0             
+ [9] MatrixGenerics_1.20.0       matrixStats_1.5.0          
+[11] GenomicRanges_1.60.0        GenomeInfoDb_1.44.3        
+[13] IRanges_2.42.0              S4Vectors_0.46.0           
+[15] BiocGenerics_0.54.1         generics_0.1.4             
+[17] knitr_1.51                  RColorBrewer_1.1-3         
+[19] pheatmap_1.0.13             kableExtra_1.4.0           
+[21] plotly_4.12.0               ggrepel_0.9.7              
+[23] gridExtra_2.3               reshape2_1.4.5             
+[25] lubridate_1.9.5             forcats_1.0.1              
+[27] stringr_1.6.0               dplyr_1.2.0                
+[29] purrr_1.2.1                 readr_2.2.0                
+[31] tidyr_1.3.2                 tibble_3.3.1               
+[33] ggplot2_4.0.2               tidyverse_2.0.0            
+[35] workflowr_1.7.2            
+
+loaded via a namespace (and not attached):
+  [1] rstudioapi_0.18.0       jsonlite_2.0.0          magrittr_2.0.4         
+  [4] ggtangle_0.1.1          farver_2.1.2            rmarkdown_2.30         
+  [7] fs_1.6.6                vctrs_0.7.1             memoise_2.0.1          
+ [10] ggtree_3.16.3           htmltools_0.5.9         S4Arrays_1.8.1         
+ [13] gridGraphics_0.5-1      SparseArray_1.8.1       sass_0.4.10            
+ [16] bslib_0.10.0            htmlwidgets_1.6.4       plyr_1.8.9             
+ [19] cachem_1.1.0            igraph_2.2.2            whisker_0.4.1          
+ [22] lifecycle_1.0.5         pkgconfig_2.0.3         gson_0.1.0             
+ [25] Matrix_1.7-4            R6_2.6.1                fastmap_1.2.0          
+ [28] GenomeInfoDbData_1.2.14 digest_0.6.39           aplot_0.2.9            
+ [31] enrichplot_1.28.4       GGally_2.4.0            patchwork_1.3.2        
+ [34] ps_1.9.1                rprojroot_2.1.1         textshaping_1.0.4      
+ [37] RSQLite_2.4.6           labeling_0.4.3          timechange_0.4.0       
+ [40] httr_1.4.8              abind_1.4-8             compiler_4.5.2         
+ [43] bit64_4.6.0-1           withr_3.0.2             S7_0.2.1               
+ [46] BiocParallel_1.42.2     DBI_1.3.0               ggstats_0.12.0         
+ [49] R.utils_2.13.0          rappdirs_0.3.4          DelayedArray_0.34.1    
+ [52] tools_4.5.2             otel_0.2.0              ape_5.8-1              
+ [55] httpuv_1.6.16           R.oo_1.27.1             glue_1.8.0             
+ [58] callr_3.7.6             nlme_3.1-168            GOSemSim_2.34.0        
+ [61] promises_1.5.0          grid_4.5.2              getPass_0.2-4          
+ [64] fgsea_1.34.2            gtable_0.3.6            tzdb_0.5.0             
+ [67] R.methodsS3_1.8.2       data.table_1.18.2.1     hms_1.1.4              
+ [70] xml2_1.5.2              XVector_0.48.0          pillar_1.11.1          
+ [73] limma_3.64.3            yulab.utils_0.2.4       later_1.4.8            
+ [76] splines_4.5.2           treeio_1.32.0           lattice_0.22-9         
+ [79] renv_1.1.7              bit_4.6.0               tidyselect_1.2.1       
+ [82] GO.db_3.21.0            locfit_1.5-9.12         Biostrings_2.76.0      
+ [85] git2r_0.35.0            edgeR_4.6.3             svglite_2.2.2          
+ [88] xfun_0.56               statmod_1.5.1           stringi_1.8.7          
+ [91] UCSC.utils_1.4.0        ggfun_0.2.0             lazyeval_0.2.2         
+ [94] yaml_2.3.12             evaluate_1.0.5          codetools_0.2-20       
+ [97] qvalue_2.40.0           BiocManager_1.30.27     ggplotify_0.1.3        
+[100] cli_3.6.5               systemfonts_1.3.1       processx_3.8.6         
+[103] jquerylib_0.1.4         Rcpp_1.1.1              png_0.1-8              
+[106] parallel_4.5.2          blob_1.3.0              tidytree_0.4.7         
+[109] viridisLite_0.4.3       scales_1.4.0            crayon_1.5.3           
+[112] rlang_1.1.7             cowplot_1.2.0           fastmatch_1.1-8        
+[115] KEGGREST_1.48.1        </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
