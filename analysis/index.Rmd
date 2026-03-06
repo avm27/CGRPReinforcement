@@ -229,7 +229,7 @@ kable((head(results_sig1, 20)), caption = "Significant DEGs HA+ vs HA-", format 
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
-readr::write_csv(as.data.frame(results_sig1), paste0(path, "output/SigDEGs_PBNRNAseq_byHATag.csv"))
+#readr::write_csv(as.data.frame(results_sig1), paste0(path, "output/SigDEGs_PBNRNAseq_byHATag.csv"))
 
 ```
 
@@ -620,27 +620,8 @@ go_enrich2 <- clusterProfiler::enrichGO(gene = names(gene_matrix_enrich2),
                       pvalueCutoff = 0.01, 
                       qvalueCutoff = 0.05)
 
-KEGG_enrich1 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich),
-                      organism = 'mmu',
-                      keyType = "ncbi-geneid",
-                      pvalueCutoff = 0.01,
-                      pAdjustMethod = "fdr",
-                      universe = gene_matrix_background,
-                      qvalueCutoff = 0.05)
-
-KEGG_enrich2 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich2),
-                      organism = 'mmu',
-                      keyType = "ncbi-geneid",
-                      pvalueCutoff = 0.01,
-                      pAdjustMethod = "fdr",
-                      universe = gene_matrix_background,
-                      qvalueCutoff = 0.05)
-
 go_enrich_dataset1 <- as.data.frame(go_enrich1)
 go_enrich_dataset2 <- as.data.frame(go_enrich2)
-
-KEGG_enrich_dataset1 <- as.data.frame(KEGG_enrich1)
-KEGG_enrich_dataset2 <- as.data.frame(KEGG_enrich2)
 
 go_enrich_dataset1$Dataset <- "positive vs negative"
 go_enrich_dataset2$Dataset <- "negative vs positive"
@@ -661,6 +642,9 @@ MergedGO1$Dataset <- factor(MergedGO1$Dataset, levels = c("positive vs negative"
 MergedGO1$Description_title_case <- stringr::str_to_title(MergedGO1$Description)
 MergedGO1$GOPathways <- stringr::str_to_title(MergedGO1$Description_title_case)
 MergedGO1$GOPathways <- stringr::str_wrap(MergedGO1$GOPathways, width = 10)
+
+## write results from GO1 to a csv
+#write.csv(as.data.frame(MergedGO1),paste0(path, "output/PBNRNASeq_byHAtag_GOFullAnalysis.csv"))
 
 #S1 <- ggplot(MergedGO1, aes(x = Dataset, y = Description, size = Count, color = qvalue, group = Dataset)) +
 #  geom_point(alpha = 1) +
@@ -797,7 +781,7 @@ S1 <- ggplot(GO2_filtered, aes(x = Count, y = reorder(Description, Count), fill 
   facet_wrap(~Dataset, scales = "free_y") +
   theme_linedraw() + # change legend key width
   scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
-  ggtitle("Enriched Pathways in HA- Samples")
+  ggtitle("Figure 1F. Enriched Pathways in HA- Samples")
 
 S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
 S2

@@ -89,6 +89,17 @@ plotDispEsts(dds2)
 
 These results include overview for each result file and dispersion estimates based on count values
 
+```{r Save Normalized Counts, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+## Write table to csv files
+#write.table(
+#  x = as.data.frame(counts(dds), normalized = T),
+#  file = paste0(path, "output/PBNRNAseq_normalized_counts_DESeq2.txt"),
+#  sep = "\t",
+#  quote = F,
+#  col.names = NA
+#)
+```
+
 ### Dispersion Estimates based on count values
 ```{r CGRP vs nonCGRP Dispersion Estimates, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
 
@@ -585,17 +596,7 @@ go_enrich1 <- clusterProfiler::enrichGO(gene = names(gene_matrix_enrich),
                       pvalueCutoff = 0.01, 
                       qvalueCutoff = 0.05)
 
-KEGG_enrich1 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich),
-                      organism = 'mmu',
-                      keyType = "ncbi-geneid",
-                      pvalueCutoff = 0.05,
-                      pAdjustMethod = "fdr",
-                      universe = gene_matrix_background,
-                      qvalueCutoff = 0.05)
-
 go_enrich_dataset1 <- as.data.frame(go_enrich1)
-
-KEGG_enrich_dataset1 <- as.data.frame(KEGG_enrich1)
 
 go_enrich_dataset1$Dataset <- "CGRP vs nonCGRP"
 
@@ -611,6 +612,9 @@ go_enrich_dataset1$Dataset <- factor(go_enrich_dataset1$Dataset, levels = c("CGR
 go_enrich_dataset1$Description_title_case <- stringr::str_to_title(go_enrich_dataset1$Description)
 go_enrich_dataset1$GOPathways <- stringr::str_to_title(go_enrich_dataset1$Description_title_case)
 go_enrich_dataset1$GOPathways <- stringr::str_wrap(go_enrich_dataset1$GOPathways, width = 10)
+
+## write results from GO1 to a csv
+write.csv(as.data.frame(go_enrich_dataset1),paste0(path, "output/PBNRNASeq_CellType_GOFullAnalysis.csv"))
 
 #S1 <- ggplot(go_enrich_dataset1, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +
  # geom_col(alpha = 1) +
