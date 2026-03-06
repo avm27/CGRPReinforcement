@@ -1,0 +1,677 @@
+---
+title: "PBN RNAseq DeSeq2 RNA-Sequencing Analysis -- By Cell Type"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(reshape2)
+library(gridExtra)
+library(ggrepel)
+library(plotly)
+library(kableExtra)
+library(pheatmap)
+library(RColorBrewer)
+library(knitr)
+library(DESeq2)
+library(clusterProfiler)
+library(org.Mm.eg.db)
+library(vidger)
+library(ggrepel)
+library(DOSE)
+```
+
+# DESeq2 Analysis
+DESeq2 is called our post-processing
+## Setup and Analysis
+###Building DESeq2 input files from gene count matrices output by String Tie.
+```{r DESeq2 Build, message=FALSE, warning=FALSE, include=FALSE}
+## Run DEeq2 from Matrix output using Stringtie to compare all groups
+
+path="~/Documents/GitHubRepos/CGRPReinforcement/"
+
+# The following file has to be without spaces and needs to be exactly the same as the example sample info
+colData <- read.csv(paste0(path, "data/sample_info_ComparativeAnalysis_CombineCellType.csv"), sep = ",", row.names = 1, check.names = FALSE)
+# this is the gene count matrix which is the output from the preprocessing shell, the following command does not work from transcript count matrix
+countData <-as.matrix(read.csv(paste0(path, "data/gene_count_matrix_LT19_PBN2_LT15_Merged.csv"), row.names = "gene_id", check.names = FALSE))
+
+#colnames(countData)
+#rownames(colData)
+## Following needs to return true
+#all(rownames(colData) %in% colnames(countData))
+## if there are any samples in the gene count matrix that should not be in there the following command will remove them
+countData <- countData[, rownames(colData)]
+#all(rownames(colData) == colnames(countData))
+
+```
+
+###Running DeSeq2 analysis with factor levels of cell type.
+```{r DESeq2 Analysis, echo=TRUE, message=FALSE, warning=FALSE}
+colData$celltype <- factor(colData$celltype)
+colData$specific <- factor(colData$specific)
+
+dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~celltype)
+dds2 <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~specific)
+
+## Filter out counts less than 50 across the rows
+## This helps to remove noise from the data set
+keep <- rowSums(counts(dds)) >= 50
+dds <- dds[keep,]
+keep2 <- rowSums(counts(dds2)) >= 50
+dds2 <- dds2[keep2,]
+
+## Re-level Conditions to Analyze Each group against nonCGRP in grouped condition and CGRP in ungrouped conditiong
+dds$celltype <- relevel(dds$celltype, ref = "nonCGRP")
+dds <- DESeq(dds)
+
+dds2$specific <- relevel(dds2$specific, ref = "CGRP")
+dds2 <- DESeq(dds2)
+
+#resultsNames(dds)
+#resultsNames(dds2)
+
+plotDispEsts(dds)
+plotDispEsts(dds2)
+```
+## Plot Estimates and Gather Results {.tabset}
+
+These results include overview for each result file and dispersion estimates based on count values
+
+### Dispersion Estimates based on count values
+```{r CGRP vs nonCGRP Dispersion Estimates, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+res1 <- results(dds, name = "celltype_CGRP_vs_nonCGRP")
+res2 <- results(dds2, name = "specific_PBN_vs_CGRP")
+res3 <- results(dds2, name = "specific_excitatory_vs_CGRP")
+res4 <- results(dds2, name = "specific_mDA_vs_CGRP")
+res5 <- results(dds2, name = "specific_PV_vs_CGRP")
+res6 <- results(dds2, name = "specific_VIP_vs_CGRP")
+#summary(res1)
+#summary(res2)
+#summary(res3)
+#summary(res4)
+#summary(res5)
+#summary(res6)
+
+```
+
+
+## Significant DEGs By Comparison {.tabset} 
+
+This subsection is for annotation the results files to include all necessary information for downstream analyses. This is due to the use of StringTie to generate count matrices with the specific mm10 annotation files that we use. Other methods will probably not require this, but our gene names are split by the "|" delimiter and must be separated in order to accurately generate the required Gene Symbols for mapping to entrez, ensemble and descriptions from Org.mm.eg.db. 
+```{r Annotate DDS Matrices CGRP vs nonCGRP, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+## Make new rownames file and split based on pipe from dds file
+deseqrownames <- data.frame(rownames(dds))
+newrownames <- deseqrownames %>% separate(rownames.dds., c("id", "symbol"),sep ="([|])")
+
+#Check to make sure they split correctly and do not overlap
+all(newrownames$id == newrownames$symbol)
+
+## this should be 0 for everything
+sum(is.na(newrownames$symbol))
+sum(duplicated(newrownames$symbol))
+
+mcols(dds) <- cbind(mcols(dds), newrownames)
+
+# Add gene symbol to results
+res1$symbol <- mcols(dds)$symbol
+
+# Create a list to store the result objects
+result_list <- list()
+
+# Define the number of results
+num_results <- 1
+
+# Loop through each result
+for (i in 1:num_results) {
+  # Get the result object name
+  result_name <- paste0("res", i)
+  
+  # Get the DESeq2 result object
+  result_obj <- get(result_name)
+  
+  # Map symbol to gene description
+  result_obj$description <- mapIds(x = org.Mm.eg.db,
+                                    keys = result_obj$symbol,
+                                    column = "GENENAME",
+                                    keytype = "SYMBOL",
+                                    multiVals = "first")
+  
+  # Add ENTREZ ID
+  result_obj$entrez <- mapIds(x = org.Mm.eg.db,
+                               keys = result_obj$symbol,
+                               column = "ENTREZID",
+                               keytype = "SYMBOL",
+                               multiVals = "first")
+  
+  # Add ENSEMBL ID
+  result_obj$ensembl <- mapIds(x = org.Mm.eg.db,
+                                keys = result_obj$entrez,
+                                column = "ENSEMBL",
+                                keytype = "ENTREZID",
+                                multiVals = "first")
+  
+  # Store the result object in the list
+  result_list[[i]] <- result_obj
+
+  # Write out the subsetted result object to a variable with name results_sig_i
+  assign(paste0("res", i), result_obj)
+}
+```
+
+```{r Annotate DDS Matrices All CellTypes vs CGRP, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+## Make new rownames file and split based on pipe from dds file
+deseqrownames2 <- data.frame(rownames(dds2))
+newrownames2 <- deseqrownames2 %>% tidyr::separate(rownames.dds2., c("id", "symbol"),sep ="([|])")
+
+#Check to make sure they split correctly and do not overlap
+all(newrownames2$id == newrownames2$symbol)
+
+## this should be 0 for everything
+sum(is.na(newrownames2$symbol))
+sum(duplicated(newrownames2$symbol))
+
+mcols(dds2) <- cbind(mcols(dds2), newrownames2)
+
+# Add gene symbol to results
+res2$symbol <- mcols(dds2)$symbol
+res3$symbol <- mcols(dds2)$symbol
+res4$symbol <- mcols(dds2)$symbol
+res5$symbol <- mcols(dds2)$symbol
+res6$symbol <- mcols(dds2)$symbol
+
+# Create a list to store the result objects
+result_list <- list()
+
+# Define the number of results
+num_results <- 6
+
+# Loop through each result
+for (i in 2:num_results) {
+  # Get the result object name
+  result_name <- paste0("res", i)
+  
+  # Get the DESeq2 result object
+  result_obj <- get(result_name)
+  
+  # Map symbol to gene description
+  result_obj$description <- mapIds(x = org.Mm.eg.db,
+                                    keys = result_obj$symbol,
+                                    column = "GENENAME",
+                                    keytype = "SYMBOL",
+                                    multiVals = "first")
+  
+  # Add ENTREZ ID
+  result_obj$entrez <- mapIds(x = org.Mm.eg.db,
+                               keys = result_obj$symbol,
+                               column = "ENTREZID",
+                               keytype = "SYMBOL",
+                               multiVals = "first")
+  
+  # Add ENSEMBL ID
+  result_obj$ensembl <- mapIds(x = org.Mm.eg.db,
+                                keys = result_obj$entrez,
+                                column = "ENSEMBL",
+                                keytype = "ENTREZID",
+                                multiVals = "first")
+  
+  # Store the result object in the list
+  result_list[[i]] <- result_obj
+
+  # Write out the subsetted result object to a variable with name results_sig_i
+  assign(paste0("res", i), result_obj)
+}
+```
+
+After annotation we subset the results to only view the significantly differentially expressed genes with an adjusted p-value \> 0.05.
+
+### CGRP vs nonCGRP
+```{r Subset Significant Results, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE, results='asis'}
+results_sig1 <- subset(res1, padj < 0.05)
+
+kable((head(results_sig1, 20)), caption = "Significant DEGs CGRP vs nonCGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+### PBN vs CGRP
+```{r Subset Significant Results2, echo=TRUE, message=FALSE, warning=FALSE, results='asis'}
+results_sig2 <- subset(res2, padj < 0.05)
+
+kable((head(results_sig2, 20)), caption = "Significant DEGs PBN vs CGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+### Excitatory vs CGRP
+```{r Subset Significant Results3, echo=TRUE, message=FALSE, warning=FALSE, results='asis'}
+results_sig3 <- subset(res3, padj < 0.05)
+
+kable((head(results_sig3, 20)), caption = "Significant DEGs Excitatory vs CGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+### mDA vs CGRP
+```{r Subset Significant Results4, echo=TRUE, message=FALSE, warning=FALSE, results='asis'}
+results_sig4 <- subset(res4, padj < 0.05)
+
+kable((head(results_sig4, 20)), caption = "Significant DEGs mDA vs CGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+### PV vs CGRP
+```{r Subset Significant Results5, echo=TRUE, message=FALSE, warning=FALSE, results='asis'}
+results_sig5 <- subset(res5, padj < 0.05)
+
+kable((head(results_sig5, 20)), caption = "Significant DEGs PV vs CGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+### VIP vs CGRP
+```{r Subset Significant Results6, echo=TRUE, message=FALSE, warning=FALSE, results='asis'}
+results_sig6 <- subset(res6, padj < 0.05)
+
+kable((head(results_sig6, 20)), caption = "Significant DEGs VIP vs CGRP", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+#write_csv(as.data.frame(results_sig1), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_CGRPvsnonCGRP.csv"))
+##write_csv(as.data.frame(results_sig2), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_PBNvsCGRP.csv"))
+#write_csv(as.data.frame(results_sig3), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_ExcitatoryvsCGRP.csv"))
+#write_csv(as.data.frame(results_sig4), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_mDAvsCGRP.csv"))
+#write_csv(as.data.frame(results_sig5), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_PVvsCGRP.csv"))
+#write_csv(as.data.frame(results_sig6), paste0(path, "output/SigDEGs_PBNRNAseq_byCellType_VIPvsCGRP.csv"))
+
+```
+
+## Visualizing Differentially Expressed Genes
+### Principal Components Analysis
+
+For visualization I am converting all analyses to logarithmic. Following this I have completed a PCA based on the top 500 genes.
+
+```{r PCA Plots, echo=TRUE, fig.height=6, fig.width=6}
+#rlog transformation of dds for visualization
+############################################################# Combined
+ddsMat_rlog <- rlog(dds, blind = FALSE)
+
+# Plot PCA by column variable (dds)
+#pdf(paste0(path, "output/PBNRNAseq_PCA_byCellTypeCombine.pdf"), width = 10, height = 8)
+#pcaData2 <- plotPCA(ddsMat_rlog, intgroup = "celltype", returnData = TRUE)
+#pcaData2$celltype <- factor(pcaData2$celltype, levels = c("CGRP", "nonCGRP"))
+#percentVar2 <- round(100 * attr(pcaData2, "percentVar"))
+#ggplot(pcaData2, aes(PC1, PC2, color=celltype, label = colnames(dds))) +
+#  theme_bw() + # remove default ggplot2 theme
+#  geom_point(size = 2) + # Increase point size
+#  scale_y_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions
+#  scale_x_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions
+#  xlab(paste0("PC1: ",percentVar2[1],"% variance")) +
+##  ylab(paste0("PC2: ",percentVar2[2],"% variance")) + 
+##  ggrepel::geom_label_repel(box.padding = 0.5, max.overlaps = Inf) +
+#  coord_fixed() +
+  #scale_color_manual(values = custom_colors) +  # Set custom colors#
+#  ggtitle(label = "Principal Component Analysis Combine(PCA)", 
+#          subtitle = "All Genes (rlog transformed)")
+#dev.off()
+
+############################################################# By Cell Type
+ddsMat_rlog2 <- rlog(dds2, blind = FALSE)
+
+# Plot PCA by column variable (dds)
+#pdf(paste0(path, "output/Figure2A_PCA_byCellTypeSpecific.pdf"), width = 10, height = 8)
+pcaData3 <- plotPCA(ddsMat_rlog2, intgroup = "specific", returnData = TRUE)
+pcaData3$specific <- factor(pcaData3$specific, levels = c("CGRP", "excitatory", "mDA","PBN", "PV", "VIP"))
+percentVar3 <- round(100 * attr(pcaData3, "percentVar"))
+## you only need the following line but the rest is additional formatting
+ggplot(pcaData3, aes(PC1, PC2, color=specific, label = colnames(dds2))) +
+  theme_bw() + # remove default ggplot2 theme
+  geom_point(size = 2) + # Increase point size
+  scale_y_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions
+  scale_x_continuous(limits = c(-200, 200)) +# change limits to fix figure dimensions
+  xlab(paste0("PC1: ",percentVar3[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar3[2],"% variance")) + 
+  ggrepel::geom_label_repel(box.padding = 1, max.overlaps = Inf) +
+  coord_fixed() +
+  #scale_color_manual(values = custom_colors) +  # Set custom colors
+  ggtitle(label = "Figure 2A. Principal Component Analysis (PCA)", 
+          subtitle = "Top 500 most variable genes (rlog transformed)")
+#dev.off()
+```
+
+### Heatmaps of Significantly Differentially Expressed Genes {.tabset}
+
+To generate the heatmaps we utilized all differential expressed genes based on a specified cut-off. In our case we select for any significant DEGs with a L2FC \> 1.5 or an L2FC \< -1.5 with a L2FC Standard Error \< 1. We then plot these using a wards D correlation clustering method and generate both supervised and unsupervised clusters (by group). Rows are scaled based on a correlation z-score.
+
+#### Highly Enriched
+
+Cut-Off of L2FC \> 1.5 or an L2FC \< -1.5 with a L2FC Standard Error \< 1
+
+```{r include=FALSE}
+ressig1 <- as.data.frame(results_sig1)
+
+ressig1$Comparison <- "CGRP vs nonCGRP"
+
+ressig1_highlfc_pos <- ressig1[ressig1$log2FoldChange >= 1.5, ]
+ressig1_highlfc_neg <- ressig1[ressig1$log2FoldChange <= -1.5, ]
+
+temp_sigdegshm <- rbind(ressig1_highlfc_pos, ressig1_highlfc_neg)
+
+## the following step limits the error allowed on each gene, which will make all genes look more similar
+temp_sigdegshm1 <- temp_sigdegshm[temp_sigdegshm$lfcSE <= 1, ]
+
+dup_rows <- duplicated(temp_sigdegshm1$symbol)
+data_dedup <- temp_sigdegshm1[!dup_rows, ]
+
+rows <- rownames(data_dedup)
+
+select <- order(rowMeans(counts(dds, normalized = TRUE)),
+decreasing = TRUE)
+
+mat <- assay(ddsMat_rlog)[select, ]
+
+data_mod <- mat[rownames(mat) %in% rows, ]
+
+matrownames_data_mod <- data.frame(rownames(data_mod))
+matrownames_data_mod <- matrownames_data_mod %>% tidyr::separate(rownames.data_mod., c("id", "symbol"), sep = "([|])")
+
+samples <- tibble::as_tibble(read.csv(paste0(path, "data/sample_info_ComparativeAnalysis_CombineCellType.csv"), sep = ","))
+
+annot_col <- samples %>%
+tibble::column_to_rownames("sampleName") %>%
+as.data.frame()
+
+custom_colors <- c("CGRP" = "green",
+                   "nonCGRP" = "#00CBFF")
+
+ann_colors <- list(celltype = as.factor(custom_colors))
+
+
+## write results of highly enriched genes to a csv, these are the CGRP Enriched genes
+ressig1_highlfc_pos <- as.data.frame(ressig1_highlfc_pos)
+ressig1_highlfc_pos_list <- ressig1_highlfc_pos[, !sapply(ressig1_highlfc_pos, is.list)]
+
+#write.csv(ressig1_highlfc_pos_list, paste0(path, "output/CGRPEnrichedGeneSet.csv"), row.names = T)
+```
+There are 519 genes that are significantly enriched within CGRP neurons
+
+##### Supervised and Condensed Highly Significant DEGs (L2FC > +/- 1.5 and L2FCSE < 1).
+
+```{r Sup HM Highly Sig DEGs, echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(255), ## this just changes the colors
+scale = "row", ## based on Rlog fold change
+annotation_colors = ann_colors,  ## assigns group colors
+annotation_col = annot_col,  ## assigns group names
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T, ## puts the lows together and the highs together
+cluster_cols = F,  ## when this is T this is unsupervised
+annotation_legend = T, ## this is legend for the treatment conditions
+legend = T, ## legend for color
+show_rownames = F, ## this is gene names but with over 2,000 this isn't useful
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of Significant DEGs (L2FC > +/- 1.5 and L2FCSE < 1)-- Supervised and Condensed", ## Title
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(8),
+cutree_rows = 8,  ## this separates the genes into 6 blocks
+cutree_cols = 4, ## this separates the conditions into 4 blocks
+treeheight_row = 15,  ## this will only show up if clustering by row
+treeheight_col = 10)  ## this will only show up if clustering by column
+#filename = paste0("output/PBNRNASeq_Heatmap_HSDegs_Supervised_Condensed.pdf") ## Only include if saving to a file
+```
+
+##### Unsupervised and Condensed Highly Significant DEGs (L2FC > +/- 1.5 and L2FCSE < 1)
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(250),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = T,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of Significant DEGs (L2FC > +/- 1.5 and L2FCSE < 1) -- Unsupervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(3, 5, 8),
+cutree_rows = 6,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0("output/PBNRNASeq_Heatmap_HSDegs_Unsupervised_Condensed.pdf")
+```
+
+#### All DEGs Heatmaps
+
+```{r include=FALSE}
+ressig1 <- as.data.frame(results_sig1)
+
+ressig1$Comparison <- "CGRP vs nonCGRP"
+
+dup_rows <- duplicated(ressig1$symbol)
+data_dedup <- ressig1[!dup_rows, ]
+
+rows <- rownames(data_dedup)
+
+select <- order(rowMeans(counts(dds, normalized = TRUE)),
+decreasing = TRUE)
+
+mat <- assay(ddsMat_rlog)[select, ]
+
+data_mod <- mat[rownames(mat) %in% rows, ]
+
+matrownames_data_mod <- data.frame(rownames(data_mod))
+matrownames_data_mod <- matrownames_data_mod %>% tidyr::separate(rownames.data_mod., c("id", "symbol"), sep = "([|])")
+
+```
+
+##### Supervised and Condensed All DEGs
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(255),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = F,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of All Significant DEGs -- Supervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = 4,
+cutree_rows = 2,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0("output/PBNRNASeq_Heatmap_AllDegs_Supervised_Condensed.pdf")) 
+```
+
+##### Unsupervised and Condensed DEGs All
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(250),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = T,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Figure 2B. Heatmap of All Significant DEGs -- Unsupervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(4,8,12,16),
+cutree_rows = 2,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0(path, "output/Figure2B_Heatmap_Unsupervised_Condensed.pdf"))
+```
+
+# Gene Ontology Analysis {.tabset}
+To generate GO analysis we first created a background of genes using any genes that met the original DESEQ2 filtering criteria of \> 50 genes counts per row and having a mappable Entrez ID. This generates the necessary background to ensure that we are not just detecting background functional pathways as we are utilizing this specific cell type. We then filter our genes that have L2FC \< 1.5 or L2FC \> 1.5 to determine directionality of the affected GO pathways. GO enrich is then used to conduct the pathway analysis utilizing the Entrez IDs as inputs and an "FDR" multiple testing correction.
+
+### Pull only the CGRP Enriched Samples (L2FC >1.5)
+
+```{r echo=TRUE, fig.height=8, fig.width=8, message=FALSE, warning=FALSE}
+# Generate Background for KEGG/GO
+
+background_mm10 <- subset(res1, is.na(entrez) == FALSE)
+gene_matrix_background <- unique(sort(background_mm10$entrez))
+
+# Remove any genes that do not have any entrez identifiers
+results_sig_entrez <- subset(results_sig1, is.na(entrez) == FALSE)
+
+# Create a matrix of gene log2 fold changes
+gene_matrix <- results_sig_entrez$log2FoldChange
+
+# Add the entrezID's as names for each logFC entry
+names(gene_matrix) <- results_sig_entrez$entrez
+
+# Pull only the Enriched samples from either side +/- 1.5 LFC
+gene_matrix_enrich <- gene_matrix[which(gene_matrix > 1.5)]
+gene_matrix_enrich2 <- gene_matrix[which(gene_matrix < -1.5)]
+
+go_enrich1 <- clusterProfiler::enrichGO(gene = names(gene_matrix_enrich),
+                      OrgDb = 'org.Mm.eg.db', 
+                      readable = T,
+                      universe = gene_matrix_background,
+                      ont = "ALL",
+                      pAdjustMethod = "fdr",
+                      pvalueCutoff = 0.01, 
+                      qvalueCutoff = 0.05)
+
+KEGG_enrich1 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich),
+                      organism = 'mmu',
+                      keyType = "ncbi-geneid",
+                      pvalueCutoff = 0.05,
+                      pAdjustMethod = "fdr",
+                      universe = gene_matrix_background,
+                      qvalueCutoff = 0.05)
+
+go_enrich_dataset1 <- as.data.frame(go_enrich1)
+
+KEGG_enrich_dataset1 <- as.data.frame(KEGG_enrich1)
+
+go_enrich_dataset1$Dataset <- "CGRP vs nonCGRP"
+
+go_enrich_dataset1$Celltype <- "CGRP"
+
+go_enrich_dataset1$Comparison <- "nonCGRP"
+
+# Turn your 'Dataset' column into a character vector
+go_enrich_dataset1$Dataset <- as.character(go_enrich_dataset1$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+go_enrich_dataset1$Dataset <- factor(go_enrich_dataset1$Dataset, levels = c("CGRP vs nonCGRP"))
+
+go_enrich_dataset1$Description_title_case <- stringr::str_to_title(go_enrich_dataset1$Description)
+go_enrich_dataset1$GOPathways <- stringr::str_to_title(go_enrich_dataset1$Description_title_case)
+go_enrich_dataset1$GOPathways <- stringr::str_wrap(go_enrich_dataset1$GOPathways, width = 10)
+
+#S1 <- ggplot(go_enrich_dataset1, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +
+ # geom_col(alpha = 1) +
+#  facet_wrap(~Dataset, scales = "free_y") +
+#  theme_linedraw() + # change legend key width
+#  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+#  ggtitle("Enriched Pathways in CGRP Neurons")
+
+#S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+#S2
+
+
+```
+
+### Set the Fold Enrichment filter to see only most important pathways
+
+```{r echo=TRUE, fig.height=8, fig.width=8}
+go_filtered1 <- go_enrich_dataset1 %>%
+  filter(FoldEnrichment >= 3)
+
+go_filtered1$Dataset <- "CGRP vs nonCGRP"
+
+go_filtered1$Celltype <- "CGRP"
+
+go_filtered1$Comparison <- "nonCGRP"
+
+GO1_filtered <- go_filtered1
+
+# Turn your 'Dataset' column into a character vector
+GO1_filtered$Dataset <- as.character(GO1_filtered$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+GO1_filtered$Dataset <- factor(GO1_filtered$Dataset, levels = c("CGRP vs nonCGRP"))
+
+GO1_filtered$Description_title_case <- stringr::str_to_title(GO1_filtered$Description)
+GO1_filtered$GOPathways <- stringr::str_to_title(GO1_filtered$Description_title_case)
+GO1_filtered$GOPathways <- stringr::str_wrap(GO1_filtered$GOPathways, width = 10)
+
+S1 <- ggplot(GO1_filtered, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +
+  geom_col(alpha = 1) +
+  facet_wrap(~Dataset, scales = "free_y") +
+  theme_linedraw() + # change legend key width
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+  ggtitle("Figure 2C. Enriched Pathways in CGRP Neurons")
+
+S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+S2
+
+#pdf(paste0(path, "output/Figure2C_GOCGRP_CellTypes.pdf"), width = 10, height = 8)
+#S2
+#dev.off()
+```
+
+```{r}
+## write results from GO1 to a csv
+go1_export <- GO1_filtered[,c(2,3,13,7,12)]
+write.csv(as.data.frame(go1_export),paste0(path, "output/PBNRNASeq_CellType_GODetails.csv"))
+```
+
+
+```{r}
+
+sessionInfo()
+
+```

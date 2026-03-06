@@ -1,0 +1,609 @@
+---
+title: "PBN RNAseq DeSeq2 RNA-Sequencing Analysis -- By Sex"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(reshape2)
+library(gridExtra)
+library(ggrepel)
+library(plotly)
+library(kableExtra)
+library(pheatmap)
+library(RColorBrewer)
+library(knitr)
+library(DESeq2)
+library(clusterProfiler)
+library(org.Mm.eg.db)
+library(vidger)
+library(ggrepel)
+library(DOSE)
+```
+
+# DESeq2 Analysis
+DESeq2 is called our post-processing
+## Setup and Analysis
+###Building DESeq2 input files from gene count matrices output by String Tie.
+```{r DESeq2 Build, message=FALSE, warning=FALSE, include=FALSE}
+
+# Establish Path Variable
+path="~/Documents/GitHubRepos/CGRPReinforcement/"
+
+# The following file has to be without spaces and needs to be exactly the same as the example sample info
+colData <- read.csv(paste0(path, "data/sample_info_PBN_CGRP.csv"), sep = ",", row.names = 1, check.names = FALSE)
+# this is the gene count matrix which is the output from the preprocessing shell, the following command does not work from transcript count matrix
+countData <-as.matrix(read.csv(paste0(path, "data/gene_count_matrix_LT19_PBN2_LT15_Merged.csv"), row.names = "gene_id", check.names = FALSE))
+
+#colnames(countData)
+#rownames(colData)
+## Following needs to return true
+#all(rownames(colData) %in% colnames(countData))
+## if there are any samples in the gene count matrix that should not be in there the following command will remove them
+countData <- countData[, rownames(colData)]
+#all(rownames(colData) == colnames(countData))
+```
+
+###Running DeSeq2 analysis with factor levels of Sex
+```{r DESeq2 Analysis, echo=FALSE, message=FALSE, warning=FALSE}
+colData$sex <- factor(colData$sex)
+
+dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~sex)
+
+## Filter out counts less than 50 across the rows
+## This helps to remove noise from the data set
+keep <- rowSums(counts(dds)) >= 50
+dds <- dds[keep,]
+
+## Re-level Conditions to analyze against HA-
+dds$sex <- relevel(dds$sex, ref = "Female")
+dds <- DESeq(dds)
+
+#resultsNames(dds)
+
+plotDispEsts(dds)
+```
+
+## Plot Estimates and Gather Results
+
+These results include overview for each result file and dispersion estimates based on count values
+
+### Dispersion Estimates Male vs Female based on count values
+```{r HA+ vs HA- Results, echo=FALSE, paged.print=TRUE, results='asis'}
+res1 <- results(dds, name = "sex_Male_vs_Female")
+
+kable(head(res1, 20), caption = "Male vs Female Results Overview", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+
+summary(res1)
+```
+
+## Significant DEGs By Comparison
+
+This subsection is for annotation the results files to include all necessary information for downstream analyses. This is due to the use of StringTie to generate count matrices with the specific mm10 annotation files that we use. Other methods will probably not require this, but our gene names are split by the "|" delimiter and must be separated in order to accurately generate the required Gene Symbols for mapping to entrez, ensemble and descriptions from Org.mm.eg.db. 
+```{r Annotate DDS Matrices, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+## Make new rownames file and split based on pipe from dds file
+deseqrownames <- data.frame(rownames(dds))
+newrownames <- deseqrownames %>% tidyr::separate(rownames.dds., c("id", "symbol"),sep ="([|])")
+
+#Check to make sure they split correctly and do not overlap
+all(newrownames$id == newrownames$symbol)
+
+## this should be 0 for everything
+sum(is.na(newrownames$symbol))
+sum(duplicated(newrownames$symbol))
+
+mcols(dds) <- cbind(mcols(dds), newrownames)
+
+# Add gene symbol to results
+res1$symbol <- mcols(dds)$symbol
+
+# Create a list to store the result objects
+result_list <- list()
+
+# Define the number of results
+num_results <- 1
+
+# Loop through each result
+for (i in 1:num_results) {
+  # Get the result object name
+  result_name <- paste0("res", i)
+  
+  # Get the DESeq2 result object
+  result_obj <- get(result_name)
+  
+  # Map symbol to gene description
+  result_obj$description <- mapIds(x = org.Mm.eg.db,
+                                    keys = result_obj$symbol,
+                                    column = "GENENAME",
+                                    keytype = "SYMBOL",
+                                    multiVals = "first")
+  
+  # Add ENTREZ ID
+  result_obj$entrez <- mapIds(x = org.Mm.eg.db,
+                               keys = result_obj$symbol,
+                               column = "ENTREZID",
+                               keytype = "SYMBOL",
+                               multiVals = "first")
+  
+  # Add ENSEMBL ID
+  result_obj$ensembl <- mapIds(x = org.Mm.eg.db,
+                                keys = result_obj$entrez,
+                                column = "ENSEMBL",
+                                keytype = "ENTREZID",
+                                multiVals = "first")
+  
+  # Store the result object in the list
+  result_list[[i]] <- result_obj
+
+  # Write out the subsetted result object to a variable with name results_sig_i
+  assign(paste0("res", i), result_obj)
+}
+```
+
+After annotation we subset the results to only view the significantly differentially expressed genes with an adjusted p-value \> 0.05.
+
+```{r Subset Significant Results, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE, results='asis'}
+results_sig1 <- subset(res1, padj < 0.05)
+
+kable((head(results_sig1, 20)), caption = "Significant DEGs Male vs Female", format = "html", align = "l", booktabs = TRUE) %>%
+  kable_styling(html_font = "Arial", font_size = 10, bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  scroll_box(width = "1000px", height = "500px")
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+
+#write_csv(as.data.frame(results_sig1),paste0(path, "output/SigDEGs_PBNRNAseq_bySex.csv"))
+
+```
+
+## Visualizing Differentially Expressed Genes
+
+### Principal Components Analysis
+
+For visualization I am converting all analyses to logarithmic. Following this I have completed a PCA based on the top 500 genes.
+
+```{r PCA Plots, echo=TRUE, fig.height=6, fig.width=6, message=FALSE, warning=FALSE}
+#rlog transformation of dds for visualization
+ddsMat_rlog <- rlog(dds, blind = FALSE)
+
+# Plot PCA by column variable (dds)
+
+pcaData2 <- plotPCA(ddsMat_rlog, intgroup = "sex", returnData = TRUE)
+pcaData2$sex <- factor(pcaData2$sex, levels = c("Male", "Female"))
+percentVar2 <- round(100 * attr(pcaData2, "percentVar"))
+## you only need the following line but the rest is additional formatting
+pca <- ggplot(pcaData2, aes(PC1, PC2, color=sex, label = colnames(dds))) +
+  theme_bw() + # remove default ggplot2 theme
+  geom_point(size = 2) + # Increase point size
+  scale_y_continuous(limits = c(-125, 125)) +# change limits to fix figure dimensions
+  scale_x_continuous(limits = c(-125, 125)) +# change limits to fix figure dimensions
+  xlab(paste0("PC1: ",percentVar2[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar2[2],"% variance")) + 
+  ggrepel::geom_label_repel(box.padding = 0.5, max.overlaps = Inf) +
+  coord_fixed() +
+  #scale_color_manual(values = custom_colors) +  # Set custom colors
+  ggtitle(label = "Supp Figure 2A. Principal Component Analysis (PCA)", 
+          subtitle = "Top 500 Variable Genes (rlog transformed)")
+
+pca
+
+#pdf(paste0(path, "output/SFigure2A_PCA_bySex.pdf"), width = 10, height = 8)
+#pca
+#dev.off()
+```
+
+### Heatmaps of Significantly Differentially Expressed Genes {.tabset}
+
+To generate the heatmaps we use two methods, the first utilizes all differential expressed genes based on a specified cut-off. In our case we select for any significant DEGs with a L2FC \> 1.5 or an L2FC \< -1.5 with a L2FC Standard Error \< 0.75. We then plot these using a wards D correlation clustering method and generate both supervised and unsupervised clusters (by group). Rows are scaled based on a correlation z-score. The second method is less stringent and utilizes all significant DEGs, without filtering.
+
+#### Highly Significiant
+
+Cut-Off of L2FC \> 1.5 or an L2FC \< -1.5 with a L2FC Standard Error \< 0.75
+
+```{r include=FALSE}
+ressig1 <- as.data.frame(results_sig1)
+
+ressig1$Comparison <- "Male vs Female"
+
+ressig1_highlfc_pos <- ressig1[ressig1$log2FoldChange >= 1, ]
+ressig1_highlfc_neg <- ressig1[ressig1$log2FoldChange <= -1, ]
+
+temp_sigdegshm <- rbind(ressig1_highlfc_pos, ressig1_highlfc_neg)
+
+## the following step limits the error allowed on each gene, which will make all genes look more similar, there is a lot of variablity in this dataset, cannot be set to less than 1
+temp_sigdegshm1 <- temp_sigdegshm[temp_sigdegshm$lfcSE <=1.5, ]
+
+dup_rows <- duplicated(temp_sigdegshm1$symbol)
+data_dedup <- temp_sigdegshm1[!dup_rows, ]
+
+rows <- rownames(data_dedup)
+
+select <- order(rowMeans(counts(dds, normalized = TRUE)),
+decreasing = TRUE)
+
+mat <- assay(ddsMat_rlog)[select, ]
+
+data_mod <- mat[rownames(mat) %in% rows, ]
+
+matrownames_data_mod <- data.frame(rownames(data_mod))
+matrownames_data_mod <- matrownames_data_mod %>% tidyr::separate(rownames.data_mod., c("id", "symbol"), sep = "([|])")
+
+samples <- tibble::as_tibble(read.csv(paste0(path, "data/sample_info_PBN_CGRP.csv"), sep = ","))
+
+annot_col <- samples %>%
+tibble::column_to_rownames("sampleName") %>%
+as.data.frame()
+
+custom_colors <- c("Male" = "green",
+                   "Female" = "purple")
+
+ann_colors <- list(
+condition = as.factor(custom_colors),
+group = as.factor(custom_colors))
+
+
+```
+
+##### Supervised and Condensed Highly Significant DEGs (L2FC > +/- 1 and L2FCSE < 1.5).
+
+```{r Sup HM Highly Sig DEGs, echo=FALSE, fig.height=8, fig.width=8}
+
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(255), ## this just changes the colors
+scale = "row", ## based on Rlog fold change
+annotation_colors = ann_colors,  ## assigns group colors
+annotation_col = annot_col,  ## assigns group names
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T, ## puts the lows together and the highs together
+cluster_cols = F,  ## when this is T this is unsupervised
+annotation_legend = T, ## this is legend for the treatment conditions
+legend = T, ## legend for color
+show_rownames = F, ## this is gene names but with over 2,000 this isn't useful
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of Significant DEGs (L2FC > +/- 1.50 and L2FCSE < 0.75)-- Supervised and Condensed", ## Title
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(4),
+cutree_rows = 8,  ## this separates the genes into 6 blocks
+cutree_cols = 2, ## this separates the conditions into 4 blocks
+treeheight_row = 15,  ## this will only show up if clustering by row
+treeheight_col = 10)  ## this will only show up if clustering by column
+#filename = paste0("output/PBNRNASeq_Heatmap_HSDegs_Supervised_Condensed.pdf") ## Only include if saving to a file
+
+```
+
+##### Unsupervised and Condensed Highly Significant DEGs (L2FC > +/- 1 and L2FCSE < 1.5)
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(250),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = T,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of Significant DEGs (L2FC > +/- 1.50 and L2FCSE < 0.75) -- Unsupervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(3, 5, 8),
+cutree_rows = 6,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0("output/PBNRNASeq_Heatmap_HSDegs_Unsupervised_Condensed.pdf")
+```
+
+#### All DEGs
+
+```{r include=FALSE}
+ressig1 <- as.data.frame(results_sig1)
+
+ressig1$Comparison <- "Male vs Female"
+
+dup_rows <- duplicated(ressig1$symbol)
+data_dedup <- ressig1[!dup_rows, ]
+
+rows <- rownames(data_dedup)
+
+select <- order(rowMeans(counts(dds, normalized = TRUE)),
+decreasing = TRUE)
+
+mat <- assay(ddsMat_rlog)[select, ]
+
+data_mod <- mat[rownames(mat) %in% rows, ]
+
+matrownames_data_mod <- data.frame(rownames(data_mod))
+matrownames_data_mod <- matrownames_data_mod %>% tidyr::separate(rownames.data_mod., c("id", "symbol"), sep = "([|])")
+
+
+```
+
+##### Supervised and Condensed All DEGs
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(255),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = F,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Heatmap of Significant DEGs -- Supervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = 4,
+cutree_rows = 2,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0("output/PBNRNASeq_Heatmap_AllDegs_Supervised_Condensed.pdf")) 
+```
+
+##### Unsupervised and Condensed All DEGs
+
+```{r echo=FALSE, fig.height=8, fig.width=8}
+pheatmap::pheatmap(
+mat = data_mod,
+color = colorRampPalette(rev(RColorBrewer::brewer.pal(11, "RdYlBu")))(250),
+scale = "row",
+annotation_colors = ann_colors,
+annotation_col = annot_col,
+fontsize = 6,
+show_colnames = T,
+cluster_rows = T,
+cluster_cols = T,
+annotation_legend = T,
+legend = T,
+show_rownames = F,
+clustering_distance_rows = "correlation",
+clustering_method = "ward.D",
+main = "Supp Fig 2B. Heatmap of Significant DEGs -- Unsupervised and Condensed",
+cluster_row_slices = TRUE,
+show_row_dend = FALSE,
+gaps_col = c(4,8,12,16),
+cutree_rows = 4,
+cutree_cols = 4,
+treeheight_row = 15,
+treeheight_col = 10)
+#filename = paste0(path, "output/SFigure2B_Heatmap_Unsupervised_Condensed.pdf")) 
+```
+
+# Gene Ontology Analysis {.tabset}
+To generate GO analysis we first created a background of genes using any genes that met the original DESEQ2 filtering criteria of \> 50 genes counts per row and having a mappable Entrez ID. This generates the necessary background to ensure that we are not just detecting background functional pathways as we are utilizing this specific cell type. We then filter our genes that have L2FC \< 0 or L2FC \> 0 to determine directionality of the affected GO pathways. GO enrich is then used to conduct the pathway analysis utilizing the Entrez IDs as inputs and an "FDR" multiple testing correction.
+
+### Pull only the Enriched samples from either side  (<-1 or >1 LFC)
+```{r}
+# Generate Background for KEGG/GO
+background_mm10 <- subset(res1, is.na(entrez) == FALSE)
+gene_matrix_background <- unique(sort(background_mm10$entrez))
+
+# Remove any genes that do not have any entrez identifiers
+results_sig_entrez <- subset(results_sig1, is.na(entrez) == FALSE)
+
+# Create a matrix of gene log2 fold changes
+gene_matrix <- results_sig_entrez$log2FoldChange
+
+# Add the entrezID's as names for each logFC entry
+names(gene_matrix) <- results_sig_entrez$entrez
+
+# Pull only the Enriched samples from either side +/- 1 LFC
+gene_matrix_enrich <- gene_matrix[which(gene_matrix > 1)]
+gene_matrix_enrich2 <- gene_matrix[which(gene_matrix < -1)]
+
+go_enrich1 <- clusterProfiler::enrichGO(gene = names(gene_matrix_enrich),
+                      OrgDb = 'org.Mm.eg.db', 
+                      readable = T,
+                      universe = gene_matrix_background,
+                      ont = "ALL",
+                      pAdjustMethod = "fdr",
+                      pvalueCutoff = 0.05, 
+                      qvalueCutoff = 0.05)
+
+go_enrich2 <- clusterProfiler::enrichGO(gene = names(gene_matrix_enrich2),
+                      OrgDb = 'org.Mm.eg.db', 
+                      readable = T,
+                      universe = gene_matrix_background,
+                      ont = "ALL",
+                      pAdjustMethod = "fdr",
+                      pvalueCutoff = 0.05, 
+                      qvalueCutoff = 0.05)
+
+KEGG_enrich1 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich),
+                      organism = 'mmu',
+                      keyType = "ncbi-geneid",
+                      pvalueCutoff = 0.01,
+                      pAdjustMethod = "fdr",
+                      universe = gene_matrix_background,
+                      qvalueCutoff = 0.05)
+
+KEGG_enrich2 <- clusterProfiler::enrichKEGG(gene = names(gene_matrix_enrich2),
+                      organism = 'mmu',
+                      keyType = "ncbi-geneid",
+                      pvalueCutoff = 0.01,
+                      pAdjustMethod = "fdr",
+                      universe = gene_matrix_background,
+                      qvalueCutoff = 0.05)
+
+go_enrich_dataset1 <- as.data.frame(go_enrich1)
+go_enrich_dataset2 <- as.data.frame(go_enrich2)
+
+KEGG_enrich_dataset1 <- as.data.frame(KEGG_enrich1)
+KEGG_enrich_dataset2 <- as.data.frame(KEGG_enrich2)
+
+go_enrich_dataset1$Dataset <- "Male vs Female"
+go_enrich_dataset2$Dataset <- "Female vs Male"
+
+go_enrich_dataset1$Celltype <- "Male"
+go_enrich_dataset2$Celltype <- "Female"
+
+go_enrich_dataset1$Comparison <- "Female"
+go_enrich_dataset2$Comparison <- "Male"
+
+MergedGO1 <- merge(go_enrich_dataset1, go_enrich_dataset2, all=TRUE)
+
+# Turn your 'Dataset' column into a character vector
+MergedGO1$Dataset <- as.character(MergedGO1$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+MergedGO1$Dataset <- factor(MergedGO1$Dataset, levels = c("Male vs Female", "Female vs Male"))
+
+MergedGO1$Description_title_case <- stringr::str_to_title(MergedGO1$Description)
+MergedGO1$GOPathways <- stringr::str_to_title(MergedGO1$Description_title_case)
+MergedGO1$GOPathways <- stringr::str_wrap(MergedGO1$GOPathways, width = 10)
+
+S1 <- ggplot(MergedGO1, aes(x = Dataset, y = Description, size = Count, color = qvalue, group = Dataset)) +
+  geom_point(alpha = 1) +
+  theme_linedraw() + # change legend key width
+  scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 15)) +
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+  ggtitle("Enriched Pathways in PBN Nuclei Cell Types")
+  #facet_grid(~Region+Comparison2, scales = "free_x")
+
+S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+S2
+```
+### Set the Fold Enrichment for most important pathways
+
+```{r}
+go_filtered1 <- go_enrich_dataset1 %>%
+  filter(FoldEnrichment >= 2)
+
+go_filtered2 <- go_enrich_dataset2 %>%
+  filter(FoldEnrichment >= 2)
+
+go_filtered1$Dataset <- "Male vs Female"
+go_filtered2$Dataset <- "Female vs Male"
+
+go_filtered1$Celltype <- "Male"
+go_filtered2$Celltype <- "Female"
+
+go_filtered1$Comparison <- "Female"
+go_filtered2$Comparison <- "Male"
+
+```
+
+#### Combined Filtered
+```{r}
+MergedGO1_filtered <- merge(go_filtered1, go_filtered2, all=TRUE)
+
+# Turn your 'Dataset' column into a character vector
+MergedGO1_filtered$Dataset <- as.character(MergedGO1_filtered$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+MergedGO1_filtered$Dataset <- factor(MergedGO1_filtered$Dataset, levels = c("Male vs Female", "Female vs Male"))
+
+MergedGO1_filtered$Description_title_case <- stringr::str_to_title(MergedGO1_filtered$Description)
+MergedGO1_filtered$GOPathways <- stringr::str_to_title(MergedGO1_filtered$Description_title_case)
+MergedGO1_filtered$GOPathways <- stringr::str_wrap(MergedGO1_filtered$GOPathways, width = 10)
+
+S1 <- ggplot(MergedGO1_filtered, aes(x = Dataset, y = Description, size = Count, color = qvalue, group = Dataset)) +
+  geom_point(alpha = 1) +
+  theme_linedraw() + # change legend key width
+  scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 15)) +
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+  ggtitle("Enriched Pathways in PBN Nuclei Cell Types")
+  #facet_grid(~Region+Comparison2, scales = "free_x")
+
+S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+S2
+
+```
+
+#### Male Only
+
+```{r}
+GO1_filtered <- go_filtered1
+
+# Turn your 'Dataset' column into a character vector
+GO1_filtered$Dataset <- as.character(GO1_filtered$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+GO1_filtered$Dataset <- factor(GO1_filtered$Dataset, levels = c("Male vs Female"))
+
+GO1_filtered$Description_title_case <- stringr::str_to_title(GO1_filtered$Description)
+GO1_filtered$GOPathways <- stringr::str_to_title(GO1_filtered$Description_title_case)
+GO1_filtered$GOPathways <- stringr::str_wrap(GO1_filtered$GOPathways, width = 10)
+
+S1 <- ggplot(GO1_filtered, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +
+  geom_col(alpha = 1) +
+  facet_wrap(~Dataset, scales = "free_y") +
+  theme_linedraw() + # change legend key width
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+  ggtitle("Supp Figure 2C: Enriched Pathways in Male CGRPPBN Neurons")
+
+S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+S2
+
+pdf(paste0(path, "output/SFig2D_GO_SexSpecific.pdf"), width = 10, height = 8)
+S2
+dev.off()
+```
+
+#### Female Only
+
+```{r}
+GO2_filtered <- go_filtered2
+
+# Turn your 'Dataset' column into a character vector
+GO2_filtered$Dataset <- as.character(GO2_filtered$Dataset)
+# Then turn it back into a factor with the levels in the correct order
+GO2_filtered$Dataset <- factor(GO2_filtered$Dataset, levels = c("Female vs Male"))
+
+GO2_filtered$Description_title_case <- stringr::str_to_title(GO2_filtered$Description)
+GO2_filtered$GOPathways <- stringr::str_to_title(GO2_filtered$Description_title_case)
+GO2_filtered$GOPathways <- stringr::str_wrap(GO2_filtered$GOPathways, width = 10)
+
+S1 <- ggplot(GO2_filtered, aes(x = Count, y = reorder(Description, Count), fill = qvalue)) +
+  geom_col(alpha = 1) +
+  facet_wrap(~Dataset, scales = "free_y") +
+  theme_linedraw() + # change legend key width
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 50)) +
+  ggtitle("Supp Figure 2C: Enriched Pathways in Female CGRPPBN Neurons")
+
+S2 <- S1 + scale_color_gradient(low = "red2", high = "mediumblue", space = "Lab") + scale_size(range = c(5, 10))
+S2
+
+
+#pdf(paste0(path, "output/SFig2E_GO_SexSpecific.pdf"), width = 10, height = 8)
+#S2
+#dev.off()
+```
+
+
+```{r}
+
+sessionInfo()
+
+```
