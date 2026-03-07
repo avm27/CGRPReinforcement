@@ -128,7 +128,7 @@ Required files:
 bash 00_download_LT2015_LT2019.sh
 ```
 
-**OGPBN** (for script 03):  
+**PBN2** (for script 03):  
 Download paired-end fastq files from GEO accession **GSE324173** and place them in
 `data/raw/PBN2/fastq/`. Expected naming convention:
 ```
@@ -165,7 +165,7 @@ bash 03_generate_gene_count_matrix.sh
 
 This script:
 1. Collects StringTie GTF files from all three dataset directories
-2. Handles both SRA (`<acc>.fastq.gz`) and OGPBN (`<sample>_R1_001.fastq.gz`) naming conventions automatically
+2. Handles both SRA (`<acc>.fastq.gz`) and PBN2 (`<sample>_R1_001.fastq.gz`) naming conventions automatically
 3. Builds a temporary sample list, runs `prepDE.py`, then deletes the sample list
 4. Writes the final output to `data/gene_count_matrix_LT19_PBN2_LT15_Merged.csv`
 
