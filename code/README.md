@@ -123,12 +123,12 @@ Required files:
 
 ### Step 0 — Download raw FASTQ files
 
-**LT2015 + LT2019** (for script 02):
+**LT2015 + LT2019** (for script 01):
 ```bash
 bash 00_download_LT2015_LT2019.sh
 ```
 
-**PBN2** (for script 03):  
+**PBN2** (for script 02):  
 Download paired-end fastq files from GEO accession **GSE324173** and place them in
 `data/raw/PBN2/fastq/`. Expected naming convention:
 ```
@@ -186,11 +186,11 @@ Each preprocessing script produces the following under `data/raw/<experimentname
 
 Intermediate BAM files are removed after StringTie quantification to conserve disk space.
 
-### Final merged output (script 04)
+### Final merged output (script 03)
 
 | File | Location | Description |
 |------|----------|-------------|
-| `gene_count_matrix_LT19_PBN2_LT15_Merged.csv` | `data/` | Merged raw gene counts across all samples — input to DESeq2 |
+| `gene_count_matrix_LT19_PBN2_LT15_Merged.csv` | `data/` | Merged raw gene counts across all samples — input to DESeq2 - analysis/index.Rmd |
 
 ---
 
