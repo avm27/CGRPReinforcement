@@ -2,7 +2,7 @@
 ## ============================================================
 ## Script 01: LT2019 + LT2015 Merged RNA-Seq Pre-Processing
 ## Project:   CGRPReinforcement
-## Data:      Tuesta et al. 2015 + 2019 — Public SRA Data (merged)
+## Data:      Mo et al. 2015 (LT2015); PMID: 26087164 + Tuesta et al. 2019 (LT2019); PMID: 31175277 — Public SRA Data (merged)
 ## Read Type: Single-end
 ## Genome:    mm10 (NCBI RefSeq)
 ## ============================================================
