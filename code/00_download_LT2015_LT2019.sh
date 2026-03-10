@@ -5,8 +5,11 @@
 ## ============================================================
 ##
 ## Downloads 9 single-end fastq files from the SRA trace server.
-## Both the LT2015 (Tuesta et al. 2015) and LT2019 (Tuesta et al.
-## 2019) datasets are processed together in the merged pipeline.
+## Both the LT2015 (Mo et al. 2015; PMID: 26087164) and LT2019 (Tuesta et al.
+## 2019; PMID: 31175277) datasets are processed together in the merged pipeline.
+##
+## Files and variables were named as LT2015 and LT2019 to refelct the reprocessing conducted on the data.
+##
 ## All files are placed in the same fastq directory.
 ##
 ## DEPENDENCIES: wget
@@ -26,7 +29,7 @@ mkdir -p "$outdir"
 echo "Downloading LT2015 + LT2019 SRA fastq files to: $outdir"
 echo ""
 
-## LT2015 — Tuesta et al. 2015
+## LT2015 — Mo et al. 2015; PMID: 26087164
 declare -A lt2015=(
     ["SRR1647854"]="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=SRR1647854"
     ["SRR1647855"]="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=SRR1647855"
@@ -36,7 +39,7 @@ declare -A lt2015=(
     ["SRR1647859"]="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=SRR1647859"
 )
 
-## LT2019 — Tuesta et al. 2019
+## LT2019 — Tuesta et al. 2019; PMID: 31175277
 declare -A lt2019=(
     ["SRR6294441"]="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=SRR6294441"
     ["SRR6294443"]="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=SRR6294443"
