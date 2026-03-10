@@ -17,6 +17,11 @@ Opioid use disorder (OUD) is a chronic, relapsing disease driven by the reinforc
 
 [Manuscript]
 
+## Funding Sources
+DP1DA051828
+F30DA060666
+Kind gift from the Shipley Foundation
+
 [Manuscript]: 
 
 A [workflowr][] project.
