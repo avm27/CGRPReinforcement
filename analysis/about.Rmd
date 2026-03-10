@@ -49,6 +49,7 @@ To this end, our team focuses on understanding the addicted brain by tailoring m
 Postdoctoral Fellow\
 Psychiatry and Behavioral Sciences\
 University of Miami Miller School of Medicine\
+Graduate: University of Miami\
 Undergrad: University of Miami\
 Email: avm27\@miami.edu
 
@@ -112,5 +113,6 @@ Supported By:
 
 ![](assets/NIDA-logo.png)
 
-**K01-DA045294**\
-**DP1-DA051858**
+**DP1-DP1DA051828**
+**F30-DA060666**
+**Kind gift from the Shipley Foundation**
