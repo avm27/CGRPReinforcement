@@ -25,6 +25,7 @@ Step 3  →  Generate merged gene count matrix              (03_generate_gene_co
 ---
 
 ## Datasets
+Files and variables were named as LT2015 and LT2019 to refelct the reprocessing conducted on the data.
 
 | Script | Dataset | Read type | Source | Accessions |
 |--------|---------|-----------|--------|------------|
